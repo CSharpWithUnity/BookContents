@@ -1,10 +1,37 @@
-﻿// Lets start here as you follow along
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MyNewClass
-{
-    //code goes here...
+public class FirstExample : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    /*
+     * A nested class can appear down below this comment.
+     * 
+     *   ┌─────────┐ ┌────────────┐
+     *   │ keyword │ │ Identifier │
+     *   └────┬────┘ └─────┬──────┘
+     *   ┌────┘            │
+     *   │       ┌─────────┘
+     * ──┴── ────┴─────
+     * class MyNewClass
+     * {
+     *     // Code goes here...
+     * }
+     *
+     * Don't forget the { and } separators following the class declaration.
+     * 
+     */
+    
+
+
 }
-
-// the above is a complete class declaration.
-// the limes with the { and } contain the contents
-// of the class.
