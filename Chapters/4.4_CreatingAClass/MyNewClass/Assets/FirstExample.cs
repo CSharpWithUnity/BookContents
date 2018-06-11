@@ -17,12 +17,12 @@ public class FirstExample : MonoBehaviour {
     /*
      * A nested class can appear down below this comment.
      * 
-     *   ┌─────────┐ ┌────────────┐
-     *   │ keyword │ │ Identifier │
-     *   └────┬────┘ └─────┬──────┘
-     *   ┌────┘            │
-     *   │       ┌─────────┘
-     * ──┴── ────┴─────
+     *    ┌─────────┐ ┌────────────┐
+     *    │ keyword │ │ Identifier │
+     *    └────┬────┘ └─────┬──────┘
+     *   ┌─────┘            │
+     *   │       ┌──────────┘
+     * ┌─┴─┐ ┌───┴────┐
      * class MyNewClass
      * {
      * }
