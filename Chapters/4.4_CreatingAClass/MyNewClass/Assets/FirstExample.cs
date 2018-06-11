@@ -25,13 +25,20 @@ public class FirstExample : MonoBehaviour {
      * ──┴── ────┴─────
      * class MyNewClass
      * {
-     *     // Code goes here...
      * }
+     * ┬
+     * └───────┐
+     *   ┌─────┴──────┐
+     *   │ separators │
+     *   └────────────┘
      *
      * Don't forget the { and } separators following the class declaration.
      * 
      */
-    
 
+    class MyNewClass
+    {
+
+    }
 
 }
