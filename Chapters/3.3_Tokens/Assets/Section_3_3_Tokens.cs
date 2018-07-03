@@ -59,7 +59,7 @@
     {
 
     }
-    
+
     /*    ┌──────────────────┐ ┌───────────────────┐
      *    │ Open Parenthesis │ │ Close Parenthesis │
      *    └───────────┬──────┘ └────┬──────────────┘
@@ -72,6 +72,45 @@
      * that gave an output in return to an input. Functions were things that could
      * operate in isolation.
      */
+
+    int[] arrayOfNumbers = { 1, (int)3.0, 9000 };
+
+    /*
+     * the above is another use of the curly braces
+     * 
+     *  ┌──────────────┐ ┌──────────────┐
+     *  │ opening curly│ │ closing curly│
+     *  │ brace        │ │ brace        │
+     *  └───────┬──────┘ └─────┬────────┘
+     *  ┌───────┘           ┌──┘       
+     *  │                   │
+     *  { 1, (int)3.0, 9000 }
+     *  
+     */
+
+    void StatementSeparation()
+    {
+        int a = 0;
+        System.Console.Write(a);
+        
+        // some random scope
+        {
+            // int a = 1;
+            System.Console.Write(a);
+        }
+    }
+
+    void QuotationMarks()
+    {
+        System.Console.Write(" use straight quotes. ");
+        // this line uses regular " quote marks
+
+        //System.Console.Write(“ this wont work... ”);
+        // the line above uses fancy quotes that most word processors will
+        // automatically insert when you use quotation marks.
+        // uncomment it if you'd like to see where the error occurs
+
+    }
 
     void imAFunction()
     {
