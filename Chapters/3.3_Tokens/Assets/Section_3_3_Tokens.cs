@@ -54,4 +54,46 @@
      * int j = 0;
      * int k = 1;
      */
+
+    void thing()
+    {
+
+    }
+    
+    /*    ┌──────────────────┐ ┌───────────────────┐
+     *    │ Open Parenthesis │ │ Close Parenthesis │
+     *    └───────────┬──────┘ └────┬──────────────┘
+     *                │             │
+     *                └──────┐┌─────┘
+     *            void thing ()
+     *                 
+     * the above is called a method declaration, also called a function declaration
+     * So far as object oriented programming is concerned, or OOP Methods were things
+     * that gave an output in return to an input. Functions were things that could
+     * operate in isolation.
+     */
+
+    void imAFunction()
+    {
+        // this doesn't make modifications to any values
+        // outside of this declaration
+        System.Console.Write("im a function");
+    }
+
+    int v = 0;
+    // a variable declared outside of the scope
+    // of the method below
+
+    void imAMethod()
+    {
+        // A method makes
+        // modifications to values
+        // outside of it's declared scope
+        // so if you copied the line from void imAMethod() to the closing }
+        // and pasted it in another class, you'd need to include the inv v = 0;
+        // or else this Method wouldn't work
+
+        v = 1;
+        // the above v is not declared inside of the scope of the method.
+    }
 }
