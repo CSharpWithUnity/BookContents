@@ -67,24 +67,51 @@
      *                └──────┐┌─────┘
      *            void thing ()
      *                 
-     * the above is called a method declaration, also called a function declaration
-     * So far as object oriented programming is concerned, or OOP Methods were things
-     * that gave an output in return to an input. Functions were things that could
-     * operate in isolation.
+     *  the above is called a method declaration, also called a function declaration
+     *  So far as object oriented programming is concerned, or OOP Methods were things
+     *  that gave an output in return to an input. Functions were things that could
+     *  operate in isolation.
+     *  
      */
 
     int[] arrayOfNumbers = { 1, (int)3.0, 9000 };
 
     /*
-     * the above is another use of the curly braces
+     *  the above is another use of the curly braces
      * 
-     *  ┌──────────────┐ ┌──────────────┐
-     *  │ opening curly│ │ closing curly│
-     *  │ brace        │ │ brace        │
-     *  └───────┬──────┘ └─────┬────────┘
-     *  ┌───────┘           ┌──┘       
-     *  │                   │
-     *  { 1, (int)3.0, 9000 }
+     *   ┌──────────────┐ ┌──────────────┐
+     *   │ opening curly│ │ closing curly│
+     *   │ brace        │ │ brace        │
+     *   └───────┬──────┘ └─────┬────────┘
+     *   ┌───────┘           ┌──┘       
+     *   │                   │
+     *   { 1, (int)3.0, 9000 }
+     *      │         │
+     *      └────┬────┘
+     *      ┌────┴──────┐
+     *      │ separator │
+     *      │ tokens    │
+     *      └───────────┘
+     *      
+     *  (int)3.0
+     *  observe this in the middle of the array assignment.
+     *      
+     *     3.0
+     *  ┌───┴───┐
+     *  │ dot   │
+     *  │ token │
+     *  └───────┘
+     *   the dot changes the int to a double.
+     *   (int) tells C# to change double to int
+     *   of course if it were 3.1 then the int
+     *   is 3 and the .1 will be lost.
+     *  
+     *  { 0, 1, 2 }
+     *  another more simple example.
+     *  
+     *  {0,0,0}
+     *  the white space isn't necessary
+     *  but it's easier to read.
      *  
      */
 
