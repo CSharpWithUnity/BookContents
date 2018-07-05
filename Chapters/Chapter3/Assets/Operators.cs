@@ -1,8 +1,0 @@
-﻿
-class Operators
-{
-    /*
-     *  Commas
-     * 
-     */
-}
