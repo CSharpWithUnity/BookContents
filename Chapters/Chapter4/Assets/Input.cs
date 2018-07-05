@@ -11,6 +11,6 @@ public class Input : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        gameObject.transform.position += gameObject.transform.forward;
 	}
 }
