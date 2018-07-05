@@ -40,5 +40,13 @@ class OperatorTokens
          * just a continuation of a previous
          * statement.
          */
+
+        int g = 0;
+        int h = 1;
+        /*
+         * the above passes as well since
+         * these are two independent statements,
+         * they just appear on two different lines.
+         */
     }
 }
