@@ -1,4 +1,6 @@
-﻿class Section_3_3_Tokens
+﻿// Section 3.3 Tokens
+
+class Tokens
 {
     /*
      * ┌─────────────┐    ┌─────────────┐
@@ -54,6 +56,21 @@
      * int j = 0;
      * int k = 1;
      */
+     
+    /*
+     * the l below us being assigned a 0 zero.
+     * this works since the 0 is a literal of
+     * type int, so this is a valid assignment
+     */
+
+    int l = 0;
+
+    /* the line below is trying to assign the letter
+     * O to the variable m which fails.
+     * Uncomment the line to see what the error looks
+     * like.
+     */
+    //int m = O;
 
     void thing()
     {
@@ -71,6 +88,14 @@
      *  So far as object oriented programming is concerned, or OOP Methods were things
      *  that gave an output in return to an input. Functions were things that could
      *  operate in isolation.
+     *  
+     *  under void thing() is a pair of curly braces
+     *  
+     *  {
+     *  
+     *  }
+     *  
+     *  these indicate the start and end of the work that thing() is going to do.
      *  
      */
 
