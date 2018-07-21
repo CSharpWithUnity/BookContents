@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Input : MonoBehaviour {
+public class DirectMousePosition : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,6 @@ public class Input : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.transform.position += gameObject.transform.forward;
+        gameObject.transform.position = Input.mousePosition;
 	}
 }
