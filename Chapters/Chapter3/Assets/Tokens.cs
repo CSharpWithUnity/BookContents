@@ -1,9 +1,9 @@
-﻿// Section 3.3 Tokens
+﻿using UnityEngine;
 
-class Tokens
+public class Tokens : MonoBehaviour
 {
     /*
-     * Section 3.3
+     * Section 3.3 Tokens
      * ┌─────────────┐    ┌─────────────┐
      * │ punctuation │    │ punctuation │ 
      * └─────┬───────┘    └─────┬───────┘
@@ -294,30 +294,19 @@ class Tokens
      * with billions, millions, thousands, and hundreds, computers don't.
      * 
      */
+     /*
+      * Section 3.3.7 Putting it all together
+      * The statement below appears in the start function.
+      * 
+      */
 
-
-
-    void imAFunction()
+    public void Start()
     {
-        // this doesn't make modifications to any values
-        // outside of this declaration
-        System.Console.Write("im a function");
-    }
-
-    int v = 0;
-    // a variable declared outside of the scope
-    // of the method below
-
-    void imAMethod()
-    {
-        // A method makes
-        // modifications to values
-        // outside of it's declared scope
-        // so if you copied the line from void imAMethod() to the closing }
-        // and pasted it in another class, you'd need to include the inv v = 0;
-        // or else this Method wouldn't work
-
-        v = 1;
-        // the above v is not declared inside of the scope of the method.
+        int i = 0;
+        while (i < 10)
+        {
+            Debug.Log(i);
+            i++;
+        }
     }
 }
