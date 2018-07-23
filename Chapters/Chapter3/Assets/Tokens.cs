@@ -185,7 +185,7 @@ class Tokens
          * to help separate code into usable parts we
          * use separator tokens.
          */
-        int a = 0;
+        int aa = 0;
         /*
          * the ; indicates the end of a statement.
          */
