@@ -10,7 +10,7 @@ public class LineNumbers : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        print(MyFunction(SomeInt, OtherInt));
+        // a new line of code appears!
     }
 
     // Update is called once per frame
