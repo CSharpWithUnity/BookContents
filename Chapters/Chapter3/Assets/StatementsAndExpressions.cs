@@ -7,25 +7,42 @@ public class StatementsAndExpressions : MonoBehaviour
     /*
      * Section 3.4.1 Expressions
      * 
-     *  ┌───────────────┐  ┌────────────────────────┐
-     *  │ type of value │  │ identifier for a value │ 
-     *  └───────┬───────┘  └────────────┬───────────┘
-     *          │                       │
-     *          └──────┐   ┌────────────┘
-     *                 ┴   ┴
-     *               Meal Lunch = Kale;
-     *                             ┬
-     *                  ┌──────────┘
-     *     ┌────────────┴────────────────────┐ 
-     *     │ Value of Meal assigned to Lunch │
-     *     └─────────────────────────────────┘
-     *          
-     * The assignment can be arbitrary, and Meal can be
+     * if a food is described properly in C# then you can
+     * assign it various values based on different values
+     * that food has.
+     * ┌───────────────┐  ┌────────────────────────┐
+     * │ type of value │  │ identifier for a value │ 
+     * └───────┬───────┘  └────────────┬───────────┘
+     *         │                       │
+     *         └──────┐   ┌────────────┘
+     *                ┴   ┴
+     *              food Lunch = Kale;
+     *                            ┬
+     *                 ┌──────────┘
+     *    ┌────────────┴────────────────────┐ 
+     *    │ value of food assigned to Lunch │
+     *    └─────────────────────────────────┘
+     *         
+     * The assignment can be arbitrary, and food can be
      * written to contain any number of values.
      * 
      * Expressions can also involve processes to assign values.
-     * Meal Dinner = Pasta + Broccoli;
+     * food Dinner = Pasta + Broccoli;
      * 
+     */
+
+    /*
+     * Section 3.4.2
+     * 
+     * When this code is attached to a game object in
+     * Unity 3D the engine invokes Start() in this
+     * class.
+     * 
+     * The following line of code Invokes the function
+     * above.
+     * 
+     * Running this code int he play-in-editor
+     * will send "I've been invoked!" to the console
      */
     void ExpressionToInvoke()
     {
@@ -34,17 +51,7 @@ public class StatementsAndExpressions : MonoBehaviour
 
     void Start()
     {
-        /*
-         * When this code is attached to a game object in
-         * Unity 3D the engine invokes Start() in this
-         * class.
-         * 
-         * The following line of code Invokes the function
-         * above.
-         * 
-         * Running this code int he play-in-editor
-         * will send "I've been invoked!" to the console
-         */
+
 
         ExpressionToInvoke();
 
@@ -76,5 +83,35 @@ public class StatementsAndExpressions : MonoBehaviour
 
         Debug.DrawLine(transform.position, closestGameObject.transform.position, Color.red);
     }
+
+    /*
+     * Section 3.4.3.1
+     * 
+     * "wash rinse repeat."
+     * 
+     * while(true)
+     * {
+     *     wash();
+     *     rinse();
+     * }
+     * 
+     * a better version:
+     * while(hair == dirty)
+     * {
+     *     wash();
+     *     rinse();
+     * }
+     * 
+     * instructions:
+     * bring home bacon
+     * if there's milk
+     * get three.
+     * 
+     * items = Bacon * 1;
+     * if(milk == available)
+     * {
+     *     items = Bacon * 3;
+     * }
+     */
 
 }

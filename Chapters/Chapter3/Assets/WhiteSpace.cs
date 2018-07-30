@@ -1,7 +1,6 @@
 ﻿// Chapter 3.6 White Space
 
 class WhiteSpace {
-
     /*
      * Section 3.6 White Space
      * The function below has normal white space added
@@ -24,15 +23,40 @@ class WhiteSpace {
      * for instance after void and after int
      * the function works, it's just a bit difficult to read.
      */
-    void MyOtherFunction(){int i=0;while(i<10){System.Console.Write(i);i++;}}
+void MyOtherFunction(){int i=0;while(i<10){System.Console.Write(i);i++;}
+    }
 
-    // Use this for initialization
-    void Start () {
+    /*
+     * Section 3.6.1 Code Style
+     *
+     *    ┌──────────────────────────────┐
+     *    │ The placement of the first { │
+     *    │ appearing on the first line  │
+     *    └────────────────┬─────────────┘
+     *                     │
+     * void SomeFunction() {
+     *    // Some Code here...
+     * }
+     *
+     * Perhaps the above is more compact.
+     * 
+     * void SomeOtherFunction()
+     * {
+     *    // Some Code here...
+     * }
+     * └──────┐
+     * ┌──────┴───────────────────────┐
+     * │ The placement of the first { │
+     * │ appearing on the second line │
+     * └──────────────────────────────┘
+     */
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void SomeFunction() {
+        // Some Code here...
+    }
+
+    void SomeOtherFunction()
+    {
+        // Some Other Code here...
+    }
 }

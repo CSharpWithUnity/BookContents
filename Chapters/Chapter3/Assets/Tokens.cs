@@ -278,7 +278,7 @@ public class Tokens : MonoBehaviour
     }
 
     /*
-     * Section 3.3.5 Literals
+     * Section 3.3.4 Literals
      * 
      * values are literals
      * numbers like 1 or 1.0 are both literals
@@ -295,15 +295,81 @@ public class Tokens : MonoBehaviour
      * or 1,234,567,891. As humans we need to read these numbers
      * with billions, millions, thousands, and hundreds, computers don't.
      * 
+     * when the following function is used in the Start()
+     * function you'll see it prints out
+     * someInts: 10
+     * someInts: 0
+     * someInts: 10000
      */
-     /*
-      * Section 3.3.7 Putting it all together
-      * The statement below appears in the start function.
-      * 
-      */
+    int[] someInts = { 10,000, 10000 };
+    void ShowSomeInts()
+    {
+        foreach (int i in someInts)
+        {
+            Debug.Log("someInts: " + i);
+        }
+    }
+    /*
+     * Section 3.3.5 Transitive and Non-Transitive Operations
+     * The below shows various results with very similar numbers
+     * separation of values using () can change the order
+     * of operations in very specific ways.
+     * Be aware of this when calculating your work.
+     */
+    int a = 1 + 2 - 4 + 7;
+    int b = 7 + 4 - 2 + 1;
+    int c = (7 + 4) - (2 + 1);
+    int d = (1 + 2) - (4 + 7);
+    void ShowAResultAndBResult()
+    {
+        Debug.Log("the result of A: " + a);
+        Debug.Log("the result of B: " + b);
+        Debug.Log("the result of C: " + c);
+        Debug.Log("the result of D: " + d);
+    }
+    /*
+     * Section 3.3.7 Putting it all together
+     * The statement below appears in the start function.
+     *     ┌──────┐ ┌────────────┐ ┌────────────┐ ┌───────────┐ ┌───────────┐
+     *     │ type │ │ identifier │ │ assignment │ │ literal   │ │ separator │
+     *     └──┬───┘ └──────┬─────┘ │ operator   │ │ gives     │ └─────┬─────┘
+     *        │            │       └─────┬──────┘ │ i a value │       │
+     *        │┌───────────┘             │        └─────┬─────┘       │
+     *        ││ ┌───────────────────────┘              │             │
+     *        ││ │ ┌────────────────────────────────────┘             │ 
+     *      ┌─┘│ │ │┌─────────────────────────────────────────────────┘
+     *      │  │ │ ││
+     *     int i = 0;             ┌─────────────────────────────────────────┐
+     *              ┌─────────────┤ compares the value of i is less than 10 │
+     *     while (i < 10)         └─────────────────────────────────────────┘
+     *    ┌{                      ┌──────────────────────────────────┐
+     *    │    Debug.Log(i);──────┤ prints to console the value of i │
+     *   ┌┤    i++;──────────┐    └──────────────────────────────────┘
+     *   │└}                 │    ┌───────────────────────────────┐
+     *   │                   └────┤ increases the value of i by 1 │
+     *   │                        └───────────────────────────────┘
+     *   │ ┌───────────────────────────┐ 
+     *   └─┤ repeats operation until i │
+     *     │ is no longer less than 10 │
+     *     └───────────────────────────┘
+     */
 
     public void Start()
     {
+        
+        ShowSomeInts();
+        // the above shows
+        // someInt: 10 
+        // someInt: 0
+        // someInt: 10000
+
+        ShowAResultAndBResult();
+        // the above shows
+        // The result of A: 6
+        // The result of B: 10
+        // The result of C: 8
+        // The result of D: -8
+
         int i = 0;
         while (i < 10)
         {
