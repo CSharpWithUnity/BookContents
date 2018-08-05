@@ -8,4 +8,8 @@ class StyleA {
     void MyOtherFunction() {
         //Code Goes here
     }
+    /*
+     * Many a debate can be found on-lone about how
+     * to format where the first { appears
+     */
 }

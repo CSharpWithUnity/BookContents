@@ -1,56 +1,50 @@
-﻿// Chapter 3.3 Tokens
+﻿// Chapter 3.4 Tokens
 
 using UnityEngine;
 
 public class Tokens : MonoBehaviour
 {
     /*
-     * Section 3.3 Tokens
-     * ┌─────────────┐    ┌─────────────┐
-     * │ punctuation │    │ punctuation │ 
-     * └─────┬───────┘    └─────┬───────┘
-     *       └───┐              └──┐         
-     *           │                 │
-     *          I'm a little teapot.
-     *          ─┬─ ┬ ──┬─── ──┬─── 
-     *           │  │   │   ┌──┴───┐
-     *           │  │   │   │ noun │ 
-     *       ┌───┘  │   │   └──────┘
-     *       │      │ ┌─┴─────────┐
-     *       │  ┌───┘ │ adjective │
-     *       │  │     └───────────┘
-     *       │┌─┴───────┐
-     *       ││ article │
-     *       │└─────────┘
-     * ┌─────┴───────────────┐
-     * │ contraction: I + am │
-     * │ pronoun:            │
-     * │ form of to be.      │
-     * └─────────────────────┘
+     * Section 3.4 Tokens
+     * 
+     *            ┌─────────────┐   ┌─────────────┐
+     *            │ punctuation │   │ punctuation │ 
+     *            └─────┬───────┘   └─────┬───────┘
+     *                  │                 │        
+     *                  │                 │
+     *                 I'm a little teapot.
+     *                 ─┬─ ┬ ───┬── ──┬─── 
+     *                  │  │    │     └────┐
+     *                  │  │    │        ┌─┴────┐
+     *                  │  │    └──────┐ │ noun │ 
+     *              ┌───┘  └───────┐   │ └──────┘
+     *   ┌──────────┴──────────┐   │ ┌─┴─────────┐
+     *   │ contraction: I + am │   │ │ adjective │
+     *   │ pronoun:            │   │ └───────────┘
+     *   │ form of to be.      │ ┌─┴───────┐
+     *   └─────────────────────┘ │ article │
+     *                           └─────────┘
      */
 
     int i = 0;
 
     /*
-     * Section 3.3.1
-     *    ┌────────────┐ ┌─────────┐
-     *    │ identifier │ │ literal │ 
-     *    └────┬───────┘ └──┬──────┘
-     *         └──┐         │         
-     *            │   ┌─────┘
-     *        int i = 0;
-     *         │    │  │ 
-     *         │    │  └──┐
-     *         │    │  ┌──┴────────┐
-     *      ┌──┘    │  │ separator │
-     *      │       │  └───────────┘
-     *      │  ┌────┴───────┐
-     *      │  │ assignment │
-     *      │  │ operator   │
-     *      │  └────────────┘
-     *   ┌──┴──────┐
-     *   │ keyword │
-     *   └─────────┘
+     * Section 3.4.1
+     * 
+     *       ┌────────────┐ ┌─────────┐
+     *       │ identifier │ │ literal │ 
+     *       └────┬───────┘ └──┬──────┘
+     *            └──┐         │         
+     *               │   ┌─────┘
+     *           int i = 0;
+     *            │    │  └──┐
+     *            │    │  ┌──┴────────┐
+     *    ┌───────┘    │  │ separator │
+     *    │            │  └───────────┘
+     * ┌──┴──────┐ ┌───┴────────┐
+     * │ keyword │ │ assignment │
+     * └─────────┘ │ operator   │
+     *             └────────────┘
      */
 
     int j = 0; int k = 1;
@@ -59,6 +53,7 @@ public class Tokens : MonoBehaviour
      * 
      * the above is perfectly valid, but
      * it's not as readable as:
+     * 
      * int j = 0;
      * int k = 1;
      * 
@@ -91,7 +86,6 @@ public class Tokens : MonoBehaviour
      *    ┌──────────────────┐ ┌───────────────────┐
      *    │ Open Parenthesis │ │ Close Parenthesis │
      *    └───────────┬──────┘ └────┬──────────────┘
-     *                │             │
      *                └──────┐┌─────┘
      *            void thing ()
      *                 
@@ -100,7 +94,7 @@ public class Tokens : MonoBehaviour
      *  that gave an output in return to an input. Functions were things that could
      *  operate in isolation.
      *  
-     *  under void thing() is a pair of curly braces
+     *  under 'void thing()' is a pair of curly braces:
      *  
      *  {
      *  
@@ -121,15 +115,15 @@ public class Tokens : MonoBehaviour
      *   │ opening curly│ │ closing curly│
      *   │ brace        │ │ brace        │
      *   └───────┬──────┘ └─────┬────────┘
-     *   ┌───────┘           ┌──┘       
-     *   │                   │
-     *   { 1, (int)3.0, 9000 }
-     *      │         │
-     *      └────┬────┘
-     *      ┌────┴──────┐
-     *      │ separator │
-     *      │ tokens    │
-     *      └───────────┘
+     *         ┌─┘              └──┐    
+     *         │                   │
+     *         { 1, (int)3.0, 9000 }
+     *            │         │
+     *            └────┬────┘
+     *            ┌────┴──────┐
+     *            │ separator │
+     *            │ tokens    │
+     *            └───────────┘
      *      
      *  (int)3.0
      *  observe this in the middle of the array assignment.
@@ -153,6 +147,7 @@ public class Tokens : MonoBehaviour
      *  
      *  
      */
+
     void QuotationMarks()
     {
         System.Console.Write(" use straight quotes. ");
@@ -164,6 +159,7 @@ public class Tokens : MonoBehaviour
         // uncomment it if you'd like to see where the error occurs
 
     }
+
     /*
      * Section 3.3.2 Separator tokens cont...
      * " are usually used in text editors, smart quotes like
@@ -230,6 +226,7 @@ public class Tokens : MonoBehaviour
      * └───┴───────────────────────┘
      * 
      */
+
     void OperatorTokens()
     {
         int AdditionOperator = 1 + 1;
