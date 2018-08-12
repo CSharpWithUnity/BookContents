@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: 4bbbf3d2560e5c94e8242f77b67b4203
+guid: 6d3e723e3159bc54ba4fd45b86813893
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: TransformPrimitive_Blue
-    2100002: TransformPrimitive_Green
-    2100004: TransformPrimitive_Red
-    2100006: TransformPrimitive_White
+    2100002: TransformPrimitive_White
+    2100004: TransformPrimitive_Green
+    2100006: TransformPrimitive_Red
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Mesh
-    4300002: TransformPrimitive_Mesh
+    4300000: TransformPrimitive_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
