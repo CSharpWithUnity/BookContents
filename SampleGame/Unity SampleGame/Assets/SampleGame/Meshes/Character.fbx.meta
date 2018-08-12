@@ -1,0 +1,226 @@
+fileFormatVersion: 2
+guid: 49dd093e393d8614a8ac8d9a8454fadb
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: //RootNode
+    100004: Eyes
+    100006: Hair
+    100008: Shoes
+    100010: Texture Group
+    400000: Body
+    400002: //RootNode
+    400004: Eyes
+    400006: Hair
+    400008: Shoes
+    400010: Texture Group
+    2100000: Eye_Ball
+    2100002: Eye_Lens
+    2100004: Body_Teeth
+    2100006: Body_Skin
+    2100008: Body_Mouth
+    2100010: Body_Shorts
+    2100012: Body_ShirtBack
+    2100014: Body_ShirtFront
+    2100016: Body_EyeSocket
+    2100018: Body_Sleeves
+    2100020: Body_Socks
+    2100022: Hair_Outer
+    2100024: Hair_Inner
+    2100026: Shoe_Trim
+    2100028: Shoe_SecondaryTrim
+    2100030: Shoe_Upper
+    2100032: Shoe_Lower
+    2100034: Shoe_Shell
+    2100036: Shoe_Lugs
+    2300000: Body
+    2300002: Eyes
+    2300004: Hair
+    2300006: Shoes
+    3300000: Body
+    3300002: Eyes
+    3300004: Hair
+    3300006: Shoes
+    4300000: Eyes
+    4300002: Body
+    4300004: Hair
+    4300006: Shoes
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_EyeSocket
+    second: {fileID: 2100000, guid: d14085245fa5c384996da98e22b47262, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Mouth
+    second: {fileID: 2100000, guid: 71769ec531c6dc3499230e506569842e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_ShirtBack
+    second: {fileID: 2100000, guid: a2e5ba0a42928c04dbb56e25f003350a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_ShirtFront
+    second: {fileID: 2100000, guid: be8193c69410bd74e9d29071dbe1f142, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Shorts
+    second: {fileID: 2100000, guid: 26a2acffe8b4f5645b92e4c31e6c7db7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Skin
+    second: {fileID: 2100000, guid: 2ba47f1e9f9d05d4a93d47a297f1e926, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Sleeves
+    second: {fileID: 2100000, guid: a4608dd0492f6d84ab6c132c8d6b2966, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Socks
+    second: {fileID: 2100000, guid: 444f73ba112a99849a0b6d760dcb02a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Teeth
+    second: {fileID: 2100000, guid: 2070d842c8925254182163967b37dc3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Ball
+    second: {fileID: 2100000, guid: e11a907a68c290841b6ecb8e3f203fb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Lens
+    second: {fileID: 2100000, guid: c1e3030af5d879747a895c1749742098, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair_Inner
+    second: {fileID: 2100000, guid: 7391943811ff4e042b3af6503c851f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair_Outer
+    second: {fileID: 2100000, guid: 786f56dd8f44dbb4784f38c73c0a6180, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoe_Lower
+    second: {fileID: 2100000, guid: b554aacabd6fa464a9ffb01519646cb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoe_Lugs
+    second: {fileID: 2100000, guid: f4c5d39efdb4d5346bc6651d137c8395, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoe_SecondaryTrim
+    second: {fileID: 2100000, guid: d362cacafb4fd6a488f6bc819ae89d28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoe_Shell
+    second: {fileID: 2100000, guid: c7289b0861ded3c46ac73b346d04822e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoe_Trim
+    second: {fileID: 2100000, guid: 8e44ecbf502b6be4d953560fde8c0a1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoe_Upper
+    second: {fileID: 2100000, guid: 4e57e0a9b9c9c924d87b9c57418065dd, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
