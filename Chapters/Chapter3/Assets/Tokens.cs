@@ -287,12 +287,10 @@ public class Tokens : MonoBehaviour
 
         int ModuloOperator = 10 / 3;
         System.Console.WriteLine("ModuloOperator Result = " + ModuloOperator);
-
-
     }
 
     /*
-     * Section 3.3.4 Literals
+     * Section 3.3.5 Literals
      * 
      * values are literals
      * numbers like 1 or 1.0 are both literals
@@ -321,6 +319,7 @@ public class Tokens : MonoBehaviour
         int i = 0;
         int j = i + 1;
      }
+
     /*
      *    ┌────────────┐ ┌─────────┐
      *    │ identifier │ │ literal │ 
@@ -354,12 +353,14 @@ public class Tokens : MonoBehaviour
      * │ not a literal │
      * └───────────────┘
      */
+
     int[] someInts = { 10,000, 10000 };
+
     void ShowSomeInts()
     {
         foreach (int i in someInts)
         {
-            Debug.Log("someInts: " + i);
+            System.Console.WriteLine("someInts: " + i);
         }
         /*
          * Section 3.3.4 continued...
@@ -369,27 +370,30 @@ public class Tokens : MonoBehaviour
         float radians = 3.14159f;
 
         degrees = (radians * Mathf.PI) / 180;
-        Debug.Log("Degrees from 3.14159 Radians = " + degrees);
+        System.Console.WriteLine("Degrees from 3.14159 Radians = " + degrees);
     }
 
     /*
-     * Section 3.3.5 Transitive and Non-Transitive Operations
+     * Section 3.3.6 Transitive and Non-Transitive Operations
      * The below shows various results with very similar numbers
      * separation of values using () can change the order
      * of operations in very specific ways.
      * Be aware of this when calculating your work.
      */
+
     int a = 1 + 2 - 4 + 7;
     int b = 7 + 4 - 2 + 1;
     int c = (7 + 4) - (2 + 1);
     int d = (1 + 2) - (4 + 7);
+
     void ShowAResultAndBResult()
     {
-        Debug.Log("the result of A: " + a);
-        Debug.Log("the result of B: " + b);
-        Debug.Log("the result of C: " + c);
-        Debug.Log("the result of D: " + d);
+        System.Console.WriteLine("the result of A: " + a);
+        System.Console.WriteLine("the result of B: " + b);
+        System.Console.WriteLine("the result of C: " + c);
+        System.Console.WriteLine("the result of D: " + d);
     }
+
     /*
      * Section 3.3.7 Putting it all together
      * The statement below appears in the start function.
