@@ -100,7 +100,7 @@ public class Tokens : MonoBehaviour
      *  
      *  }
      *  
-     *  these indicate the start and end of the work that thing() is going to do.
+     *  these indicate the start and end of the work that thing () is going to do.
      *  
      */
 
@@ -298,6 +298,45 @@ public class Tokens : MonoBehaviour
      * someInts: 0
      * someInts: 10000
      */
+
+     void Literal()
+     {
+        int i = 0;
+        int j = i + 1;
+     }
+    /*
+     *    ┌────────────┐ ┌─────────┐
+     *    │ identifier │ │ literal │ 
+     *    └────┬───────┘ └──┬──────┘
+     *         └──┐         │         
+     *            │   ┌─────┘
+     *        int i = 0;
+     *         │    │  │ 
+     *         │    │  └──┐
+     *         │    │  ┌──┴────────┐
+     *      ┌──┘    │  │ separator │
+     *      │       │  └───────────┘
+     *      │  ┌────┴───────┐
+     *      │  │ assignment │
+     *      │  │ operator   │
+     *      │  └────────────┘
+     *   ┌──┴──────┐
+     *   │ keyword │
+     *   └─────────┘
+     *   
+     *   int j = i + 1;
+     *       │   │   │
+     *       │   │   └─┐
+     *       │   └┐ ┌──┴────────────────┐
+     *       │    │ │ this is a literal │
+     *       │    │ └───────────────────┘
+     *       │ ┌──┴─────────────────┐  
+     *    ┌──┘ │ i is not a literal │
+     *    │    └────────────────────┘
+     * ┌──┴────────────┐
+     * │ not a literal │
+     * └───────────────┘
+     */
     int[] someInts = { 10,000, 10000 };
     void ShowSomeInts()
     {
@@ -305,7 +344,17 @@ public class Tokens : MonoBehaviour
         {
             Debug.Log("someInts: " + i);
         }
+        /*
+         * Section 3.3.4 continued...
+         */
+
+        float degrees;
+        float radians = 3.14159f;
+
+        degrees = (radians * Mathf.PI) / 180;
+        Debug.Log("Degrees from 3.14159 Radians = " + degrees);
     }
+
     /*
      * Section 3.3.5 Transitive and Non-Transitive Operations
      * The below shows various results with very similar numbers

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class StatementsAndExpressions : MonoBehaviour
 {
+    private enum Food
+    {
+        kale,
+        broccoli
+    }
+    Food lunch = Food.kale;
+    Food dinner = Food.broccoli;
+
     /*
      * Section 3.4.1 Expressions
      * 
