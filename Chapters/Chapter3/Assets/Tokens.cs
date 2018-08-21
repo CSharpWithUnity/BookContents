@@ -29,7 +29,7 @@ public class Tokens : MonoBehaviour
     int i = 0;
 
     /*
-     * Section 3.4.1
+     * Section 3.4.1 Writing C#
      * 
      *       ┌────────────┐ ┌─────────┐
      *       │ identifier │ │ literal │ 
@@ -48,8 +48,10 @@ public class Tokens : MonoBehaviour
      */
 
     int j = 0; int k = 1;
+
+
     /*
-     * Section 3.3.2 Separator Tokens
+     * Section 3.3.3 Separator Tokens
      * 
      * the above is perfectly valid, but
      * it's not as readable as:
@@ -65,7 +67,7 @@ public class Tokens : MonoBehaviour
     int l = 0;
 
     /*
-     * Section 3.3.2 Separator Tokens Cont...
+     * Section 3.3.3 Separator Tokens Cont...
      * 
      * the line below is trying to assign the letter
      * O to the variable m which fails.
@@ -81,7 +83,7 @@ public class Tokens : MonoBehaviour
     }
 
     /*
-     * Section 3.3.2 Separator Tokens Cont...
+     * Section 3.3.3 Separator Tokens Cont...
      * 
      *    ┌──────────────────┐ ┌───────────────────┐
      *    │ Open Parenthesis │ │ Close Parenthesis │
@@ -107,7 +109,7 @@ public class Tokens : MonoBehaviour
     int[] arrayOfNumbers = { 1, (int)3.0, 9000 };
 
     /*
-     * Section 3.3.2 Separator Tokens Cont...
+     * Section 3.3.3 Separator Tokens Cont...
      * 
      * the above is another use of the curly braces
      * 
@@ -161,7 +163,7 @@ public class Tokens : MonoBehaviour
     }
 
     /*
-     * Section 3.3.2 Separator tokens cont...
+     * Section 3.3.3 Separator tokens cont...
      * " are usually used in text editors, smart quotes like
      * the ones that are give in fancy word processors 
      * like “ and ” aren't recognized here.
@@ -204,33 +206,6 @@ public class Tokens : MonoBehaviour
          * function. more on this in a later chapter on scope
          * in chapter 4.8
          */
-    }
-
-    /*
-     * Section 3.3.3 Operator Tokens
-     * 
-     * Operator tokens are often characters used in math operations like
-     * Addition Operator is + or - for Divide we use / rather than ÷
-     * ┌───┬───────────────────────┐
-     * │ = │ Assignment Operator   │
-     * ├───┼───────────────────────┤
-     * │ + │ Addition Operator     │
-     * ├───┼───────────────────────┤
-     * │ - │ Subtraction Operatorr │
-     * ├───┼───────────────────────┤
-     * │ * │ Multiply Operator     │
-     * ├───┼───────────────────────┤
-     * │ / │ Divide Operator       │
-     * ├───┼───────────────────────┤
-     * │ % │ Remainder Operator    │
-     * └───┴───────────────────────┘
-     * 
-     */
-
-    void OperatorTokens()
-    {
-        int AdditionOperator = 1 + 1;
-        System.Console.WriteLine("AdditionOperatorResult = " + AdditionOperator);
 
         /*
          * where are commas supposed to be used?
@@ -253,7 +228,8 @@ public class Tokens : MonoBehaviour
          * after the first assignment.
          */
 
-        int e = 0; int f = 1;
+        int e = 0;
+        int f = 1;
         /*
          * the above code passes
          * since the ; ends the first
@@ -272,6 +248,47 @@ public class Tokens : MonoBehaviour
          * these are two independent statements,
          * they just appear on two different lines.
          */
+    }
+
+    /*
+     * Section 3.3.4 Operator Tokens
+     * 
+     * Operator tokens are often characters used in math operations like
+     * Addition Operator is + or - for Divide we use / rather than ÷
+     * ┌───┬───────────────────────┐
+     * │ = │ Assignment Operator   │
+     * ├───┼───────────────────────┤
+     * │ + │ Addition Operator     │
+     * ├───┼───────────────────────┤
+     * │ - │ Subtraction Operatorr │
+     * ├───┼───────────────────────┤
+     * │ * │ Multiply Operator     │
+     * ├───┼───────────────────────┤
+     * │ / │ Divide Operator       │
+     * ├───┼───────────────────────┤
+     * │ % │ Remainder Operator    │
+     * └───┴───────────────────────┘
+     * 
+     */
+
+    void OperatorTokens()
+    {
+        int AdditionOperator = 1 + 1;
+        System.Console.WriteLine("AdditionOperator Result = " + AdditionOperator);
+
+        int SubtractionOperator = 1 - 1;
+        System.Console.WriteLine("SubtractionOperator Result = " + SubtractionOperator);
+
+        int MultiplyOperator = 2 * 2;
+        System.Console.WriteLine("MultiplyOperator Result = " + MultiplyOperator);
+
+        int DivideOperator = 10 / 2;
+        System.Console.WriteLine("DivideOperator Result = " + DivideOperator);
+
+        int ModuloOperator = 10 / 3;
+        System.Console.WriteLine("ModuloOperator Result = " + ModuloOperator);
+
+
     }
 
     /*
@@ -389,8 +406,8 @@ public class Tokens : MonoBehaviour
      *              ┌─────────────┤ compares the value of i is less than 10 │
      *     while (i < 10)         └─────────────────────────────────────────┘
      *    ┌{                      ┌──────────────────────────────────┐
-     *    │    Debug.Log(i);──────┤ prints to console the value of i │
-     *   ┌┤    i++;──────────┐    └──────────────────────────────────┘
+     *    │ ↓  Debug.Log(i);──────┤ prints to console the value of i │
+     *   ┌┤ ↓  i++;──────────┐    └──────────────────────────────────┘
      *   │└}                 │    ┌───────────────────────────────┐
      *   │                   └────┤ increases the value of i by 1 │
      *   │                        └───────────────────────────────┘
@@ -402,14 +419,21 @@ public class Tokens : MonoBehaviour
 
     public void Start()
     {
+        // Delete the // at the beginning of the
+        // line where ShowSomeInts(); appears
+        // this will "uncomment" the line and
+        // the compiler will see it and run that
+        // line to execute the code.
+
+        // ShowSomeInts();
         
-        ShowSomeInts();
         // the above shows
         // someInt: 10 
         // someInt: 0
         // someInt: 10000
 
-        ShowAResultAndBResult();
+        //ShowAResultAndBResult();
+        
         // the above shows
         // The result of A: 6
         // The result of B: 10
