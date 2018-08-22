@@ -1,4 +1,6 @@
-﻿// Chapter 3.5 Keywords
+﻿/*
+ * Chapter 3.5 Keywords
+ */
 
 class ClassName
 {
@@ -7,10 +9,10 @@ class ClassName
 /*
  * Section 3.5 Keywords
  * 
- * ┌───────────────┐ ┌────────────┐
- * │ Keyword class │ │ Identifier │
- * └───────┬───────┘ └────┬───────┘
- *   ┌─────┘ ┌────────────┘
+ * ┌─────────────────┐ ┌────────────┐
+ * │ Keyword "class" │ │ Identifier │
+ * └───────┬─────────┘ └────┬───────┘
+ *   ┌─────┘ ┌──────────────┘
  * ──┴── ────┴────
  * class ClassName
  * { ─┐
@@ -73,16 +75,57 @@ class Charles { }
  * ╚═══════════════════════════════════╝
  */
 class Reserved
- {
-    // int abstract = 0;
-    // int yield = 0;
+{
+    /* uncomment the lines below to
+     * reveal the error.
+     */
+     
+     //int abstract = 0;
+    
+    /* yield is only reserved in context
+     * when used as a command after the keyword
+     * return
+     * uncommenting the line below will
+     * not produce an error
+     */
+    
+    //int yield = 0;
  }
+
 /*
  * to see the error delete the // infront of the line
- * above and see what Unity says about line 77 in this
+ * above and see what Unity says about line 81 in this
  * file.
+ * 
  * yield can be used as a variable name
  * but it's also used for other purposes, so be aware
- * that some keywords can be tricky to use
+ * that some keywords can be tricky to use.
  */
+ class Condition
+{
+    void TheIfKeyword()
+    {
+        int i = 0;
+        float f = 3.14159f;
+        string s = "some words in quotes";
 
+        if (i < 10)
+        {
+            // Code goes here.
+        }
+
+        /* Section 3.5.1 cont.
+         * ┌──────────────┐ ┌───────────┐
+         * │ keyword "if" │ │ Condition │
+         * └───────┬──────┘ └────┬──────┘
+         *         │             │
+         *  ┌──────┘ ┌───────────┘
+         * ─┴ ───────┴──
+         * if ( i < 10 )
+         * {
+         *     // Code goes here.
+         * }
+         * 
+         */
+    }
+}

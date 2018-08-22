@@ -1,4 +1,6 @@
-﻿// Chapter 3.4 Tokens
+﻿/* 
+ * Chapter 3.4 Tokens
+ */
 
 using UnityEngine;
 
@@ -172,82 +174,86 @@ public class Tokens : MonoBehaviour
 
     void StatementSeparation()
     {
-        int a = 0;
-        System.Console.Write(a);
-        
-        // some random scope
         {
-            // int a = 1;
+            int a = 0;
             System.Console.Write(a);
+
+            // some random scope
+            {
+                // int a = 1;
+                System.Console.Write(a);
+            }
+
+            /* code needs to be separated into small chunks
+             * to help separate code into usable parts we
+             * use separator tokens.
+             */
+
+            int aa = 0;
+            
+            /*
+             * the ; indicates the end of a statement.
+             */
+
+            int b = 1; int c = 2;
+            
+            /*
+             * multiple statements can appear on the same line
+             * but it's not common practice to do so.
+             */
         }
-
-        /* code needs to be separated into small chunks
-         * to help separate code into usable parts we
-         * use separator tokens.
-         */
-        int aa = 0;
-        /*
-         * the ; indicates the end of a statement.
-         */
-
-        int b = 1; int c = 2;
-        /*
-         * multiple statements can appear on the same line
-         * but it's not common practice to do so.
-         */
 
         {
-            int d = 1;
+            int a = 1;
+        }
+            /* 
+             * the curly braces isolate int d = 1; by separating
+             * it from the rest of the code in the Separators()
+             * function. more on this in a later chapter on scope
+             * in chapter 4.8
+             */
+
+        {
+            int e = 0, f = 1;
+            /*
+             * where are commas supposed to be used?
+             * they're used to keep values apart so
+             * they can be parsed as separate things
+             * the above statement creates two variables
+             * assigns them values, but only indicates
+             * the type once.
+             */
+
+            //int c = 0, int d = 1;
+            /*
+             * the above code fails
+             * the lexer isn't expecting
+             * the keyword int following the ,
+             * after the first assignment.
+             */
         }
 
-        /* 
-         * the curly braces isolate int d = 1; by separating
-         * it from the rest of the code in the Separators()
-         * function. more on this in a later chapter on scope
-         * in chapter 4.8
-         */
+        {
+            int a = 0; int b = 1;
+            /*
+             * the above code passes
+             * since the ; ends the first
+             * statement and the second
+             * declaration is expected
+             * since ; tells the lexer to
+             * read a new statement, not
+             * just a continuation of a previous
+             * statement.
+             */
 
-        /*
-         * where are commas supposed to be used?
-         * they're used to keep values apart so
-         * they can be parsed as separate things
-         */
-
-        int a = 0, b = 1;
-        /* 
-         * the above statement creates two variables
-         * assigns them values, but only indicates
-         * the type once.
-         */
-
-        //int c = 0, int d = 1;
-        /*
-         * the above code fails
-         * the lexer isn't expecting
-         * the keyword int following the ,
-         * after the first assignment.
-         */
-
-        int e = 0;
-        int f = 1;
-        /*
-         * the above code passes
-         * since the ; ends the first
-         * statement and the second
-         * declaration is expected
-         * since ; tells the lexer to
-         * read a new statement, not
-         * just a continuation of a previous
-         * statement.
-         */
-
-        int g = 0;
-        int h = 1;
-        /*
-         * the above passes as well since
-         * these are two independent statements,
-         * they just appear on two different lines.
-         */
+            int c = 0;
+            int d = 1;
+            /*
+             * the above passes as well since
+             * these are two independent statements,
+             * they just appear on two different lines.
+             */
+        }
     }
 
     /*

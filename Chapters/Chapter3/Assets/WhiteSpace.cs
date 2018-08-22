@@ -1,4 +1,6 @@
-﻿// Chapter 3.6 White Space
+﻿/* 
+ * Chapter 3.6 White Space
+ */
 
 class WhiteSpace {
     /*
