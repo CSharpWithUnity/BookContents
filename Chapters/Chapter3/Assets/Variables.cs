@@ -77,7 +77,9 @@ class Variables : UnityEngine.MonoBehaviour
         System.Console.Write(i);
         // i reasssigned to 1
 
-        int i = 1;
+        //int i = 1;
+        // uncomment the line above to see the
+        // error.
     }
 }
 
@@ -90,10 +92,49 @@ class Variables : UnityEngine.MonoBehaviour
  * { and before the closing curly brace }
  */
 
-//int someInt;
+ /* 
+  * comment out the lower line to
+  * produce an error
+  */
+
+//int outterInt;
 class SomeClass
 {
-    int someInt;
+    int innerInt;
+
+    /*
+     * Section 3.9.4 Dynamic Initialization
+     */
+
+    bool SomeBool;
+    bool AnotherBool = false;
+    
+    /*
+     * The above two values are initialized as false
+     * even though AnotherBool has been assigned a
+     * value, SomeBool gets automatically assigned
+     * false when it's created.
+     */
+
+    int SomeInt;
+    int AnotherInt = 0;
+
+    /*
+     * SomeInt and AnotherInt have the same value
+     * SomeInt is assigned 0 when it was created
+     * AnotherInt is assigned the same value
+     * explicitly.
+     */
+
+    int OtherInt = 7;
+    int LastInt = 11;
+
+    /*
+     * You're allowed to assign a different
+     * value from 0 when the variable is
+     * created, this can be done dynamically
+     * in the declaration of the variable.
+     */
 }
 
 
