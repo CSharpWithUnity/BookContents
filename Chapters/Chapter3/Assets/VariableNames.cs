@@ -72,8 +72,8 @@ public class VariableNames : MonoBehaviour
      */
 
     int @home;
-    int noone@home;
-    int nobodyhome@;
+    //int noone@home;
+    //int nobodyhome@;
     
     /* The @ symbol cannot appear
      * in the middle or end of a
