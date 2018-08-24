@@ -13,12 +13,14 @@ public class UsingTheVariables : MonoBehaviour
     public float ForwardSpeed;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         /*
          * Section 3.10.3 continued...
          * 
