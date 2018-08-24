@@ -68,8 +68,7 @@ class CodeBlocks
         }
         }
 
-        /*
-         * or just as confusing...
+        /* or just as confusing...
          */
 
         if (true){//code here
