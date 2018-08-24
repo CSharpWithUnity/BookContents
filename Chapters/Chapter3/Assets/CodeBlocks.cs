@@ -1,4 +1,7 @@
-﻿// Chapter 3.7 Code Blocks
+﻿/*
+ * Chapter 3.7 Code Blocks
+ */
+
 class CodeBlocks
 {
     /*

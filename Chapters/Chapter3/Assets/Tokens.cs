@@ -1,4 +1,6 @@
-﻿// Chapter 3.4 Tokens
+﻿/* 
+ * Chapter 3.4 Tokens
+ */
 
 using UnityEngine;
 
@@ -29,7 +31,7 @@ public class Tokens : MonoBehaviour
     int i = 0;
 
     /*
-     * Section 3.4.1
+     * Section 3.4.1 Writing C#
      * 
      *       ┌────────────┐ ┌─────────┐
      *       │ identifier │ │ literal │ 
@@ -48,8 +50,10 @@ public class Tokens : MonoBehaviour
      */
 
     int j = 0; int k = 1;
+
+
     /*
-     * Section 3.3.2 Separator Tokens
+     * Section 3.3.3 Separator Tokens
      * 
      * the above is perfectly valid, but
      * it's not as readable as:
@@ -65,7 +69,7 @@ public class Tokens : MonoBehaviour
     int l = 0;
 
     /*
-     * Section 3.3.2 Separator Tokens Cont...
+     * Section 3.3.3 Separator Tokens Cont...
      * 
      * the line below is trying to assign the letter
      * O to the variable m which fails.
@@ -81,7 +85,7 @@ public class Tokens : MonoBehaviour
     }
 
     /*
-     * Section 3.3.2 Separator Tokens Cont...
+     * Section 3.3.3 Separator Tokens Cont...
      * 
      *    ┌──────────────────┐ ┌───────────────────┐
      *    │ Open Parenthesis │ │ Close Parenthesis │
@@ -100,14 +104,14 @@ public class Tokens : MonoBehaviour
      *  
      *  }
      *  
-     *  these indicate the start and end of the work that thing() is going to do.
+     *  these indicate the start and end of the work that thing () is going to do.
      *  
      */
 
     int[] arrayOfNumbers = { 1, (int)3.0, 9000 };
 
     /*
-     * Section 3.3.2 Separator Tokens Cont...
+     * Section 3.3.3 Separator Tokens Cont...
      * 
      * the above is another use of the curly braces
      * 
@@ -161,7 +165,7 @@ public class Tokens : MonoBehaviour
     }
 
     /*
-     * Section 3.3.2 Separator tokens cont...
+     * Section 3.3.3 Separator tokens cont...
      * " are usually used in text editors, smart quotes like
      * the ones that are give in fancy word processors 
      * like “ and ” aren't recognized here.
@@ -170,44 +174,90 @@ public class Tokens : MonoBehaviour
 
     void StatementSeparation()
     {
-        int a = 0;
-        System.Console.Write(a);
-        
-        // some random scope
         {
-            // int a = 1;
+            int a = 0;
             System.Console.Write(a);
+
+            // some random scope
+            {
+                // int a = 1;
+                System.Console.Write(a);
+            }
+
+            /* code needs to be separated into small chunks
+             * to help separate code into usable parts we
+             * use separator tokens.
+             */
+
+            int aa = 0;
+            
+            /*
+             * the ; indicates the end of a statement.
+             */
+
+            int b = 1; int c = 2;
+            
+            /*
+             * multiple statements can appear on the same line
+             * but it's not common practice to do so.
+             */
         }
-
-        /* code needs to be separated into small chunks
-         * to help separate code into usable parts we
-         * use separator tokens.
-         */
-        int aa = 0;
-        /*
-         * the ; indicates the end of a statement.
-         */
-
-        int b = 1; int c = 2;
-        /*
-         * multiple statements can appear on the same line
-         * but it's not common practice to do so.
-         */
 
         {
-            int d = 1;
+            int a = 1;
+        }
+            /* 
+             * the curly braces isolate int d = 1; by separating
+             * it from the rest of the code in the Separators()
+             * function. more on this in a later chapter on scope
+             * in chapter 4.8
+             */
+
+        {
+            int e = 0, f = 1;
+            /*
+             * where are commas supposed to be used?
+             * they're used to keep values apart so
+             * they can be parsed as separate things
+             * the above statement creates two variables
+             * assigns them values, but only indicates
+             * the type once.
+             */
+
+            //int c = 0, int d = 1;
+            /*
+             * the above code fails
+             * the lexer isn't expecting
+             * the keyword int following the ,
+             * after the first assignment.
+             */
         }
 
-        /* 
-         * the curly braces isolate int d = 1; by separating
-         * it from the rest of the code in the Separators()
-         * function. more on this in a later chapter on scope
-         * in chapter 4.8
-         */
+        {
+            int a = 0; int b = 1;
+            /*
+             * the above code passes
+             * since the ; ends the first
+             * statement and the second
+             * declaration is expected
+             * since ; tells the lexer to
+             * read a new statement, not
+             * just a continuation of a previous
+             * statement.
+             */
+
+            int c = 0;
+            int d = 1;
+            /*
+             * the above passes as well since
+             * these are two independent statements,
+             * they just appear on two different lines.
+             */
+        }
     }
 
     /*
-     * Section 3.3.3 Operator Tokens
+     * Section 3.3.4 Operator Tokens
      * 
      * Operator tokens are often characters used in math operations like
      * Addition Operator is + or - for Divide we use / rather than ÷
@@ -230,52 +280,23 @@ public class Tokens : MonoBehaviour
     void OperatorTokens()
     {
         int AdditionOperator = 1 + 1;
-        System.Console.WriteLine("AdditionOperatorResult = " + AdditionOperator);
+        System.Console.WriteLine("AdditionOperator Result = " + AdditionOperator);
 
-        /*
-         * where are commas supposed to be used?
-         * they're used to keep values apart so
-         * they can be parsed as separate things
-         */
+        int SubtractionOperator = 1 - 1;
+        System.Console.WriteLine("SubtractionOperator Result = " + SubtractionOperator);
 
-        int a = 0, b = 1;
-        /* 
-         * the above statement creates two variables
-         * assigns them values, but only indicates
-         * the type once.
-         */
+        int MultiplyOperator = 2 * 2;
+        System.Console.WriteLine("MultiplyOperator Result = " + MultiplyOperator);
 
-        //int c = 0, int d = 1;
-        /*
-         * the above code fails
-         * the lexer isn't expecting
-         * the keyword int following the ,
-         * after the first assignment.
-         */
+        int DivideOperator = 10 / 2;
+        System.Console.WriteLine("DivideOperator Result = " + DivideOperator);
 
-        int e = 0; int f = 1;
-        /*
-         * the above code passes
-         * since the ; ends the first
-         * statement and the second
-         * declaration is expected
-         * since ; tells the lexer to
-         * read a new statement, not
-         * just a continuation of a previous
-         * statement.
-         */
-
-        int g = 0;
-        int h = 1;
-        /*
-         * the above passes as well since
-         * these are two independent statements,
-         * they just appear on two different lines.
-         */
+        int ModuloOperator = 10 / 3;
+        System.Console.WriteLine("ModuloOperator Result = " + ModuloOperator);
     }
 
     /*
-     * Section 3.3.4 Literals
+     * Section 3.3.5 Literals
      * 
      * values are literals
      * numbers like 1 or 1.0 are both literals
@@ -298,32 +319,87 @@ public class Tokens : MonoBehaviour
      * someInts: 0
      * someInts: 10000
      */
+
+     void Literal()
+     {
+        int i = 0;
+        int j = i + 1;
+     }
+
+    /*
+     *    ┌────────────┐ ┌─────────┐
+     *    │ identifier │ │ literal │ 
+     *    └────┬───────┘ └──┬──────┘
+     *         └──┐         │         
+     *            │   ┌─────┘
+     *        int i = 0;
+     *         │    │  │ 
+     *         │    │  └──┐
+     *         │    │  ┌──┴────────┐
+     *      ┌──┘    │  │ separator │
+     *      │       │  └───────────┘
+     *      │  ┌────┴───────┐
+     *      │  │ assignment │
+     *      │  │ operator   │
+     *      │  └────────────┘
+     *   ┌──┴──────┐
+     *   │ keyword │
+     *   └─────────┘
+     *   
+     *   int j = i + 1;
+     *       │   │   │
+     *       │   │   └─┐
+     *       │   └┐ ┌──┴────────────────┐
+     *       │    │ │ this is a literal │
+     *       │    │ └───────────────────┘
+     *       │ ┌──┴─────────────────┐  
+     *    ┌──┘ │ i is not a literal │
+     *    │    └────────────────────┘
+     * ┌──┴────────────┐
+     * │ not a literal │
+     * └───────────────┘
+     */
+
     int[] someInts = { 10,000, 10000 };
+
     void ShowSomeInts()
     {
         foreach (int i in someInts)
         {
-            Debug.Log("someInts: " + i);
+            System.Console.WriteLine("someInts: " + i);
         }
+        /*
+         * Section 3.3.4 continued...
+         */
+
+        float degrees;
+        float radians = 3.14159f;
+
+        degrees = (radians * Mathf.PI) / 180;
+        System.Console.WriteLine("Degrees from 3.14159 Radians = " + degrees);
     }
+
     /*
-     * Section 3.3.5 Transitive and Non-Transitive Operations
+     * Section 3.3.6 Transitive and Non-Transitive Operations
      * The below shows various results with very similar numbers
      * separation of values using () can change the order
      * of operations in very specific ways.
      * Be aware of this when calculating your work.
      */
+
     int a = 1 + 2 - 4 + 7;
     int b = 7 + 4 - 2 + 1;
     int c = (7 + 4) - (2 + 1);
     int d = (1 + 2) - (4 + 7);
+
     void ShowAResultAndBResult()
     {
-        Debug.Log("the result of A: " + a);
-        Debug.Log("the result of B: " + b);
-        Debug.Log("the result of C: " + c);
-        Debug.Log("the result of D: " + d);
+        System.Console.WriteLine("the result of A: " + a);
+        System.Console.WriteLine("the result of B: " + b);
+        System.Console.WriteLine("the result of C: " + c);
+        System.Console.WriteLine("the result of D: " + d);
     }
+
     /*
      * Section 3.3.7 Putting it all together
      * The statement below appears in the start function.
@@ -340,8 +416,8 @@ public class Tokens : MonoBehaviour
      *              ┌─────────────┤ compares the value of i is less than 10 │
      *     while (i < 10)         └─────────────────────────────────────────┘
      *    ┌{                      ┌──────────────────────────────────┐
-     *    │    Debug.Log(i);──────┤ prints to console the value of i │
-     *   ┌┤    i++;──────────┐    └──────────────────────────────────┘
+     *    │ ↓  Debug.Log(i);──────┤ prints to console the value of i │
+     *   ┌┤ ↓  i++;──────────┐    └──────────────────────────────────┘
      *   │└}                 │    ┌───────────────────────────────┐
      *   │                   └────┤ increases the value of i by 1 │
      *   │                        └───────────────────────────────┘
@@ -353,14 +429,21 @@ public class Tokens : MonoBehaviour
 
     public void Start()
     {
+        // Delete the // at the beginning of the
+        // line where ShowSomeInts(); appears
+        // this will "uncomment" the line and
+        // the compiler will see it and run that
+        // line to execute the code.
+
+        // ShowSomeInts();
         
-        ShowSomeInts();
         // the above shows
         // someInt: 10 
         // someInt: 0
         // someInt: 10000
 
-        ShowAResultAndBResult();
+        //ShowAResultAndBResult();
+        
         // the above shows
         // The result of A: 6
         // The result of B: 10
