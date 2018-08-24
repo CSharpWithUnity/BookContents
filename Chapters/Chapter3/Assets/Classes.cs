@@ -48,9 +48,7 @@ class Objects
         //Assembly Instructions
         void Instructions()
         {
-            //TODO:
-            //write instructions on 
-            //how to build a table.
+            //TODO: write instructions on how to build a table.
         }
     }
 

@@ -131,7 +131,7 @@ public class Types : MonoBehaviour {
         int fromString = int.Parse(s);
         Debug.Log("fromString: " + fromString);
 
-
+        //TODO: Clean up comments.
     }
 
     // Update is called once per frame
