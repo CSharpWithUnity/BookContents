@@ -104,6 +104,34 @@ public class Types : MonoBehaviour {
         
         // this doesn't need a cast
         Debug.Log("yetAnotherDouble: " + yetAnotherDouble);
+
+        /*
+         * Section 3.13.1 continued...
+         */
+
+        int largeInt = 2147483647;
+        Debug.Log("largeInt: " + largeInt);
+        float largeFloat = largeInt;
+        Debug.Log("largeFloat: " + largeFloat);
+        int backAgain = (int)largeFloat;
+        Debug.Log("backAgain: " + backAgain);
+
+        int largeIntAgain = 214748361;
+        Debug.Log("largeIntAgain: " + largeIntAgain);
+        float largeFloatAgain = largeIntAgain;
+        Debug.Log("largeFloatAgain: " + largeFloatAgain);
+        int backAgainAgain = (int)largeFloatAgain;
+        Debug.Log("backAgainAgain: " + backAgainAgain);
+
+        /*
+         * Section 3.13.1 continued...
+         */
+
+        string s = "1";
+        int fromString = int.Parse(s);
+        Debug.Log("fromString: " + fromString);
+
+
     }
 
     // Update is called once per frame
