@@ -166,7 +166,7 @@ public class ClassConstruction : MonoBehaviour
     }
 
     /*
-     * Section 4.4.5
+     * Section 4.4.6 What We've Learned
      */
 
     void AccessOtherClass()
