@@ -159,4 +159,44 @@ public class Scope : MonoBehaviour
      *    }╚═══════════════════════════════╝
      *    
      */
+
+    /*
+     * Section 4.8.3 Blank Scope
+     */
+
+    void BlankScope()
+    {
+            int a = 0;
+        {
+            int b = 1;
+            Debug.Log(a);
+        }
+        //Debug.Log(b);
+
+        /*
+         * uncomment the line above
+         * to observe the error.
+         */
+
+        {
+            int b = 0;
+            Debug.Log(b);
+        }
+        {
+            int b = 1;
+            Debug.Log(b);
+            /*
+             * int b works
+             * since the last
+             * declaration of
+             * b was in a
+             * different blank
+             * scope.
+             */
+        }
+
+        {
+            Debug.Log("blank scope...");
+        }// put a label of what the code is doing here.
+    }
 }
