@@ -27,7 +27,7 @@ public class Loops : MonoBehaviour {
          * counter = counterPlusOne;
          * 
          * The above two lines work, but it's a bit
-         * long winded.
+         * verbose.
          * 
          * counter = counter + 1;
          * 
