@@ -8,7 +8,53 @@
  */
 
 using UnityEngine;
+
 public class Review : MonoBehaviour
 {
+    /*
+     * Section 5.2 Review
+     * 
+     * int a = 10;
+     * Pretty familiar with the above by now.
+     * 
+     * local a = 10
+     * the same thing, but in lua
+     * 
+     * var a = 10;
+     * javascript shares the ; separator
+     * but uses var as a generic variable
+     * storage keyword.
+     */
+    void Function()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            // Code Here
+        }
+        /*
+         * for i = 0, 10, i++
+         * do
+         *     // Code Here
+         * end
+         * 
+         * Lua omits many of the separators
+         * that are used by many other languages
+         * C# included.
+         */
+    }
 
+    private void Start()
+    {
+        SomeNewClass newClass = (SomeNewClass)FindObjectOfType(typeof(SomeNewClass));
+        Debug.Log(newClass.MyFunction(11));
+    }
+
+    /*
+     * Here we can look for the SomeNewClass in the scene
+     * and use one of it's functions.
+     */
 }
+
+/*
+ * Section 5.2 continued...
+ */
