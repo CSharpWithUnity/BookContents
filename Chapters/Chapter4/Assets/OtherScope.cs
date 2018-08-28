@@ -18,10 +18,9 @@ public class OtherScope : MonoBehaviour
 
     Vector3 mScale;
 
-    private void Update()
+    void Update()
     {
         mScale = new Vector3(Size, Size, Size);
         transform.localScale = mScale;
     }
 }
- 
