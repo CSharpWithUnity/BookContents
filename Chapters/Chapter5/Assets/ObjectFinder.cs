@@ -1,5 +1,13 @@
-﻿using UnityEngine;
+﻿/*
+ * Chapter 5.3.4 Object
+ *
+ * Copyright © 2018 Alex Okita
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
 
+using UnityEngine;
 public class ObjectFinder : MonoBehaviour {
 
 	// Use this for initialization
@@ -54,9 +62,19 @@ public class ObjectFinder : MonoBehaviour {
             {
                 Debug.Log(o);
                 ObjectChild child = o.GetComponent(typeof(ObjectChild)) as ObjectChild;
+                /*
+                 * child is initialized as null
+                 * if GetComponent returns an object
+                 * then child is not null
+                 */
                 if (child != null)
                 {
                     foundObject = o;
+                    /*
+                     * if child isn't null
+                     * then we found an object
+                     * with the ObjectChild attached
+                     */
                 }
             }
         }
