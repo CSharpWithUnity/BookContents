@@ -47,6 +47,19 @@ public class Static : MonoBehaviour
             // i no longer exists.
             // Debug.Log(i); //i is undefined.
         }
+        {
+            /*
+             * Section 5.5.3 Static Functions
+             */
+            bool aKey = Input.GetKey(KeyCode.A);
+            if (aKey)
+            {
+                Zombie.CountZombies();
+            }
 
+            /*
+             * The call to the Zombie static function
+             */
+        }
     }
 }
