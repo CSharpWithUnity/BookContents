@@ -153,7 +153,7 @@ public class OperatorsAndConditions : MonoBehaviour
         }
         {
             /*
-             * Section 5.8.2 continued again...
+             * Section 5.8.2 continued...
              */
             bool isAbove = target.transform.position.y > transform.position.y;
             bool isInfront = target.transform.position.z > transform.position.z;
@@ -164,6 +164,9 @@ public class OperatorsAndConditions : MonoBehaviour
 
         }
         {
+            /*
+             * Section 5.8.2 continued...
+             */
             bool isInfrontAndAboveAndRight = target.transform.position.y >
             transform.position.y && target.transform.position.z > transform.position.z &&
             !(target.transform.position.x < transform.position.x);
