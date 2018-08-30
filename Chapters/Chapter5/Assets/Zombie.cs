@@ -68,4 +68,11 @@ public class Zombie : MonoBehaviour
         Quaternion direction = Quaternion.LookRotation(towardPlayer, transform.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime * 5f);
     }
+    /*
+     * Section 5.7.3 Class is a type continued...
+     */
+    private void OnDestroy()
+    {
+        numZombies--;
+    }
 }
