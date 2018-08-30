@@ -16,6 +16,7 @@ public class Zombie : MonoBehaviour
      * remove the static keyword above
      * to see a different result
      */
+    public int hitPoints;
 	void Start ()
     {
         numZombies++;
