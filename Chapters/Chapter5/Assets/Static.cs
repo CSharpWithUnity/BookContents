@@ -11,7 +11,6 @@ using UnityEngine;
 
 public class Static : MonoBehaviour
 {
-
     void Update()
     {
         {
