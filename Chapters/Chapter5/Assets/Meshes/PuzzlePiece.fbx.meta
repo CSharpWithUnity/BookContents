@@ -4,11 +4,20 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: Directional Light
+    100006: PuzzlePiece_Mesh
     400000: //RootNode
+    400002: Camera
+    400004: Directional Light
+    400006: PuzzlePiece_Mesh
     2100000: PuzzlePiece_Material
     2300000: //RootNode
+    2300002: PuzzlePiece_Mesh
     3300000: //RootNode
+    3300002: PuzzlePiece_Mesh
     4300000: PuzzlePiece_Mesh
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -52,7 +61,7 @@ ModelImporter:
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
-    weldVertices: 1
+    weldVertices: 0
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8

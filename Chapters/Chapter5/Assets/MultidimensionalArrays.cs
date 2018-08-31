@@ -83,5 +83,25 @@ public class MultidimensionalArrays : MonoBehaviour
             }
         }
     }
+
+    /*
+     * Section 5.11.5 MultiDimensional Arrays - What We've Learned
+     */
+    void MultiDimensionArrayExample()
+    {
+        GameObject a = new GameObject("a");
+        GameObject b = new GameObject("b");
+        GameObject c = new GameObject("c");
+        GameObject d = new GameObject("d");
+        GameObject e = new GameObject("e");
+        GameObject f = new GameObject("f");
+        GameObject[,,] threeDimensions = new GameObject[4, 3, 2]
+        {
+            { {a, b}, { c, d}, { e, f} },
+            { {a, b}, { c, d}, { e, f} },
+            { {a, b}, { c, d}, { e, f} },
+            { {a, b}, { c, d}, { e, f} }
+        };
+    }
 }
 
