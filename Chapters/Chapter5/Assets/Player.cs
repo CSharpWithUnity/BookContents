@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Vector3 position;
     void Update()
     {
         bool w = Input.GetKey(KeyCode.W);

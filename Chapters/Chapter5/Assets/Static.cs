@@ -40,7 +40,7 @@ public class Static : MonoBehaviour
              */
             for (int i = 0; i < 10; i++)
             {
-                //Debug.Log(i); // prints 1 to 10
+                Debug.Log(i); // prints 1 to 10
                 //uncomment the line above to see the numbers
             }
             // i no longer exists.
