@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjects: []
-  specificObject: {fileID: 1017972688}
+  specificObject: {fileID: 940082386}
+  messyInts: 0c0000000e0000000600000001000000000000007b0000005c00000008000000
 --- !u!1 &396349531
 GameObject:
   m_ObjectHideFlags: 0
