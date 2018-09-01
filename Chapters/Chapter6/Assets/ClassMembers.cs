@@ -40,11 +40,87 @@ public class ClassMembers : MonoBehaviour
          */
         Debug.Log(ImANumber());
         Debug.Log(ImANumber() + ImANumber());
+
+        //ImANumber() = 7;
+        /*
+         * Uncomment the line above to
+         * see the error.
+         */
+        {
+            /*
+             * Section 6.3.4 Arguments aka Args (Not Related to Pirates)
+             */
+            Debug.Log(INeedANumber(1));
+
+            int val = INeedANumber(3) + INeedANumber(7);
+            Debug.Log(val);
+        }
+        {
+            /*
+             * Section 6.3.4.2 Multiple Args
+             */
+            Debug.Log(INeedTwoNumbers(7, 10));
+        }
     }
-    
+    /*
+     * Section 6.3.4 continued...
+     */
     int ImANumber()
     {
         return 3;
+    }
+
+    int INeedANumber(int number)
+    {
+        return number;
+    }
+
+    int INeedANumberPlusOne(int number)
+    {
+        return number + 1;
+    }
+    /*
+     * Section 6.3.4.2 Multiple Args
+     */
+    int INeedTwoNumbers(int a, int b)
+    {
+        return a + b;
+    }
+
+    int INeedTwoNumbersOfDifferentTypes(int a, float b)
+    {
+        return a + (int)b;
+    }
+
+    bool NumbersAreTheSame(int a, int b)
+    {
+        bool returnValue;
+        if (a == b)
+        {
+            returnValue = true;
+        }
+        else
+        {
+            returnValue = false;
+        }
+        return returnValue;
+    }
+
+    bool NumbersAreTheSameSimple(int a, int b)
+    {
+        if (a == b)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool NumbersAreTheSameMostSimple(int a, int b)
+    {
+        return a == b;
     }
 
     public Vector3 position;
@@ -74,8 +150,84 @@ public class ClassMembers : MonoBehaviour
         {
             position.z = position.z - 0.1f;
         }
-        transform.position = position;
 
+        // transform.position = position;
+        /* uncomment to see the position
+         * update from the above functions
+         */
+
+        /*
+         * 6.3.4.3 Using Args continued...
+         */
+
+        //transform.position += Movement(0.2f);
+        /*
+         * Uncomment the line above
+         * to see how the code works with
+         * a hard coded value.
+         */
+
+        transform.position += Movement(Speed);
+
+        /*
+         * Section 6.3.5 Assignment Operators
+         */
+        UpdateAssignmentOperators();
+    }
+
+    /*
+     * Section 6.3.4.3 Using Args
+     */
+    
+    Vector3 Movement(float dist)
+    {
+        Vector3 vector = Vector3.zero;
+        if (Input.GetKey(KeyCode.A))
+        {
+            vector.x -= dist;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            vector.x += dist;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            vector.z += dist;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            vector.z -= dist;
+        }
+        return vector;
+    }
+    public float Speed;
+
+    /*
+     * Section 6.3.5 Assignment Operator
+     */
+    float f = 0;
+    void UpdateAssignmentOperators()
+    {
+        //transform.position += new Vector3(0.1f, 0, 0);
+        /*
+         * Uncomment the line above to see a constant movement
+         * on x.
+         */
+
+        /*
+         * Section 6.3.5.1 Assignment Operators - A Basic Example.
+         */
+
+        f += 0.25f;
+        Debug.Log(f);
+
+        transform.position += Offset();
+        
+    }
+
+    Vector3 Offset()
+    {
+        return new Vector3(0.1f, 0.2f, 0.3f);
     }
 
 }
