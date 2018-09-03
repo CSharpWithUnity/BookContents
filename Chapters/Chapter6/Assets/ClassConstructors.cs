@@ -116,7 +116,7 @@ public class ClassConstructors : MonoBehaviour
             /*
              * Section 6.4.2 Class Constructors - What We've Learned...
              */
-            //Zombie rob = new Zombie("Stubbs", 10, new Vector3(0, 0, 1));
+            // Zombie rob = new Zombie("Stubbs", 10, new Vector3(0, 0, 1));
 
             string[] names = new string[] { "Stubbs", "Rob", "White" };
             for (int i = 0; i < names.Length; i++)
