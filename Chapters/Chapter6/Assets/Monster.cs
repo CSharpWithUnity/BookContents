@@ -9,8 +9,19 @@
 using UnityEngine;
 public class Monster : MonoBehaviour
 {
+    public int ID;
+    public float Spacing = 1.1f;
     void Start()
     {
         Debug.Log("Im Alive!");
+    }
+
+    /*
+     * Section 6.5.3 Type Casting Unity 3D Objects
+     */
+    void Update()
+    {
+        float wave = Mathf.Sin(Time.fixedTime + ID);
+        transform.position = new Vector3(ID * Spacing, wave, 0);
     }
 }

@@ -121,6 +121,35 @@ public class ArraysRevisited : MonoBehaviour
                 MonsterBoxes[i] = box;
             }
         }
+
+        {
+            /*
+             * Section 6.5.3 Type Casting Unity 3D Objects
+             */
+            MonsterBoxes = new GameObject[numBoxes];
+            for (int i = 0; i < numBoxes; i++)
+            {
+                GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                box.AddComponent(typeof(Monster));
+                Monster m = box.GetComponent(typeof(Monster)) as Monster;
+                m.ID = i;
+                MonsterBoxes[i] = box;
+            }
+        }
+
+        {
+            /*
+             * Section 6.5.3 Type Casting Unity 3D Objects
+             */
+            MonsterBoxes = new GameObject[numBoxes];
+            for (int i = 0; i < numBoxes; i++)
+            {
+                GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                Monster m = box.AddComponent(typeof(Monster)) as Monster;
+                m.ID = i;
+                MonsterBoxes[i] = box;
+            }
+        }
     }
 
     void Update()
