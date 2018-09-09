@@ -108,5 +108,8 @@ public class BaseMonster
 
 public class Zombie : BaseMonster
 {
+    public Zombie(int maxMP) : base(maxMP)
+    {
+    }
 }
 
