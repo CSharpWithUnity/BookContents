@@ -15,4 +15,9 @@ using Sub = MyNamespace.SubSpace;
 
 public class UsingAliasDirectives : MonoBehaviour
 {
+    void Start()
+    {
+        Sub.MyClass sClass = new Sub.MyClass();
+        sClass.MyFunction();
+    }
 }
