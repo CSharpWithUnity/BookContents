@@ -91,6 +91,34 @@ public class InheritanceAgain : MonoBehaviour
              * version of FunctionA since it's using *
              * override                              */
         }
+        {
+            /*
+             * Section 6.13.2 Class Inheritance
+             */
+            ZombieClass zombie = new ZombieClass();
+            VampireClass vampire = new VampireClass();
+            // zombie.HitPoints = 10;
+            // vampire.HitPoints = 10;
+            /* Assignment of HitPoints = 10
+             * every time might be redundant.
+             * so they've been added to the
+             * constructor of BaseMonsterClass
+             */
+            Debug.Log(zombie.TakeDamage(5));
+            Debug.Log(vampire.TakeDamage(5));
+        }
+        {
+            ZombieClass zombie = new ZombieClass();
+            /*
+             * Section 6.13.3 Object
+             * After adding an override
+             * for the ToString() function
+             * in zombie we can get a custom
+             * Debug.Log() function from it.
+             */
+            Debug.Log(zombie);
+            // "I'm a Zombie!"
+        }
     }
 }
 
@@ -159,3 +187,50 @@ public class ChildClass : ParentClass
     }
 }
 
+/*
+ * Section 6.14.2 Class Inheritance
+ */
+
+class BaseMonsterClass
+{
+    public int HitPoints;
+    public GameObject gameObject;
+    public BaseMonsterClass()
+    {
+        HitPoints = 10;
+        gameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+        Debug.Log("A New Monster Rises!");
+    }
+
+    public virtual int TakeDamage(int damage) // ─→╮                     
+    {                                         //   │                     
+        return HitPoints - damage;            //  The virtual function   
+    }                                         //  is taken over by the   
+}                                             //  override version in    
+                                              //  zombie.                
+class ZombieClass : BaseMonsterClass          //   │                     
+{                                             //   │                     
+    public int BrainsEaten;                   //   │                     
+                                              //   │                     
+    public override int TakeDamage(int damage)// ←─╯                     
+    {                                  
+        return base.TakeDamage(damage);       // base.TakeDamage(damage); re-uses
+    }                                         // the original implementation
+    /* Commenting out the above TakeDamage           */
+    /* will mean to use the original implementation  */
+    /* of TakeDamage from the BaseMonsterClass       */
+
+    public override string ToString()
+    {
+        return "I'm a Zombie!";
+    }
+}
+
+class VampireClass : BaseMonsterClass
+{
+    public int BloodSucked;
+    public override int TakeDamage(int damage)
+    {
+        return HitPoints - (damage / 2); // doesn't use base, so it's a new
+    }                                    // version of the original
+}
