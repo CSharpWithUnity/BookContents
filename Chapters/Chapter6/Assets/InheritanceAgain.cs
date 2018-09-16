@@ -131,6 +131,9 @@ public class ChildClass : ParentClass
      *        ↓                                     */
     public override void FunctionA()
     {
+        /*
+         * Section 6.13.1.1.1 Base
+         */
         base.FunctionA();
         /*  ↑                              *
          * "Parent Function A Says Hello." *
