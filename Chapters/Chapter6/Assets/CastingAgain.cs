@@ -24,6 +24,9 @@ public class CastingAgain : MonoBehaviour
     {
         SimpleEnums simpleEnum = SimpleEnums.SecondValue;
         int convertedEnum = simpleEnum as int;
+        /* Uncomment the line above ↑ to see the error
+         */
+
     }
 }
 
