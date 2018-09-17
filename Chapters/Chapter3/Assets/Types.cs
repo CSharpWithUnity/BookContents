@@ -101,7 +101,28 @@ public class Types : MonoBehaviour {
 
         /*
          * Section 3.13.1 continued...
-         */
+         * the (type) operator tells C# to convert
+         * the object to the right of the operator
+         * to become the type as indicated in the
+         * parenthesis.
+         *                 ┌─────────────┐
+         *   ┌─────────────┤ destination │
+         *   │             │ type 1.0f   │
+         *   │             └─────┬───────┘
+         *   ↑                   ↓
+         * float targetFloat =(float)1.0;
+         *       ↑     ↓              ↑
+         *       ╰ 1.0f╯              │
+         *      assignment     ┌──────┴────────┐
+         *                     │ original type │
+         *                     │ (double)  1.0 │
+         *                     └───────────────┘       */
+         float targetFloat = (float)1.0;
+        /* type conversion works for other data types:
+         * int i = (int)1.0;
+         * float f = (float)1.0;                       */
+
+        Debug.Log(targetFloat);
 
         int anotherInt = 1;
         double anotherDouble = 0.9;
