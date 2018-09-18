@@ -108,6 +108,15 @@ public class CastingAgain : MonoBehaviour
 
     class CastableZombie : CastableHumanoid
     {
+        public bool isZombie;
+        static public implicit operator CastablePerson(CastableZombie zombie)
+        {
+            CastablePerson castable = new CastablePerson();
+            castable.HitPoints = 1;
+            // imply you've revived someone
+            // and they're barely alive.
+            return castable;
+        }
     }
 
     void CastingCastableHumanoids()
@@ -128,6 +137,50 @@ public class CastingAgain : MonoBehaviour
             CastableZombie z = (CastableZombie)p;
             Debug.Log(z + " " + z.HitPoints);
             // CastableAgain+CastableZombie -10
+        }
+        {
+            /*
+             * Section 6.14.3 Implicit versus Explicit Type Conversion
+             */
+            CastableHumanoid[] humanoids = new CastableHumanoid[]
+            {
+                new CastableZombie(),
+                new CastablePerson(),
+                new CastableHumanoid(),
+                new CastableZombie(),
+                new CastablePerson()
+            };
+
+            foreach (CastableHumanoid humanoid in humanoids)
+            {
+                Debug.Log(humanoid + " is a humanoid");
+                Debug.Log("humanoid has: " + humanoid.HitPoints + "HP");
+
+                //if (humanoid.isZombie)//variable could not be found!
+                //{
+                //    Debug.Log("humanoid is a zombie?");
+                //}
+
+                /* Uncomment the block of code above to see
+                 * the error.
+                 */
+            }
+        }
+    }
+
+    struct A
+    {
+        public static explicit operator B(A a)
+        {
+            return new B();
+        }
+    }
+
+    struct B
+    {
+        static public explicit operator A(B b)
+        {
+            return new A();
         }
     }
 }
