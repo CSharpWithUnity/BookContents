@@ -11,7 +11,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Zombie_Mesh
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zombie_Black
+    second: {fileID: 2100000, guid: 19a055d907b34ab448787197c5eaa98d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zombie_Gray
+    second: {fileID: 2100000, guid: 64706b15772e6ca4a877dc2bc8966bc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zombie_Green
+    second: {fileID: 2100000, guid: 32c952141f1c14c44ac76fb5e9490807, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
