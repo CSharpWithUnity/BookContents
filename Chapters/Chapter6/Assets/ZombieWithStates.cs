@@ -19,17 +19,11 @@ public class ZombieWithStates : MonoBehaviour
         Feeding
     }
     public MovementStates MovementState;
-    public MovementStates PreviousState;
     public float StateTimer;
     Quaternion targetRotation;
 
     void Update()
     {
-        if (PreviousState != MovementState)
-        {
-            Debug.Log("State Changed from: " + PreviousState + " to: " + MovementState);
-            PreviousState = MovementState;
-        }
         //zombie specific behavior
         HumanWithStates closestHuman = null;
         GameObject[] allGameObjects = GameObject.FindObjectsOfType<GameObject>();
@@ -54,17 +48,13 @@ public class ZombieWithStates : MonoBehaviour
         // Jump to specific label for updates
         switch (MovementState)
         {
-            case MovementStates.Idleing:
-                goto Idle;
-            case MovementStates.Wandering:
-                goto Wander;
-            case MovementStates.Looking:
-                goto Look;
-            case MovementStates.Chasing:
-                goto Chase;
-            case MovementStates.Feeding:
-                goto Feed;
+            case MovementStates.Idleing: goto Idle;
+            case MovementStates.Wandering: goto Wander;
+            case MovementStates.Looking: goto Look;
+            case MovementStates.Chasing: goto Chase;
+            case MovementStates.Feeding: goto Feed;
         }
+
         // return here to update timers.
         UpdateTimer:
         if (Time.time > StateTimer)
@@ -75,14 +65,11 @@ public class ZombieWithStates : MonoBehaviour
                 case MovementStates.Idleing:
                     switch (Random.Range(0, 3))
                     {
-                        case 0:
-                            MovementState = MovementStates.Idleing;
+                        case 0: MovementState = MovementStates.Idleing;
                             break;
-                        case 1:
-                            MovementState = MovementStates.Looking;
+                        case 1:MovementState = MovementStates.Looking;
                             break;
-                        case 2:
-                            MovementState = MovementStates.Wandering;
+                        case 2:MovementState = MovementStates.Wandering;
                             break;
                     }
                     break;
@@ -94,8 +81,7 @@ public class ZombieWithStates : MonoBehaviour
                     break;
             }
         }
-        // escape from Update()
-        return;
+        return;// escape from Update()
 
         Idle:
         Debug.Log("Idle");
@@ -119,6 +105,11 @@ public class ZombieWithStates : MonoBehaviour
 
             // rotate toward the randomized direction
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 5f);
+
+            /*
+             * Section 6.16.3 This is a Reference to Yourself
+             */
+
             if (this.GetType() == typeof(HumanWithStates))
                 goto UpdateTimer;
         }
