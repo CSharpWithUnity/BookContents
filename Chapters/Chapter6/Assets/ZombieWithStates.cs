@@ -20,11 +20,15 @@ public class ZombieWithStates : MonoBehaviour
     }
     public MovementStates MovementState;
     public float StateTimer;
+
     Quaternion targetRotation;
 
     void Update()
     {
-        //zombie specific behavior
+        /*
+         * Section 6.16.3 Just For Zombies
+         */
+
         HumanWithStates closestHuman = null;
         GameObject[] allGameObjects = GameObject.FindObjectsOfType<GameObject>();
         float closest = Mathf.Infinity;
@@ -45,6 +49,9 @@ public class ZombieWithStates : MonoBehaviour
             }
         }
 
+        /*
+         * Section 6.16.2 Zombie State Machine
+         */
         // Jump to specific label for updates
         switch (MovementState)
         {
@@ -90,6 +97,13 @@ public class ZombieWithStates : MonoBehaviour
         Look:
         Debug.Log("Look");
         {
+            /*
+             * Section 6.16.2 Zombie State Machine continued...
+             */
+            
+            // update rotation
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 5f);
+            
             // checking if we're facing our target direction
             float angle = Quaternion.Angle(transform.rotation, targetRotation);
             if (angle < 0.1f || angle == 180)
@@ -103,17 +117,15 @@ public class ZombieWithStates : MonoBehaviour
                 targetRotation = Quaternion.LookRotation(dir, transform.up);
             }
 
-            // rotate toward the randomized direction
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 5f);
-
             /*
              * Section 6.16.3 This is a Reference to Yourself
              */
 
             if (this.GetType() == typeof(HumanWithStates))
                 goto UpdateTimer;
-        }
-        {
+            /*
+             * Section 6.16.4 Just for Zombies
+             */
             if (closest < 5)
             {
                 targetRotation = Quaternion.LookRotation(direction, transform.up);
@@ -124,8 +136,13 @@ public class ZombieWithStates : MonoBehaviour
         goto UpdateTimer;
 
         Wander:
+        Debug.Log("Wander");
         {
+            /*
+             * Push the character forward to walk around while lookinmg
+             */
             transform.position += transform.forward * 0.01f;
+            
         }
         goto Look;
 
@@ -133,7 +150,9 @@ public class ZombieWithStates : MonoBehaviour
         Debug.Log("Chase");
         {
             if (closest < 0.25f)
+            {
                 MovementState = MovementStates.Feeding;
+            }
             transform.position += transform.forward * 0.01f;
         }
         goto UpdateTimer;
