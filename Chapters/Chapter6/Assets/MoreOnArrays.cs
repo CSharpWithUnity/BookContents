@@ -7,6 +7,7 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
+using System.Collections;
 using UnityEngine;
 
 public class MoreOnArrays : MonoBehaviour
@@ -17,7 +18,6 @@ public class MoreOnArrays : MonoBehaviour
             /*
              * Section 6.17.1 More On Arrays
              */
-
             int i;
             /* a single int value */
             int[] ints;
@@ -83,12 +83,55 @@ public class MoreOnArrays : MonoBehaviour
             }
         }
         {
-            /* with some value types you can just assign them without new type[]*/
-            /*  omitted   ↓ new int[], instead we're just assigning values      */
+            /* with some value types you can just assign them without new type[]    */
+            /*  omitted   ↓ new int[], instead we're just assigning values {values} */
             int[] primes = { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
             int[] fibonacci = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 };
             int[] powersOfTwo = { 1, 2, 4, 8, 16, 32, 64, 128, 255, 512, 1024 };
-            object[] numbers = { primes, fibonacci, powersOfTwo};
+            ArrayList numbers = new ArrayList{ primes, fibonacci, powersOfTwo};
+            int numArrays = numbers.Count; /* ArrayList uses .Count, not .Length */
+            for (int i = 0; i < numArrays; i++)
+            {
+                /*  ❶ nums assumes the type array of ints               */
+                /*  ┌────────────────────────────────┐ ┌───────────────┐*/
+                /*  ↓                                │ │ ❷ this allows │*/
+                int[] nums = numbers[i] as int[];/*  ├─┤   the use of  │*/
+                int items = nums.Length;/* ←─────────┘ │   .Length     │*/
+                                        /*             └───────────────┘*/
+                for (int j = 0; j < items; j++)
+                {
+                    Debug.Log(nums[j]);
+                }
+            }
+            
+            //int notAvailable = numbers.Length;
+            /* uncomment the line above to see the error */
+
+            /* also valid! */
+            object[] obj_numbers = { primes, fibonacci, powersOfTwo };
+            foreach (int[] nums in obj_numbers)
+            {/*          ↑                    ┌────────────────────────┐ */
+             /*          └────────────────────┤ performs the int[] cast│ */
+             /*                               │ from the object array  │ */
+                foreach (int n in nums) /*    └────────────────────────┘ */
+                {
+                    Debug.Log(n);
+                }
+            }
+        }
+        {
+            /*
+             * Section 6.17.3 Discovery
+             */
+            int[] primes = { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
+            int[] fibonacci = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 };
+            int[] powersOfTwo = { 1, 2, 4, 8, 16, 32, 64, 128, 255, 512, 1024 };
+            ArrayList numbers = new ArrayList { primes, fibonacci, powersOfTwo };
+            object thing = numbers.ToArray();
+            Debug.Log("thing is: " + thing);
+
+            object[] anotherThing = numbers.ToArray() as object[];
+            Debug.Log("anotherThing Length: " + anotherThing.Length);
         }
     }
 }
