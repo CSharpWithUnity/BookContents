@@ -781,6 +781,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68427ef5f0e069342a15f6f0bb5e74e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumProjectiles: 10
+  ProjectileSpeed: 10
+  ProjectileObject: {fileID: 742372107}
+  Turret: {fileID: 1678755793}
+  Launcher: {fileID: 1465256145}
+  DelayBetweenShots: 0.33
 --- !u!114 &477937469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,6 +1333,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 278d8517dda5c2746ab60fca2b103a50, type: 3}
   m_PrefabInstance: {fileID: 700318703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &742372107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 278d8517dda5c2746ab60fca2b103a50, type: 3}
+  m_PrefabInstance: {fileID: 700318703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &742372111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742372107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb3532137cad78459a3f3685e4d9b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &765491299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2271,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 547f36cf7193b6b4ca24a5d8a9cc39bc, type: 3}
   m_PrefabInstance: {fileID: 1452778291}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1465256145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 278d8517dda5c2746ab60fca2b103a50, type: 3}
+  m_PrefabInstance: {fileID: 700318703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1476053615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,6 +2659,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: -165.82301, z: 0}
+--- !u!1 &1678755793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: 278d8517dda5c2746ab60fca2b103a50, type: 3}
+  m_PrefabInstance: {fileID: 700318703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1692903451
 PrefabInstance:
   m_ObjectHideFlags: 0
