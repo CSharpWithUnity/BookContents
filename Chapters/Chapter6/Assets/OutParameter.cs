@@ -77,11 +77,61 @@ public class OutParameter : MonoBehaviour
     /*
      * Section 6.18.2 Simple Sorting (Bubble Sort)
      */ 
-    bool SortDistanceFromObject(GameObject target, out GameObject[] sorted)
+    bool SortDistanceFromObject(GameObject target, GameObject[] unsorted, out GameObject[] sorted)
     {
-        sorted = new GameObject[1];
+        int len = unsorted.Length;
+        for (int i = 0; i < len; i++)
+        {
+            int restLen = len - i - 1;
+            /* start at the beginning of the array */
+            for (int j = 0; j < restLen; j++)
+            {
+                /* then compare everyone against every other one */
+                /* get positions of an object in the array  */
+                /* and the following one.                   */
+                Vector3 posA = unsorted[j].transform.position;
+                Vector3 posB = unsorted[j + 1].transform.position;
+
+                /* get the distance of each object from the target */
+                float distA = (posA - target.transform.position).magnitude;
+                float distB = (posB - target.transform.position).magnitude;
+
+                /* compare distances */
+                if(distA > distB)
+                {
+                    /* if B is further than A then swap them */
+                    GameObject temp = unsorted[j];
+                    unsorted[j] = unsorted[j + 1];
+                    unsorted[j + 1] = temp;
+                }
+            }
+        }
+        sorted = unsorted;
         return sorted.Length > 0;
     }
+    /* first iteration on 5 items                   */
+    /* a↔b means a compared to b                    */
+    /* { a, b, c, d, e } len = 5                    */
+    /*                                              */
+    /*                   ┌─────────────────┐        */
+    /*  i=0 j=[0..4]     │e gets calculated│        */
+    /*  a↔b b↔c c↔d d↔e←─┤because its in   │        */
+    /*                   │position [j+1]   │        */
+    /*  i=1 j=[0..3]     └─────────────────┘        */
+    /*  iteration 2                                 */
+    /*  a↔b b↔c c↔d    ┌─────────────────────┐      */
+    /*                 │   indicies compared:│      */
+    /*  i=2 j=[0..2]   │ ❶ 0↔1 1↔2 2↔3 3↔4   │      */
+    /*  iteration 3    │ ❷ 0↔1 1↔2 2↔3       │      */
+    /*  a↔b b↔c        │ ❸ 0↔1 1↔2           │      */
+    /*                 │ ❹ 0↔1               │      */
+    /*  i=3 j=[0..1]   └─────────────────────┘      */
+    /*  iteration 3                                 */
+    /*  a↔b                                         */
+    /*                                              */
+    /*  i=4 j=[0..0]                                */
+    /*  ...                                         */
+    /*                                              */
 
     void Start()
     {
@@ -137,25 +187,39 @@ public class OutParameter : MonoBehaviour
                 AimPoint.transform.rotation = normal;
             }
         }
-        {
-            /*
-             * Section 6.18.2 Simple Sort (Bubble Sort)
-             */
+    }
 
-            /* make an array to sort */
-            GameObject[] allObjects = FindObjectsOfType<GameObject>();
-            ArrayList sphereList = new ArrayList();
-            foreach(GameObject go in allObjects)
+    private void Update()
+    {
+        /*
+         * Section 6.18.2 Simple Sort (Bubble Sort)
+         */
+
+        /* make an array to sort */
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        ArrayList sphereList = new ArrayList();
+        foreach(GameObject go in allObjects)
+        {
+            bool isSphere = go.name.Contains("Sphere");
+            if(isSphere)
             {
-                bool isSphere = go.name.Contains("Sphere");
-                if(isSphere)
-                {
-                    sphereList.Add(go);
-                }
+                sphereList.Add(go);
             }
-            GameObject[] sortableSpheres = sphereList.ToArray() as GameObject[];
-            if(SortDistanceFromObject(gameObject, out sortableSpheres))
+        }
+
+        /* now we have some objects to sort*/
+        GameObject[] spheres = new GameObject[sphereList.Count];
+        /* copy the list to the array */
+        sphereList.CopyTo(spheres);
+
+        /* now send the unsorted array to the function, then get a sorted array out */
+        if(SortDistanceFromObject(gameObject, spheres, out spheres))
+        {
+            int lineHeight = 1;
+            foreach(GameObject go in spheres)
             {
+                Vector3 up = new Vector3(){ y = lineHeight++ * 0.5f};
+                Debug.DrawRay(go.transform.position, up, Color.red);
             }
         }
     }
