@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class OutParameter : MonoBehaviour
 {
+    public GameObject AimPoint;
     int GetSeven()
     {
         return 7;
@@ -116,10 +117,16 @@ public class OutParameter : MonoBehaviour
         {
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit raycastHit;
-
-            Physics.Raycast( ray, out raycastHit);
-            
-            Debug.Log(raycastHit);
+            /*             └❶→────────────┐                                                   */
+            if(Physics.Raycast( ray, out raycastHit))                     
+            {/*       ↓                   │   hit value has a point                           */
+             /* conditional statement     │   in the world where it hit something...          */
+             /* if there's anything       │               ❷             ❸  and orientation of */
+             /* actually hit by the ray   └───────────────┬─────────────┐  the surface it hit */
+                AimPoint.transform.position = raycastHit.point;/*       ↓ */
+                Quaternion normal = Quaternion.LookRotation(raycastHit.normal, AimPoint.transform.up);
+                AimPoint.transform.rotation = normal;
+            }
         }
     }
 }
