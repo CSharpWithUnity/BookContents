@@ -9,14 +9,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class GunTurret : MonoBehaviour
+public class GunTurretLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,24 +19,30 @@ public class GunTurret : MonoBehaviour
              * Section 6.17.4 Putting it all together!
              */
             GameObject[] allObjects = FindObjectsOfType<GameObject>();
-            ArrayList clearZombies = new ArrayList();//zombies that are not close to any humans
             ArrayList zombies = new ArrayList();
             ArrayList humans = new ArrayList();
+
             // iterate through all game objects and find humans and zombies
+
             foreach (GameObject go in allObjects)
             {
-                ZombieWithStates aZombie = go.GetComponent<ZombieWithStates>();
-                HumanWithStates aHuman = go.GetComponent<HumanWithStates>();
-                if (aHuman != null)
+                HumanWithStates aHuman = go.GetComponent<HumanWithStates>() as HumanWithStates;
+                ZombieWithStates aZombie = go.GetComponent<ZombieWithStates>() as ZombieWithStates;
+                bool isHuman = aHuman != null;
+                bool isZombie = aZombie != null;
                 {
-                    humans.Add(go);
-                    continue;
-                }
-                if (aZombie != null)
-                {
-                    zombies.Add(go);
+                    if (isHuman)
+                    {
+                        humans.Add(go);
+                        continue; //added to skip the zombies.Add(go); statement.
+                    }
+                    if (!isHuman && isZombie)
+                    {
+                        zombies.Add(go);
+                    }
                 }
             }
+
             GameObject[] theZombies = new GameObject [zombies.Count];
             zombies.CopyTo(theZombies);
             foreach (GameObject z in theZombies)
@@ -51,13 +51,14 @@ public class GunTurret : MonoBehaviour
                 foreach (GameObject h in humans)
                 {
                     float dist = (z.transform.position - h.transform.position).magnitude;
-                    float tooCloseToZombie = 1.5f;
+                    float tooCloseToZombie = 1.0f;
                     if (dist < tooCloseToZombie)
                     {
                         zombies.Remove(z);
                     }
                 }
             }
+
             float closestDistance = Mathf.Infinity;
             GameObject closestTarget = null;
             foreach (GameObject zombie in zombies)
