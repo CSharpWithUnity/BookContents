@@ -73,6 +73,15 @@ public class OutParameter : MonoBehaviour
         outValue = inValue * 2;/*              │    */
      /*    └→❷────────────────────────────────→┘    */
     }/*  outValue is set to inValue multiplied by 2 */
+    
+    /*
+     * Section 6.18.2 Simple Sorting (Bubble Sort)
+     */ 
+    bool SortDistanceFromObject(GameObject target, out GameObject[] sorted)
+    {
+        sorted = new GameObject[1];
+        return sorted.Length > 0;
+    }
 
     void Start()
     {
@@ -126,6 +135,27 @@ public class OutParameter : MonoBehaviour
                 AimPoint.transform.position = raycastHit.point;/*       ↓ */
                 Quaternion normal = Quaternion.LookRotation(raycastHit.normal, AimPoint.transform.up);
                 AimPoint.transform.rotation = normal;
+            }
+        }
+        {
+            /*
+             * Section 6.18.2 Simple Sort (Bubble Sort)
+             */
+
+            /* make an array to sort */
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+            ArrayList sphereList = new ArrayList();
+            foreach(GameObject go in allObjects)
+            {
+                bool isSphere = go.name.Contains("Sphere");
+                if(isSphere)
+                {
+                    sphereList.Add(go);
+                }
+            }
+            GameObject[] sortableSpheres = sphereList.ToArray() as GameObject[];
+            if(SortDistanceFromObject(gameObject, out sortableSpheres))
+            {
             }
         }
     }
