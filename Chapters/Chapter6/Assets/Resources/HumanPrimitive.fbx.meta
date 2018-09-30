@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1dd2b388d9ac67446a5c3cf49f4386dc
+guid: 547f36cf7193b6b4ca24a5d8a9cc39bc
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -26,7 +26,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Zombie_Green
-    second: {fileID: 2100000, guid: 32c952141f1c14c44ac76fb5e9490807, type: 2}
+    second: {fileID: 2100000, guid: 4d7dd1d1659ed414dad737e6e2faea5c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

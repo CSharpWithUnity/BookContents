@@ -1,32 +1,17 @@
 fileFormatVersion: 2
-guid: 1dd2b388d9ac67446a5c3cf49f4386dc
+guid: eaf382b1a64e9454f9fed1d6b238dad8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Zombie_Green
-    2100002: Zombie_Gray
-    2100004: Zombie_Black
+    2100000: AimPoint_White
+    2100002: AimPoint_Red
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Zombie_Mesh
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Zombie_Black
-    second: {fileID: 2100000, guid: 19a055d907b34ab448787197c5eaa98d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Zombie_Gray
-    second: {fileID: 2100000, guid: 64706b15772e6ca4a877dc2bc8966bc0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Zombie_Green
-    second: {fileID: 2100000, guid: 32c952141f1c14c44ac76fb5e9490807, type: 2}
+    4300000: AimPoint_Mesh
+    2186277476908879412: ImportLogs
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -60,10 +45,11 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -84,7 +70,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -98,7 +87,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
