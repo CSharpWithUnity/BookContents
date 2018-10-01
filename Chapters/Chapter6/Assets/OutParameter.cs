@@ -49,22 +49,22 @@ public class OutParameter : MonoBehaviour
      * Section 6.18.1 Out Parameter, A Basic Example.
      */
     void GetSevenOut(out int seven)
-    {/*  ┌←❶─────────────────←┘ ↑         */
-        seven = 7; /*           │         */
-    }/*  └→❷─────────────────→──┘         */
-     /* ❶ seven comes in, gets assigned 7 */
-     /* ❷ then is sent back out           */
+    {/*                        ↑          */
+        seven = 7; /*          │          */
+    }/*  └→❶─────────────────→─┘          */
+     /* ❶ variable given to seven         */
+     /*   gets assigned 7                 */
 
     void GetThreeValuesOut(out int first, out int second, out int third)
-    {/*   ┌←❶──────────────────────←┘ ↑            │ ↑             │ ↑  */
-        first = 1;/* assigned 1       │            │ │             │ │  */
-     /*   └→❷──────────────────────→──┘            │ │             │ │  */
-     /*   ┌←❶──────────────────────←───────────────┘ │             │ │  */
-        second = 2;/* assigned 2                     │             │ │  */
-     /*   └→❷──────────────────────→─────────────────┘             │ │  */
-     /*   ┌←❶──────────────────────←───────────────────────────────┘ │  */
-        third = 3;/*  assigned 3                                     │  */
-     /*   └→❷──────────────────────→─────────────────────────────────┘  */
+    {/*                              ↑              ↑               ↑   */
+        first = 1;/* assigned 1      │              │               │   */
+     /*   └→❷──────────────────────→─┘              │               │   */
+     /*                                             │               │   */
+        second = 2;/* assigned 2                    │               │   */
+     /*   └→❷──────────────────────→────────────────┘               │   */
+     /*                                                             │   */
+        third = 3;/*  assigned 3                                    │   */
+     /*   └→❷──────────────────────→────────────────────────────────┘   */
     }
 
 
