@@ -123,6 +123,7 @@ public class RefParameter : MonoBehaviour
         }
         return sortableObjects.Length > 0;
     }
+
     /*
      * Section 6.19.3 What we've learned
      */
