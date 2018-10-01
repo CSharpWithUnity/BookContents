@@ -177,6 +177,8 @@ public class RefParameter : MonoBehaviour
         /*
          * Section 6.19.3 What We've Learned
          */
+         UsingOutFunction();
+
          int noValue;
          //noValue++;
          /* uncomment the line above to see the error */
@@ -184,6 +186,7 @@ public class RefParameter : MonoBehaviour
          /* increment an int that has no value        */
          /* assigned yet.                             */
          /*                                           */
+         UsingRefFunction();
     }
 
     // Update is called once per frame

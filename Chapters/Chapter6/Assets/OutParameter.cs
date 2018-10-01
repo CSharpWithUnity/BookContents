@@ -82,9 +82,8 @@ public class OutParameter : MonoBehaviour
         int len = unsorted.Length;
         for (int i = 0; i < len; i++)
         {
-            int restLen = len - i - 1;
             /* start at the beginning of the array */
-            for (int j = 0; j < restLen; j++)
+            for (int j = 0; j < len - i - 1; j++)
             {
                 /* then compare everyone against every other one */
                 /* get positions of an object in the array  */
