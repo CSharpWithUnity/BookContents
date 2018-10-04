@@ -11,15 +11,35 @@ using UnityEngine;
 
 public class TypeCastingNumbers : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public int IntRotationY;
+    public float FloatRotationY;
+    public GameObject IntPointer;
+    public GameObject FloatPointer;
     void Update()
     {
+        /*
+         * Section 6.20 Type Casting Numbers
+         */
+        FloatRotationY += Time.deltaTime;
+        /*   ↑                  ↓ The amount of time that's passed between Updates */ 
+        /*   └──────────────────┘ slowly increases FloatRotationY                  */ 
+        /*          ┌───────────┐           */ 
+        /*   ┌─────←┤cast to int├←──┐       */ 
+        /*   │      └────┬──────┘   │       */ 
+        /*  int          ↓        float     */ 
+        IntRotationY = (int)FloatRotationY;
+        /*   ↑                  ↓ only the whole digit of float gets carried through */ 
+        /*   └─( X.000...000)───┘ the cast from float to int                         */ 
+        /*        ↑                         */ 
+        /*  only numbers past the decimal   */
+        /*  are carried over                */
         
+        float FloatFromInt = IntRotationY;
+        /*        ↑             ↓ going from int to float doesn't require a cast */ 
+        /*        └─( X.??? )───┘ since we don't lose any values in the cast     */ 
+        /*             ↑ nothing past here...                                       */
+        
+        IntPointer.transform.localEulerAngles = new Vector3(0, IntRotationY, 0);
+        FloatPointer.transform.localEulerAngles = new Vector3(0, FloatRotationY, 0);
     }
 }
