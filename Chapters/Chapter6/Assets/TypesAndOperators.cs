@@ -271,6 +271,7 @@ public class TypesAndOperators : MonoBehaviour
             {
                 Debug.Log("Object: " + o);
             }
+            // all kinds of things!
         }
     }
 
