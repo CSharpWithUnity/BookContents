@@ -1,5 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Chapter 7.4 Function Overloading
+ *
+ * Copyright © 2018 Alex Okita
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
 using UnityEngine;
 
 public class FunctionOverloading : MonoBehaviour
@@ -165,6 +171,13 @@ public class FunctionOverloading : MonoBehaviour
         GameObject c = CreateObject(PrimitiveType.Sphere, position);
         // makes a sphere at x:0, y:0, z:1
     }
+    /*
+     * Section 7.4.6 DrawWords
+     */
+    void UseDrawWords()
+    {
+        DrawWords.DrawWord("Some Words", 1, Vector3.zero, Color.red);
+    }
 
     void Start()
     {
@@ -172,5 +185,10 @@ public class FunctionOverloading : MonoBehaviour
         UseFunctionOverloading();
         UseOverloads();
         UseCreateObject();
+    }
+
+    private void Update()
+    {
+        UseDrawWords();
     }
 }
