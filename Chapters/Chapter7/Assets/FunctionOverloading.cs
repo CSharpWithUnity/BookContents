@@ -174,9 +174,15 @@ public class FunctionOverloading : MonoBehaviour
     /*
      * Section 7.4.6 DrawWords
      */
+
     void UseDrawWords()
     {
-        DrawWords.DrawWord("Some Words", 1, Vector3.zero, Color.red);
+        DrawWords.DrawWord("Words Are Being Drawn", 1, Vector3.zero, Color.red);
+    }
+
+    private void Update()
+    {
+        UseDrawWords();
     }
 
     void Start()
@@ -187,8 +193,4 @@ public class FunctionOverloading : MonoBehaviour
         UseCreateObject();
     }
 
-    private void Update()
-    {
-        UseDrawWords();
-    }
 }

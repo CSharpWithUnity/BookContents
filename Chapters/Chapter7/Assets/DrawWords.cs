@@ -11,7 +11,8 @@ using UnityEngine;
 
 public static class DrawWords
 {
-    public static float size = 0.4f;
+    public static float spacing = 0.4f;
+
     public static void DrawWord(string word, float scale, Vector3 position, Color color)
     {
         //convert to uppercase first
@@ -34,9 +35,9 @@ public static class DrawWords
         for (int i = 1; i < lines.Length; i++)
         {
             Vector3 start = (lines[i - 1] * scale);
-            start.x *= size;
+            start.x *= spacing;
             Vector3 end = (lines[i] * scale);
-            end.x *= size;
+            end.x *= spacing;
             Debug.DrawLine(start + position, end + position, color);
         }
     }
@@ -45,10 +46,11 @@ public static class DrawWords
     {
         switch (c)
         {
-            case 'A' :
-	            return A;
+            case 'A':
+                return A;
             case 'B':
                 return B;
+            #region     OtherLetters
             case 'C':
                 return C;
             case 'D':
@@ -99,13 +101,18 @@ public static class DrawWords
                 return Z;
             default:
                 return space;
+                #endregion
         }
     }
-    public static Vector3[] space = new[] {
+
+    public static Vector3[] space = new[]
+    {
         new Vector3(0, 0, 0),
         new Vector3(0, 0, 0)
     };
-    public static Vector3[] A = new[]{
+    
+    public static Vector3[] A = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 0, 0),
         new Vector3(0, 1, 0),
@@ -115,7 +122,8 @@ public static class DrawWords
         new Vector3(1, -1, 0)
     };
 
-    public static Vector3[] B = new[]{
+    public static Vector3[] B = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(0, 1, 0),
@@ -126,14 +134,16 @@ public static class DrawWords
         new Vector3(-1, -1, 0)
     };
 
-    public static Vector3[] C = new[]{
+    public static Vector3[] C = new[]
+    {
         new Vector3(1, -1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] D = new[]{
+    public static Vector3[] D = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(0, 1, 0),
@@ -142,7 +152,8 @@ public static class DrawWords
         new Vector3(-1, -1, 0)
     };
 
-    public static Vector3[] E = new[]{
+    public static Vector3[] E = new[]
+    {
         new Vector3(1, -1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(-1, 0, 0),
@@ -152,7 +163,8 @@ public static class DrawWords
         new Vector3(1, 1, 0),
     };
 
-    public static Vector3[] F = new[]{
+    public static Vector3[] F = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 0, 0),
         new Vector3(0, 0, 0),
@@ -161,7 +173,8 @@ public static class DrawWords
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] G = new[]{
+    public static Vector3[] G = new[]
+    {
         new Vector3(0, 0, 0),
         new Vector3(1, 0, 0),
         new Vector3(1, -1, 0),
@@ -170,7 +183,8 @@ public static class DrawWords
         new Vector3(1, 1, 0),
     };
 
-    public static Vector3[] H = new[]{
+    public static Vector3[] H = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(-1, 0, 0),
@@ -179,7 +193,8 @@ public static class DrawWords
         new Vector3(1, -1, 0),
     };
 
-    public static Vector3[] I = new[]{
+    public static Vector3[] I = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(1, -1, 0),
         new Vector3(0, -1, 0),
@@ -188,7 +203,8 @@ public static class DrawWords
         new Vector3(1, 1, 0),
     };
 
-    public static Vector3[] J = new[]{
+    public static Vector3[] J = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0),
         new Vector3(0, 1, 0),
@@ -196,7 +212,8 @@ public static class DrawWords
         new Vector3(-1, 0, 0),
     };
 
-    public static Vector3[] K = new[]{
+    public static Vector3[] K = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(-1, 0, 0),
@@ -205,13 +222,15 @@ public static class DrawWords
         new Vector3(1, -1, 0)
     };
 
-    public static Vector3[] L = new[]{
+    public static Vector3[] L = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(1, -1, 0)
     };
 
-    public static Vector3[] M = new[]{
+    public static Vector3[] M = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(0, 0, 0),
@@ -219,14 +238,16 @@ public static class DrawWords
         new Vector3(1, -1, 0),
     };
 
-    public static Vector3[] N = new[]{
+    public static Vector3[] N = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(1, -1, 0),
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] O = new[]{
+    public static Vector3[] O = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0),
@@ -234,7 +255,8 @@ public static class DrawWords
         new Vector3(-1, -1, 0)
     };
 
-    public static Vector3[] P = new[]{
+    public static Vector3[] P = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0),
@@ -242,7 +264,8 @@ public static class DrawWords
         new Vector3(-1, 0, 0)
     };
 
-    public static Vector3[] Q = new[]{
+    public static Vector3[] Q = new[]
+    {
         new Vector3(1, -1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
@@ -251,7 +274,8 @@ public static class DrawWords
         new Vector3(0, 0, 0)
     };
 
-    public static Vector3[] R = new[]{
+    public static Vector3[] R = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0),
@@ -260,7 +284,8 @@ public static class DrawWords
         new Vector3(1, -1, 0)
     };
 
-    public static Vector3[] S = new[]{
+    public static Vector3[] S = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(1, -1, 0),
         new Vector3(1, 0, 0),
@@ -269,27 +294,31 @@ public static class DrawWords
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] T = new[]{
+    public static Vector3[] T = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0),
         new Vector3(0, 1, 0),
         new Vector3(0, -1, 0)
     };
 
-    public static Vector3[] U = new[]{
+    public static Vector3[] U = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(1, -1, 0),
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] V = new[]{
+    public static Vector3[] V = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(0, -1, 0),
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] W = new[]{
+    public static Vector3[] W = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(0, 0, 0),
@@ -297,7 +326,8 @@ public static class DrawWords
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] X = new[]{
+    public static Vector3[] X = new[]
+    {
         new Vector3(-1, -1, 0),
         new Vector3(0, 0, 0),
         new Vector3(-1, 1, 0),
@@ -307,7 +337,8 @@ public static class DrawWords
         new Vector3(1, -1, 0)
     };
 
-    public static Vector3[] Y = new[]{
+    public static Vector3[] Y = new[]
+    {
         new Vector3(0, -1, 0),
         new Vector3(0, 0, 0),
         new Vector3(-1, 1, 0),
@@ -315,10 +346,11 @@ public static class DrawWords
         new Vector3(1, 1, 0)
     };
 
-    public static Vector3[] Z = new[]{
+    public static Vector3[] Z = new[]
+    {
         new Vector3(-1, 1, 0),
         new Vector3(1, 1, 0),
         new Vector3(-1, -1, 0),
         new Vector3(1, -1, 0)
     };
-}	
+}
