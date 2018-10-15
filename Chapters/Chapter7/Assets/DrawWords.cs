@@ -50,7 +50,6 @@ public static class DrawWords
                 return A;
             case 'B':
                 return B;
-            #region     OtherLetters
             case 'C':
                 return C;
             case 'D':
@@ -101,7 +100,6 @@ public static class DrawWords
                 return Z;
             default:
                 return space;
-                #endregion
         }
     }
 
@@ -110,7 +108,7 @@ public static class DrawWords
         new Vector3(0, 0, 0),
         new Vector3(0, 0, 0)
     };
-    
+
     public static Vector3[] A = new[]
     {
         new Vector3(-1, -1, 0),
