@@ -61,6 +61,16 @@ public class ChildA : BaseClass
     protected GameObject me;
     protected Mesh mMesh;
     protected MeshRenderer mMeshRenderer;
+
+    public override bool Equals(object obj)
+    {
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
     #endregion
     public override void Initialize(MeshFilter meshFilter, Material material)
     {
@@ -68,6 +78,26 @@ public class ChildA : BaseClass
         Material = material;
         me = new GameObject(this.ToString());
         
+    }
+
+    public override void MoveForward(float speed, float turn)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Speak()
+    {
+        base.Speak();
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
+
+    public override void UpdateChild()
+    {
+        throw new System.NotImplementedException();
     }
 }
 
