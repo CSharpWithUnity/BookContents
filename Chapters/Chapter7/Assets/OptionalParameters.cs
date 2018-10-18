@@ -134,7 +134,32 @@ public class OptionalParameters : MonoBehaviour
     /*
      * Section 7.7.3 Named Parameters
      */
-    
+    void LotsOfParams(int a = 0, int b = 1, int c = 2, int d = 3)
+    {
+        Debug.Log("a: " + a + " b: " + b + " c: " + c + " d: " + d);
+    }
+
+    void UseLotsOfParams()
+    {
+        LotsOfParams();
+        //"a: 0 b: 1 c: 2 d: 3"
+
+        LotsOfParams(0, 99);
+        //"a: 0 b: 99 c: 2 d: 3"
+
+        LotsOfParams(b: 99);
+        //"a: 0 b: 99 c: 2 d: 3"
+
+        LotsOfParams(b: 99, a: 88, d: 777, c: 1234);
+        //"a: 88 b: 99 c: 1234 d: 777"
+
+        CreateACube(scale: 6.0f, name: "Henry", position: new Vector3(2f, z: 0, y: 1));
+        // using named parameters
+
+        CreateACube("Bob", new Vector3(3f, 0, 0));
+        CreateACube("Henry", position: new Vector3(4f, 0, 0));
+        CreateACube(position: new Vector3(5f, 0, 0),  "Jack");
+    }
 
     private void Start()
     {
@@ -142,5 +167,6 @@ public class OptionalParameters : MonoBehaviour
         UsingParamUSage();
         UsingParamUsageContinued();
         UsingUsingOptionals();
+        UseLotsOfParams();
     }
 }
