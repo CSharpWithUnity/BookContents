@@ -158,8 +158,16 @@ public class OptionalParameters : MonoBehaviour
 
         CreateACube("Bob", new Vector3(3f, 0, 0));
         CreateACube("Henry", position: new Vector3(4f, 0, 0));
-        CreateACube(position: new Vector3(5f, 0, 0),  "Jack");
+        //CreateACube(position: new Vector3(5f, 0, 0),  "Jack");
+        /* uncomment the function above to see the error */
     }
+
+
+
+
+
+
+
 
     private void Start()
     {
