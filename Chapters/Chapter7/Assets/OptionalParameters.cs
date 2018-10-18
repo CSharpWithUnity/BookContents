@@ -18,7 +18,7 @@ public class OptionalParameters : MonoBehaviour
         // some code here...
     }
 
-    public GameObject CreateACube(string name, Vector3 position)
+    GameObject CreateACube(string name, Vector3 position)
     {
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.name = name;
@@ -26,7 +26,7 @@ public class OptionalParameters : MonoBehaviour
         return cube;
     }
 
-    public GameObject CreateACube(string name, Vector3 position, float scale)
+    GameObject CreateACube(string name, Vector3 position, float scale)
     {
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.name = name;
@@ -45,7 +45,8 @@ public class OptionalParameters : MonoBehaviour
     /*
      * Section 7.7.1 Using Optionals
      */
-    public GameObject CreateACubeWithOptions(string name = "bob", Vector3 position = new Vector3(), float scale = 1.0f)
+
+    GameObject CreateACubeWithOptions(string name = "bob", Vector3 position = new Vector3(), float scale = 1.0f)
     {
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.name = name;
@@ -54,13 +55,13 @@ public class OptionalParameters : MonoBehaviour
         return cube;
     }
 
-    public void ParamUsage(int i)
+    void ParamUsage(int i)
     {
         Debug.Log("using an int " + i);
         // "using an int 5"
     }
 
-    public void ParamUsage(string words)
+    void ParamUsage(string words)
     {
         Debug.Log("using a string " + words);
         // "using a string not a number"
@@ -75,23 +76,71 @@ public class OptionalParameters : MonoBehaviour
     /*
      * Section 7.7.1.1 Using Optionals : A Basic Example
      */
-
-    public void MoreParamUsage(int i, float optionalFloat = 1f)
+    
+    void MoreParamUsage(int i)
     {
-        Debug.Log("using an int " + i + " and a float? " + optionalFloat);
+        Debug.Log("using int i, " + i + " no optional floats here.");
     }
+
+    void MoreParamUsage(int i, float optionalFloat = 1f)
+    {
+        Debug.Log("using an int " + i + " and a float " + optionalFloat);
+    }
+
+    /*
+     * Section 7.7.2 Optional Arguments
+     */
+
+    //void MoreParamUsage(int i, float requiredFloat)
+    //{
+    //    Debug.Log("using an int " + i + " and a float " + requiredFloat);
+    //}
+    /* uncomment the function above to see the error */
 
     void UsingParamUsageContinued()
     {
         MoreParamUsage(7);
+        // using int i, 7 no optional floats here.
         MoreParamUsage(5, Mathf.PI);
-        ParamUsage("some words");
+        // using an int 5 and a float 3.141593
     }
+
+    void UsingOptionals(int i = 1, float f = 1f)
+    {
+        Debug.Log("using an int " + i + " using a float " + f);
+    }
+
+    //void UsingOptionals(int i = 1, int j)
+    //{
+    //    Debug.Log("using an int " + i + " using a float " + f);
+    //}
+    /* uncomment the function above to see the error */
+
+    void UsingUsingOptionals()
+    {
+        UsingOptionals();
+        // "using an int 1 using a float 1"
+        UsingOptionals(7);
+        // "using an int 7 using a float 1"
+        UsingOptionals(9, 13f);
+        // "using an int 9 using a float 13"
+
+        /* the following are not valid uses */
+        /* of optionals                     */
+        //UsingOptionals(23f);
+        //UsingOptionals(,31f);
+    }
+
+    /*
+     * Section 7.7.3 Named Parameters
+     */
+    
 
     private void Start()
     {
         UseCreateACube();
         UsingParamUSage();
         UsingParamUsageContinued();
+        UsingUsingOptionals();
     }
 }
