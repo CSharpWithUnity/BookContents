@@ -162,12 +162,19 @@ public class OptionalParameters : MonoBehaviour
         /* uncomment the function above to see the error */
     }
 
+    /*
+     * Combining What We've Learned
+     */
+    void Variations(ref float a, out float b, float c = 10.0f, float d = 11.0f)
+    {
+        b = c / a;
+        a = c / d;
+    }
 
-
-
-
-
-
+    void Bad(ref int a = 1)
+    {
+        
+    }
 
     private void Start()
     {
