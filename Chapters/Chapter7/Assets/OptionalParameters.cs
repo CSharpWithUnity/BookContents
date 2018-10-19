@@ -171,10 +171,11 @@ public class OptionalParameters : MonoBehaviour
         a = c / d;
     }
 
-    void Bad(ref int a = 1)
-    {
-        
-    }
+    //void Bad(ref int a = 1)
+    //{
+
+    //}
+    /* uncomment the function above to see the error */
 
     private void Start()
     {
