@@ -23,7 +23,13 @@ public static class DrawWords
             for (int i = 0; i < letters.Length; i++)
             {
                 float offset = (i * scale);
-                Vector3 offsetPosition = new Vector3(offset + position.x, position.y, position.z);
+                Vector3 offsetPosition = new Vector3()
+                {
+                    x = position.x + offset,
+                    y = position.y,
+                    z = position.z
+                };
+
                 DrawWord(letters[i], scale, offsetPosition, color);
             }
         }
