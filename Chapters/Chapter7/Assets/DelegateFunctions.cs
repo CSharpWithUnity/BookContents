@@ -99,10 +99,106 @@ public class DelegateFunctions : MonoBehaviour
         // "SixthDelegate: 6"
     }
 
+    /*
+     * Section 7.8.4 Using Delegates
+     */
+    
+    //created a delegate that returns a value
+    delegate int IntDelegate();
+    int GetSeven()
+    {
+        return 7;
+    }
+    int GetThree()
+    {
+        return 3;
+    }
+    
+    void UseDelegate(IntDelegate intDelegate)
+    {
+        IntDelegate intFromDelegate = intDelegate;
+        int i = intFromDelegate();
+        Debug.Log("int from intDelegate: " + i);
+    }
+
+    void UseIntDelegates()
+    {
+        UseDelegate(GetSeven);
+        UseDelegate(GetThree);
+    }
+
+    delegate void StartTimer();
+    
+    class DelegateTimer
+    {
+        float StartTime;
+        float PassedTime;
+        float EndTime;
+        public delegate void ReportTicks(int tick);
+        ReportTicks tickReporter;
+        int ticks;
+        public void AssignDelegate(ReportTicks reporter)
+        {
+            tickReporter = reporter;
+        }
+        
+        void TimeStarted()
+        {
+            StartTime = Time.time;
+            Debug.Log("Beginning wait.");
+        }
+        
+        void CheckExpiration()
+        {
+            ticks++;
+
+            if (Time.time >= EndTime)
+                TimeExpired();
+        }
+
+        void TimeExpired()
+        {
+            EndTime = Time.time;
+            PassedTime = EndTime - StartTime;
+            Debug.Log("The time has come!");
+        }
+
+        void TimeReport()
+        {
+            tickReporter(ticks);
+            Debug.Log("Start: " + StartTime + " End: " + EndTime + " Passed: " + PassedTime);
+        }
+    }
+
+    DelegateTimer[] timers;
+    void CreateAndStartTimers()
+    {
+        
+    }
+    
     void Start()
     {
         UseDelegates();
         UseDelegatesAgain();
         UseStackedDelegates();
+        UseIntDelegates();
+        CreateAndStartTimers();
+    }
+
+    DelegateTimer timer;
+    MyDelegate myDelegate;
+    void Update()
+    {
+        if (timer == null)
+        {
+            timer = new DelegateTimer();
+            timer.AssignDelegate(CountTicks);
+
+        }
+    }
+
+    void CountTicks(int ticks)
+    {
+        Debug.Log("Ticks counted: " + ticks);
     }
 }
