@@ -217,11 +217,66 @@ public class Interfaces : MonoBehaviour
         // shows numbers starting from lowest to highest
     }
 
+    class DistanceComparer : IComparer
+    {
+        public object Target;
+        public int Compare(object x, object y)
+        {
+            GameObject xObj = (GameObject)x;
+            GameObject yObj = (GameObject)y;
+            GameObject target = (GameObject)Target;
+            Vector3 tPos = target.transform.position;
+            Vector3 xPos = xObj.transform.position;
+            Vector3 yPos = yObj.transform.position;
+            float distanceX = (tPos - xPos).magnitude;
+            float distanceY = (tPos - yPos).magnitude;
+            if (distanceX > distanceY)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
 
+    public GameObject[] SortedByDistance;
+    void UseCompareDistance()
+    {
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        //get all game objects in the scene
+
+        ArrayList objectList = new ArrayList();
+        //make an arrayList to copy all of the game objects to
+
+        foreach (GameObject go in allObjects)
+        {
+            objectList.Add(go);
+        }
+
+        DistanceComparer comparer = new DistanceComparer();
+        // create a distance comparer
+        
+        comparer.Target = this.gameObject;
+        // assign the comparer a target
+
+        objectList.Sort(comparer);
+        // sort the list with the comparer
+
+        SortedByDistance = new GameObject[objectList.Count];
+        objectList.CopyTo(SortedByDistance, 0);
+        // copy to Array we can observe in the Editor.
+    }
 
     void Start()
     {
         UseMultipleInterfaces();
         UseIComparer();
+    }
+
+    void Update()
+    {
+        UseCompareDistance();
     }
 }
