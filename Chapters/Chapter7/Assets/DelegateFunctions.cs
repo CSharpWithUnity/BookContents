@@ -165,7 +165,7 @@ public class DelegateFunctions : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                Counters[i] = new Counter(Random.Range(10, 30));
+                Counters[i] = new Counter(UnityEngine.Random.Range(10, 30));
                 CounterUpdate += Counters[i].UpdateCount;
             }
             CountersInitalized = true;
