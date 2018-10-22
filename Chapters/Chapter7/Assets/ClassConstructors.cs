@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class ClassConstructors : MonoBehaviour
 {
-    public enum ObstacleType
+    enum ObstacleType
     {
         TreadMill_Empty,
         TreadMill_Center,
