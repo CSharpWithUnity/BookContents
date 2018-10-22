@@ -21,41 +21,50 @@ public class ClassConstructors : MonoBehaviour
     class TreadMillSegment
     {
         static int Segments;
+        private float Speed;
+        private int StepSize;
         private int Step;
-        private float Speed;// Distance Traveled per step
         private GameObject Segment;
+
         public TreadMillSegment(float speed, ObstacleType obstacle, ref TreadmillUpdate updater)
         {
             Speed = speed;
-            updater += Updated;
             Segment = Instantiate(Resources.Load(obstacle.ToString()) as GameObject);
-            Step = Segments * (int)(1 / Speed);
+            updater += Updated;
+
+            StepSize = (int)(1 / Speed);
+            Step = Segments * StepSize;
             Segments++;
         }
 
         void Updated()
         {
+            int totalSteps = Segments * StepSize;
             Segment.transform.position = new Vector3()
             {
-                z = -(float)(Step++%(Segments * ((int)(1 / Speed)))) * Speed
+                z = -(float)(Step++ % totalSteps) * Speed
             };
         }
     }
 
     private delegate void TreadmillUpdate();
     private TreadmillUpdate DoUpdate;
+
     void Start()
     {
         int numSegments = 7;
         for (int i = 0; i < numSegments; i++)
         {
             ObstacleType obstacle = (ObstacleType)(i%4);
-            new TreadMillSegment(0.05f, obstacle, ref DoUpdate);
+            new TreadMillSegment(0.015f, obstacle, ref DoUpdate);
         }
     }
     
     void Update()
     {
-        DoUpdate?.Invoke();
+        if (DoUpdate != null)
+        {
+            DoUpdate();
+        }
     }
 }
