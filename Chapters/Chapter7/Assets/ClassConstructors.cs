@@ -79,6 +79,7 @@ public class ClassConstructors : MonoBehaviour
     class TreadmillManager
     {
         public readonly static string ProjectPath = System.IO.Directory.GetCurrentDirectory();
+
         public static void WritePatternExample()
         {
             string filePath = ProjectPath + "\\pattern.txt";
@@ -185,8 +186,9 @@ public class ClassConstructors : MonoBehaviour
 
     void Start()
     {
-        //UseTreadmillSegments();
-        UseTreadmillManger();
+        UseTreadmillSegments();
+        
+        //UseTreadmillManger();
     }
 
     void Update()
