@@ -6,9 +6,9 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
+using System.Collections;
 
 using UnityEngine;
-using System.Collections;
 
 public class Enumerations : MonoBehaviour
 {
@@ -53,7 +53,7 @@ public class Enumerations : MonoBehaviour
         intEnumerator.MoveNext();
         Debug.Log("Current int: " + intEnumerator.Current);
         // Current int: 30
-        
+
         intEnumerator.MoveNext();
         Debug.Log("Current int: " + intEnumerator.Current);
         // Current int: 40
@@ -100,52 +100,128 @@ public class Enumerations : MonoBehaviour
 
     /*
      * Section 7.13.2 Implementing an IEnumerator
+     * Enumerations are made of three parts.
      */
-    class IZombieEnumerator : IEnumerator
+
+    /* Starting with the object that's going       */
+    /* to be iterated through                      */
+    class AZombie
     {
-        private string[] Minions;
-        private int NextMinion;
-        public object Current
+        public string Name;
+        public AZombie(string name)
+        {
+            Name = name;
+        }
+    }
+
+    class ZombieEnumerator : IEnumerator
+    {
+        private AZombie[] AZombieArray;
+        private int index;
+
+        /* constructor saves the incoming array    */
+        public ZombieEnumerator(AZombie[] zombieArray)
+        {
+            AZombieArray = zombieArray;
+        }
+
+        /* MoveNext increments the locally stored  */
+        /* index of the array and returns true     */
+        /* so long as the index doesn't exceed     */
+        /* the length of the stored array          */
+        public bool MoveNext()
+        {
+            index++;
+            return index >= AZombieArray.Length;
+        }
+
+        /* put the array index back ahead of 0      */
+        public void Reset()
+        {
+            index = -1;
+        }
+
+        /* return the object from the array at the  */
+        /* index                                    */
+        object IEnumerator.Current
         {
             get
             {
-                return Minions[NextMinion];
+                return AZombieArray[index];
             }
         }
-        public bool MoveNext()
-        {
-            NextMinion++;
-            return NextMinion >= Minions.Length;
-        }
-
-        public void Reset()
-        {
-            NextMinion = -1;
-        }
     }
 
-    class EnumerableZombie : IEnumerable
+    /* you then make an IEnumerable object where    */
+    /* an array of the enumerated object lives.     */
+    class Zombies : IEnumerable
     {
-        public IZombieEnumerator Enumerator;
-        public string Name;
-        public EnumerableZombie(string name)
+        // the array to iterate through.
+        private AZombie[] AZombieArray;
+
+        // constructor to assign to the new Enumerator
+        public Zombies(AZombie[] zombieArray)
         {
-            Name = name;
-            Enumerator = new IZombieEnumerator();
+            AZombieArray = zombieArray;
         }
-        public IEnumerator GetEnumerator()
+
+        // the explicit method which returns the IEnumerator
+        // object to start enumeration
+        IEnumerator IEnumerable.GetEnumerator() /*→┐❶   */
+        {                                       /* │    */
+            return (IEnumerator)GetEnumerator();/*←┘❷   */
+        }                      /*      │                */
+                               /*      ↓❸               */
+        public ZombieEnumerator GetEnumerator()
         {
-            return Enumerator;
-        }
+            return new ZombieEnumerator(AZombieArray);
+        }                      /*←❹ returned            */
+                               /* after initalized      */
     }
 
+    void UseEnumerableZombie()
+    {
+        AZombie Stubbs = new AZombie("Stubbs");
+        AZombie Bob = new AZombie("Bob");
+        AZombie Rob = new AZombie("Rob");
+        AZombie Freddy = new AZombie("Freddy");
+        AZombie Jason = new AZombie("Jason");
+        AZombie[] zombies = new AZombie[] { Stubbs, Bob, Rob, Freddy, Jason };
+        IEnumerator zombieEnumerator = zombies.GetEnumerator();
+
+        while (zombieEnumerator.MoveNext())
+        {
+            Debug.Log(zombieEnumerator.Current);
+        }
+        // Enumerations+AZombie
+        // Enumerations+AZombie
+        // Enumerations+AZombie
+        // Enumerations+AZombie
+        // Enumerations+AZombie
+        // Enumerations+AZombie
+
+        // reset the enumerator after you've used it
+        zombieEnumerator.Reset();
+
+        while (zombieEnumerator.MoveNext())
+        {
+            // don't forget to cast!
+            AZombie z = (AZombie)zombieEnumerator.Current;
+            Debug.Log(z.Name);
+        }
+        // Stubbs
+        // Bob
+        // Rob
+        // Freddy
+        // Jason
+    }
 
     void Start()
     {
-        //UseIntEnumerator();
-        //UseWithoutLoop();
-        //UseIfToIterate();
-        UseStringArray();
+        UseIntEnumerator();
+        UseWithoutLoop();
+        UseIfToIterate();
+        UseEnumerableZombie();
     }
-
 }
+
