@@ -151,11 +151,11 @@ public class Events : MonoBehaviour
      * Section 7.15.3 EventArgs
      */
 
-    class MyEventArgs : EventArgs
+    class MessageEventArgs : EventArgs
     {
         public string Message;
 
-        public MyEventArgs(string message)
+        public MessageEventArgs(string message)
         {
             Message = message;
         }
@@ -163,11 +163,11 @@ public class Events : MonoBehaviour
 
     class ProperEventArgDispatcher
     {
-        public delegate void ProperEventHandler(object sender, MyEventArgs args);
+        public delegate void ProperEventHandler(object sender, MessageEventArgs args);
         public event ProperEventHandler ProperEvent;
         public void CallProperEvent()
         {
-            ProperEvent?.Invoke(this, new MyEventArgs("Listen to me."));
+            ProperEvent?.Invoke(this, new MessageEventArgs("Listen to me."));
         }
     }
 
@@ -180,7 +180,7 @@ public class Events : MonoBehaviour
             Name = name;
         }
 
-        public void OnProperEvent(object sender, MyEventArgs args)
+        public void OnProperEvent(object sender, MessageEventArgs args)
         {
             Debug.Log(Name + "'s event from " + sender + " said: " + args.Message);
         }
@@ -194,11 +194,115 @@ public class Events : MonoBehaviour
         dispatcher.CallProperEvent();
         // Frasier's event from Events+ProperEventArgDispatcher said: Listen to me.
     }
+
+    /*
+     * 7.15.4 Generic EventArgs
+     */
+    
+    class GenericEventDispatcher
+    {
+        public delegate void EventHandler<TEventArgs>(object sender, TEventArgs args);
+        public event EventHandler<MessageEventArgs> MessageEvent;
+        public event EventHandler<NumerEventArgs> NumberEvent;
+
+        public void CallMessageEvent()
+        {
+            MessageEvent?.Invoke(this, new MessageEventArgs("Generic Message"));
+        }
+        
+        public void CallNumberEvent()
+        {
+            NumberEvent?.Invoke(this, new NumerEventArgs(3));
+        }
+        
+        public class NumerEventArgs : EventArgs
+        {
+            public int Number;
+            public NumerEventArgs(int limit)
+            {
+                Number = limit;
+            }
+        }
+        
+        public event EventHandler<GenericEventArgs<string>> StringEvent;
+        public event EventHandler<GenericEventArgs<int>> IntEvent;
+        public class GenericEventArgs<T> : EventArgs
+        {
+            public T Value;
+            public GenericEventArgs(T arg)
+            {
+                Value = arg;
+            }
+        }
+
+        public void CallGenericString()
+        {
+            StringEvent?.Invoke(this, new GenericEventArgs<string>("Generic generic arg!"));
+        }
+
+        public void CallGenericInt()
+        {
+            IntEvent?.Invoke(this, new GenericEventArgs<int>(42));
+        }
+    }
+
+    class GenericListener
+    {
+        private string Name;
+        public GenericListener(string name)
+        {
+            Name = name;
+        }
+
+        public void OnGenericMessage(object sender, MessageEventArgs message)
+        {
+            Debug.Log(Name + " got message " + message.Message + " from " + sender);
+        }
+
+        public void OnGenericNumber(object sender, GenericEventDispatcher.NumerEventArgs number)
+        {
+            Debug.Log(Name + " got number " + number.Number + " from " + sender);
+        }
+
+        public void OnGenericEvent(object sender, GenericEventDispatcher.GenericEventArgs<string> args)
+        {
+            Debug.Log(Name + " got value " + args.Value + " from " + sender);
+        }
+
+        public void OnGenericEvent(object sender, GenericEventDispatcher.GenericEventArgs<int> args)
+        {
+            Debug.Log(Name + " got value " + args.Value + " from " + sender);
+        }
+    }
+
+    void UseGenericEventArgs()
+    {
+        GenericEventDispatcher dispatcher = new GenericEventDispatcher();
+        GenericListener sigmund = new GenericListener("Sigmund");
+        dispatcher.MessageEvent += sigmund.OnGenericMessage;
+        dispatcher.NumberEvent += sigmund.OnGenericNumber;
+        dispatcher.IntEvent += sigmund.OnGenericEvent;
+        dispatcher.StringEvent += sigmund.OnGenericEvent;
+
+        dispatcher.CallMessageEvent();
+        // Sigmund got message Generic Message from Events+GenericEventDispatcher
+        
+        dispatcher.CallNumberEvent();
+        // Sigmund got number 3 from Events+GenericEventDispatcher
+        
+        dispatcher.CallGenericInt();
+        // Sigmund got value 42 from Events+GenericEventDispatcher
+        
+        dispatcher.CallGenericString();
+        // Sigmund got value Generic generic arg! from Events+GenericEventDispatcher
+    }
+
     void Start()
     {
-        //UseDispatcher();
-        //UseProperEvent();
+        UseDispatcher();
+        UseProperEvent();
         UseProperEventArgs();
+        UseGenericEventArgs();
     }
 }
 
