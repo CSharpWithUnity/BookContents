@@ -268,11 +268,13 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
     void UseStopCoroutine()
     {
         IEnumerator counter = Counter();
-        /*                                  */
-        /*                                  */
-        StartCoroutine(counter);
-        /*                                  */
-        /*                                  */
+        /*             ↓            create and              */
+        /*             └───┐        store the Counter()     */
+        /*                 ↓        as a variable and pass  */
+        StartCoroutine(counter);/*  the variable to be      */
+        /*                 ↓        used to stop it         */
+        /*                 └───────────┐                    */
+        /*                             ↓                    */
         StartCoroutine(StopCounter(counter));
     }
 
@@ -283,6 +285,37 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
         Debug.Log("Stopping Coroutine Counter()");
         StopCoroutine(counter);
     }
+
+    /*
+     * Check class variables to continue
+     */
+
+    bool ContinueToDoTheThing = true;
+    IEnumerator ChecksToKeepGoing()
+    {
+        Debug.Log("Starting to do the thing.");
+        int i = 0;
+        while (ContinueToDoTheThing)
+        {
+            yield return new WaitForSeconds(1f);
+            Debug.Log("Continuing to do the thing " + i++ + " times.");
+        }
+        Debug.Log("Finished the things.");
+    }
+
+    IEnumerator StopDoingTheThing()
+    {
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Setting ContinueToDoTheThing to false");
+        ContinueToDoTheThing = false;
+    }
+
+    void UseExternalInterrupt()
+    {
+        StartCoroutine(ChecksToKeepGoing());
+        StartCoroutine(StopDoingTheThing());
+    }
+
 
     private void Start()
     {
@@ -321,7 +354,8 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
          * Section 7.18.4 Stopping a Coroutine
          */
         //UseStopAllCoroutines();
-        UseStopCoroutine();
+        //UseStopCoroutine();
+        UseExternalInterrupt();
     }
 
     int count;
