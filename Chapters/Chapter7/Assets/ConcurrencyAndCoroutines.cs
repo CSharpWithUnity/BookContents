@@ -333,7 +333,7 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
         /*
          * Section 7.18.1.1 A Basic Example
          */
-        //UseDelayAStatement();
+        UseDelayAStatement();
         //UseMultipleDelayAStatements();
         /* Uncomment one of the lines above to observe
          * how each statement works
@@ -355,7 +355,7 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
          */
         //UseStopAllCoroutines();
         //UseStopCoroutine();
-        UseExternalInterrupt();
+        //UseExternalInterrupt();
     }
 
     int count;
