@@ -221,6 +221,88 @@ public class DictionariesStacksAndQueues: MonoBehaviour
         }
     }
 
+    /*
+     * Section 7.19.5 Queues
+     */
+    void UseMovementQueue()
+    {
+        Queue queue = new Queue();
+        queue.Enqueue("First");
+        queue.Enqueue("Second");
+        queue.Enqueue("Third");
+        Debug.Log(queue.Peek());
+        // First
+        Debug.Log(queue.Dequeue());
+        // First
+        Debug.Log(queue.Dequeue());
+        // Second
+        Debug.Log(queue.Dequeue());
+        // Third
+
+        GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+        MoveQueue mover = capsule.AddComponent<MoveQueue>();
+        mover.AddMove(Moves.None);
+        mover.AddMove(Moves.Forward);
+        mover.AddMove(Moves.None);
+        mover.AddMove(Moves.Left);
+        mover.AddMove(Moves.Right);
+        mover.AddMove(Moves.None);
+        mover.AddMove(Moves.Backward);
+        mover.Move();
+    }
+
+    class MoveQueue : MonoBehaviour
+    {
+        private Queue<IEnumerator> Movements;
+
+        public void AddMove(Moves move)
+        {
+            if (Movements == null)
+                Movements = new Queue<IEnumerator>();
+
+            switch (move)
+            {
+                case Moves.None:
+                    Movements.Enqueue(MoveTo(Vector3.zero));
+                    break;
+                case Moves.Left:
+                    Movements.Enqueue(MoveTo(Vector3.left));
+                    break;
+                case Moves.Right:
+                    Movements.Enqueue(MoveTo(Vector3.right));
+                    break;
+                case Moves.Forward:
+                    Movements.Enqueue(MoveTo(Vector3.forward));
+                    break;
+                case Moves.Backward:
+                    Movements.Enqueue(MoveTo(Vector3.back));
+                    break;
+            }
+        }
+
+        public void Move()
+        {
+            if (Movements.Count > 0)
+            {
+                StartCoroutine(Movements.Dequeue());
+            }
+        }
+
+        private IEnumerator MoveTo(Vector3 direction)
+        {
+            Vector3 start = transform.position;
+            Vector3 finish = transform.position + direction;
+            float t = 0;
+            while (t < 1)
+            {
+                transform.position = Vector3.Lerp(start, finish, t);
+                t += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+            Move();
+        }
+    }
+
     private void Start()
     {
         /*
@@ -236,6 +318,11 @@ public class DictionariesStacksAndQueues: MonoBehaviour
         /*
          * 7.19.4 Using A Stack
          */
-        UseMovementStack();
+        //UseMovementStack();
+
+        /*
+         * Section 7.19.5 Queues
+         */
+        UseMovementQueue();
     }
 }
