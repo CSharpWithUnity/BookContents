@@ -14,59 +14,103 @@ using UnityEngine;
 
 public class Reflection : MonoBehaviour
 {
+    #region 8.7
+    /*
+     * Section 8.7 Reflection
+     */
+    
+    #endregion
+    #region 8.7.1 A Basic Example
     /*
      * Section 8.4.1 Reflection : A Basic Example
      */
     class Person : MonoBehaviour
     {
         public Queue<Delegate> ThingsToDo;
+        public int Life = 0;
+        public int Money = 0;
         private void Awake()
         {
             ThingsToDo = new Queue<Delegate>();
         }
 
-        void DoAThing(string thing)
+        public void DoTheThings()
         {
-            
-            IEnumerator DoesTheThing()
+            IEnumerator DoesThings()
             {
-                Debug.Log("Starting " + thing);
-                yield return new WaitForSeconds(1f);
-                Debug.Log("Done with " + thing);
-            }
-            StartCoroutine(DoesTheThing());
-        }
-
-        bool MoveToPosition(Vector3 position)
-        {
-            bool done = false;
-            IEnumerator MovesTo(Vector3 pos)
-            {
-                float t = 0;
-                while (t < 1)
+                while (ThingsToDo.Count > 0)
                 {
-                    transform.position = Vector3.Lerp(transform.position, pos, t);
-                    t += Time.deltaTime;
-                    yield return new WaitForEndOfFrame();
+                    Delegate thing = ThingsToDo.Dequeue();
+                    string thingName = thing.Method.Name;
+                    // figure out which function is in the Queue.
+                    // cast to expected signature
+                    switch (thingName)
+                    {
+                        case "BeBorn":
+                            Func<int> born = (Func<int>)thing;
+                            Life = born.Invoke();
+                            break;
+                        case "GoToWork":
+                            Func<int> gotoWork = (Func<int>)thing;
+                            Money = gotoWork.Invoke();
+                            break;
+                        case "PayTaxes":
+                            Func<int, int> payTaxes = (Func<int, int>)thing;
+                            Money = payTaxes.Invoke(Money);
+                            break;
+                        case "Die":
+                            Action<GameObject> die = (Action<GameObject>)thing;
+                            die(this.gameObject);
+                            break;
+                    }
+                    Debug.Log("Did " + thingName);
+                    yield return new WaitForSeconds(1f);
                 }
-                done = true;
-                Debug.Log("Done moving.");
             }
-            StartCoroutine(MovesTo(position));
-            return done;
+            StartCoroutine(DoesThings());
         }
+    }
+
+    // named functions we should be able to recognize
+    int BeBorn()
+    {
+        Debug.Log("You've got one life...");
+        return 1;
+    }
+
+    int GoToWork()
+    {
+        Debug.Log("You're Welcome.");
+        return 10;
+    }
+    
+    int PayTaxes(int tax)
+    {
+        Debug.Log("Thankyou come again.");
+        return tax / 2;
+    }
+
+    void Die(GameObject gameObject)
+    {
+        Debug.Log("Goodbye.");
+        Destroy(gameObject);
     }
 
     void UseReflectOnPerson()
     {
         GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
         Person bob = capsule.AddComponent<Person>();
-        Action a = () => { Debug.Log("Doing a thing"); };
-
-        bob.ThingsToDo.Enqueue(a);
-        Delegate d = bob.ThingsToDo.Dequeue();
-        d.DynamicInvoke();
+        Func<int> born = BeBorn;
+        Func<int> work = GoToWork;
+        Func<int, int> taxes = PayTaxes;
+        Action<GameObject> die = Die;
+        bob.ThingsToDo.Enqueue(born);
+        bob.ThingsToDo.Enqueue(work);
+        bob.ThingsToDo.Enqueue(taxes);
+        bob.ThingsToDo.Enqueue(die);
+        bob.DoTheThings();
     }
+    #endregion
 
     void Thing()
     {
