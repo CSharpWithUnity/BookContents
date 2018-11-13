@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LambdaExpressions : MonoBehaviour
@@ -84,85 +85,107 @@ public class LambdaExpressions : MonoBehaviour
      * Section 7.20.1.1 Anonymous Expressions : A Basic Example
      * Action Func and Expression
      */
+    void UseAction()
+    {
+        IEnumerator delayedCall(Action del)
+        {
+            Debug.Log("Delayed Call Started.");
+            yield return new WaitForSeconds(3f);
+            Debug.Log("Delayed Call Finished.");
+            del.DynamicInvoke();
+        }
+        StartCoroutine(delayedCall(() => Debug.Log("A Basic Action.")));
+        // Delayed Call Started.
+        // (3 seconds)
+        // Delayed Call Finished.
+        // A Basic Action.
+    }
+
+    void UseMoreActions()
+    {
+        int delay = 0;
+        IEnumerator delayedCall(Action<int, int> action, int a, int b, float delayTime)
+        {
+            yield return new WaitForSeconds(delayTime);
+            action.DynamicInvoke(a, b);
+        }
+        Action<int, int> mult = (a, b) =>
+        {
+            Debug.Log("a * b = " + (a * b));
+        };
+        Action<int, int> add = (a, b) =>
+        {
+            Debug.Log("a + b = " + (a + b));
+        };
+        Action<int, int> sub = (a, b) =>
+        {
+            Debug.Log("a - b = " + (a - b));
+        };
+
+        StartCoroutine(delayedCall((a, b) => Debug.Log("a:" + a + " b:" + b), 2, 3, delay++));
+        // a: 2 b: 3
+        StartCoroutine(delayedCall(mult, 3, 5, delay++));
+        // a * b = 15
+        StartCoroutine(delayedCall(add, 7, 13, delay++));
+        // a + b = 20
+        StartCoroutine(delayedCall(sub, 23, 7, delay++));
+        // a - b = 16
+    }
     
+    void UseFunc()
+    {
+        Func<int, int> intOutFunc = (x) => x * x;
+        int result = intOutFunc(3);
+        Debug.Log(result);
+        // 9
+    }
+
+    /*
+     * Using Lambda Expressions
+     */
     class DoesThings : MonoBehaviour
     {
-        public delegate void ThingToDo();
-        public event ThingToDo FirstThingDone, 
-                               SecondThingDone,
-                               ThirdThingDone;
-        private int thing = 0;
-        Coroutine doerOfThings;
+        // stored list of Delegates
+        public Queue<Delegate> ThingsToDo;
 
+        /* a single function to start       */
+        /* and execute the generate         */
+        /* task list.                       */
         public void StartDoingThings()
         {
-            doerOfThings = StartCoroutine(DoSomeThings());
-        }
-
-        public void StopDoingThings()
-        {
-            StopCoroutine(doerOfThings);
-        }
-
-        private IEnumerator DoSomeThings()
-        {
-            while (true)
+            IEnumerator DoSomeThings()
             {
-                switch (thing)
+                int thing = 0;
+                while (ThingsToDo.Count > 0)
                 {
-                    case 0:
-                        FirstThingDone?.Invoke();
-                        break;
-                    case 1:
-                        SecondThingDone?.Invoke();
-                        break;
-                    case 2:
-                        ThirdThingDone?.Invoke();
-                        break;
+                    yield return new WaitForSeconds(1);
+                    ThingsToDo.Dequeue().DynamicInvoke(thing++);
                 }
-                yield return new WaitForSeconds(1);
-                thing = UnityEngine.Random.Range(0, 3);
+                Debug.Log("Done doing things.");
             }
+            StartCoroutine(DoSomeThings());
         }
     }
 
     void UseLambdaExpressions()
     {
         GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        DoesThings doer = capsule.AddComponent<DoesThings>();
+        DoesThings doerOfThings = capsule.AddComponent<DoesThings>();
 
-        Action<int, DoesThings> Stopper = (i, dt) =>
+        // assign procedural task list
+        doerOfThings.ThingsToDo = new Queue<Delegate>();
+        for (int i = 0; i < 7; i++)
         {
-            if (i > 10)
+            // Delegate functions generated
+            Action<int> action = (x) =>
             {
-                Debug.Log("Doer has done 10 things, that's enough.");
-                dt.StopDoingThings();
-                Destroy(dt.gameObject);
-            }
-        };
-
-        doer.StartDoingThings();
-
-        int thingsCounted = 0;
-        doer.FirstThingDone += () =>
-        {
-            Debug.Log("Doer has done its first thing");
-            thingsCounted++;
-            Stopper(thingsCounted, doer);
-        };
-        doer.SecondThingDone += () =>
-        {
-            Debug.Log("Doer has done its second thing");
-            thingsCounted++;
-            Stopper(thingsCounted, doer);
-        };
-        doer.ThirdThingDone += () =>
-        {
-            Debug.Log("Doer has done its third thing");
-            thingsCounted++;
-            Stopper(thingsCounted, doer);
-        };
-
+                Debug.Log("doing #" + x);
+            };
+            // assign them to the MonoBehaviour
+            doerOfThings.ThingsToDo.Enqueue(action);
+        }
+        // start the task list
+        doerOfThings.StartDoingThings();
     }
 
     void UseOthers()
@@ -239,10 +262,17 @@ public class LambdaExpressions : MonoBehaviour
         /*
          * Section 7.20.1 Anonymous Expressions
          */
-        UseFunctionInAFunction();
-        UseAnonymousExpression();
-        UseAnotherAnonymousExpression();
-        
+       //UseFunctionInAFunction();
+       //UseAnonymousExpression();
+       //UseAnotherAnonymousExpression();
+
+        /*
+         * Section 7.20.1.1 Anonymous Expressions : A Basic Example
+         * Action Func and Expression
+         */
+        //UseAction();
+        //UseMoreActions();
+        //UseFunc();
         /*
          * Section 7.20.1.1 Anonymous Expressions : A Basic Example
          */
