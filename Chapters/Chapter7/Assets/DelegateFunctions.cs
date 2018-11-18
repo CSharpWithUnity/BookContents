@@ -6,6 +6,7 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
+using System;
 using UnityEngine;
 
 public class DelegateFunctions : MonoBehaviour
@@ -127,78 +128,70 @@ public class DelegateFunctions : MonoBehaviour
         UseDelegate(GetThree);
     }
 
-    delegate void StartTimer();
-    
-    class DelegateTimer
+    /*
+     * Section 7.8.5 Updating Delegates
+     */
+
+    class Counter
     {
-        float StartTime;
-        float PassedTime;
-        float EndTime;
-        public delegate void ReportTicks(int tick);
-        ReportTicks tickReporter;
-        int ticks;
-        public void AssignDelegate(ReportTicks reporter)
+        private int Count;
+        private int Limit;
+        public Counter(int countLimit)
         {
-            tickReporter = reporter;
-        }
-        
-        void TimeStarted()
-        {
-            StartTime = Time.time;
-            Debug.Log("Beginning wait.");
-        }
-        
-        void CheckExpiration()
-        {
-            ticks++;
-
-            if (Time.time >= EndTime)
-                TimeExpired();
+            Limit = countLimit;
         }
 
-        void TimeExpired()
+        public void UpdateCount()
         {
-            EndTime = Time.time;
-            PassedTime = EndTime - StartTime;
-            Debug.Log("The time has come!");
+            if(Count < Limit)
+                Count++;
+            if (Count >= Limit)
+                ReportCount();
         }
 
-        void TimeReport()
+        void ReportCount()
         {
-            tickReporter(ticks);
-            Debug.Log("Start: " + StartTime + " End: " + EndTime + " Passed: " + PassedTime);
+            Debug.Log("Counts: " + Count + " Limit: " + Limit);
         }
     }
 
-    DelegateTimer[] timers;
-    void CreateAndStartTimers()
+    bool CountersInitalized = false;
+    Counter[] Counters = new Counter[10];
+    delegate void UpdateCounters();
+    UpdateCounters CounterUpdate;
+    void CreateAndUpdateCounters()
     {
-        
+        if (!CountersInitalized)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Counters[i] = new Counter(UnityEngine.Random.Range(10, 30));
+                CounterUpdate += Counters[i].UpdateCount;
+            }
+            CountersInitalized = true;
+        }
+        CounterUpdate();
     }
-    
+
+    //Less effecive method for updates
+    void UpdateForEach()
+    {
+        foreach (Counter c in Counters)
+        {
+            c.UpdateCount();
+        }
+    }
+
+    void Update()
+    {
+        CreateAndUpdateCounters();
+    }
+
     void Start()
     {
         UseDelegates();
         UseDelegatesAgain();
         UseStackedDelegates();
         UseIntDelegates();
-        CreateAndStartTimers();
-    }
-
-    DelegateTimer timer;
-    MyDelegate myDelegate;
-    void Update()
-    {
-        if (timer == null)
-        {
-            timer = new DelegateTimer();
-            timer.AssignDelegate(CountTicks);
-
-        }
-    }
-
-    void CountTicks(int ticks)
-    {
-        Debug.Log("Ticks counted: " + ticks);
     }
 }
