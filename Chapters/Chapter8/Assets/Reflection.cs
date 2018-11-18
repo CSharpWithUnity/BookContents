@@ -14,15 +14,64 @@ using UnityEngine;
 
 public class Reflection : MonoBehaviour
 {
-    #region 8.7
+    #region 8.7 Reflection
     /*
      * Section 8.7 Reflection
      */
-    
+    class Stuff
+    {
+        public float PubFloat = 1;
+        public int PubInt = 1;
+        public void AFunction()
+        {
+        }
+        public int IntFunction()
+        {
+            return 1;
+        }
+    }
+
+    void UseReflectClass()
+    {
+        Stuff stuff = new Stuff();
+        Type type = stuff.GetType();
+        foreach (MemberInfo member in type.GetMembers())
+        {
+
+            Debug.Log(member);
+        }
+    }
     #endregion
+
     #region 8.7.1 A Basic Example
     /*
      * Section 8.4.1 Reflection : A Basic Example
+     */
+
+    class HasAFunction
+    {
+        public void TheFunction()
+        {
+            Debug.Log("You found me");
+        }
+    }
+    void UseHasAFunction()
+    {
+        Type hasAFunctionType = typeof(HasAFunction);
+        HasAFunction hasAFunction = new HasAFunction();
+        foreach (MemberInfo info in hasAFunctionType.GetMembers())
+        {
+            if (info.Name.Equals("TheFunction"))
+            {
+                hasAFunction.TheFunction();
+            }
+        }
+    }
+    #endregion
+
+    #region 8.7.2 Reflection MethodInfo
+    /*
+     * Section 8.7.2 Reflection Method Info
      */
     class Person : MonoBehaviour
     {
@@ -43,135 +92,171 @@ public class Reflection : MonoBehaviour
                     Delegate thing = ThingsToDo.Dequeue();
                     string thingName = thing.Method.Name;
                     // figure out which function is in the Queue.
-                    // cast to expected signature
-                    switch (thingName)
+                    MethodInfo methodInfo = thing.GetMethodInfo();
+
+                    // read the name of the incoming parameter
+                    ParameterInfo[] paramInfos = methodInfo.GetParameters();
+                    switch (paramInfos[0].Name)
                     {
-                        case "BeBorn":
-                            Func<int> born = (Func<int>)thing;
-                            Life = born.Invoke();
+                        case "life":
+                            Func<int, int> life = (Func<int, int>)thing;
+                            Life = life.Invoke(Life);
                             break;
-                        case "GoToWork":
-                            Func<int> gotoWork = (Func<int>)thing;
-                            Money = gotoWork.Invoke();
-                            break;
-                        case "PayTaxes":
-                            Func<int, int> payTaxes = (Func<int, int>)thing;
-                            Money = payTaxes.Invoke(Money);
-                            break;
-                        case "Die":
-                            Action<GameObject> die = (Action<GameObject>)thing;
-                            die(this.gameObject);
+                        case "money":
+                            Func<int, int> money = (Func<int, int>)thing;
+                            Money = money.Invoke(Money);
                             break;
                     }
-                    Debug.Log("Did " + thingName);
+
+                    Debug.Log("Did " + thingName + " Life:" + Life + " Money:" + Money);
                     yield return new WaitForSeconds(1f);
+                    if (Life <= 0)
+                        Destroy(this.gameObject);
                 }
             }
             StartCoroutine(DoesThings());
         }
     }
 
-    // named functions we should be able to recognize
-    int BeBorn()
+    int BeBorn(int life)
     {
         Debug.Log("You've got one life...");
-        return 1;
+        return life + 10;
     }
 
-    int GoToWork()
+    int GoToWork(int money)
     {
         Debug.Log("You're Welcome.");
-        return 10;
-    }
-    
-    int PayTaxes(int tax)
-    {
-        Debug.Log("Thankyou come again.");
-        return tax / 2;
+        return money + 10;
     }
 
-    void Die(GameObject gameObject)
+    int Accident(int life)
     {
-        Debug.Log("Goodbye.");
-        Destroy(gameObject);
+        Debug.Log("Oops.");
+        return life - 5;
     }
+
+    int PayTaxes(int money)
+    {
+        Debug.Log("Thankyou come again.");
+        return money / 2;
+    }
+
+    int Die(int life)
+    {
+        return life - life;
+    }
+
+    void LifeInMoneyOut(int life, out int outMoney)
+    {
+        outMoney = life * 2;
+    }
+
+    delegate void InOutDelegate<T, U>(T input, out U output);
+    InOutDelegate<int, int> lifeInMoneyOut;
 
     void UseReflectOnPerson()
     {
         GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
         Person bob = capsule.AddComponent<Person>();
-        Func<int> born = BeBorn;
-        Func<int> work = GoToWork;
+        Func<int, int> born = BeBorn;
+        Func<int, int> work = GoToWork;
+        Func<int, int> accident = Accident;
         Func<int, int> taxes = PayTaxes;
-        Action<GameObject> die = Die;
+        Func<int, int> death = Die;
+        //lifeInMoneyOut = LifeInMoneyOut;
         bob.ThingsToDo.Enqueue(born);
         bob.ThingsToDo.Enqueue(work);
+        bob.ThingsToDo.Enqueue(accident);
         bob.ThingsToDo.Enqueue(taxes);
-        bob.ThingsToDo.Enqueue(die);
+        bob.ThingsToDo.Enqueue(death);
+        //bob.ThingsToDo.Enqueue(lifeInMoneyOut);
         bob.DoTheThings();
     }
     #endregion
 
-    void Thing()
+    #region 8.7.3 What We've Learned
+    /*
+     * Section 8.7.3 What We've Learned
+     * 
+     */
+    class HasStuff
     {
-        Debug.Log("Doing the thing.");
-    }
+        public int number;
+        public Vector3 position;
+        public GameObject gameObject;
 
-    delegate void mDelegate();
-    mDelegate theDelegated;
-    void UseReflection()
-    {
-        theDelegated = Thing;
-
-        void HealTheWizard(int mp)
+        delegate void ThreeInputs<T, U, V>(T A, U B, V C);
+        ThreeInputs<int, Vector3, GameObject> GiveThreeInputs;
+        void TheThreeThings(int number, Vector3 position, GameObject gameObject)
         {
-            Debug.Log("healing the wizard!" + mp);
+            Debug.Log("Got called!");
+            Debug.Log(number + " " + position + " " + gameObject);
         }
-        
-        Queue<Delegate> delegateQueue = new Queue<Delegate>();
-        delegateQueue.Enqueue(theDelegated);
 
-        Action<int, int> a = (hitPoints, magicPoints) => Debug.Log(hitPoints + magicPoints);
-        delegateQueue.Enqueue(a);
-        
-        Action<int> b = (fireballDamage) => Debug.Log(fireballDamage);
-        delegateQueue.Enqueue(b);
-        
-        Func<int, int> c = (needsOne) => needsOne + 1;
-        delegateQueue.Enqueue(c);
-        
-        Action<int> healWizard = (mPoints) => HealTheWizard(mPoints);
-        delegateQueue.Enqueue(healWizard);
-        
-        while (delegateQueue.Count > 0)
+        public void CheckOnStuff()
         {
-            Delegate d = delegateQueue.Dequeue();
-            MethodInfo info = d.GetMethodInfo();
-            MethodAttributes attributes = d.Method.Attributes;
-            string name = d.Method.Name;
-            ParameterInfo[] parInfo = d.Method.GetParameters();
-            foreach (ParameterInfo pi in parInfo)
+            GiveThreeInputs = TheThreeThings;
+            Delegate threeIns = GiveThreeInputs;
+
+            var delegateMethodInfo = threeIns.GetMethodInfo().GetParameters();
+            var myFields = this.GetType().GetFields();
+            object[] pars = new object[delegateMethodInfo.Length];
+
+            for (int i = 0; i < delegateMethodInfo.Length; i++)
             {
-                Debug.Log(pi.Name);
+                for (int j = 0; j < myFields.Length; j++)
+                {
+                    if (delegateMethodInfo[i].Name.Equals(myFields[j].Name))
+                    {
+                        pars[i] = myFields[i].GetValue(this);
+                    }
+                }
             }
-            Debug.Log(info + " " + attributes + " " + name);
-            switch (name)
-            {
-                case "Thing":
-                    Debug.Log("Do the thing.");
-                    d.DynamicInvoke();
-                    break;
-                default:
-                    Debug.Log("unknown");
-                    break;
-            }
+
+            threeIns.DynamicInvoke(pars);
         }
     }
 
+    void UseWhatWeveLearned()
+    {
+        HasStuff hasStuff = new HasStuff();
+        hasStuff.number = 42;
+        hasStuff.position = new Vector3(3, 5, 7);
+        hasStuff.gameObject = new GameObject("magic");
+        hasStuff.CheckOnStuff();
+    }
+
+    #endregion
     private void Start()
     {
-        UseReflectOnPerson();
-        //UseReflection();
+        /*
+         * Section 8.7.1 Reflection
+         * Uncomment the line below to see the
+         * process in action.
+         */
+        //UseReflectClass();
+
+        /*
+         * Section 8.7.1.1 A Basic Example
+         * Uncomment the line below to see the
+         * process in action.
+         */
+        //UseHasAFunction();
+
+        /*
+         * Section 8.7.2 Reflection MethodInfo
+         * Uncomment the line below to see the
+         * process in action.
+         */
+        //UseReflectOnPerson();
+
+        /*
+         * Section 8.7.2 Reflection MethodInfo
+         * Uncomment the line below to see the
+         * process in action.
+         */
+        UseWhatWeveLearned();
     }
 
 }
