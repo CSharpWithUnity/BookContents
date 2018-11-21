@@ -174,8 +174,8 @@ public class Linq : MonoBehaviour
 
         {
             int[] setA = { 1, 1, 2, 2, 3, 3, 4, 4 };
-            List<int> setB = setA.Distinct().ToList();
             // Distinct removes repeated values
+            List<int> setB = setA.Distinct().ToList();
             foreach (int i in setB)
             {
                 Debug.Log(i);
@@ -188,6 +188,9 @@ public class Linq : MonoBehaviour
         {
             int[] setA = { 1, 2, 3, 4 };
             int[] setB = { 3, 4, 5, 6 };
+
+            // union merges the two lists together
+            // distinct removes duplicates
             int[] setC = setA.Union(setB).Distinct().ToArray();
             foreach (int i in setC)
             {
@@ -203,6 +206,8 @@ public class Linq : MonoBehaviour
         {
             int[] setA = { 1, 2, 3, 4 };
             int[] setB = { 3, 4, 5, 6 };
+            
+            // only shows things unique to setA
             int[] setC = setA.Except(setB).Distinct().ToArray();
             foreach (int i in setC)
             {
@@ -210,6 +215,8 @@ public class Linq : MonoBehaviour
             }
             // 1
             // 2
+
+            // only shows objects unique to setB
             int[] setD = setB.Except(setA).Distinct().ToArray();
             foreach (int i in setD)
             {
@@ -218,6 +225,149 @@ public class Linq : MonoBehaviour
             // 5
             // 6
         }
+    }
+    
+    public enum Alignments
+    {
+        Good,
+        Neutral,
+        Evil
+    }
+
+    class Monster
+    {
+        public string Name;
+        public int HP;
+        public Alignments Alignment;
+        public Vector3 Position;
+        public Monster()
+        {
+            string[] nameParts = { "Ba", "Ga", "Da", "Wa", "Pa", "Na", "La", "Ta", "Fa" };
+            Name = "";
+            for (int i = 0; i < 2; i++)
+            {
+                int p = UnityEngine.Random.Range(0, nameParts.Length);
+                Name += nameParts[p];
+            }
+            Alignment = (Alignments)UnityEngine.Random.Range(0, 3);
+            HP = UnityEngine.Random.Range(1, 11);
+        }
+    }
+
+    class MonsterNameComparer : IEqualityComparer<Monster>
+    {
+        public bool Equals(Monster x, Monster y)
+        {
+            return x.Name.Equals(y.Name);
+        }
+
+        public int GetHashCode(Monster obj)
+        {
+            return obj.Name.GetHashCode();
+        }
+    }
+
+    class MonsterAlignmentComparer : IEqualityComparer<Monster>
+    {
+        public bool Equals(Monster x, Monster y)
+        {
+            return x.Alignment == y.Alignment;
+        }
+
+        public int GetHashCode(Monster obj)
+        {
+            return obj.Alignment.GetHashCode();
+        }
+    }
+    class MonsterNameAlignmentComparer : IEqualityComparer<Monster>
+    {
+        public bool Equals(Monster x, Monster y)
+        {
+            return x.Name.Equals(y.Name) && x.Alignment == y.Alignment;
+        }
+
+        public int GetHashCode(Monster obj)
+        {
+            return obj.Name.GetHashCode() + obj.Alignment.GetHashCode();
+        }
+    }
+
+    void UseComparer()
+    {
+        int numMonsters = 100;
+        Monster[] monsters = new Monster[numMonsters];
+        for (int i = 0; i < numMonsters; i++)
+        {
+            monsters[i] = new Monster(); 
+        }
+        {
+            /* This produces a list of all 100 monsters
+             * they are grouped together based on their
+             * names and alignments. */
+
+            Monster[] sorted = monsters.OrderBy(m => m.Alignment.GetHashCode() + m.Name.GetHashCode()).ToArray();
+            string log = "";
+            int count = 1;
+            foreach (Monster m in sorted)
+            {
+                log += count++ + ") name: " + m.Name + " " + m.Alignment + "\n";
+            }
+            Debug.Log(log);
+            {
+                Monster[] strongMonsters = monsters.Where(x => x.HP > 9 ).ToArray();
+                string l = "strongMonsters: \n";
+                count = 1;
+                foreach (Monster m in strongMonsters)
+                {
+                    l += count++ + ") " + m.Name + " " + m.HP + "\n";
+                }
+                Debug.Log(l);
+            }
+            {
+                var strongMonsters = from monster in monsters
+                           where monster.HP > 9
+                           select monster;
+
+                string l = "strongMonsters: \n";
+                count = 1;
+                foreach (Monster m in strongMonsters)
+                {
+                    l += count++ + ") " + m.Name + " " + m.HP + "\n";
+                }
+                Debug.Log(l);
+            }
+        }
+
+
+        {
+            /* this will use the Name Comparer to filter out    */
+            /* monsters with the same name                      */
+            Monster[] unique = monsters.Distinct(new MonsterNameComparer()).ToArray();
+
+            //about a third of the names will be removed.
+            string log = "";
+            int count = 1;
+            foreach (Monster m in unique)
+            {
+                log += count++ + ") name: " + m.Name + " " + m.Alignment + "\n";
+            }
+            Debug.Log(log);
+        }
+
+        {   /* this will use the Name Comparer to filter out    */
+            /* monsters with the same name                      */
+            Monster[] unique = monsters.Distinct(new MonsterNameComparer()).OrderBy(x => x.Name.GetHashCode() ^ x.HP).ToArray();
+
+            //about a third of the names will be removed.
+            string log = "";
+            int count = 1;
+            foreach (Monster m in unique)
+            {
+                log += count++ + ") name: " + m.Name + " " + m.Alignment + "\n";
+            }
+            Debug.Log(log);
+        }
+
     }
 
     void Start()
@@ -260,6 +410,7 @@ public class Linq : MonoBehaviour
          * uncomment the line below to see
          * the function in action.
          */
-        UseLinqOnLists();
+        //UseLinqOnLists();
+        UseComparer();
     }
 }
