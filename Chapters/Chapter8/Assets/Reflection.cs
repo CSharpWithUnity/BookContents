@@ -235,21 +235,21 @@ public class Reflection : MonoBehaviour
          * Uncomment the line below to see the
          * process in action.
          */
-        //UseReflectClass();
+        UseReflectClass();
 
         /*
          * Section 8.7.1.1 A Basic Example
          * Uncomment the line below to see the
          * process in action.
          */
-        //UseHasAFunction();
+        UseHasAFunction();
 
         /*
          * Section 8.7.2 Reflection MethodInfo
          * Uncomment the line below to see the
          * process in action.
          */
-        //UseReflectOnPerson();
+        UseReflectOnPerson();
 
         /*
          * Section 8.7.2 Reflection MethodInfo
