@@ -9,7 +9,7 @@ The contents are arranged by chapter. [Example Code](https://github.com/CSharpWi
 A Chapter Outline will be coming soon as soon as I'm done re-arranging and re-writing all of the content.
 The second edition is a major update to the previous book. In a practical sense, it's a completely new book, so much of the content is new and re-written that it hardly resembles the previous version.
 
-A lof of work went into comments like [these](https://github.com/CSharpWithUnity/BookContents/blob/7ec2e3d28f7da22cacb7c640791e57d5731970cc/Chapters/Chapter8/Assets/Linq.cs#L46). The comments here help illustrate where the data is coming from and where it's going to. Each step of the process is numbered to help see what's going on.
+A lof of work went into comments like [these](https://github.com/CSharpWithUnity/BookContents/blob/7ec2e3d28f7da22cacb7c640791e57d5731970cc/Chapters/Chapter8/Assets/Linq.cs#L46-L58). The comments here help illustrate where the data is coming from and where it's going to. Each step of the process is numbered to help see what's going on.
 
 ``` CSharp 
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -26,3 +26,4 @@ A lof of work went into comments like [these](https://github.com/CSharpWithUnity
             /*    │               ↓ the result of the statement   */
             /*    └─────←*/select n;
 ```
+This kind of stuff took a lot of work, and I hope this helps!
