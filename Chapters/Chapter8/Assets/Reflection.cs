@@ -220,10 +220,12 @@ public class Reflection : MonoBehaviour
 
     void UseWhatWeveLearned()
     {
-        HasStuff hasStuff = new HasStuff();
-        hasStuff.number = 42;
-        hasStuff.position = new Vector3(3, 5, 7);
-        hasStuff.gameObject = new GameObject("magic");
+        HasStuff hasStuff = new HasStuff
+        {
+            number = 42,
+            position = new Vector3(3, 5, 7),
+            gameObject = new GameObject("magic")
+        };
         hasStuff.CheckOnStuff();
     }
 
