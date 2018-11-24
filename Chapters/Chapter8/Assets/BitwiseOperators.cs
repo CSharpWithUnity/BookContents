@@ -335,33 +335,67 @@ public class BitwiseOperators : MonoBehaviour
      */
     enum Alignments
     {
-        TrueNeutral     = 0,
-        ChaoticNeutral  = 1 << 1,
-        LawfulNeutral   = 1 << 2,
-        ChaoticGood     = 1 << 3,
-        NeutralGood     = 1 << 4,
-        LawfulGood      = 1 << 5,
-        ChaoticEvil     = 1 << 6,
-        NeutralEvil     = 1 << 7,
-        LawfulEvil      = 1 << 8, //is this going to work?
+        Neutral         = 0,
+        CrazyNeutral    = 1 << 0,
+        NormalNeutral   = 1 << 1,
+        CrazyGood       = 1 << 2,
+        NormalGood      = 1 << 3,
+        ReallyGood      = 1 << 4,
+        CrazyEvil       = 1 << 5,
+        NormalEvil      = 1 << 6,
+        ReallyEvil      = 1 << 7,
+        Unknown         = 1 << 8 //is this valid?
     }
 
     void UseBitShifting()
     {
-        Alignments trueNeutral = Alignments.TrueNeutral;
-        ShowBits((byte)trueNeutral);
+        Alignments neutral = Alignments.Neutral;
+        ShowBits((byte)neutral);
+        // bits in 0:
+        // 00000000
 
-        Alignments chaoticNeutral = Alignments.ChaoticNeutral;
-        ShowBits((byte)chaoticNeutral);
+        /* 1 << 0
+         * remember, 0 is the first index! or zeroth index
+         */
+        Alignments crazyNeutral = Alignments.CrazyNeutral;
+        ShowBits((byte)crazyNeutral);
+        // bits in 1:
+        // 10000000
 
-        Alignments lawfulGood = Alignments.LawfulGood;
-        ShowBits((byte)lawfulGood);
+        /* 1 << 1
+         * shifted skipping the 0th index into the first
+         * index, which is the second from the zeroth
+         * position.
+         */
+        Alignments normalNeutral = Alignments.NormalNeutral;
+        ShowBits((byte)normalNeutral);
+        // bits in 2:
+        // 01000000
 
-        Alignments lawfulEvil = Alignments.LawfulEvil;
-        ShowBits((byte)lawfulEvil);
-        // zero!
+        /* 1 << 7
+         * in a byte there are only 0 to 7 positions
+         * the last position for a 8 bit byte.
+         */
+        Alignments reallyEvil = Alignments.ReallyEvil;
+        ShowBits((byte)reallyEvil);
+        // bits in 128:
+        // 00000001
 
-        void ShowBits(int number)
+        /* 1 << 8
+         * in a byte there are only 0 to 7 positions
+         * past the last bit, we've rolled a byte!
+         */
+        Alignments unknown = Alignments.Unknown;
+        ShowBits((byte)unknown);
+        // bits in 0:
+        // 00000000
+
+        Debug.Log("use an int?");
+        ShowBitInt((int)unknown);
+        // bits in int:256
+        // 00000000100000000000000000000000
+
+        void ShowBitInt(int number)
         {
             int bitLen = 32;
             string log = "bits in int:" + number + "\n";
@@ -379,8 +413,6 @@ public class BitwiseOperators : MonoBehaviour
             }
             Debug.Log(log);
         }
-
-        ShowBits((int)1);
     }
 
     void Start()
@@ -388,42 +420,42 @@ public class BitwiseOperators : MonoBehaviour
         /*
          * Section 8.9 Bitwise Operators
          */
-        //ReadBits();
+        ReadBits();
 
         /*
          * Section 8.9.3 Bitwise Or |
          */
-        //UseBitwiseOr();
+        UseBitwiseOr();
 
         /*
          * Section 8.9.4 Enums and Numbers
          */
-        //UseOrCharacterClasses();
+        UseOrCharacterClasses();
 
         /*
          * Section 8.9.5 Bitwise And &
          */
-        //UseAndCharacterClasses();
+        UseAndCharacterClasses();
 
         /*
          * Section 8.9.6 Bitwise Xor ^
          */
-        //UseXorCharacterClasses();
+        UseXorCharacterClasses();
 
         /*
          * Section 8.9.7 Setting Bitwise Flags
          */
-        //UseSettingBitwiseFlags();
+        UseSettingBitwiseFlags();
 
         /*
          * Section 8.9.8 Bitwise Shortcuts
          */
-        //UseBitwiseShortcuts();
+        UseBitwiseShortcuts();
 
         /*
          * Section 8.9.9 Bits in Numbers
          */
-        //UseBitsInNumbers();
+        UseBitsInNumbers();
 
         /*
          * Section 8.9.10 Bit Shifting
