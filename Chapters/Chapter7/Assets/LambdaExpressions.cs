@@ -190,8 +190,8 @@ public class LambdaExpressions : MonoBehaviour
 
     void UseOthers()
     {
-            // Actions using one line
-            Action oneLineAction = () => Debug.Log("One Line Action.");
+        // Actions using one line
+        Action oneLineAction = () => Debug.Log("One Line Action.");
         oneLineAction();
 
         // One Line Action.
