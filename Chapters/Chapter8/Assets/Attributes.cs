@@ -186,6 +186,7 @@ public class Attributes : MonoBehaviour
     class SuperficialAttribute : Attribute                    /* this keeps the tag from  */
     {                                                         /* being inherited by child */
     }                                                         /* classes                  */
+    
     /* Multiple attributes
      * can be added separated by
      * a comma. Also note that
