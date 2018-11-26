@@ -537,7 +537,7 @@ public class Linq : MonoBehaviour
          * uncomment the line below to see
          * the function in action.
          */
-        //UseLinqOnArray();
+        UseLinqOnArray();
 
         /*
          * Section 8.8.2 Var
@@ -545,7 +545,7 @@ public class Linq : MonoBehaviour
          * uncomment the line below to see
          * the function in action.
          */
-        //UseVar();
+        UseVar();
 
         /*
          * Section 8.8.2 Var
@@ -553,7 +553,7 @@ public class Linq : MonoBehaviour
          * uncomment the line below to see
          * the function in action.
          */
-        //UseFindZombies();
+        UseFindZombies();
 
         /*
          * Section 8.8.2 Var
@@ -561,7 +561,7 @@ public class Linq : MonoBehaviour
          * uncomment the line below to see
          * the function in action.
          */
-        //UseStrangeBehaviour();
+        UseStrangeBehaviour();
 
         /*
          * Section 8.8.2 Var
@@ -569,7 +569,7 @@ public class Linq : MonoBehaviour
          * uncomment the line below to see
          * the function in action.
          */
-        //UseLinqOnLists();
+        UseLinqOnLists();
         UseComparerClasses();
     }
 }
