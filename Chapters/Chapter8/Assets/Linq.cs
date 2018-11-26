@@ -514,8 +514,8 @@ public class Linq : MonoBehaviour
             /* Objects in the linq statement can see
              * variables in its immediate scope
              */
-            Monster ComparedTo = new Monster();/* →─────┐       ComparedTo can  */
-            var weakerThan = from monster in monsters/* ↓       be used in the  */
+            Monster ComparedTo = new Monster();/* →─────┐          ComparedTo can  */
+            var weakerThan = from monster in monsters/* ↓          be used in the  */
                                 where monster.HP < ComparedTo.HP/* where statement */
                                 select monster;
 
