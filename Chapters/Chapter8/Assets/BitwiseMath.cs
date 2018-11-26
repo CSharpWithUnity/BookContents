@@ -121,29 +121,150 @@ public class BitwiseMath : MonoBehaviour
      */
     void UseBitwiseAdditionAndSubtraction()
     {
-        int a = 21;
-        ShowBits((byte)a);
-
-        int b = 17;
-        ShowBits((byte)b);
-        
-        int c = a & b;
-        ShowBits((byte)c);
-
-        int r = a ^ b;
-        ShowBits((byte)r);
-
-        while (c != 0)
         {
-            int s = c << 1;
-            ShowBits((byte)s);
-            c = r & s;
-            ShowBits((byte)c);
-            r = r ^ s;
-            ShowBits((byte)r);
+            int a = 7;
+            int b = 3;
+            int c = a & b;
+            int r = a ^ b;
+            while (c != 0)
+            {  
+                int s = c << 1;
+                c = r & s;
+                r = r ^ s;
+            }
+            Debug.Log(r);
         }
 
+        {
+            int a = 7;
+            // 1110 0000
+
+            int b = 3;
+            // 1100 0000
+
+            int c = a & b;
+            //a  1110 0000
+            //b &1100 0000
+            //  =1100 0000
+
+            int r = a ^ b;
+            //a  1110 0000
+            //b ^1100 0000
+            //  =0010 0000
+
+            while (c != 0)
+            {   //[   first iteration ][ second iteration  ]
+                //[ c   1100 0000     ][ c   0010 0000     ]
+                                       int s = c << 1;
+                //[ s = 0110 0000 << 1][ s = 0001 0000 << 1] → actual direction
+                                       c = r & s;
+                //[ r   0010 0000     ][ r   0100 0000     ]
+                //[ s & 0110 0000     ][ s & 0001 0000     ]
+                //[ c = 0010 0000     ][ c = 0000 0000     ](c == 0)
+                                       r = r ^ s;
+                //[ r   0010 0000     ][ r   0100 0000     ]
+                //[ s ^ 0110 0000     ][ s ^ 0001 0000     ] 
+                //[ r = 0100 0000     ][ r = 0101 0000     ](final result)
+            }
+            ShowBits(r);
+            //bits in int:10
+            //01010000000000000000000000000000
+        }
     }
+
+    int BitwiseAdd(int a, int b)
+    {
+        int c = a & b;
+        int r = a ^ b;
+        while (c != 0)
+	    {
+            int s = c << 1; //shift digits to add
+            c = r & s;      //find overlapping digits
+            r = r ^ s;      //merge digits that don't overlap
+        }
+        return r;
+    }
+
+    int BitwiseSub(int a, int b)
+    {
+        b = BitwiseAdd(~b, 1);
+        return BitwiseAdd(a, b);
+    }
+
+    int BitwiseMultiplication(int a, int b)
+    {
+        int r = 0;
+        while (b != 0)
+        {
+            if ((b & 1) != 0)
+            {
+                r = BitwiseAdd(r, a);
+            }
+            a = a << 1;
+            if (b == 0)
+            {
+                r = a;
+                break;
+            }
+            b = b >> 1;
+        }
+        return r;
+    }
+
+    int BitwiseDiv(int a, int b)
+    {
+        int divideStart = a;
+        int timesDivided = 1;
+        while (true)
+        {
+            divideStart = BitwiseSub(divideStart, b);
+            if (divideStart <= 0)
+                break;
+            timesDivided = BitwiseAdd(timesDivided, 1);
+        }
+        return timesDivided;
+    }
+
+    /*
+     * Section 8.10.4 Bitwise Tricks
+     */
+    void UseBitwiseTricks()
+    {
+        // checks if both are positive
+        // or both are negative.
+        int a = 20;
+        int b = 1;
+        bool same = ((a ^ b) > 0);
+        Debug.Log(same);
+
+
+        string BitsToString(int number, int digits)
+        {
+            char[] binary = new char[digits];
+            int digit = digits - 1;
+            int place = 0;
+            while (place < digits)
+            {
+                int d = number & (1 << place);
+                if (d != 0)
+                {
+                    binary[digit] = '1';
+                }
+                else
+                {
+                    binary[digit] = '0';
+                }
+                digit--;
+                place++;
+            }
+            return new string(binary);
+        }
+
+        Debug.Log(BitsToString(42, 8));
+        // 00101010
+    }
+
+
 
     void Start()
     {
@@ -161,5 +282,11 @@ public class BitwiseMath : MonoBehaviour
          * Section 8.10.3 Bitwise Addition and Subtraction
          */
         UseBitwiseAdditionAndSubtraction();
+
+        /*
+         * Section 8.10.4 Bitwise Tricks
+         */
+        UseBitwiseTricks();
+
     }
 }
