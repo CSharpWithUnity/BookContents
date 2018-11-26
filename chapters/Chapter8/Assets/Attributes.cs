@@ -246,18 +246,20 @@ public class Attributes : MonoBehaviour
 
     class HasUpdates
     {
+        // updates every half a second
         [Update(0.5f)]
         public void RequiresUpdateOften()
         {
             Debug.Log("Got Updated");
         }
-
+        // updates every three seconds
         [Update(3f)]
         public void AlsoRequiresUpdateSlowly()
         {
             Debug.Log("Also Got Updated");
         }
 
+        // doesn't get updated.
         public void DontUpdate()
         {
             Debug.Log("Exclude me.");
@@ -266,16 +268,13 @@ public class Attributes : MonoBehaviour
 
     void UseUpdateAttribute()
     {
-        // this class has a method that needs
-        // updating.
+        // this class has methods 
+        // that need updating.
         HasUpdates needsUpdates = new HasUpdates();
-
-        // get all methods from the HasUpdate type
-        var methods = needsUpdates.GetType().GetMethods();
 
         // now we know what method has the attribute
         // in the class type
-        var updateMethods = from m in methods
+        var updateMethods = from m in needsUpdates.GetType().GetMethods()
                             where m.GetCustomAttribute<UpdateAttribute>() is UpdateAttribute
                             select m;
 
@@ -285,7 +284,7 @@ public class Attributes : MonoBehaviour
         List<IEnumerator> routineList = new List<IEnumerator>();
 
         // has methods with update attribute
-        foreach (MethodInfo v in updateMethods)
+        foreach (var method in updateMethods)
         {
             /* inner function for each
              * method with custom attribute
@@ -296,16 +295,15 @@ public class Attributes : MonoBehaviour
             {
                 while (true)
                 {
-                    UpdateAttribute upa = v.GetCustomAttribute<UpdateAttribute>() as UpdateAttribute;
-                    v.Invoke(needsUpdates, new object[] { });
+                    UpdateAttribute upa = method.GetCustomAttribute<UpdateAttribute>() as UpdateAttribute;
+                    method.Invoke(needsUpdates, new object[] { });
                     yield return new WaitForSeconds(upa.Delay);
                 }
             }
-
             routineList.Add(updater());
         }
 
-        foreach(IEnumerator e in routineList)
+        foreach (IEnumerator e in routineList)
         {
             StartCoroutine(e);
         }
@@ -316,22 +314,22 @@ public class Attributes : MonoBehaviour
         /*
          * Section 8.11 Attributes
          */
-        //UseSerializedFields();
+        UseSerializedFields();
 
         /*
          * Section 8.11.2 Custom Attributes
          */
-        //UseCustomAttribute();
+        UseCustomAttribute();
 
         /*
          * Section 8.11.3 Custom Attributes for Default Values
          */
-        //UseDefaultAttribute();
+        UseDefaultAttribute();
 
         /*
          * Section 8.11.4 Multiple Attributes
          */
-        //UseMultipleAttributes();
+        UseMultipleAttributes();
 
         /*
          * Section 8.11.5 Putting Attributes to Work
