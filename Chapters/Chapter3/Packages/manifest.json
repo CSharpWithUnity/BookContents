@@ -1,4 +1,5 @@
 {
   "dependencies": {
+    "com.unity.xr.legacyinputhelpers": "1.0.0"
   }
 }
