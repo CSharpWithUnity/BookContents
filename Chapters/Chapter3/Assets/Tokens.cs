@@ -54,7 +54,60 @@ public class Tokens : MonoBehaviour
      *             └────────────┘
      */
 
+
+    /*
+     * Section 3.4.2 Comments a first look
+     */
     int j = 0; int k = 1;
+    //This is a single line comment.
+
+    // ← the two forward slashes make
+    // any line invisible to the lexer
+
+    /*
+     ↑
+     └ This is a multiline comment.
+       everything between the opening
+       token slash star stays hidden
+       until you get to the closing 
+     ┌ slash star
+     ↓
+     */
+
+    /*        not hidden          */
+    /*             ↓              */
+    /*hidden*/ int H = 0; /*hidden*/
+
+    /* this is also a multiline comment
+     * but we have little * at the start
+     * of each line and we finish this
+     * with the closing comment on it's
+     * own line.
+     */
+
+    void MyFunction()
+    {
+        int someInt = 0; // declaring some regular int as 0
+    }
+
+    void MyOtherFunction()
+    {
+        /* uncomment one of the three someInt lines
+         * below by deleting the //
+         * then make sure that only one
+         * is visible to the lexer by commenting
+         * the others out.
+         */
+        int someInt = 0;
+        //I print 0 through 10
+        //int someInt = 3; //starts at 3
+        //int someInt = 11; //this won't print
+        while (someInt < 10)
+        {
+            System.Console.WriteLine(someInt);
+            someInt++;
+        }
+    }
 
 
     /*
@@ -71,6 +124,14 @@ public class Tokens : MonoBehaviour
      * type int, so this is a valid assignment
      */
 
+    /* ┌ Opening               *
+     * │             Closing ┐ *
+     * ↓                     ↓ *
+     * { Curly braces        } *
+     * [ Square Brackets     ] *
+     * ( Parenthesis         ) *
+     * < Angle Brackets      > */
+
     int l = 0;
 
     /*
@@ -82,6 +143,7 @@ public class Tokens : MonoBehaviour
      * like.
      * 
      */
+
     //int m = O;
 
     void thing()
@@ -125,9 +187,9 @@ public class Tokens : MonoBehaviour
      *   │ brace        │ │ brace        │
      *   └───────┬──────┘ └─────┬────────┘
      *         ┌─┘              └──┐    
-     *         │                   │
+     *         ↓                   ↓
      *         { 1, (int)3.0, 9000 }
-     *            │         │
+     *            ↑         ↑
      *            └────┬────┘
      *            ┌────┴──────┐
      *            │ separator │
@@ -153,8 +215,6 @@ public class Tokens : MonoBehaviour
      *  {0,0,0}
      *  the white space isn't necessary
      *  but it's easier to read.
-     *  
-     *  
      */
 
     void QuotationMarks()
@@ -171,6 +231,7 @@ public class Tokens : MonoBehaviour
 
     /*
      * Section 3.3.3 Separator tokens cont...
+     * 
      * " are usually used in text editors, smart quotes like
      * the ones that are give in fancy word processors 
      * like “ and ” aren't recognized here.
@@ -280,7 +341,30 @@ public class Tokens : MonoBehaviour
      * │ % │ Remainder Operator    │
      * └───┴───────────────────────┘
      * 
+     * 
+     * 
      */
+    void Commas()
+    {
+        Vector3 vector = new Vector3()
+        {
+            /* commas separate terms    */
+            /*   ↓      ↓               */
+            x = 1, y = 2, z = 3
+        };
+
+        /*       commas separate terms  */
+        /*            ↓             ↓   */
+        for (int i = 0, j = 1; ; i++, j++)
+        {
+        }
+    }
+
+    /*             semicolon operator   */
+    /*                   ↓              */
+    public class Example : MonoBehaviour
+    {
+    }
 
     void OperatorTokens()
     {
@@ -373,12 +457,13 @@ public class Tokens : MonoBehaviour
         {
             System.Console.WriteLine("someInts: " + i);
         }
+
         /*
          * Section 3.3.4 continued...
          */
 
         float degrees;
-        float radians = 3.14159f;
+        float radians = 180 / Mathf.PI;
 
         degrees = (radians * Mathf.PI) / 180;
         System.Console.WriteLine("Degrees from 3.14159 Radians = " + degrees);

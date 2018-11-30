@@ -15,19 +15,13 @@ using System;
 
 public class Comments
 {
+    /*
+     * Section 3.3.2 Comments a first look
+     */
+
+
     //TODO: These comments show up in the Task List.
 
-    /* this is a multiline comment
-       which can carry on to other lines
-       you can keep on writing anything
-       until you get to the following */
-
-    /* this is also a multiline comment
-     * but we have little * at the start
-     * of each line and we finish this
-     * with the closing comment on it's
-     * own line
-     */
 
     /* Player class written by Alex Okita
      * This class manages the player's data and logic
@@ -37,22 +31,9 @@ public class Comments
      * This comment was written by Alex Okita *
      ******************************************/
 
-    void MyFunction()
-    {
-        int someInt = 0; // declaring some regular int as 0
-    }
 
-    void MyOtherFunction()
-    {
-        int someInt = 0;//I print 0 through 10
-        //int someInt = 3; //starts at 3
-        //int someInt = 11; //this won't print
-        while (someInt < 10)
-        {
-            System.Console.WriteLine(someInt);
-            someInt++;
-        }
-    }
+     
+
 
     void AnotherFunction()
     {
