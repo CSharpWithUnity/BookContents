@@ -62,18 +62,26 @@ class Variables : UnityEngine.MonoBehaviour
      *  
      */
 
+
+    /*
+     * Section 3.9.3 Variable Manipulation
+     */
     public float InputValue;
     public float MultiplyBy;
     public float Result;
 
     void Update()
     {
+        /*              math is done      */
+        /* ┌─────────────────┐①           */
+        /* │ result is  ┌────┴────┐       */
+        /* ② assigned ┌─┤operation├─┐     */
+        /* ↓          ↑ └─────────┘ ↑     */
         Result = InputValue * MultiplyBy;
-        
-        /*
-         * Section 3.9.3 Variable Manipulation
-         */
+    }
 
+    void MoreUpdates()
+    {
         int i = 0;
         System.Console.Write(i);
         // i has been assigned 0

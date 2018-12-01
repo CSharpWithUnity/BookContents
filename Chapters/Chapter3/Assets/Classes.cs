@@ -7,6 +7,76 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
+
+
+/* Class Stuff has Things,  */
+/* and can Do A Thing.      */
+class Stuff 
+{
+    int Things;     /* ← Data member     */
+    void DoAThing() /* ← Function member */
+    {
+        //Do the thing!
+    }
+}
+
+namespace Chapter3_8
+{
+    using System;
+    class Party
+    {
+        bool PartyTonight = false;/* ← Collect your */
+        void DoParty()/*        ┌───── data.        */
+        {   /*                 ❶↓                   */
+            DateTime today = DateTime.Now;
+            /*     test your data                   */
+            /*                 ❷↓                   */
+            if (today.DayOfWeek == DayOfWeek.Friday)
+            {   /* act on your data                 */
+                /*             ❸↓                   */
+                PartyTonight = true;
+            }
+        }
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+         * pretty much every operation follows the same  *
+         * pattern: Get → Check → Set                    *
+         * * * * * * * * * * * * * * * * * * * * * * * * */
+    }
+}
+
+
+/*
+ *              ┌──────────────────┐
+ *              │This acts as a    │
+ * ╔════════╗   │blueprint to make │
+ * ║C# Class║   │an instance of    │
+ * ║ Zombie ║←──┤itself.           │
+ * ╚═══╤════╝   └──────────────────┘
+ *     │ Constructs
+ *     │ one of these
+ *     ↓        ┌──────────────────┐
+ * ┌────────┐   │this Zombie() is  │
+ * │ Zombie │←──┤an instance of the│
+ * └────────┘   │blueprint that    │
+ *              │created it.       │
+ *              └──────────────────┘
+ */
+
+class MakeZombies
+{               /*   ┌─────────────────┐*/
+    class Zombie/* ←─┤This is the plan │*/
+    {           /*   │to build a zombie│*/
+    }           /*   └─────────────────┘*/
+                /*      ┌────────────┐  */
+                /*      │this is an  │  */
+    void MakeZombie()/* │instance of │  */
+    {   /*       ┌──────┤a zombie    │  */
+        /*       ↓      └────────────┘  */
+        Zombie zombie = new Zombie();
+    }
+}
+
 class Classes
 {
     public int MyInt;
