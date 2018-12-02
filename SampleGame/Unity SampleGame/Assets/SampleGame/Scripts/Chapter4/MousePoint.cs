@@ -9,7 +9,6 @@ public class MousePoint : MonoBehaviour {
 
     public Camera myCamera;
     public GameObject myTransformObject;
-	
     // Use this for initialization
 	void Start () {
         /*
@@ -20,7 +19,6 @@ public class MousePoint : MonoBehaviour {
 
         myCamera = Camera.main;
         myTransformObject = GameObject.Find("TransformPrimitive");
-        
         /*
          * more on how the above works will be coming when we cover how
          * these functions work, but continue on and see what happens
@@ -38,9 +36,10 @@ public class MousePoint : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            myTransformObject.transform.position = hit.point;
+            Vector3 h = hit.point;
+            h.y = 0;
+            myTransformObject.transform.position = h;
         }
-        
         /*
          * The ray becomes a line that starts at the myCamera as a point that passes
          * through the Input.mousePosition and continues through to the game world.
