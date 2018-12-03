@@ -59,6 +59,7 @@ public class Tokens : MonoBehaviour
      * Section 3.4.2 Comments a first look
      */
     int j = 0; int k = 1;
+
     //This is a single line comment.
 
     // ← the two forward slashes make
@@ -76,7 +77,7 @@ public class Tokens : MonoBehaviour
 
     /*        not hidden          */
     /*             ↓              */
-    /*hidden*/ int H = 0; /*hidden*/
+    /*hidden*/ int l = 0; /*hidden*/
 
     /* this is also a multiline comment
      * but we have little * at the start
