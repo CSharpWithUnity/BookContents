@@ -19,6 +19,7 @@ public class DamageSystem : MonoBehaviour
             Vector3 pos = collision.contacts[0].point;
             Vector3 dir = collision.contacts[0].normal;
             Quaternion rot = Quaternion.LookRotation(dir);
+
             Damage -= other.Damage;
             if (Damage <= 0)
             {

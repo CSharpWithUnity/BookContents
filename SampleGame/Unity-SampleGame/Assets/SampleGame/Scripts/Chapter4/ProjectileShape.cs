@@ -7,10 +7,12 @@ public class ProjectileShape : MonoBehaviour
     public float LifeTime;
     public int Damage;
     public float Speed;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * Speed;
+
         LifeTime = Time.time + LifeTime;
     }
 

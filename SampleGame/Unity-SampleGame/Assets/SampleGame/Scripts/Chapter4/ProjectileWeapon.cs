@@ -7,8 +7,6 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
@@ -52,9 +50,20 @@ public class ProjectileWeapon : MonoBehaviour
     {
         if (Input.GetMouseButton(1) && Time.time > NextTime)
         {
+            // calculate how soon we can fire the next shot
             NextTime = Time.time + NextShot(RateOfFire);
+
+            // get the position of the "barrel" of the weapon
+            Vector3 pos = ProjectileStart.transform.position;
+            // get the rotation of the "barrel" of the weapon
+            Quaternion rot = ProjectileStart.transform.rotation;
+
+            // create a new projectile with the barrel position
+            // and rotation.
+            Instantiate(ProjectileObject, pos, rot);
+
+            // make a pew! noise
             GetComponent<AudioSource>().PlayOneShot(BlasterShotClip);
-            Instantiate(ProjectileObject, ProjectileStart.transform.position, ProjectileStart.transform.rotation);
         }
-	}
+    }
 }
