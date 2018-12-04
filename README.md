@@ -1,3 +1,7 @@
+# This is my version of the README
+---
+Make sure to personalize your welcome message with something unique!
+
 # BookContents
 Public repo of the Learning C# with Unity 3D book contents
 
@@ -27,3 +31,5 @@ A lof of work went into comments like [these](https://github.com/CSharpWithUnity
             /*    └─────←*/select n;
 ```
 This kind of stuff took a lot of work, and I hope this helps!
+
+
