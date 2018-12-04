@@ -1,5 +1,5 @@
 # This is My version of the README
-Make sure to personalize it with your own welcome message!
+Make sure to personalize your welcome message with something Unique!
 
 # BookContents
 Public repo of the Learning C# with Unity 3D book contents
