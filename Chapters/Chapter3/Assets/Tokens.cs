@@ -458,25 +458,7 @@ namespace Section3_4
          * └───────────────┘
          */
 
-        int[] someInts = { 10, 000, 10000 };
 
-        void ShowSomeInts()
-        {
-            foreach (int i in someInts)
-            {
-                System.Console.WriteLine("someInts: " + i);
-            }
-
-            /*
-             * Section 3.3.4 continued...
-             */
-
-            float degrees;
-            float radians = 180 / Mathf.PI;
-
-            degrees = (radians * Mathf.PI) / 180;
-            System.Console.WriteLine("Degrees from 3.14159 Radians = " + degrees);
-        }
     }
 }
 namespace Section3_3_6
@@ -503,6 +485,26 @@ namespace Section3_3_6
             System.Console.WriteLine("the result of B: " + b);
             System.Console.WriteLine("the result of C: " + c);
             System.Console.WriteLine("the result of D: " + d);
+        }
+
+        int[] someInts = { 10, 000, 10000 };
+
+        void ShowSomeInts()
+        {
+            foreach (int i in someInts)
+            {
+                System.Console.WriteLine("someInts: " + i);
+            }
+
+            /*
+             * Section 3.3.4 continued...
+             */
+
+            float degrees;
+            float radians = 180 / Mathf.PI;
+
+            degrees = (radians * Mathf.PI) / 180;
+            System.Console.WriteLine("Degrees from 3.14159 Radians = " + degrees);
         }
 
         /*
@@ -541,14 +543,12 @@ namespace Section3_3_6
             // the compiler will see it and run that
             // line to execute the code.
 
-            // ShowSomeInts();
-
-            // the above shows
+            ShowSomeInts();
             // someInt: 10 
             // someInt: 0
             // someInt: 10000
 
-            //ShowAResultAndBResult();
+            ShowAResultAndBResult();
 
             // the above shows
             // The result of A: 6
