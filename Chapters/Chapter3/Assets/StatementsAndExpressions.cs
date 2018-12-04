@@ -80,23 +80,42 @@ public class StatementsAndExpressions : MonoBehaviour
 
     void Update()
     {
+        // Gather Data
         float closestDistance = Mathf.Infinity;
         GameObject closestGameObject = null;
-        GameObject[] allGameObjects = (GameObject[])GameObject.FindObjectsOfType(typeof(GameObject));
+        GameObject[] allGameObjects = FindObjectsOfType<GameObject>();
+
+        // Process Data
         foreach(GameObject g in allGameObjects)
         {
-            if(g != this.gameObject)
+            // Gather Data
+            bool notMe = g != this.gameObject;
+            
+            // Process Data
+            if (notMe)
             {
-                float distanceToG = (g.transform.position - transform.position).magnitude;
-                if(distanceToG < closestDistance)
+                // Gather Data
+                Vector3 otherPosition = g.transform.position;
+                Vector3 mPosition = transform.position;
+                Vector3 difference = otherPosition - mPosition;
+                float distance = difference.magnitude;
+
+                // Process Data
+                if(distance < closestDistance)
                 {
-                    closestDistance = distanceToG;
+                    closestDistance = distance;
                     closestGameObject = g;
                 }
             }
         }
 
-        Debug.DrawLine(transform.position, closestGameObject.transform.position, Color.red);
+        // Gather Data
+        Vector3 myPosition = transform.position;
+        Vector3 closestPosition = closestGameObject.transform.position;
+        Color red = Color.red;
+
+        // Process Data
+        Debug.DrawLine(myPosition, closestPosition , red);
     }
 
     /*

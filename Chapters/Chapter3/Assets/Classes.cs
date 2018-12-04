@@ -45,7 +45,6 @@ namespace Chapter3_8
     }
 }
 
-
 /*
  *              ┌──────────────────┐
  *              │This acts as a    │
@@ -62,6 +61,11 @@ namespace Chapter3_8
  *              │created it.       │
  *              └──────────────────┘
  */
+
+
+ /*
+  * Section 3.8.1 Objects
+  */
 
 class MakeZombies
 {               /*   ┌─────────────────┐*/
@@ -111,6 +115,7 @@ class Classes
 /*
  * Section 3.8.1 Objects
  */
+
 
 class Objects
 {

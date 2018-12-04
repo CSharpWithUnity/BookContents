@@ -1,6 +1,4 @@
 {
   "dependencies": {
-    "com.unity.collab-proxy": "1.2.9",
-    "com.unity.xr.legacyinputhelpers": "1.0.0"
   }
 }

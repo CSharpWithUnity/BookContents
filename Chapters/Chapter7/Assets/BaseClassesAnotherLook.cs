@@ -58,9 +58,9 @@ public abstract class BaseClass
 public class ChildA : BaseClass
 {
     #region ChildA_Properties
-    protected GameObject me;
-    protected Mesh mMesh;
-    protected MeshRenderer mMeshRenderer;
+    protected GameObject Me;
+    protected Mesh m_Mesh;
+    protected MeshRenderer m_MeshRenderer;
 
     public override bool Equals(object obj)
     {
@@ -72,12 +72,13 @@ public class ChildA : BaseClass
         return base.GetHashCode();
     }
     #endregion
+
     public override void Initialize(MeshFilter meshFilter, Material material)
     {
         MeshFilter = meshFilter;
         Material = material;
-        me = new GameObject(this.ToString());
-        
+        Me = new GameObject(this.ToString());
+
     }
 
     public override void MoveForward(float speed, float turn)

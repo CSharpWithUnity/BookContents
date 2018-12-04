@@ -342,8 +342,9 @@ public class Tokens : MonoBehaviour
      * │ % │ Remainder Operator    │
      * └───┴───────────────────────┘
      * 
-     * 
-     * 
+     * the = is an assignment operator.
+     * result = operation
+     *      c = a + b;
      */
     void Commas()
     {
