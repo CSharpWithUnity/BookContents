@@ -9,3 +9,11 @@ The following packages were added:
   com.unity.xr.legacyinputhelpers@1.0.0
 The following packages were updated:
   com.unity.package-manager-ui from version 1.9.11 to 2.1.0-preview.1
+
+=== Wed Dec  5 18:45:29 2018
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.package-manager-ui from version 2.1.0-preview.1 to 0.0.0-builtin

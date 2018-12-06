@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectMousePosition : MonoBehaviour {
+namespace Chapter4
+{
+    public class DirectMousePosition : MonoBehaviour
+    {
+        // Use this for initialization
+        void Start()
+        {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        gameObject.transform.position = Input.mousePosition;
-	}
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            gameObject.transform.position = Input.mousePosition;
+        }
+    }
 }

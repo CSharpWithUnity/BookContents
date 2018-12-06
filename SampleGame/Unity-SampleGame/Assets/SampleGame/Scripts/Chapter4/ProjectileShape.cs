@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileShape : MonoBehaviour
+namespace Chapter4
 {
-    public float LifeTime;
-    public int Damage;
-    public float Speed;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ProjectileShape : MonoBehaviour
     {
-        GetComponent<Rigidbody>().velocity = transform.forward * Speed;
+        public float LifeTime;
+        public int Damage;
+        public float Speed;
 
-        LifeTime = Time.time + LifeTime;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.time >= LifeTime)
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(this.gameObject);
+            GetComponent<Rigidbody>().velocity = transform.forward * Speed;
+
+            LifeTime = Time.time + LifeTime;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Time.time >= LifeTime)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
