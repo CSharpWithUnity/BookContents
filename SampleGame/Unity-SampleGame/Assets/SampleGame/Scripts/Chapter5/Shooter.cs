@@ -12,11 +12,10 @@ namespace Chapter5
         private float NextTime;
         public float RateOfFire;
 
-        // Update is called once per frame
         protected override void Update()
         {
             base.Update();
-            ShootAt(Target);
+            ShootAt();
         }
 
         // convert RPM to tenthsOfSeconds
@@ -27,7 +26,7 @@ namespace Chapter5
             return tenths;
         }
 
-        private void ShootAt(GameObject target)
+        private void ShootAt()
         {
             if (Time.time > NextTime)
             {

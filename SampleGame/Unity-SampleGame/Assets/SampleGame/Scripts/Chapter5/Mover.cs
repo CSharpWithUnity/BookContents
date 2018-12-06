@@ -10,12 +10,14 @@ namespace Chapter5
     public class Mover : MonoBehaviour
     {
         private GameObject _Target;
-        protected GameObject Target
+        private GameObject Target
         {
             get
             {
                 if (_Target == null)
                 {
+                    // find the player, keep
+                    // a reference to it.
                     _Target = Player.ThePlayer;
                 }
                 return _Target;
@@ -31,10 +33,11 @@ namespace Chapter5
             LookAt(TargetDirection);
         }
 
-        private void LookAt(Vector3 targetDirection)
+        private Vector3 GetDirection(GameObject target)
         {
-            Quaternion look = Quaternion.LookRotation(targetDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, look, 15f);
+            Vector3 myPosition = transform.position;
+            Vector3 otherPosition = target.transform.position;
+            return otherPosition - myPosition;
         }
 
         private void MoveTo(Vector3 targetDirection)
@@ -43,11 +46,12 @@ namespace Chapter5
             rb.AddForce(targetDirection, ForceMode.Force);
         }
 
-        private Vector3 GetDirection(GameObject target)
+        private void LookAt(Vector3 targetDirection)
         {
-            Vector3 myPosition = transform.position;
-            Vector3 otherPosition = target.transform.position;
-            return otherPosition - myPosition;
+            Quaternion look = Quaternion.LookRotation(targetDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, look, 15f);
         }
+
+
     }
 }

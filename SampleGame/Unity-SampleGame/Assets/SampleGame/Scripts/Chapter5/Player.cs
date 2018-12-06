@@ -7,15 +7,15 @@ namespace Chapter5
     public class Player : MonoBehaviour
     {
         public static GameObject ThePlayer;
-
-        private void Start()
-        {
+        /*                         ↑        */
+        private void Start()/*     │        */
+        {   /*    ┌────────────────┘        */
+            /*    ↑                         */
             ThePlayer = this.gameObject;
-        }
-
-        private void Update()
-        {
-
+            /*    ↑              ↓          */
+            /*    └──────────────┘          */
+            /*    assign the static         */
+            /*    to this gameObject        */
         }
     }
 }

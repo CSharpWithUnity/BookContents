@@ -309,8 +309,8 @@ GameObject:
   - component: {fileID: 669624007}
   - component: {fileID: 669624006}
   - component: {fileID: 669624005}
-  - component: {fileID: 669624009}
   - component: {fileID: 669624010}
+  - component: {fileID: 669624009}
   - component: {fileID: 669624011}
   m_Layer: 8
   m_Name: Mover
@@ -889,13 +889,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320681626}
-  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 6.97, z: -4.78}
+  m_LocalRotation: {x: 0.522544, y: -0, z: -0, w: 0.8526123}
+  m_LocalPosition: {x: 0, y: 4.95, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 63.006004, y: 0, z: 0}
 --- !u!114 &1320681630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,6 +1186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058108188820216166, guid: 7eaca50a1e88c854d86814e3562dfd2a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 4311694564953719616, guid: 7eaca50a1e88c854d86814e3562dfd2a,
         type: 3}
