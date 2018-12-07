@@ -30,8 +30,10 @@ namespace Chapter6
                         DestroyImmediate(wall);
                     }
                 }
+                // create list to remember objects to clear
+                WallObjectList = new List<GameObject>();
 
-                FloorGenerator generator = GetComponent<FloorGenerator>();
+
                 /*      14-6 = 8                                        */
                 /*     ₓ┌──────┐ₓₓₓₓₓ                                   */
                 /*     12345678901234                                   */
@@ -54,65 +56,44 @@ namespace Chapter6
                 /* last point we can select in                          */
                 /* each row is 5 away from the                          */
                 /* edge.                                                */
-                
-                WallObjectList = new List<GameObject>();
-                // remember what points were used.
+
+                // get some data for floor size
+                FloorGenerator generator = GetComponent<FloorGenerator>();
+                // get safe area
                 int maxW = 1 + generator.Width - MaxRoomWidth;
                 int maxD = 1 + generator.Depth - MaxRoomDepth;
-                int[,] usedPoints = new int[maxW, maxD];
 
                 for (int i = 0; i < RoomCount; i++)
                 {
                     // a point somewhere in the safe zone
-                    int w = Random.Range(1, maxW);
-                    int d = Random.Range(1, maxD);
-                    MakeRoom(w, d);
+                    int x = Random.Range(1, maxW);
+                    int z = Random.Range(1, maxD);
+                    MakeRoom(x, z, generator);
                 }
+            }
+        }
 
-                void MakeRoom(int x, int z)
+        void MakeRoom(int x, int z, FloorGenerator generator)
+        {
+            // make a room size startPoint + width/height
+            int sizeX = x + Random.Range(5, MaxRoomWidth);
+            int sizeZ = z + Random.Range(5, MaxRoomDepth);
+
+            // generate walls for the room
+            for (int sX = x; sX < sizeX; sX++)
+            {
+                for (int sZ = z; sZ < sizeZ; sZ++)
                 {
-                    int sizeX = x + Random.Range(5, MaxRoomWidth);
-                    int sizeZ = z + Random.Range(5, MaxRoomDepth);
-                    int width = sizeX - x;
-                    int depth = sizeZ - z;
-
-                    // make sure sizes are odd not even
-                    if ((width & 1) == 0 && width > 5)
+                    bool isEdge = sX == x || sX == sizeX - 1 || sZ == z || sZ == sizeZ - 1;
+                    if (isEdge)
                     {
-                        sizeX--;
-                    }
-
-                    if ((depth & 1) == 0 && depth > 5)
-                    {
-                        sizeZ--;
-                    }
-
-                    for (int sX = x; sX < sizeX; sX++)
-                    {
-                        for (int sZ = z; sZ < sizeZ; sZ++)
+                        GameObject wall = Instantiate(WallObject, transform);
+                        WallObjectList.Add(wall);
+                        wall.transform.position = new Vector3()
                         {
-                            // make north south walls
-                            if (sX == x || sX == sizeX - 1)
-                            {
-                                GameObject wall = Instantiate(WallObject, transform);
-                                WallObjectList.Add(wall);
-                                wall.transform.position = new Vector3()
-                                {
-                                    x = sX - (generator.Width / 2),
-                                    z = sZ - (generator.Depth / 2)
-                                };
-                            }
-                            else if (sZ == z || sZ == sizeZ - 1)
-                            {
-                                GameObject wall = Instantiate(WallObject, transform);
-                                WallObjectList.Add(wall);
-                                wall.transform.position = new Vector3()
-                                {
-                                    x = sX - (generator.Width / 2),
-                                    z = sZ - (generator.Depth / 2)
-                                };
-                            }
-                        }
+                            x = sX - (generator.Width / 2),
+                            z = sZ - (generator.Depth / 2)
+                        };
                     }
                 }
             }

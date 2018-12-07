@@ -408,7 +408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RateOfFire: 800
-  RoundsFired: 0
   ProjectileObject: {fileID: 7913998743679816508, guid: 048267cc0d7c1dc43b21cc9d977be080,
     type: 3}
   ProjectileStart: {fileID: 1065094675434063485}

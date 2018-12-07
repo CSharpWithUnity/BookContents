@@ -28,9 +28,12 @@ namespace Chapter6
                 GenerateTiles = false;
 
                 //clear any tiles that might already be there
-                foreach (GameObject tile in TileObjectList)
+                if (TileObjectList != null)
                 {
-                    DestroyImmediate(tile);
+                    foreach (GameObject tile in TileObjectList)
+                    {
+                        DestroyImmediate(tile);
+                    }
                 }
                 TileObjectList = new List<GameObject>();
 

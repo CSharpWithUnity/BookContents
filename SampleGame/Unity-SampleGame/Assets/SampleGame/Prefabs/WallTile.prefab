@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6448232490920963584}
   - component: {fileID: 6448232490920963596}
   - component: {fileID: 6448232490920963599}
-  m_Layer: 0
+  - component: {fileID: 8720751229648264873}
+  m_Layer: 10
   m_Name: WallTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,3 +109,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8720751229648264873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448232490920963587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b3fad0a5610d1cb42ab6ee7159867443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 30
+  ExplosionSmall: {fileID: 1695342150340887236, guid: 9cceb0e67c008ee41bcb9f20d909c704,
+    type: 3}
+  ExplosionLarge: {fileID: 1695342150340887236, guid: 5824fe6a67e26dd4ea762f014a137d49,
+    type: 3}
