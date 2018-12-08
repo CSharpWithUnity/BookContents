@@ -12,15 +12,16 @@ namespace Chapter6_7
 {
     public class FiniteStateMachine : MonoBehaviour
     {
-        private float ColorTime;
-        public enum ColorStates
+        public enum ChangingStates
         {
             Waiting,
             PickingColor,
             ChangingColor,
             ColorChanged
         }
-        public ColorStates ColorState;
+        public ChangingStates MyState;
+
+        private float ColorTime;
         private Color MyColor, NextColor;
         private Material MyMaterial;
 
@@ -34,24 +35,38 @@ namespace Chapter6_7
         // Update is called once per frame
         void Update()
         {
-            switch (ColorState)
+            switch (MyState)
             {
                 // Hold onto color here for a second
                 // then pick a color
-                case ColorStates.Waiting:
+                case ChangingStates.Waiting:
                     WaitForColor();
+                    if (Time.time > ColorTime)
+                    {
+                        Debug.Log("Finished Waiting...");
+                        MyState = ChangingStates.PickingColor;
+                    }
                     break;
                 // pick a random color, then go to changing color.
-                case ColorStates.PickingColor:
+                case ChangingStates.PickingColor:
                     PickColor();
+                    Debug.Log("Color Picked...");
+                    MyState = ChangingStates.ChangingColor;
                     break;
                 // allow some time to lerp between colors
-                case ColorStates.ChangingColor:
+                case ChangingStates.ChangingColor:
                     ChangeColor();
+                    if (Time.time > ColorTime)
+                    {
+                        Debug.Log("Color Changed...");
+                        MyState = ChangingStates.ColorChanged;
+                    }
                     break;
                 // finish color change
-                case ColorStates.ColorChanged:
+                case ChangingStates.ColorChanged:
                     ColorChanged();
+                    Debug.Log("Finished Color Change.");
+                    MyState = ChangingStates.Waiting;
                     break;
                 default:
                     break;
@@ -60,11 +75,7 @@ namespace Chapter6_7
 
         private void WaitForColor()
         {
-            if (Time.time > ColorTime)
-            {
-                ColorState = ColorStates.PickingColor;
-                ColorTime = Time.time + 1;
-            }
+            // chill out here.
         }
 
         private void PickColor()
@@ -74,23 +85,17 @@ namespace Chapter6_7
             float g = Random.Range(0f, 1f);
             NextColor = new Color(r, g, b);
             ColorTime = Time.time + 3;
-            ColorState = ColorStates.ChangingColor;
         }
 
         private void ChangeColor()
         {
             MyColor = Color.Lerp(MyColor, NextColor, Time.deltaTime);
             MyMaterial.color = MyColor;
-            if (Time.time > ColorTime)
-            {
-                ColorState = ColorStates.ColorChanged;
-            }
         }
 
         private void ColorChanged()
         {
             ColorTime = Time.time + 1;
-            ColorState = ColorStates.Waiting;
         }
     }
 }
