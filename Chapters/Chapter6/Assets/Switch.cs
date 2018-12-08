@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 6.6 Switch
+ * Chapter 6.7 Switch
  *
  * Copyright © 2018 Alex Okita
  *
@@ -283,8 +283,7 @@ public class Switch : MonoBehaviour
                     SecondFunction();
                     break;
             }
-            /*  ─ │ ┌ ┐ └ ┘ ├ ┤┬ ┴ ┼ ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ │ ╚ ╛ ╜ ╝ ╞ ╟ ╠ ╡ ╢ ╣ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬
-             *  ①②③④⑤⑥⑦⑧⑨⑩
+            /*
              *  a bit more information
              *  on what happened in the
              *  statement above.      
