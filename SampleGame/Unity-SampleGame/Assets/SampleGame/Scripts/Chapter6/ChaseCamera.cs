@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/*
+ * Chapter 6.3.1 Chase Camera
+ *
+ * Copyright © 2018 Alex Okita
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
