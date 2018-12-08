@@ -8,23 +8,35 @@
  */
 using UnityEngine;
 
-public class VectorsAreObjects : MonoBehaviour
+namespace Chapter6_15
 {
-    public int numMonsters;
-    //Use this for initialization
-    void Start()
+    /*
+     * Chapter 6.15 Working With Vectors
+     */
+
+    public class WorkingWithVectors : MonoBehaviour
     {
-        for (int i = 0; i < numMonsters; i++)
+        public int numMonsters;
+        //Use this for initialization
+        void Start()
         {
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.AddComponent<Monster>();
-            Vector3 pos = new Vector3()
+            for (int i = 0; i < numMonsters; i++)
             {
-                x = Random.Range(-10, 10),
-                z = Random.Range(-10, 10)
-            };
-            sphere.transform.position = pos;
+                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                sphere.AddComponent<Monster>();
+                Vector3 pos = new Vector3()
+                {
+                    x = Random.Range(-10, 10),
+                    z = Random.Range(-10, 10)
+                };
+                sphere.transform.position = pos;
+            }
         }
+
     }
 
+    public class Monster : MonoBehaviour
+    {
+        
+    }
 }
