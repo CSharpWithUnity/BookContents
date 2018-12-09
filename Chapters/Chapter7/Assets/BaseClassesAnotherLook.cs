@@ -65,42 +65,32 @@ namespace Chapter7_6_1
         protected Mesh Mesh;
         protected MeshRenderer MeshRenderer;
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
         #endregion
         public override void Initialize(MeshFilter meshFilter, Material material)
         {
-            MeshFilter = meshFilter;
-            Material = material;
             Me = new GameObject(this.ToString());
-            Mesh = meshFilter.mesh;
+            MeshFilter = Me.AddComponent<MeshFilter>();
+            Mesh = meshFilter.sharedMesh;
+            MeshFilter.sharedMesh = Mesh;
+            Material = material;
             MeshRenderer = Me.AddComponent<MeshRenderer>();
             MeshRenderer.material = Material;
-            MeshFilter = Me.AddComponent<MeshFilter>();
-            MeshFilter.mesh = Mesh;
         }
 
         public override void MoveForward(float speed, float turn)
         {
-            Me.transform.position = Vector3.forward * speed;
-            Me.transform.eulerAngles = new Vector3(0, turn, 0);
+            Speed += speed;
+            Turn += turn;
+            Position = new Vector3(0, 0, Speed);
         }
         public override void Speak()
         {
             base.Speak();
         }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
         public override void UpdateChild()
         {
+            Me.transform.position = Position;
+            Me.transform.eulerAngles = new Vector3(0, Turn, 0);
         }
     }
 
@@ -129,6 +119,7 @@ namespace Chapter7_6_1
         public MeshFilter ChildMesh;
         public Material ChildMaterial;
         BaseClass[] children;
+
         public void Initialize()
         {
             children = new BaseClass[2];
