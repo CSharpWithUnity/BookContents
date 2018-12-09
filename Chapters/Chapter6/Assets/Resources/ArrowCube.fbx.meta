@@ -1,30 +1,74 @@
 fileFormatVersion: 2
 guid: b49e1daec7db42b4ea5fde596013d5ef
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: A_Mesh
-    100002: //RootNode
-    100004: B_Mesh
-    100006: C_Mesh
-    400000: A_Mesh
-    400002: //RootNode
-    400004: B_Mesh
-    400006: C_Mesh
-    2100000: ArrowCube_Material
-    2300000: A_Mesh
-    2300002: //RootNode
-    2300004: B_Mesh
-    2300006: C_Mesh
-    3300000: A_Mesh
-    3300002: //RootNode
-    3300004: B_Mesh
-    3300006: C_Mesh
-    4300000: ArrowCube_Mesh
-    4300002: A_Mesh
-    4300004: B_Mesh
-    4300006: C_Mesh
-    2186277476908879412: ImportLogs
+  serializedVersion: 24
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: A_Mesh
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: B_Mesh
+  - first:
+      1: 100006
+    second: C_Mesh
+  - first:
+      4: 400000
+    second: A_Mesh
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: B_Mesh
+  - first:
+      4: 400006
+    second: C_Mesh
+  - first:
+      21: 2100000
+    second: ArrowCube_Material
+  - first:
+      23: 2300000
+    second: A_Mesh
+  - first:
+      23: 2300002
+    second: //RootNode
+  - first:
+      23: 2300004
+    second: B_Mesh
+  - first:
+      23: 2300006
+    second: C_Mesh
+  - first:
+      33: 3300000
+    second: A_Mesh
+  - first:
+      33: 3300002
+    second: //RootNode
+  - first:
+      33: 3300004
+    second: B_Mesh
+  - first:
+      33: 3300006
+    second: C_Mesh
+  - first:
+      43: 4300000
+    second: ArrowCube_Mesh
+  - first:
+      43: 4300002
+    second: A_Mesh
+  - first:
+      43: 4300004
+    second: B_Mesh
+  - first:
+      43: 4300006
+    second: C_Mesh
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -67,10 +111,13 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

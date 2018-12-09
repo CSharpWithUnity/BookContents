@@ -1,34 +1,86 @@
 fileFormatVersion: 2
 guid: 278d8517dda5c2746ab60fca2b103a50
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Base
-    100002: //RootNode
-    100004: Launcher
-    100006: Projectile
-    100008: Turret
-    400000: Base
-    400002: //RootNode
-    400004: Launcher
-    400006: Projectile
-    400008: Turret
-    2100000: DarkGrey
-    2100002: Red
-    2100004: Default
-    2100006: Black
-    2300000: Base
-    2300002: Launcher
-    2300004: Projectile
-    2300006: Turret
-    3300000: Base
-    3300002: Launcher
-    3300004: Projectile
-    3300006: Turret
-    4300000: Base
-    4300002: Turret
-    4300004: Launcher
-    4300006: Projectile
+  serializedVersion: 24
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Base
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: Launcher
+  - first:
+      1: 100006
+    second: Projectile
+  - first:
+      1: 100008
+    second: Turret
+  - first:
+      4: 400000
+    second: Base
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Launcher
+  - first:
+      4: 400006
+    second: Projectile
+  - first:
+      4: 400008
+    second: Turret
+  - first:
+      21: 2100000
+    second: DarkGrey
+  - first:
+      21: 2100002
+    second: Red
+  - first:
+      21: 2100004
+    second: Default
+  - first:
+      21: 2100006
+    second: Black
+  - first:
+      23: 2300000
+    second: Base
+  - first:
+      23: 2300002
+    second: Launcher
+  - first:
+      23: 2300004
+    second: Projectile
+  - first:
+      23: 2300006
+    second: Turret
+  - first:
+      33: 3300000
+    second: Base
+  - first:
+      33: 3300002
+    second: Launcher
+  - first:
+      33: 3300004
+    second: Projectile
+  - first:
+      33: 3300006
+    second: Turret
+  - first:
+      43: 4300000
+    second: Base
+  - first:
+      43: 4300002
+    second: Turret
+  - first:
+      43: 4300004
+    second: Launcher
+  - first:
+      43: 4300006
+    second: Projectile
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -71,10 +123,13 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

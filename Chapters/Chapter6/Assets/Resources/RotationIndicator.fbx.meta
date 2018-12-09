@@ -1,44 +1,116 @@
 fileFormatVersion: 2
 guid: c67de8268bd9741499b93cbf7216ad8f
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: CenterPoint_Mesh
-    100002: Ones_Mesh
-    100004: Pointer
-    100006: //RootNode
-    100008: Tenths_Mesh
-    100010: Pointer_Float
-    100012: Pointer_Int
-    400000: CenterPoint_Mesh
-    400002: Ones_Mesh
-    400004: Pointer
-    400006: //RootNode
-    400008: Tenths_Mesh
-    400010: Pointer_Float
-    400012: Pointer_Int
-    2100000: Default
-    2100002: Red
-    2100004: White
-    2100006: Black
-    2300000: CenterPoint_Mesh
-    2300002: Ones_Mesh
-    2300004: Pointer
-    2300006: Tenths_Mesh
-    2300008: Pointer_Float
-    2300010: Pointer_Int
-    3300000: CenterPoint_Mesh
-    3300002: Ones_Mesh
-    3300004: Pointer
-    3300006: Tenths_Mesh
-    3300008: Pointer_Float
-    3300010: Pointer_Int
-    4300000: Tenths_Mesh
-    4300002: CenterPoint_Mesh
-    4300004: Ones_Mesh
-    4300006: Pointer
-    4300008: Pointer_Int
-    4300010: Pointer_Float
+  serializedVersion: 24
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: CenterPoint_Mesh
+  - first:
+      1: 100002
+    second: Ones_Mesh
+  - first:
+      1: 100004
+    second: Pointer
+  - first:
+      1: 100006
+    second: //RootNode
+  - first:
+      1: 100008
+    second: Tenths_Mesh
+  - first:
+      1: 100010
+    second: Pointer_Float
+  - first:
+      1: 100012
+    second: Pointer_Int
+  - first:
+      4: 400000
+    second: CenterPoint_Mesh
+  - first:
+      4: 400002
+    second: Ones_Mesh
+  - first:
+      4: 400004
+    second: Pointer
+  - first:
+      4: 400006
+    second: //RootNode
+  - first:
+      4: 400008
+    second: Tenths_Mesh
+  - first:
+      4: 400010
+    second: Pointer_Float
+  - first:
+      4: 400012
+    second: Pointer_Int
+  - first:
+      21: 2100000
+    second: Default
+  - first:
+      21: 2100002
+    second: Red
+  - first:
+      21: 2100004
+    second: White
+  - first:
+      21: 2100006
+    second: Black
+  - first:
+      23: 2300000
+    second: CenterPoint_Mesh
+  - first:
+      23: 2300002
+    second: Ones_Mesh
+  - first:
+      23: 2300004
+    second: Pointer
+  - first:
+      23: 2300006
+    second: Tenths_Mesh
+  - first:
+      23: 2300008
+    second: Pointer_Float
+  - first:
+      23: 2300010
+    second: Pointer_Int
+  - first:
+      33: 3300000
+    second: CenterPoint_Mesh
+  - first:
+      33: 3300002
+    second: Ones_Mesh
+  - first:
+      33: 3300004
+    second: Pointer
+  - first:
+      33: 3300006
+    second: Tenths_Mesh
+  - first:
+      33: 3300008
+    second: Pointer_Float
+  - first:
+      33: 3300010
+    second: Pointer_Int
+  - first:
+      43: 4300000
+    second: Tenths_Mesh
+  - first:
+      43: 4300002
+    second: CenterPoint_Mesh
+  - first:
+      43: 4300004
+    second: Ones_Mesh
+  - first:
+      43: 4300006
+    second: Pointer
+  - first:
+      43: 4300008
+    second: Pointer_Int
+  - first:
+      43: 4300010
+    second: Pointer_Float
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -81,10 +153,13 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
-    weldVertices: 1
+    weldVertices: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
