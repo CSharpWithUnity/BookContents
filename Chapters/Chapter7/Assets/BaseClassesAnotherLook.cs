@@ -58,6 +58,9 @@ namespace Chapter7_6_1
         #endregion
     }
 
+    /*
+     * Section 7.6.2 Specialization
+     */
     public class ChildA : BaseClass
     {
         #region ChildA_Properties
@@ -81,7 +84,8 @@ namespace Chapter7_6_1
         {
             Speed += speed;
             Turn += turn;
-            Position = new Vector3(0, 0, Speed);
+            Position += Me.transform.forward * speed;
+            Me.transform.position = Position;
         }
         public override void Speak()
         {
@@ -94,6 +98,9 @@ namespace Chapter7_6_1
         }
     }
 
+    /*
+     * Section 7.6.3 Base
+     */
     public class ChildB : ChildA
     {
         #region ChildB_properties
@@ -105,8 +112,11 @@ namespace Chapter7_6_1
         }
         #endregion
 
+
         public override void Initialize(MeshFilter meshFilter, Material material)
         {
+            /* the base keyword here does the work from   *
+             * the parent class this class inherits from. */
             base.Initialize(meshFilter, material);
             //New for ChildB
             Color = new Color(1, 0, 0, 1);
@@ -119,7 +129,8 @@ namespace Chapter7_6_1
         public MeshFilter ChildMesh;
         public Material ChildMaterial;
         BaseClass[] children;
-
+        BaseClass FirstChild;
+        BaseClass SecondChild;
         public void Initialize()
         {
             children = new BaseClass[2];
@@ -133,10 +144,25 @@ namespace Chapter7_6_1
         {
             for (int i = 0; i < children.Length; i++)
             {
-                children[i].MoveForward(i * 0.1f + 0.1f, i * 3.0f + 1.5f);
+                children[i].MoveForward(i * 0.1f + 0.1f, i * 1.5f + 3.0f);
                 children[i].UpdateChild();
                 children[i].Speak();
             }
+
+            if (FirstChild != null)
+            {
+                FirstChild.MoveForward(0.1f, 3.0f);
+                FirstChild.UpdateChild();
+                FirstChild.Speak();
+            }
+
+            if (SecondChild != null)
+            {
+                SecondChild.MoveForward(0.05f, -3.0f);
+                SecondChild.UpdateChild();
+                SecondChild.Speak();
+            }
+
         }
     }
 
