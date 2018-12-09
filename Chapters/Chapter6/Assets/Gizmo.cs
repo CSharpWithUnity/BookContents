@@ -43,7 +43,6 @@ namespace Chapter6_15
              */
 
             Gizmos.DrawLine(transform.position, Vector3.zero);
-
         }
     }
 }
