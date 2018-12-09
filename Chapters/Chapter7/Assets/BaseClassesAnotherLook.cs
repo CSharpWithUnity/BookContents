@@ -6,103 +6,159 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
-using UnityEngine;
-/*
- * Section 7.6.1 Generalization -- Base Classes
- */
-public abstract class BaseClass
+namespace Chapter7_6_1
 {
-    #region BaseProperties
-    private float mSpeed;
-    protected float Speed
+    using UnityEngine;
+    /*
+     * Section 7.6.1 Generalization -- Base Classes
+     */
+    public abstract class BaseClass
     {
-        get{return mSpeed;}
-        set{mSpeed = value;}
-    }
-    private float mTurn;
-    protected float Turn
-    {
-        get{return mTurn;}
-        set{mTurn = value;}
-    }
-    private Vector3 mPosition;
-    protected Vector3 Position
-    {
-        get{return mPosition;}
-        set{mPosition = value;}
-    }
-    private MeshFilter mMeshFilter;
-    protected MeshFilter MeshFilter
-    {
-        get{return mMeshFilter;}
-        set{mMeshFilter = value;}
-    }
-    private Material mMaterial;
-    protected Material Material
-    {
-        get{return mMaterial;}
-        set{mMaterial = value;}
-    }
-    #endregion
-    #region BaseFunctions
-    public abstract void Initialize(MeshFilter mesh, Material material);
-    public abstract void MoveForward(float speed, float turn);
-    public abstract void UpdateChild();
-    public virtual void Speak()
-    {
-        Debug.Log("Base Hello.");
-    }
-    #endregion
-}
+        #region BaseProperties
+        private float _speed;
+        protected float Speed
+        {
+            get { return _speed; }
+            set { _speed = value; }
+        }
+        private float _turn;
+        protected float Turn
+        {
+            get { return _turn; }
+            set { _turn = value; }
+        }
+        private Vector3 _position;
+        protected Vector3 Position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+        private MeshFilter _meshFilter;
+        protected MeshFilter MeshFilter
+        {
+            get { return _meshFilter; }
+            set { _meshFilter = value; }
+        }
+        private Material _material;
+        protected Material Material
+        {
+            get { return _material; }
+            set { _material = value; }
+        }
+        #endregion
+        #region BaseFunctions
+        public abstract void Initialize(MeshFilter meshFilter, Material material);
+        public abstract void MoveForward(float speed, float turn);
+        public abstract void UpdateChild();
 
-public class ChildA : BaseClass
-{
-    #region ChildA_Properties
-    protected GameObject Me;
-    protected Mesh m_Mesh;
-    protected MeshRenderer m_MeshRenderer;
-
-    public override bool Equals(object obj)
-    {
-        return base.Equals(obj);
+        public virtual void Speak()
+        {
+            Debug.Log("Base Hello.");
+        }
+        #endregion
     }
 
-    public override int GetHashCode()
+    public class ChildA : BaseClass
     {
-        return base.GetHashCode();
-    }
-    #endregion
+        #region ChildA_Properties
+        protected GameObject Me;
+        protected Mesh Mesh;
+        protected MeshRenderer MeshRenderer;
 
-    public override void Initialize(MeshFilter meshFilter, Material material)
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        #endregion
+        public override void Initialize(MeshFilter meshFilter, Material material)
+        {
+            MeshFilter = meshFilter;
+            Material = material;
+            Me = new GameObject(this.ToString());
+            Mesh = meshFilter.mesh;
+            MeshRenderer = Me.AddComponent<MeshRenderer>();
+            MeshRenderer.material = Material;
+            MeshFilter = Me.AddComponent<MeshFilter>();
+            MeshFilter.mesh = Mesh;
+        }
+
+        public override void MoveForward(float speed, float turn)
+        {
+            Me.transform.position = Vector3.forward * speed;
+            Me.transform.eulerAngles = new Vector3(0, turn, 0);
+        }
+        public override void Speak()
+        {
+            base.Speak();
+        }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        public override void UpdateChild()
+        {
+        }
+    }
+
+    public class ChildB : ChildA
     {
-        MeshFilter = meshFilter;
-        Material = material;
-        Me = new GameObject(this.ToString());
+        #region ChildB_properties
+        private Color _color;
+        public Color Color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
+        #endregion
 
+        public override void Initialize(MeshFilter meshFilter, Material material)
+        {
+            base.Initialize(meshFilter, material);
+            //New for ChildB
+            Color = new Color(1, 0, 0, 1);
+            MeshRenderer.material.color = Color;
+        }
     }
 
-    public override void MoveForward(float speed, float turn)
+    public class ManageChildren : MonoBehaviour
     {
-        throw new System.NotImplementedException();
+        public MeshFilter ChildMesh;
+        public Material ChildMaterial;
+        BaseClass[] children;
+        public void Initialize()
+        {
+            children = new BaseClass[2];
+            children[0] = new ChildA();
+            children[0].Initialize(ChildMesh, ChildMaterial);
+            children[1] = new ChildB();
+            children[1].Initialize(ChildMesh, ChildMaterial);
+        }
+        //Update is called once per frame
+        private void Update()
+        {
+            for (int i = 0; i < children.Length; i++)
+            {
+                children[i].MoveForward(i * 0.1f + 0.1f, i * 3.0f + 1.5f);
+                children[i].UpdateChild();
+                children[i].Speak();
+            }
+        }
     }
 
-    public override void Speak()
+    public class BaseClassesAnotherLook : MonoBehaviour
     {
-        base.Speak();
+        public MeshFilter ChildMesh;
+        public Material ChildMaterial;
+        private void Start()
+        {
+            ManageChildren manager = gameObject.AddComponent<ManageChildren>();
+            manager.ChildMesh = ChildMesh;
+            manager.ChildMaterial = ChildMaterial;
+            manager.Initialize();
+        }
     }
-
-    public override string ToString()
-    {
-        return base.ToString();
-    }
-
-    public override void UpdateChild()
-    {
-        throw new System.NotImplementedException();
-    }
-}
-
-public class BaseClassesAnotherLook : MonoBehaviour
-{
-
 }
