@@ -245,13 +245,44 @@ namespace Chapter7_6_1
                     break;
             }
         }
+
+        /* * * * * * * * * * * * * * * * * * * * * * */
+        /* Adding in these to avoid errors in Unity  */
+        /* * * * * * * * * * * * * * * * * * * * * * */
+        public override void CopyTo(Array array, int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int Count => throw new NotImplementedException();
+
+        public override bool IsSynchronized => throw new NotImplementedException();
+
+        public override object SyncRoot => throw new NotImplementedException();
+
+        public override IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool MoveNext()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Reset()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object Current => throw new NotImplementedException();
     }
 
     /*
      * Section 7.6.4 Partial Continued.
      */
-    // ShapeICollection.cs
-    public abstract partial class BaseShape : System.Collections.ICollection
+        // ShapeICollection.cs
+        public abstract partial class BaseShape : System.Collections.ICollection
     {
         public abstract void CopyTo(Array array, int index);
 
@@ -274,5 +305,41 @@ namespace Chapter7_6_1
     /*
      * Section 7.6.5 Protected Private and Public
      */
+    class ProtectedPrivateAndPublic
+    {
+        /* for any class : System.Object is     */
+        /* assumed to be a base class for       */
+        /* any class not declaring anything     */
+        class Base : System.Object
+        {
+            private string MyPrivateString;
+            protected string MyProtectedString;
+            public string MyPublicString;
+        }
+        /* A child of base cannot see the       */
+        /* private string.                      */
+        class Child : Base
+        {
+            void VisibleProperties()
+            {
+                MyProtectedString = "";
+                MyPublicString = "";
+            }
+        }
 
+        partial class Half : System.Object
+        {
+            private string MyPrivateString;
+        }
+
+        partial class Half : System.Object
+        {
+            void SeesPrivates()
+            {
+                MyPrivateString = "";
+            }
+        }
+
+
+    }
 }

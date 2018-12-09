@@ -78,6 +78,8 @@ public class LogicAndOperators : MonoBehaviour
         int d = 3;
         someBool = (c == d);
 
+
+
         /*
          * Section 4.11.3 If and Branching
          * the last assignment to someBool
@@ -179,6 +181,23 @@ public class LogicAndOperators : MonoBehaviour
          * (i == 1) and (i = = 1) are not the
          * same.
          */
+        
+        {
+            /* -9 -8 -6 -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5 +6 +7 +8 +9 */
+
+            int x = 1;
+            bool xLessThan2 = (x < 2); // ( 1 < 2 )
+            Debug.Log("xLessThan2: " + xLessThan2);
+            // xLessThan2: true
+
+            bool xLessThan1 = (x < 1); // ( 1 < 1 )
+            Debug.Log("xLessThan1: " + xLessThan1);
+            // xLessOrEqual: false
+
+            bool xLessOrEqual = (x <= 1); // ( 1 <= 1 )
+            Debug.Log("xLessOrEqual: " + xLessOrEqual);
+            // xLessOrEqual: true
+        }
 
         bool greater = someInt > 10;
         if (greater)
