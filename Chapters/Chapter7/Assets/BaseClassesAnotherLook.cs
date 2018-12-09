@@ -178,4 +178,72 @@ namespace Chapter7_6_1
             manager.Initialize();
         }
     }
+
+    /*
+     * Section 7.6.4 Partial
+     */
+    // ChildCProperties.cs
+    public partial class ChildC : ChildA
+    {
+        private float _scale;
+        protected float Scale
+        {
+            get { return _scale; }
+            set { _scale = value; }
+        }
+    }
+
+    // ChildCFunctions.cs
+    public partial class ChildC : ChildA
+    {
+        protected void SetScale(float scale)
+        {
+            Scale = scale;
+            Me.transform.localScale = Vector3.one * Scale;
+        }
+        public override void Initialize(MeshFilter meshFilter, Material material)
+        {
+            base.Initialize(meshFilter, material);
+            SetScale(2.0f);
+        }
+    }
+
+    /*
+     * Section 7.6.4 Partial Continued.
+     */
+    // ShapeProperties.cs
+    public abstract partial class BaseShape
+    {
+        public enum Shapes                    /* * * * * * * * * * * */
+        {                                     /* this class could    */
+            Cube,                             /* implement variables */
+            Sphere                            /* properties, and     */
+        };                                    /* store declarations  */
+        Shapes Shape;                         /* for use elsewhere   */
+    }                                         /* * * * * * * * * * * */
+
+    // ShapeFunctions.cs
+    public abstract partial class BaseShape           /* * * * * * * * */
+    {                                                 /* here we could */
+        public abstract void SetShape(Shapes shape);  /* implement the */
+    }                                                 /* functions for */
+                                                      /* the class as  */
+    public class SomeShape : BaseShape                /* necessary.    */
+    {                                                 /* * * * * * * * */
+        public GameObject Me;
+        public override void SetShape(Shapes shape)
+        {
+            switch (shape)
+            {
+                case Shapes.Cube:
+                    Me = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    break;
+                case Shapes.Sphere:
+                    Me = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    break;
+            }
+        }
+    }
+
+
 }
