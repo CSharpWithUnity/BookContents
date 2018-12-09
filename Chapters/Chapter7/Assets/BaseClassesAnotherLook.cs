@@ -8,6 +8,8 @@
  */
 namespace Chapter7_6_1
 {
+    using System;
+    using System.Collections;
     using UnityEngine;
     /*
      * Section 7.6.1 Generalization -- Base Classes
@@ -245,5 +247,32 @@ namespace Chapter7_6_1
         }
     }
 
+    /*
+     * Section 7.6.4 Partial Continued.
+     */
+    // ShapeICollection.cs
+    public abstract partial class BaseShape : System.Collections.ICollection
+    {
+        public abstract void CopyTo(Array array, int index);
+
+        public abstract int Count { get; }
+        public abstract bool IsSynchronized { get; }
+        public abstract object SyncRoot { get; }
+
+        public abstract IEnumerator GetEnumerator();
+    }
+
+    //ShapeIEnumerator.cs
+    public abstract partial class BaseShape : System.Collections.IEnumerator
+    {
+        public abstract bool MoveNext();
+        public abstract void Reset();
+
+        public abstract object Current { get; }
+    }
+
+    /*
+     * Section 7.6.5 Protected Private and Public
+     */
 
 }
