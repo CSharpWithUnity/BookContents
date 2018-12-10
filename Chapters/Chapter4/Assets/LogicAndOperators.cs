@@ -355,6 +355,7 @@ namespace Chapter4_11
                 IEnumerator updateColors()
                 {
 
+                    yield return new WaitForEndOfFrame();
                 }
             }
         }
