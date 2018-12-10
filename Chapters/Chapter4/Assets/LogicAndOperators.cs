@@ -324,6 +324,10 @@ namespace Chapter4_11
             }
         }
 
+        /*
+         * Section 4.11.6 If and Branching
+         * uncomment or comment the line below to see the code in action!
+         */
         void UseIfAndBranching()
         {
             if(true)
@@ -372,6 +376,13 @@ namespace Chapter4_11
                             // calculate the distance to that object
                             float distance = (cubePos - myPos).magnitude;
 
+
+                            /* * * * * * * * * * * * * * * * * * * * * *
+                             * The code below changes the color of the *
+                             * cubes based on the distance from        *
+                             * the LogicAndOperators game object       *
+                             * * * * * * * * * * * * * * * * * * * * * */
+
                             // change the color with the if statement
                             if (2 < distance && distance < 4)
                             {
@@ -380,8 +391,25 @@ namespace Chapter4_11
                             else
                             {
                                 mat.color = Color.white;
+                                if (cubePos.x > myPos.x)
+                                {
+                                    mat.color = Color.blue;
+                                    if (cubePos.z > myPos.z)
+                                    {
+                                        mat.color = Color.green;
+                                    }
+                                    else
+                                    {
+                                        mat.color = Color.white;
+                                    }
+                                }
+                                else if (cubePos.x < myPos.x)
+                                {
+                                    mat.color = Color.yellow;
+                                }
                             }
                         }
+
                         // lets move ourselves around
                         transform.position = new Vector3()
                         {
