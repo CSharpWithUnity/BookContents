@@ -6,6 +6,7 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
+using System.Collections;
 using UnityEngine;
 
 /*
@@ -333,6 +334,28 @@ namespace Chapter4_11
             {
                 // unreachable code.
                 Debug.Log("Won't do a thing.");
+            }
+
+            {
+                // make a bunch of cubes.
+                // we'll get into loops like this
+                // in the next chapter.
+                for(int x = 0; x < 10; x++)
+                {
+                    for(int z = 0; z < 10; z++)
+                    {
+                        GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        box.transform.position = new Vector3()
+                        {
+                            x = x - 5,
+                            z = z - 5
+                        };
+                    }
+                }
+                IEnumerator updateColors()
+                {
+
+                }
             }
         }
 
