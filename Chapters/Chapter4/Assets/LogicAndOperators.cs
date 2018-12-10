@@ -7,6 +7,7 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /*
@@ -340,6 +341,7 @@ namespace Chapter4_11
                 // make a bunch of cubes.
                 // we'll get into loops like this
                 // in the next chapter.
+                List<GameObject> cubes = new List<GameObject>();
                 for(int x = 0; x < 10; x++)
                 {
                     for(int z = 0; z < 10; z++)
@@ -350,13 +352,46 @@ namespace Chapter4_11
                             x = x - 5,
                             z = z - 5
                         };
+                        cubes.Add(box);
                     }
                 }
+
+                // start a coroutine to update the colors of the cubes.
                 IEnumerator updateColors()
                 {
+                    while(true)
+                    {
+                        foreach (GameObject cube in cubes)
+                        {
+                            Material mat = cube.GetComponent<MeshRenderer>().material;
 
-                    yield return new WaitForEndOfFrame();
+                            // get some data from an object in the scene
+                            Vector3 cubePos = cube.transform.position;
+                            // get the data for the current position
+                            Vector3 myPos = transform.position;
+                            // calculate the distance to that object
+                            float distance = (cubePos - myPos).magnitude;
+
+                            // change the color with the if statement
+                            if (2 < distance && distance < 4)
+                            {
+                                mat.color = Color.red;
+                            }
+                            else
+                            {
+                                mat.color = Color.white;
+                            }
+                        }
+                        // lets move ourselves around
+                        transform.position = new Vector3()
+                        {
+                            x = Mathf.Sin(Time.time) * 5,
+                            z = Mathf.Cos(Time.time) * 5
+                        };
+                        yield return new WaitForEndOfFrame();
+                    }
                 }
+                StartCoroutine(updateColors());
             }
         }
 
