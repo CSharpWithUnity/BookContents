@@ -58,6 +58,72 @@ public class JumpStatements : MonoBehaviour
         return a + b;
     }
 
+
+    /*
+     * Section 5.7.2 Returning Objects
+     */
+    public Zombie myZombie;
+    Zombie GetZombie()
+    {
+        return (Zombie)FindObjectOfType(typeof(Zombie));
+    }
+
+    /*
+     * Section 5.7.4 Tuples
+     * lua could return more than one value
+     * 
+     * function ReturnsMultipleValues()
+     *  return "SomeString", 1 end
+     * 
+     * the Lua above would return a string and an int!
+     */
+
+    struct ZombieNumber
+    {
+        public Zombie Zombie;
+        public int SomeNumber;
+    }
+    
+    ZombieNumber RetrunsZombieAndNumber()
+    {
+        ZombieNumber zombieNumber = new ZombieNumber();
+        zombieNumber.Zombie = (Zombie)FindObjectOfType(typeof(Zombie));
+        zombieNumber.SomeNumber = 1;
+        return zombieNumber;
+    }
+
+    void UseRetrunsZombieAndNumber()
+    {
+        ZombieNumber zn = RetrunsZombieAndNumber();
+        Debug.Log("Zombie: " + zn.Zombie + " Num:" + zn.SomeNumber);
+        // Zombie: ZombiePrimitive (Zombie) Num:1
+    }
+
+    (Zombie zombie, int number) ReturnsTuple()
+    {
+        Zombie z = (Zombie)FindObjectOfType(typeof(Zombie));
+        int n = 1;
+        var zombieNumber = (zombie: z, number: n);
+        return zombieNumber;
+    }
+
+    void UseReturnsTuple()
+    {
+        var zn = ReturnsTuple();
+        Debug.Log("Zombie:" + zn.zombie + " Num:" + zn.number);
+        // Zombie: ZombiePrimitive (Zombie) Num:1
+    }
+
+    (string outString, int outInt, float outFloat ) ReturnsStringIntFloat()
+    {
+        return (outString: "SomeString", outInt: 1, outFloat: 1f);
+    }
+
+    void UseReturnsStringIntFloat()
+    {
+        Debug.Log(ReturnsStringIntFloat());
+        // (SomeString, 1, 1)
+    }
     void Start()
     {
         {
@@ -77,15 +143,15 @@ public class JumpStatements : MonoBehaviour
             myZombie = GetZombie();
             Debug.Log(myZombie);
         }
-    }
 
-    /*
-     * Section 5.7.2 Returning Objects
-     */
-    public Zombie myZombie;
-    Zombie GetZombie()
-    {
-        return (Zombie)FindObjectOfType(typeof(Zombie));
+        {
+            /*
+             * Section 5.7.4 Tuples
+             */
+            UseRetrunsZombieAndNumber();
+            UseReturnsTuple();
+            UseReturnsStringIntFloat();
+        }
     }
 
     void Update()
