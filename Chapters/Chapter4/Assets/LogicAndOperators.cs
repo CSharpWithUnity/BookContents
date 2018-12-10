@@ -8,384 +8,652 @@
  */
 using UnityEngine;
 
-public class LogicAndOperators : MonoBehaviour
+/*
+ * Section 4.11.1 Booleans
+ */
+namespace Chapter4_11
 {
-    /*
-     * Section 4.11.1 Booleans
-     */
-
-    public bool someBool;
-    /*
-     * This value appears in the Inspector
-     * panel.
-     */
-
-    /*
-     * Some plain old data types
-     * are always initialized to
-     * zero.
-     */
-
-    //public int Gold;
-
-    /* Uncomment the line above to see
-     * what it's default initialization
-     * is.
-     * 
-     * The above gets initialized
-     * to 0 even though it's not
-     * assigned anything when declared.
-     */
-
-    public int someInt;
-    /*
-     * used for section 4.11.5
-     */
-
-
-
-    /*
-     * Section 4.11.2 Equality Operators
-     */
-
-    void Start()
+    public class LogicAndOperators : MonoBehaviour
     {
-        /*
-         * Section 4.11.2.1
-         */
-
-        someBool = (1 == 1);
+        /* This value appears in the Inspector */
+        /* panel.                              */
+        public bool someBool;
 
         /*
-         * The above assigns true
-         * to the someBool boolean
-         * property.
+         * Some plain old data types
+         * are always initialized to
+         * zero.
          */
 
-        someBool = true;
-        someBool = false;
+        public int Gold;
 
-        /* The above is similar
-         * only there's no comparison
-         * just an assignment.
-         */
-
-        int a = 1;
-        int b = 1;
-        someBool = (a == b);
-
-        int c = 1;
-        int d = 3;
-        someBool = (c == d);
-
-
-
-        /*
-         * Section 4.11.3 If and Branching
-         * the last assignment to someBool
-         * is c == d or 1 == 3 which
-         * evaluates to false.
-         * so the following line does not
-         * execute.
+        /* Uncomment the line above to see
+         * what it's default initialization
+         * is.
          * 
-         */
-
-        if (someBool)
-        {
-            transform.Rotate(new Vector3(45f, 0, 0));
-        }
-
-        /*
-         * The following will always execute
-         */
-
-        if (true)
-        {
-            transform.Rotate(new Vector3(45f, 0, 0));
-        }
-
-        /*
-         * Used in section 4.11.6
-         * We get the material from CubeA
-         * and use GetComponent to find
-         * the mesh renderer attached to the
-         * cube and then use the . operator
-         * to get the material property
-         * of the MeshRenderer. We'll cover
-         * that in more detail in chapter 5.
-         */
-        cubeMaterial = CubeA.GetComponent<MeshRenderer>().material;
-    }
-
-
-    void Update()
-    {
-        if (someBool)
-        {
-            transform.Rotate(new Vector3(5f, 0, 0));
-        }
-
-        /*
-         * Section 4.11.3.1 !Not
-         */
-
-        if (!someBool)
-        {
-            transform.Rotate(new Vector3(0, 5f, 0));
-        }
-
-        int a = 1;
-        int b = 1;
-        bool otherBool = (a != b); // false
-
-        int c = 1;
-        int d = 2;
-        bool anotherBool = (c != d); // true
-
-        /*
-         * Section 4.11.4 Float Charts
-         */
-        int i = 1;
-        if (i < 10)
-        {
-            Debug.Log("i is less than 10");
-        }
-
-        /*
-         * 4.11.1 Flow Charts
-         * 
-         * The if statement above
-         * can be turned into this flow
-         * chart.
-         *    ╭───────╮
-         *    │ Start │
-         *    ╰───┬───╯
-         *     ┌──┴────┐ ╭─────╮ ┌────────────────────────────────┐
-         *     │i < 10 ├─┤ yes ├─┤ Debug.Log("i is less than 10");│
-         *     └──┬────┘ ╰─────╯ └──┬─────────────────────────────┘
-         *      ╭─┴──╮              │
-         *      │ no │              │
-         *      ╰─┬──╯              │
-         *        ├─────────────────┘
-         *     ╭──┴──╮
-         *     │ End │
-         *     ╰─────╯
+         * The above gets initialized
+         * to 0 even though it's not
+         * assigned anything when declared.
          */
 
         /*
-         * Section 4.11.5 Relational Operators
-         * 
-         * == != < > >= <= 
-         * don't put spaces between the ==, the
-         * white space tells the lexer that the
-         * (i == 1) and (i = = 1) are not the
-         * same.
+         * Section 4.11.2 Equality Operators
          */
-        
+        void UseSomeBools()
         {
-            /* -9 -8 -6 -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5 +6 +7 +8 +9 */
+            /*
+             * value 1 compared to value 1
+             * 1 == 1 is true
+             */
+            someBool = (1 == 1);
 
-            int x = 1;
-            bool xLessThan2 = (x < 2); // ( 1 < 2 )
-            Debug.Log("xLessThan2: " + xLessThan2);
-            // xLessThan2: true
+            /*
+             * The above assigns true
+             * to the someBool boolean
+             * property.
+             */
 
-            bool xLessThan1 = (x < 1); // ( 1 < 1 )
-            Debug.Log("xLessThan1: " + xLessThan1);
-            // xLessOrEqual: false
+            someBool = true;
+            someBool = false;
 
-            bool xLessOrEqual = (x <= 1); // ( 1 <= 1 )
-            Debug.Log("xLessOrEqual: " + xLessOrEqual);
-            // xLessOrEqual: true
-        }
-
-        bool greater = someInt > 10;
-        if (greater)
-        {
-            transform.position = new Vector3(0.5f, 0, 0);
-        }
-
-        if (someInt > 10)
-        {
-            transform.position = new Vector3(0.5f, 0, 0);
+            /* 
+             * The above is similar
+             * only there's no comparison
+             * just an assignment.
+             */
+            {
+                /* values in a and b are compared   */
+                /* ❶ a is assigned 1                */
+                /* ❷ b is assigned 1                */
+                int a = 1;/*1 == 1 is true          */
+                int b = 1;/*↓    ↓ ❸                */
+                someBool = (a == b);
+                /*  ↑        true                   */
+                /*  └────❹─────┘                    */
+                /*  someBool is assigned            */
+                /*  true                            */
+                Debug.Log("someBool:" + someBool);
+                // someBool:True
+            }
+            {
+                /* values in a and b are compared   */
+                /* ❶ a is assigned 1                */
+                /* ❷ b is assigned 3                */
+                int a = 1;/*1 == 3 is false         */
+                int b = 3;/*↓    ↓ ❸                */
+                someBool = (a == b);
+                /*  ↑        false                  */
+                /*  └────❹─────┘                    */
+                /*  someBool is assigned            */
+                /*  false                           */
+                Debug.Log("someBool:" + someBool);
+                // someBool:False
+            }
         }
 
         /*
-         * Section 4.11.5.1 Else
+         * Section 4.11.3 Logical Not!
          */
-
-        //if (someInt > 10)
-        if(someInt >= 10)
+        void UseNotBool()
         {
-            transform.position = new Vector3(0.5f, 0, 0);
-        }
-        else
-        {
-            transform.position = new Vector3(0, 0, 0);
+            {
+                bool a_IsNot_b;
+                /* values in a and b are compared       */
+                /* ❶ a is assigned 1                    */
+                /* ❷ b is assigned 3                    */
+                int a = 1;/* 1 != 3 is true             */
+                int b = 3;/* ↓    ↓ ❸                   */
+                a_IsNot_b = (a != b);
+                /*  ↑         true                      */
+                /*  └────❹─────┘                        */
+                /*  a_IsNot_b is assigned               */
+                /*  true                                */
+                Debug.Log("a_IsNot_b:" + a_IsNot_b);
+                // a_IsNot_b:True
+            }
+            {
+                /* values in a and b are compared       */
+                /* ❶ a is assigned 1                    */
+                /* ❷ b is assigned 1                    */
+                bool a_IsNot_b;
+                int a = 1;/*   1 != 1 is false          */
+                int b = 1;/*   ↓    ↓ ❸                 */
+                a_IsNot_b = (a != b);
+                /*  ↑         false                     */
+                /*  └────❹─────┘                        */
+                /*  a_IsNot_b is assigned               */
+                /*  false                               */
+                Debug.Log("a_IsNot_b:" + a_IsNot_b);
+                // a_IsNot_b:False
+            }
+            {
+                bool not_a_is_b;
+                int a = 1;/*   1 == 1 is true           */
+                int b = 1;/*   ↓    ↓                   */
+                not_a_is_b = !(a == b);
+                /* ❷↑        ↑  true                    */
+                /*  └────────❶───┘                      */
+                /*  ❶ not true                          */
+                /*  ❷ false is assigned                 */
+                Debug.Log("not_a_is_b:" + not_a_is_b);
+                // not_a_is_b:Talse
+            }
+            {
+                bool not_a_isNot_b;
+                int a = 1;/*      1 != 1 is false       */
+                int b = 1;/*      ↓    ↓                */
+                not_a_isNot_b = !(a != b);
+                /* ❷↑           ↑  false                */
+                /*  └───────────❶───┘                   */
+                /*  ❶ not false                         */
+                /*  ❷ true is assigned                  */
+                Debug.Log("not_a_isNot_b:" + not_a_isNot_b);
+                // not_a_isNot_b:True
+            }
         }
 
         /*
-         *  This is equivalent to the above...
-         *  
-         *  if(someInt >= 10)
-         *  {
-         *      transform.position = new Vector3(0.5f, 0, 0);
-         *  }
-         *  if(someInt < 10)
-         *  {
-         *      transform.position = new Vector3(0, 0, 0);
-         *  }
-         *  
-         *  but it's pretty awkward.
+         * Section 4.11.4 Greater or Less than Operators
          */
+        void UseGreaterOrLessThan()
+        {
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├────────────────┼────────┼──────┤    */
+                /*                 0        3           */
+                bool greaterThan = (3 > 0);
+                Debug.Log("greaterThan:" + greaterThan);
+                // greaterThan:True
+            }
+
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├────────────────┼────────┼──────┤    */
+                /*                 0        3           */
+                bool greaterThan = (0 > 3);
+                Debug.Log("greaterThan:" + greaterThan);
+                // greaterThan:False
+            }
+
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├────────────────┼────────┼──────┤    */
+                /*                 0        3           */
+                bool greaterThan = !(0 > 3);
+                /*                 ↑ not operator       */
+                Debug.Log("greaterThan:" + greaterThan);
+                // greaterThan:True
+            }
+
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├────────────────┼────────┼──────┤    */
+                /*                 0        3           */
+                bool lessThan = (0 < 3);
+                Debug.Log("lessThan:" + lessThan);
+                // lessThan:True
+            }
+
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├─────────────────────────┼──────┤    */
+                /*                          3 vs 3 ?    */
+                bool lessThan = (3 < 3);
+                Debug.Log("lessThan:" + lessThan);
+                // lessThan:False
+                bool greaterThan = (3 > 3);
+                Debug.Log("greaterThan:" + greaterThan);
+                // greaterThan:False
+            }
+
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├─────────────────────────┼──────┤    */
+                /*                          3 vs 3 ?    */
+                bool lessThanOrEqual = (3 <= 3);
+                Debug.Log("lessThanOrEqual:" + lessThanOrEqual);
+                // lessThanOrEqual:True
+                bool greaterThanOrEqual = (3 >= 3);
+                Debug.Log("greaterThanOrEqual:" + greaterThanOrEqual);
+                // greaterThanOrEqual:True
+            }
+        }
 
         /*
-         * Section 4.11.5.2 Else If
+         * Section 4.11.5 Logical And and Or operators
          */
+        void UseAndAndOrOperators()
+        {
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├─────────────────────────┼──────┤    */
+                /*                          3 vs 3 ?    */
+                bool lessThanOrEqual = (3 < 3 || 3 == 3);
+                Debug.Log("lessThanOrEqual:" + lessThanOrEqual);
+                // lessThanOrEqual:true
+                bool greaterThanOrEqual = (3 > 3 || 3 == 3);
+                Debug.Log("greaterThanOrEqual:" + greaterThanOrEqual);
+                // greaterThanOrEqual:True
+            }
 
-        if (someInt >= 10)
-        {
-            transform.position = new Vector3(0.5f, 0, 0);
+            {
+                /* logical || or operator               */
+                bool logicalOr = (false || true);
+                Debug.Log("logicalOr:" + logicalOr);
+                // logicalOr:True
+                bool logicalOrs = (false || false || false || true);
+                Debug.Log("logicalOrs:" + logicalOrs);
+                // logicalOr:True
+                bool oneFalse = (false || true || true || true);
+                Debug.Log("oneFalse:" + oneFalse);
+                // oneFalse:True
+            }
+
+            {
+                /* logical && and operator               */
+                bool falseTrue = (false && true);
+                Debug.Log("falseTrue:" + falseTrue);
+                // falseTrue:False
+                bool falseFalse = (false && false);
+                Debug.Log("falseFalse:" + falseFalse);
+                // falseFalse:False
+                bool trueTrue = (true && true);
+                Debug.Log("trueTrue:" + trueTrue);
+                // trueTrue:True
+                bool notTrueEnough = (false && true && true && true);
+                Debug.Log("notTrueEnough:" + notTrueEnough);
+                // notTrueEnough:False
+            }
+
+            {
+                /* this compares the values of numbers  */
+                /* -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5     */
+                /*├──────────┼───────────┼─────────┤    */
+                /*           ├───────────┤              */
+                /*        -3 < x       x < 3            */
+                int x = -5;
+                while (x < 5)
+                {
+                    bool inRange = (-3 < x && x < 3);
+                    Debug.Log(x + " inRange:" + inRange);
+                    x++;
+                }
+                /* -5 inRange:False
+                 * -4 inRange:False
+                 * -3 inRange:False
+                 * -2 inRange:True
+                 * -1 inRange:True
+                 *  0 inRange:True
+                 *  1 inRange:True
+                 *  2 inRange:True
+                 *  3 inRange:False
+                 *  4 inRange:False
+                 */
+            }
+            {
+                int x = -5;
+                while (x < 5)
+                {
+                    bool ranges = (x < 3 && -3 < x) &&
+                                  (x > -3 && 3 > x) &&
+                                  (x > -3 && x < 3) &&
+                                  (x < 3 && x > -3);
+                    Debug.Log(x + " ranges:" + ranges);
+                    x++;
+                }
+                /* -5 inRange:False
+                 * -4 inRange:False
+                 * -3 inRange:False
+                 * -2 inRange:True
+                 * -1 inRange:True
+                 *  0 inRange:True
+                 *  1 inRange:True
+                 *  2 inRange:True
+                 *  3 inRange:False
+                 *  4 inRange:False
+                 */
+            }
         }
-        else if (someInt <= -10)
+
+        void Start()
         {
-            transform.position = new Vector3(-0.5f, 0, 0);
+            /*
+             * Section 4.11.2 Logic and Operators
+             * uncomment or comment the line below to see the code in action!
+             */
+            UseSomeBools();
+
+            /*
+             * Section 4.11.3 Not!
+             * uncomment or comment the line below to see the code in action!
+             */
+            UseNotBool();
+
+            /*
+             * Section 4.11.4 Greater or Less than operators
+             * uncomment or comment the line below to see the code in action!
+             */
+            UseGreaterOrLessThan();
+
+            /*
+             * Section 4.11.5 Logical And and Or operators
+             * uncomment or comment the line below to see the code in action!
+             */
+            UseAndAndOrOperators();
+
+            /*
+             * Section 4.11.3 If and Branching
+             * the last assignment to someBool
+             * is c == d or 1 == 3 which
+             * evaluates to false.
+             * so the following line does not
+             * execute.
+             * 
+             */
+
+            if (someBool)
+            {
+                transform.Rotate(new Vector3(45f, 0, 0));
+            }
+
+            /*
+             * The following will always execute
+             */
+
+            if (true)
+            {
+                transform.Rotate(new Vector3(45f, 0, 0));
+            }
+
+            /*
+             * Used in section 4.11.6
+             * We get the material from CubeA
+             * and use GetComponent to find
+             * the mesh renderer attached to the
+             * cube and then use the . operator
+             * to get the material property
+             * of the MeshRenderer. We'll cover
+             * that in more detail in chapter 5.
+             */
+            cubeMaterial = CubeA.GetComponent<MeshRenderer>().material;
         }
-        else
+
+
+        void Update()
         {
-            transform.position = new Vector3(0, 0, 0);
+            if (someBool)
+            {
+                transform.Rotate(new Vector3(5f, 0, 0));
+            }
+
+            /*
+             * Section 4.11.3.1 !Not
+             */
+
+            if (!someBool)
+            {
+                transform.Rotate(new Vector3(0, 5f, 0));
+            }
+
+            int a = 1;
+            int b = 1;
+            bool otherBool = (a != b); // false
+
+            int c = 1;
+            int d = 2;
+            bool anotherBool = (c != d); // true
+
+            /*
+             * Section 4.11.4 Float Charts
+             */
+            int i = 1;
+            if (i < 10)
+            {
+                Debug.Log("i is less than 10");
+            }
+
+            /*
+             * 4.11.1 Flow Charts
+             * 
+             * The if statement above
+             * can be turned into this flow
+             * chart.
+             *    ╭───────╮
+             *    │ Start │
+             *    ╰───┬───╯
+             *     ┌──┴────┐ ╭─────╮ ┌────────────────────────────────┐
+             *     │i < 10 ├─┤ yes ├─┤ Debug.Log("i is less than 10");│
+             *     └──┬────┘ ╰─────╯ └──┬─────────────────────────────┘
+             *      ╭─┴──╮              │
+             *      │ no │              │
+             *      ╰─┬──╯              │
+             *        ├─────────────────┘
+             *     ╭──┴──╮
+             *     │ End │
+             *     ╰─────╯
+             */
+
+            /*
+             * Section 4.11.5 Relational Operators
+             * 
+             * == != < > >= <= 
+             * don't put spaces between the ==, the
+             * white space tells the lexer that the
+             * (i == 1) and (i = = 1) are not the
+             * same.
+             */
+
+            {
+                /* -9 -8 -6 -5 -4 -3 -2 -1 ±0 +1 +2 +3 +4 +5 +6 +7 +8 +9 */
+
+                int x = 1;
+                bool xLessThan2 = (x < 2); // ( 1 < 2 )
+                Debug.Log("xLessThan2: " + xLessThan2);
+                // xLessThan2: true
+
+                bool xLessThan1 = (x < 1); // ( 1 < 1 )
+                Debug.Log("xLessThan1: " + xLessThan1);
+                // xLessOrEqual: false
+
+                bool xLessOrEqual = (x <= 1); // ( 1 <= 1 )
+                Debug.Log("xLessOrEqual: " + xLessOrEqual);
+                // xLessOrEqual: true
+            }
+
+            bool greater = someInt > 10;
+            if (greater)
+            {
+                transform.position = new Vector3(0.5f, 0, 0);
+            }
+
+            if (someInt > 10)
+            {
+                transform.position = new Vector3(0.5f, 0, 0);
+            }
+
+            /*
+             * Section 4.11.5.1 Else
+             */
+
+            //if (someInt > 10)
+            if (someInt >= 10)
+            {
+                transform.position = new Vector3(0.5f, 0, 0);
+            }
+            else
+            {
+                transform.position = new Vector3(0, 0, 0);
+            }
+
+            /*
+             *  This is equivalent to the above...
+             *  
+             *  if(someInt >= 10)
+             *  {
+             *      transform.position = new Vector3(0.5f, 0, 0);
+             *  }
+             *  if(someInt < 10)
+             *  {
+             *      transform.position = new Vector3(0, 0, 0);
+             *  }
+             *  
+             *  but it's pretty awkward.
+             */
+
+            /*
+             * Section 4.11.5.2 Else If
+             */
+
+            if (someInt >= 10)
+            {
+                transform.position = new Vector3(0.5f, 0, 0);
+            }
+            else if (someInt <= -10)
+            {
+                transform.position = new Vector3(-0.5f, 0, 0);
+            }
+            else
+            {
+                transform.position = new Vector3(0, 0, 0);
+            }
+
+            /*
+             * Section 4.11.6 Rearranging Logic
+             */
+            UpdateCubes();
         }
 
         /*
-         * Section 4.11.6 Rearranging Logic
+         * Section 4.11.6 Rearranging Logic Continued...
          */
-        UpdateCubes();
-    }
+        public GameObject CubeA;
+        public GameObject CubeB;
+        public GameObject CubeC;
 
-    /*
-     * Section 4.11.6 Rearranging Logic Continued...
-     */
-    public GameObject CubeA;
-    public GameObject CubeB;
-    public GameObject CubeC;
-    
-    /*
-     * got reference to cubeMaterial in Start();
-     */
-    public Material cubeMaterial;
+        /*
+         * got reference to cubeMaterial in Start();
+         */
+        public Material cubeMaterial;
 
-    void UpdateCubes()
-    {
-        Color col = Color.red;
-        cubeMaterial.color = col;
-
-        float positionAx = CubeA.transform.position.x;
-        float positionAy = CubeA.transform.position.y;
-        float positionBx = CubeB.transform.position.x;
-        float positionBy = CubeB.transform.position.y;
-        float e = positionAx + positionBx;
-        // used for Section 4.11.7
-
-        if (positionAx > positionBx)
+        void UpdateCubes()
         {
-            cubeMaterial.color = Color.blue;
-        }
-        else
-        {
-            cubeMaterial.color = Color.black;
-        }
+            Color col = Color.red;
+            cubeMaterial.color = col;
+
+            float positionAx = CubeA.transform.position.x;
+            float positionAy = CubeA.transform.position.y;
+            float positionBx = CubeB.transform.position.x;
+            float positionBy = CubeB.transform.position.y;
+            float e = positionAx + positionBx;
+            // used for Section 4.11.7
+
+            if (positionAx > positionBx)
+            {
+                cubeMaterial.color = Color.blue;
+            }
+            else
+            {
+                cubeMaterial.color = Color.black;
+            }
 
 
-        if (positionAx > positionBx)
-        {
-            cubeMaterial.color = Color.blue;
-            {/*
+            if (positionAx > positionBx)
+            {
+                cubeMaterial.color = Color.blue;
+                {/*
               * Section 4.11.6 continued...
               */
-                float d = positionAx + positionBx;
-                if (d > 1.0f)
-                {
-                    cubeMaterial.color = Color.yellow;
-                    if (d < 0f) // Will this ever prove true?
+                    float d = positionAx + positionBx;
+                    if (d > 1.0f)
+                    {
+                        cubeMaterial.color = Color.yellow;
+                        if (d < 0f) // Will this ever prove true?
+                        {
+                            cubeMaterial.color = Color.cyan;
+                        }
+                    }
+
+                    if (d < 0f)
                     {
                         cubeMaterial.color = Color.cyan;
                     }
-                }
 
-                if (d < 0f)
-                {
-                    cubeMaterial.color = Color.cyan;
-                }
+                    if (d > 0.5f)
+                    {
+                        cubeMaterial.color = Color.red;
+                    }
 
-                if (d > 0.5f)
-                {
-                    cubeMaterial.color = Color.red;
-                }
+                    //cubeMaterial.color = Color.blue;
 
-                //cubeMaterial.color = Color.blue;
+                    /*
+                     * 4.11.6.1 Unreachable Code
+                     * 
+                     *    ╭───────╮
+                     *    │ Start │
+                     *    ╰───┬───╯
+                     *     ┌──┴─────┐ ╭─────╮ ┌──────────────────────┐
+                     *     │d > 1.0 ├─┤ yes ├─┤ color = Color.yellow │
+                     *     └──┬─────┘ ╰─────╯ └──┬───────────────────┘
+                     *      ╭─┴──╮               │ (always greater than 1.0)
+                     *      │ no │            ┌──┴─────┐ ╭─────╮ ┌────────────────────┐
+                     *      ╰─┬──╯            │d < 0.0 ├─┤ yes ├─┤ color = Color.cyan │
+                     *        │               └──┬─────┘ ╰─────╯ └──┬─────────────────┘
+                     *        │                ╭─┴──╮               │
+                     *        │                │ no │               │
+                     *        │                ╰─┬──╯               │
+                     *        ├──────────────────┘                  │
+                     *        ├─────────────────────────────────────┘
+                     *     ╭──┴──╮
+                     *     │ End │
+                     *     ╰─────╯
+                     */
+                }// Section 4.11.6.1 Unreachable Code
 
-                /*
-                 * 4.11.6.1 Unreachable Code
-                 * 
-                 *    ╭───────╮
-                 *    │ Start │
-                 *    ╰───┬───╯
-                 *     ┌──┴─────┐ ╭─────╮ ┌──────────────────────┐
-                 *     │d > 1.0 ├─┤ yes ├─┤ color = Color.yellow │
-                 *     └──┬─────┘ ╰─────╯ └──┬───────────────────┘
-                 *      ╭─┴──╮               │ (always greater than 1.0)
-                 *      │ no │            ┌──┴─────┐ ╭─────╮ ┌────────────────────┐
-                 *      ╰─┬──╯            │d < 0.0 ├─┤ yes ├─┤ color = Color.cyan │
-                 *        │               └──┬─────┘ ╰─────╯ └──┬─────────────────┘
-                 *        │                ╭─┴──╮               │
-                 *        │                │ no │               │
-                 *        │                ╰─┬──╯               │
-                 *        ├──────────────────┘                  │
-                 *        ├─────────────────────────────────────┘
-                 *     ╭──┴──╮
-                 *     │ End │
-                 *     ╰─────╯
-                 */
-            }// Section 4.11.6.1 Unreachable Code
-
-            {/*
+                {/*
               * Section 4.11.6.2 Order of Operations...
               */
-                float d = positionAx + positionBx;
-                if (d > 0f)
-                {
-                    cubeMaterial.color = Color.cyan;
-                }
+                    float d = positionAx + positionBx;
+                    if (d > 0f)
+                    {
+                        cubeMaterial.color = Color.cyan;
+                    }
 
-                if (d > 1.0f)
-                {
-                    cubeMaterial.color = Color.red;
-                }
+                    if (d > 1.0f)
+                    {
+                        cubeMaterial.color = Color.red;
+                    }
 
-                //if (d > 0f) //always true if the above is true
-                //{
-                //    cubeMaterial.color = Color.cyan;
-                //}
-            }// Section 4.11.6.2 Order of Operations
+                    //if (d > 0f) //always true if the above is true
+                    //{
+                    //    cubeMaterial.color = Color.cyan;
+                    //}
+                }// Section 4.11.6.2 Order of Operations
 
-            {/*
+                {/*
               * Section 4.11.7 Another Look at Scope
               */
-            }// Section 4.11.7 Another Look at Scope
-        }
-        else
-        {
-            cubeMaterial.color = Color.black;
-            /*
-             * Section 4.11.7 Another Look at scope
-             * 
-             * the variable d which was calculated
-             * in the if() statement above is not
-             * available here in the else statement.
-             */
+                }// Section 4.11.7 Another Look at Scope
+            }
+            else
+            {
+                cubeMaterial.color = Color.black;
+                /*
+                 * Section 4.11.7 Another Look at scope
+                 * 
+                 * the variable d which was calculated
+                 * in the if() statement above is not
+                 * available here in the else statement.
+                 */
 
-            if (e > 1.0f)
-            {/* e is the same calculation as the
+                if (e > 1.0f)
+                {/* e is the same calculation as the
               * d calculated in the above if()
               * statement. The only difference
               * is that it's calculated in the same
@@ -393,35 +661,36 @@ public class LogicAndOperators : MonoBehaviour
               * so the variable e is available
               * for both if and else statements
               */
-                cubeMaterial.color = Color.green;
+                    cubeMaterial.color = Color.green;
+                }
             }
+
+            /*
+             * Section 4.11.8 What We've Learned
+             */
+            {
+                if (someInt < 10)
+                {
+                    cubeMaterial.color = Color.magenta;
+                }
+
+                if (someInt > -10)
+                {
+                    cubeMaterial.color = Color.grey;
+                }
+            }// shortened.
+            {
+                bool largerThan = someInt > 10;
+                bool lessThan = someInt < -10;
+                if (largerThan)
+                {
+                    cubeMaterial.color = Color.magenta;
+                }
+                if (lessThan)
+                {
+                    cubeMaterial.color = Color.grey;
+                }
+            }// expanded.
         }
-
-        /*
-         * Section 4.11.8 What We've Learned
-         */
-        {
-            if (someInt < 10)
-            {
-                cubeMaterial.color = Color.magenta;
-            }
-
-            if (someInt > -10)
-            {
-                cubeMaterial.color = Color.grey;
-            }
-        }// shortened.
-        {
-            bool largerThan = someInt > 10;
-            bool lessThan = someInt < -10;
-            if (largerThan)
-            {
-                cubeMaterial.color = Color.magenta;
-            }
-            if (lessThan)
-            {
-                cubeMaterial.color = Color.grey;
-            }
-        }// expanded.
     }
 }
