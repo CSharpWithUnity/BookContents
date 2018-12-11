@@ -7,7 +7,6 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
-
 /*
  * Section 7.16.1 Extensions
  */
@@ -16,6 +15,22 @@
 //{
 //}
 /* uncomment the class above to see the error */
+
+namespace Extensions
+{
+    using UnityEngine;
+    using Tricks;
+
+    public class ExtensionFunctions : MonoBehaviour
+    {
+        void Start()
+        {
+            GameObjectExtensions.UseNewTrick();  // All this magic 
+            GameObjectExtensions.UseSetParent(); // happens down below.
+            GameObjectExtensions.UseMirror();
+        }
+    }
+}
 
 namespace Tricks
 {
@@ -166,24 +181,6 @@ namespace Tricks
             {
                 ReflectionUpdateEvent?.Invoke(transform);
             }
-        }
-        
-
-
-    }
-}
-
-namespace Extensions
-{
-    using UnityEngine;
-    using Tricks;
-    public class ExtensionFunctions : MonoBehaviour
-    {
-        void Start()
-        {
-            GameObjectExtensions.UseNewTrick();
-            GameObjectExtensions.UseSetParent();
-            GameObjectExtensions.UseMirror();
         }
     }
 }
