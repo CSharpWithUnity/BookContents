@@ -185,6 +185,14 @@ public class BitwiseMath : MonoBehaviour
         return r;
     }
 
+    void UseBitwiseSub()
+    {
+        int a = 7;
+        int b = 3;
+        int c = BitwiseSub(a, b);
+    }
+
+
     int BitwiseSub(int a, int b)
     {
         b = BitwiseAdd(~b, 1);
