@@ -188,11 +188,58 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
     }
 
     /*
+     * Section 7.18.3 Timers
+     */
+    void UseRepeatTimer()
+    {
+        float delayTime = 2.0f;
+        int repeatCount = 5;
+
+        StartCoroutine(RepeatTimer(delayTime, repeatCount));
+
+        IEnumerator RepeatTimer(float delay, int repeats)
+        {
+            while (repeats > 0)
+            {
+                Debug.Log("Starting timer");
+                yield return new WaitForSeconds(delay);
+                Debug.Log("Restarting Timer");
+                repeats--;
+            }
+        }
+    }
+
+    void UseRepeatTimerWithKillSwitch()
+    {
+        bool live = true;
+
+        StartCoroutine(KillCoRoutineIn(5f));
+        StartCoroutine(RepeatTimer(0.2f));
+
+        IEnumerator KillCoRoutineIn(float delay)
+        {
+            Debug.Log("Kill Switch To hit in " + delay + " seconds");
+            yield return new WaitForSeconds(delay);
+            live = false;
+            Debug.Log("Coroutine killed.");
+        }
+
+        IEnumerator RepeatTimer(float delay)
+        {
+            while (live)
+            {
+                Debug.Log("Repeating...");
+                yield return new WaitForSeconds(delay);
+            }
+        }
+    }
+
+    /*
      * 7.18.4 Arrays of Delegates
      * rather than send one thing to the coroutine
      * we can send multiple delegate functions
      */
-    
+
     delegate float ThingsToDo(string thing);
     IEnumerator DoingTheThings(ThingsToDo[] things)
     {
@@ -333,7 +380,7 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
         /*
          * Section 7.18.1.1 A Basic Example
          */
-        UseDelayAStatement();
+        //UseDelayAStatement();
         //UseMultipleDelayAStatements();
         /* Uncomment one of the lines above to observe
          * how each statement works
@@ -344,6 +391,8 @@ public class ConcurrencyAndCoroutines : MonoBehaviour
          */
         //UseTimedAction();
         //UseLerpAction();
+        UseRepeatTimer();
+        UseRepeatTimerWithKillSwitch();
 
         /*
          * Section 7.18.3 Arrays of Delegates
