@@ -186,6 +186,19 @@ public class OutParameter : MonoBehaviour
                 AimPoint.transform.rotation = normal;
             }
         }
+        {
+            (int a, int b, int c) GetThreeValuesOut()
+            {
+                return (a: 1, b: 2, c: 3);
+            }
+            /*                                                          */
+            /*   ┌←❶───┐ a var gets assigned the tuple                  */
+            var abc = GetThreeValuesOut();
+            /*   │       one value contains all three members           */
+            /*   └❷→───────────┬────────────────┬────────────────┐      */
+            /*                 ↓                ↓                ↓      */
+            Debug.Log("a: " + abc.a + " b: " + abc.b + " c: " + abc.c);
+        }
     }
 
     private void Update()

@@ -123,10 +123,19 @@ public class MoreOnArrays : MonoBehaviour
             /*
              * Section 6.17.3 Discovery
              */
+
+
             int[] primes = { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
             int[] fibonacci = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 };
             int[] powersOfTwo = { 1, 2, 4, 8, 16, 32, 64, 128, 255, 512, 1024 };
             ArrayList numbers = new ArrayList { primes, fibonacci, powersOfTwo };
+
+            int numArrays = numbers.Count;
+            for (int i = 0; i < numArrays; i++)
+            {
+            }
+
+
             object thing = numbers.ToArray();
             Debug.Log("thing is: " + thing);
 

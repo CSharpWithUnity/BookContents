@@ -10,6 +10,29 @@ using UnityEngine;
 
 public class UnityExecutionOrder : MonoBehaviour
 {
-
+    void Awake()
+    {
+        Debug.Log("Awake Start");
+        this.gameObject.AddComponent(typeof(Second));
+        Debug.Log("Awake Done");
+    }
+    
 }
 
+public class Second : MonoBehaviour
+{
+    private void Awake()
+    {
+        Debug.Log("Second Awake Start");   
+        for(int i = 0; i < 1000; i++)
+        {
+            Debug.Log("Wait!");
+        }
+        Debug.Log("Second Awake Done.");
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("Second Start");
+    }
+}
