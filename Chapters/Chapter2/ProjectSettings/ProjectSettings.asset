@@ -2,14 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!129 &1
 PlayerSettings:
-  m_ObjectHideFlags: 0
-<<<<<<< HEAD
-  serializedVersion: 16
-  productGUID: 3317d50983b4d854f92ef175c6731637
-=======
+ m_ObjectHideFlags: 0
   serializedVersion: 15
   productGUID: 448dd4f9ca722b144aaa0a92361bd206
->>>>>>> origin/master
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
