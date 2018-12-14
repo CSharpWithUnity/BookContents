@@ -83,9 +83,32 @@ namespace Chapter8_3
          */
         void UseIf()
         {
-
+            {
+                if (true)
+                    Debug.Log("No curly braces needed");
+                else
+                    Debug.Log("Doesn't do much for me.");
+                Debug.Log("done with if.");
+            }
+            {
+                int i = 0;
+                while (i < 3)
+                    Debug.Log("No curly braces needed: " + i++);
+                Debug.Log("while done.");
+            }
+            {
+                int i = 0;
+                do
+                    Debug.Log("No curly braces here either:" + i++);
+                while (i < 3);
+                Debug.Log("do done.");
+            }
+            {
+                for (int i = 0; i < 3; i++)
+                    Debug.Log("still no curly braces:" + i);
+                Debug.Log("for done.");
+            }
         }
-
 
         // Start is called before the first frame update
         void Start()
@@ -94,6 +117,10 @@ namespace Chapter8_3
              * Section 8.3.1 ?: Ternary Conditional Operator
              */
             UseTernaryConditionalOperator();
+            /*
+             * Section 8.3.2 If
+             */
+            UseIf();
         }
 
         // Update is called once per frame
