@@ -18,6 +18,12 @@ public class Warnings : MonoBehaviour
          */
         int i = 0; // unused, so maybe comment it till it's needed?
 
+        void MyFunction()
+        {
+            //int j = 0;
+        }
+
+        MyFunction();
         /*
          * Section 4.14.2 Errors
          */
