@@ -10,10 +10,4 @@ public class TestLibrary : MonoBehaviour
     {
         Debug.Log(MyUnityLibrary.MyString());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
