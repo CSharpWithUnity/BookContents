@@ -59,15 +59,22 @@ public class Zombie : MonoBehaviour
      */
     void MoveToPlayer()
     {
-        /* we used this technique
-         * in the MoveToPoint script
-         * in the sample game
-         */
-        Vector3 playerPos = player.gameObject.transform.position;
-        Vector3 towardPlayer = playerPos - transform.position;
-        transform.position = Vector3.Lerp(transform.position, playerPos, Time.deltaTime);
-        Quaternion direction = Quaternion.LookRotation(towardPlayer, transform.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime * 5f);
+        {
+            /* we used this technique
+             * in the MoveToPoint script
+             * in the sample game
+             */
+            Vector3 playerPos = player.gameObject.transform.position;
+            Vector3 towardPlayer = playerPos - transform.position;
+            transform.position = Vector3.Lerp(transform.position, playerPos, Time.deltaTime);
+            Quaternion direction = Quaternion.LookRotation(towardPlayer, transform.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime * 5f);
+        }
+
+        {
+            Vector3 direction = (Player.position - transform.position).normalized;
+            float distance = (Player.position - transform.position).magnitude;
+        }
     }
     /*
      * Section 5.7.3 Class is a type continued...
