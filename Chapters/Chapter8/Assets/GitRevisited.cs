@@ -9,7 +9,8 @@ namespace Chapter8_4
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log("Merge ahead of stash pop");
+            Debug.Log("Player 1 Start");
+            Debug.Log("Stashed Line");
         }
 
         // Update is called once per frame

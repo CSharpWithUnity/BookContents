@@ -31,10 +31,6 @@ public class Comments
      * This comment was written by Alex Okita *
      ******************************************/
 
-
-     
-
-
     void AnotherFunction()
     {
         int someInt = 0;//I print 0 through 10
@@ -47,7 +43,7 @@ public class Comments
         }
 
         //the code below will do the same thing.
-        
+
         /*
         while(someInt < 10) {
         System.Console.WriteLine(someInt);
@@ -68,7 +64,7 @@ public class Comments
             someInt++;
         }
 
-        Vector3(/* this is the x variable */1.0f, 
+        Vector3(/* this is the x variable */1.0f,
             2.0f/* <- that was the Y variable*/,
             /* the z */3.0f/*variable is here*/);
     }
@@ -91,6 +87,20 @@ public class Comments
          * produced in the book.
          */
     }
+
+    #region Special Area of Interest
+    void SomeFunction()
+    {
+        // doing things in area of interest
+    }
+    int SomeInt = 0;
+    #region Sub Section in the area
+    class SomeClass
+    {
+        int SomeClassesInt = 1;
+    }
+    #endregion
+    #endregion
 
     public void MyPublicMethod()
     {
