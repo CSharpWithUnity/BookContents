@@ -1,34 +1,86 @@
 fileFormatVersion: 2
 guid: f678f12af5344a24680e2bddb3ffceb8
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: A_Mesh
-    100004: ArrowCube_Mesh
-    100006: B_Mesh
-    100008: C_Mesh
-    400000: //RootNode
-    400002: A_Mesh
-    400004: ArrowCube_Mesh
-    400006: B_Mesh
-    400008: C_Mesh
-    2100000: ArrowCube_Material
-    2100002: Default
-    2300000: //RootNode
-    2300002: A_Mesh
-    2300004: ArrowCube_Mesh
-    2300006: B_Mesh
-    2300008: C_Mesh
-    3300000: //RootNode
-    3300002: A_Mesh
-    3300004: ArrowCube_Mesh
-    3300006: B_Mesh
-    3300008: C_Mesh
-    4300000: ArrowCube_Mesh
-    4300002: C_Mesh
-    4300004: A_Mesh
-    4300006: B_Mesh
+  serializedVersion: 24
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: A_Mesh
+  - first:
+      1: 100004
+    second: ArrowCube_Mesh
+  - first:
+      1: 100006
+    second: B_Mesh
+  - first:
+      1: 100008
+    second: C_Mesh
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: A_Mesh
+  - first:
+      4: 400004
+    second: ArrowCube_Mesh
+  - first:
+      4: 400006
+    second: B_Mesh
+  - first:
+      4: 400008
+    second: C_Mesh
+  - first:
+      21: 2100000
+    second: ArrowCube_Material
+  - first:
+      21: 2100002
+    second: Default
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: A_Mesh
+  - first:
+      23: 2300004
+    second: ArrowCube_Mesh
+  - first:
+      23: 2300006
+    second: B_Mesh
+  - first:
+      23: 2300008
+    second: C_Mesh
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: A_Mesh
+  - first:
+      33: 3300004
+    second: ArrowCube_Mesh
+  - first:
+      33: 3300006
+    second: B_Mesh
+  - first:
+      33: 3300008
+    second: C_Mesh
+  - first:
+      43: 4300000
+    second: ArrowCube_Mesh
+  - first:
+      43: 4300002
+    second: C_Mesh
+  - first:
+      43: 4300004
+    second: A_Mesh
+  - first:
+      43: 4300006
+    second: B_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -63,6 +115,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -70,10 +123,13 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -87,6 +143,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
@@ -101,7 +160,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
