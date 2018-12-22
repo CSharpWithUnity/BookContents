@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 6.3 Class Members
+ * Chapter 6.2.1 Class Members
  *
  * Copyright © 2018 Alex Okita
  *
@@ -10,8 +10,9 @@ using UnityEngine;
 
 public class ClassMembers : MonoBehaviour
 {
+    #region Chapter 6.2.1
     /*
-     * Section 6.3.2 Class Members
+     * Section 6.2.1 Class Members
      */
 
     /*
@@ -28,16 +29,22 @@ public class ClassMembers : MonoBehaviour
         }
     }
 
-    void Start()
+    void UseClassMembers()
     {
         // Make a members object
         Members m = new Members();
         // Call on Members' FirstFunction();
         m.FirstFunction();
         position = transform.position;
-        /*
-         * Section 6.3.3.1 Return - A Basic Example
-         */
+    }
+    #endregion
+
+    #region Chapter 6.2.2 Return
+    /*
+     * Section 6.2.2.1 Return - A Basic Example
+     */
+    void UseReturn()
+    {
         Debug.Log(ImANumber());
         Debug.Log(ImANumber() + ImANumber());
 
@@ -46,22 +53,8 @@ public class ClassMembers : MonoBehaviour
          * Uncomment the line above to
          * see the error.
          */
-        {
-            /*
-             * Section 6.3.4 Arguments aka Args (Not Related to Pirates)
-             */
-            Debug.Log(INeedANumber(1));
-
-            int val = INeedANumber(3) + INeedANumber(7);
-            Debug.Log(val);
-        }
-        {
-            /*
-             * Section 6.3.4.2 Multiple Args
-             */
-            Debug.Log(INeedTwoNumbers(7, 10));
-        }
     }
+
     /*
      * Section 6.3.4 continued...
      */
@@ -79,6 +72,45 @@ public class ClassMembers : MonoBehaviour
     {
         return number + 1;
     }
+    #endregion
+
+    #region Chapter 6.2.3 
+    /*
+     * Section 6.3.4 Arguments aka Args (Not Related to Pirates)
+     */
+    void UseArgs()
+    {
+        Debug.Log(INeedANumber(1));
+
+        int val = INeedANumber(3) + INeedANumber(7);
+        Debug.Log(val);
+    }
+    #endregion
+
+    void Start()
+    {
+        /*
+         * Section 6.2.1 Class Members
+         */
+        UseClassMembers();
+        /*
+         * Section 6.2.2 Return
+         */
+        UseReturn();
+
+        /*
+         * Section 6.3.4 Arguments aka Args (Not Related to Pirates)
+         */
+        UseArgs();
+
+        {
+            /*
+             * Section 6.3.4.2 Multiple Args
+             */
+            Debug.Log(INeedTwoNumbers(7, 10));
+        }
+    }
+
     /*
      * Section 6.3.4.2 Multiple Args
      */
@@ -124,6 +156,7 @@ public class ClassMembers : MonoBehaviour
     }
 
     public Vector3 position;
+
     void Update()
     {
         /*
