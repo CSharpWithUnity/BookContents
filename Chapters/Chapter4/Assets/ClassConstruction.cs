@@ -11,8 +11,9 @@ using UnityEngine;
 
 public class ClassConstruction : MonoBehaviour
 {
+    #region Chapter 4.4.1 Class Declaration
     /*
-     * Section 4.4.1
+     * Section 4.4.1 Class Declaration
      * A nested class can appear down below this comment.
      * 
      *    ┌─────────┐ ┌────────────┐
@@ -42,13 +43,9 @@ public class ClassConstruction : MonoBehaviour
     {
     }
 
-    // Use this for initialization
-    void Start()
+    void UseMyNewClass()
     {
-        /*
-         * Section 4.4.1.1
-         * 
-         * ┌────┐ ┌──────────┐ ┌───────────┐ ┌─────────┐
+        /* ┌────┐ ┌──────────┐ ┌───────────┐ ┌─────────┐
          * │Type│ │Identifier│ │Constructor│ │separator│ 
          * └─┬──┘ └───┬──────┘ └───┬───────┘ └──┬──────┘
          *   └─┐      └───┐        └───────┐    └─┐
@@ -61,8 +58,9 @@ public class ClassConstruction : MonoBehaviour
          * MyNewClass is a new type
          * 
          */
-
         MyNewClass newClass = new MyNewClass();
+
+
 
         //MyNewClass newClass = 1;
         /* Uncomment the line above to see the error
@@ -71,10 +69,9 @@ public class ClassConstruction : MonoBehaviour
         int i = new System.Int32();
 
         Debug.Log(i);
-
-        TestAccess();
     }
-
+    #endregion
+    #region Chapter 4.4.2 Adding Datafields
     /*
      * Section 4.4.2 Adding Datafields
      */
@@ -116,12 +113,12 @@ public class ClassConstruction : MonoBehaviour
          * 
          */
     }
-
-    /*
-     * Section 4.4.4 Class Scope
-     * Data and Function can be paired.
-     */
-
+    #endregion
+    #region Chapter 4.4.4 Class Scope
+        /*
+         * Section 4.4.4 Class Scope
+         * Data and Function can be paired.
+         */
     class DataFunctionPairGrouping
     {
         public int MyCounter;
@@ -158,13 +155,8 @@ public class ClassConstruction : MonoBehaviour
             Debug.Log(ThirdInt);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    #endregion
+    #region Chapter 4.4.6 What We've Learned
     /*
      * Section 4.4.6 What We've Learned
      */
@@ -173,5 +165,19 @@ public class ClassConstruction : MonoBehaviour
     {
         DifferentClass someOther = new DifferentClass();
         someOther.myInt = 1;
+    }
+    #endregion
+
+    void Start()
+    {
+        /*
+         * Section 4.4.1.1
+         */
+        UseMyNewClass();
+
+        /*
+         * Section 4.4.2 Adding Datafields
+         */
+        TestAccess();
     }
 }
