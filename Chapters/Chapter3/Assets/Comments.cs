@@ -87,8 +87,8 @@ public class Comments
     private void Vector3(float v1, float v2, float v3)
     {
         //?
-        /* uncomment the ? above to see the error
-         * produced in the book.
+        /* uncomment the ? above to see an error
+         * similar to the one produced in the book.
          */
     }
 
@@ -144,11 +144,10 @@ class Comments_Continued
     /// <summary>
     /// A Vector3 function of my own!
     /// </summary>
-    /// <
     /// <param name="v1"></param>
     /// <param name="v2"></param>
     /// <param name="v3"></param>
-    private void Vector3(float v1, float v2, float v3)
+    private void Vector4(float v1, float v2, float v3)
     {
         //?
         /* uncomment the ? above to see the error

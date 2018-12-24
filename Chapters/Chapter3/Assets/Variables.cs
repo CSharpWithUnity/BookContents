@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 3.9 Variables
+ * Chapter 3.10 Variables
  *
  * Copyright © 2018 Alex Okita
  *
@@ -7,10 +7,11 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
+#region Chapter 3.10.1 Identifiers
 class Identifiers
 {
     /*
-     * Section 3.9.1 Identifiers
+     * Section 3.10.1 Identifiers
      * 
      * Values which you might need for various equations
      * can be found in the UnityEngine API. One example
@@ -37,6 +38,8 @@ class Identifiers
     int @OhHAICanIHasIdentifier01;
 
 }
+#endregion
+
 
 namespace Variables
 {
@@ -44,8 +47,9 @@ namespace Variables
     [UnityEngine.ExecuteInEditMode]
     class Variables : UnityEngine.MonoBehaviour
     {
+        #region Chapter 3.10.2 Data
         /*
-         * Section 3.9.2 Data
+         * Section 3.10.2 Data
          * 
          * A Declaration is the announcement to
          * Unity about your new variable.
@@ -64,23 +68,24 @@ namespace Variables
          *  └───────────────────────┘
          *  
          */
+        #endregion
 
-
+        #region Chapter 3.10.3 Variable Manipulation
         /*
-         * Section 3.9.3 Variable Manipulation
+         * Section 3.10.3 Variable Manipulation
          */
-        public float InputValue;
-        public float MultiplyBy;
-        public float Result;
-
-        void Update()
-        {
-            /*              math is done      */
-            /* ┌─────────────────┐①           */
-            /* │ result is  ┌────┴────┐       */
-            /* ② assigned ┌─┤operation├─┐     */
-            /* ↓          ↑ └─────────┘ ↑     */
+        public float MultiplyBy;/*→───┐ ①          */
+        public float InputValue;/*→─┐ │ values are */
+        public float Result;/*←─┐   │ │ assigned   */
+        void Update()       /*  │   │ │            */
+        {   /* ┌────────────────┘   │ │            */
+            /* │         ┌──────────┘ │            */
+            /* ↑         ↓            ↓            */
             Result = InputValue * MultiplyBy;
+            /* ↑         ↓    ┌───┐   ↓            */
+            /* │result is└────┤ * ├───┘            */
+            /* ③updated       └─┬─┘② operation     */
+            /* └────────────────┘    is performed  */
         }
 
         void MoreUpdates()
@@ -97,10 +102,8 @@ namespace Variables
             // uncomment the line above to see the
             // error.
         }
+        #endregion
 
-        /*
-         * Section 3.10.2 Variable Assignment
-         */
 
         private void Start()
         {

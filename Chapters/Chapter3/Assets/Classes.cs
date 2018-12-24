@@ -6,7 +6,8 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
- 
+
+#region Chapter 3.9 Classes a First Look
 /* Class Stuff has Things,  */
 /* and can Do A Thing.      */
 class Stuff 
@@ -17,8 +18,7 @@ class Stuff
         //Do the thing!
     }
 }
-
-namespace Chapter3_8
+namespace Chapter3_9
 {
     using System;
     class Party
@@ -60,10 +60,12 @@ namespace Chapter3_8
  *              └──────────────────┘
  */
 
+#endregion
 
- /*
-  * Section 3.8.1 Objects
-  */
+#region Chapter 3.9.1 Objects
+/*
+ * Section 3.9.1 Objects
+ */
 
 class MakeZombies
 {               /*   ┌─────────────────┐*/
@@ -110,11 +112,6 @@ class Classes
      */
 }
 
-/*
- * Section 3.8.1 Objects
- */
-
-
 class Objects
 {
     /*
@@ -156,4 +153,7 @@ class Objects
         AmmoType ammoType;
         int ammoCount = 10;
     }
+
+
 }
+#endregion
