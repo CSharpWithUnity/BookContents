@@ -106,6 +106,7 @@ namespace Variables
 
         private void Start()
         {
+            #region Chapter 3.11.2 Variable Assignment
             {
                 /* int declares a new thing         */
                 /* assignment operator = assigns    */
@@ -171,8 +172,8 @@ namespace Variables
                 /*  terms are    ( 3 * 3 )          */
                 Debug.Log(MyVariable * MyOtherVariable);
                 // 9
-
             }
+            #endregion
         }
     }
 }

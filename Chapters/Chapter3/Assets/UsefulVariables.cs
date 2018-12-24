@@ -2,6 +2,7 @@
 
 public class UsefulVariables : MonoBehaviour
 {
+    #region Chapter 3.11.1 UsefulVariables in Unity 3D
     /*
      * Section 3.10.1 UsefulVariables
      */
@@ -12,14 +13,5 @@ public class UsefulVariables : MonoBehaviour
     public float MyFloat;
     public string MyString;
     public Vector3 MyVector3;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    #endregion
 }

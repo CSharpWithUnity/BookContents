@@ -11,8 +11,9 @@ using UnityEngine;
 
 public class UsingTheVariables : MonoBehaviour
 {
+    #region Chapter 3.11.3 Using The Variables
     /*
-     * Section 3.10.3 Using The Variables
+     * Section 3.11.3 Using The Variables
      */
 
     public float RotationSpeed;
@@ -52,4 +53,5 @@ public class UsingTheVariables : MonoBehaviour
 
         transform.position += transform.forward * (ForwardSpeed * Time.deltaTime);
 	}
+    #endregion
 }

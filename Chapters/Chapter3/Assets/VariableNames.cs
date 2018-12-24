@@ -9,9 +9,9 @@
 
 using UnityEngine;
 
-
 public class VariableNames : MonoBehaviour
 {
+    #region Chapter 3.11 Variable Names
     /*
      * Section 3.11 Variable Names
      */
@@ -82,11 +82,12 @@ public class VariableNames : MonoBehaviour
     int @home;
     //int noone@home;
     //int nobodyhome@;
-    
+
     /* The @ symbol cannot appear
      * in the middle or end of a
      * variable name.
      * Uncomment the two lines above
      * to see what the errors are.
      */
+    #endregion
 }
