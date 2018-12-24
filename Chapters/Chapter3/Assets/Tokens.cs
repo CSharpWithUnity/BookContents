@@ -6,13 +6,13 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
-
-
+#region Chapter 3.4
 namespace Section3_4
 {
     using UnityEngine;
     public class Tokens
     {
+        #region Chapter 3.4 Tokens
         /*
          * Section 3.4 Tokens
          * 
@@ -34,7 +34,9 @@ namespace Section3_4
          *   └─────────────────────┘ │ article │
          *                           └─────────┘
          */
+        #endregion
 
+        #region Chapter 3.4.1 Writing C#
         int i = 0;
 
         /*
@@ -55,8 +57,9 @@ namespace Section3_4
          * └─────────┘ │ operator   │
          *             └────────────┘
          */
+        #endregion
 
-
+        #region Chapter 3.4.2 Comments a first Look
         /*
          * Section 3.4.2 Comments a first look
          */
@@ -79,8 +82,7 @@ namespace Section3_4
 
         /*        not hidden          */
         /*             ↓              */
-        /*hidden*/
-        int l = 0; /*hidden*/
+        /*hidden*/ int l = 0; /*hidden*/
 
         /* this is also a multiline comment
          * but we have little * at the start
@@ -112,8 +114,9 @@ namespace Section3_4
                 someInt++;
             }
         }
+        #endregion
 
-
+        #region Chapter 3.4.3 Separatoer Tokens
         /*
          * Section 3.3.3 Separator Tokens
          * 
@@ -327,7 +330,9 @@ namespace Section3_4
                  */
             }
         }
+        #endregion
 
+        #region Chapter 3.4.4 Operator Tokens
         /*
          * Section 3.3.4 Operator Tokens
          * 
@@ -392,9 +397,11 @@ namespace Section3_4
             int ModuloOperator = 10 / 3;
             System.Console.WriteLine("ModuloOperator Result = " + ModuloOperator);
         }
+        #endregion
 
+        #region Chapter 3.4.5 Literals
         /*
-         * Section 3.3.5 Literals
+         * Section 3.4.5 Literals
          * 
          * values are literals
          * numbers like 1 or 1.0 are both literals
@@ -457,15 +464,15 @@ namespace Section3_4
          * │ not a literal │
          * └───────────────┘
          */
-
-
+        #endregion
     }
 }
-namespace Section3_3_6
+namespace Section3_4_6
 {
     using UnityEngine;
     class Tokens : MonoBehaviour
     {
+        #region Chapter 3.4.6 Transitive and Non-Transitive Operations
         /*
          * Section 3.3.6 Transitive and Non-Transitive Operations
          * The below shows various results with very similar numbers
@@ -496,17 +503,15 @@ namespace Section3_3_6
                 System.Console.WriteLine("someInts: " + i);
             }
 
-            /*
-             * Section 3.3.4 continued...
-             */
-
             float degrees;
             float radians = 180 / Mathf.PI;
 
             degrees = (radians * Mathf.PI) / 180;
             System.Console.WriteLine("Degrees from 3.14159 Radians = " + degrees);
         }
+        #endregion
 
+        #region Chapter 3.4.7 Putting it all together
         /*
          * Section 3.3.7 Putting it all together
          * The statement below appears in the start function.
@@ -563,5 +568,7 @@ namespace Section3_3_6
                 i++;
             }
         }
+        #endregion
     }
 }
+#endregion

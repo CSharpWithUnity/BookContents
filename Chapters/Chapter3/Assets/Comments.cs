@@ -15,13 +15,12 @@ using System;
 
 public class Comments
 {
+    #region Chapter 3.14 Comments
     /*
-     * Section 3.3.2 Comments a first look
+     * Section 3.14 Comments a first look
      */
 
-
     //TODO: These comments show up in the Task List.
-
 
     /* Player class written by Alex Okita
      * This class manages the player's data and logic
@@ -30,28 +29,42 @@ public class Comments
     /******************************************
      * This comment was written by Alex Okita *
      ******************************************/
+    void MyFunction()
+    {
+        int someInt = 0; // declaring some regular int as 0
+    }
+
+    void MyOtherFunction()
+    {
+        int someInt = 0;//I print 0 through 10
+                        //int someInt = 3;//starts at 3
+                        //int someInt = 11;//this won't work, so leave me out.
+
+        while (someInt < 10)
+        {
+            System.Console.WriteLine(someInt);
+            someInt++;
+        }
+    }
 
     void AnotherFunction()
     {
         int someInt = 0;//I print 0 through 10
                         //int someInt = 3;//starts at 3
                         //int someInt = 11;//this won't work, so leave me out.
-                        //trying out new code here
+                        //tyrying out new code here
         for (int i = 0; i < someInt; i++)
         {
             System.Console.WriteLine(someInt);
         }
 
         //the code below will do the same thing.
-
         /*
-        while(someInt < 10) {
+        while (someInt < 10) {
         System.Console.WriteLine(someInt);
         someInt++;
         }
         */
-
-
     }
 
     void InLineComments()
@@ -68,7 +81,59 @@ public class Comments
             2.0f/* <- that was the Y variable*/,
             /* the z */3.0f/*variable is here*/);
     }
+    #endregion
 
+    #region Chapter 3.14.1 LineNumbers
+    private void Vector3(float v1, float v2, float v3)
+    {
+        //?
+        /* uncomment the ? above to see the error
+         * produced in the book.
+         */
+    }
+
+    #endregion
+
+    #region Chapter 3.14.2 Code Folding
+    /* This is a multiline comment
+     * which can carry on to other lines
+     * youcan keep on writing anything
+     * until you get to the following */
+
+    void FunctionsCanFold()
+    {
+        int someInt = 0;
+        while (someInt < /*10*/ 100)
+        {
+            someInt++;
+        }
+    }
+    /* clickint on the [+] in the left margin next
+     * to the function above will turn the function into
+     * void FunctionsCanFold()[...]
+     */
+    
+    /*
+     * Regions can be embedded in other regions!
+     */
+
+    #region Special Area of Interest
+    void SomeFunction()
+    {
+        // doing things in area of interest
+    }
+    int SomeInt = 0;
+    #region Sub Section in the area
+    class SomeClass
+    {
+        int SomeClassesInt = 1;
+    }
+    #endregion
+    #endregion
+
+    #endregion
+
+    #region Chapter 3.14.3 Summary Comments
     /*
      * Section 3.14.3
      */
@@ -87,22 +152,13 @@ public class Comments
          * produced in the book.
          */
     }
+    #endregion
 
-    #region Special Area of Interest
-    void SomeFunction()
-    {
-        // doing things in area of interest
-    }
-    int SomeInt = 0;
-    #region Sub Section in the area
-    class SomeClass
-    {
-        int SomeClassesInt = 1;
-    }
-    #endregion
-    #endregion
+    #region Chapter 3.14.4 Navigating in Code
 
     public void MyPublicMethod()
     {
     }
+
+    #endregion
 }
