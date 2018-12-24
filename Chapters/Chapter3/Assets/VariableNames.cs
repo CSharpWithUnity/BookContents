@@ -22,7 +22,6 @@ public class VariableNames : MonoBehaviour
      * BottomRightCorner – SomeThickness + OffsetFromSomePosition);
      * 
      * CleverFunc(TL-Thk+Ofst, LR-Thk+Ofst);
-     *
      */
 
     int a;

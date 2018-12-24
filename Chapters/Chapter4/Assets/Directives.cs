@@ -14,10 +14,11 @@ using System.IO;
 using UnityEngine;
 using System;
 
-public class Directives : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class Directives : MonoBehaviour
+{
+	void Start ()
+    {
+        #region Chapter 4.5.1 Libraries
         /*
          * Seciton 4.5.1 Libraries
          */
@@ -34,31 +35,22 @@ public class Directives : MonoBehaviour {
          * then you can use
          * StreamWriter writer = new StreamWriter("MyFile.txt");
          */
+        #endregion
 
+        #region Chapter 4.5.2 Ambiguous Namespaces
         /*
-         * Section 4.5.2 Ambiguous NameSpaces
+         * Section 4.5.2 Ambiguous Namespaces
          */
 
         int randUnity = UnityEngine.Random.Range(0, 10);
 
         //int rand = Random.Range(0, 10);
-        
+
         /* Uncomment the line above to see the error
          * Adding using System; to the header
          * changes Random.Range(0, 10); from
          * valid to having a name space conflict!
          */
+        #endregion
     }
-
-
-
-
-
-
-
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
