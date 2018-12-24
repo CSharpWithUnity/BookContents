@@ -7,11 +7,14 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
-class WhiteSpace {
+class WhiteSpace
+{
+    #region Chapter 3.7 White Space
     /*
-     * Section 3.6 White Space
+     * Section 3.7 White Space
      * The function below has normal white space added
      */
+
     void MyFunction()
     {
         int i = 0;
@@ -30,11 +33,11 @@ class WhiteSpace {
      * for instance after void and after int
      * the function works, it's just a bit difficult to read.
      */
-void MyOtherFunction(){int i=0;while(i<10){System.Console.Write(i);i++;}
-    }
-
+    void MyOtherFunction(){int i = 0;while(i<10){System.Console.Write(i);i++;}}
+    #endregion
+    #region Chapter 3.7.1 Code Style
     /*
-     * Section 3.6.1 Code Style
+     * Section 3.7.1 Code Style
      *
      *    ┌──────────────────────────────┐
      *    │ The placement of the first { │
@@ -66,4 +69,5 @@ void MyOtherFunction(){int i=0;while(i<10){System.Console.Write(i);i++;}
     {
         // Some Other Code here...
     }
+    #endregion
 }
