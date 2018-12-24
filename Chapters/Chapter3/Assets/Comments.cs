@@ -112,7 +112,7 @@ public class Comments
      * to the function above will turn the function into
      * void FunctionsCanFold()[...]
      */
-    
+
     /*
      * Regions can be embedded in other regions!
      */
@@ -132,7 +132,10 @@ public class Comments
     #endregion
 
     #endregion
+}
 
+class Comments_Continued
+{
     #region Chapter 3.15.3 Summary Comments
     /*
      * Section 3.15.3
