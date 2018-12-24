@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 3.4 StatementsAndExpressions
+ * Chapter 3.5 StatementsAndExpressions
  *
  * Copyright © 2018 Alex Okita
  *
@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class StatementsAndExpressions : MonoBehaviour
 {
+    #region Chapter 3.5.1 Expressions
     private enum Food
     {
         kale,
@@ -20,7 +21,7 @@ public class StatementsAndExpressions : MonoBehaviour
     Food dinner = Food.broccoli;
 
     /*
-     * Section 3.4.1 Expressions
+     * Section 3.5.1 Expressions
      * 
      * if a food is described properly in C# then you can
      * assign it various values based on different values
@@ -45,7 +46,9 @@ public class StatementsAndExpressions : MonoBehaviour
      * food Dinner = Pasta + Broccoli;
      * 
      */
+    #endregion
 
+    #region Chapter 3.5.2 How Unity3D Executes your Code
     /*
      * Section 3.4.2
      * 
@@ -117,7 +120,9 @@ public class StatementsAndExpressions : MonoBehaviour
         // Process Data
         Debug.DrawLine(myPosition, closestPosition , red);
     }
+    #endregion
 
+    #region Chapter 3.5.3 Thinking in Algorithms
     /*
      * Section 3.4.3.1
      * 
@@ -147,5 +152,5 @@ public class StatementsAndExpressions : MonoBehaviour
      *     items = Bacon * 3;
      * }
      */
-
+    #endregion
 }

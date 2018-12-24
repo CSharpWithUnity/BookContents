@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 3.5 KeyWords
+ * Chapter 3.6 KeyWords
  *
  * Copyright © 2018 Alex Okita
  *
@@ -7,6 +7,7 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
+#region Chapter 3.6 Keywords
 class ClassName
 {
 }
@@ -79,6 +80,8 @@ class Charles { }
  * ║ yield                             ║
  * ╚═══════════════════════════════════╝
  */
+#endregion
+
 class Reserved
 {
     /* uncomment the lines below to

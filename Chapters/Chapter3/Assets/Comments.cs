@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 3.14 Comments
+ * Chapter 3.15 Comments
  *
  * Copyright © 2018 Alex Okita
  *
@@ -15,9 +15,9 @@ using System;
 
 public class Comments
 {
-    #region Chapter 3.14 Comments
+    #region Chapter 3.15 Comments
     /*
-     * Section 3.14 Comments a first look
+     * Section 3.15 Comments a first look
      */
 
     //TODO: These comments show up in the Task List.
@@ -83,7 +83,7 @@ public class Comments
     }
     #endregion
 
-    #region Chapter 3.14.1 LineNumbers
+    #region Chapter 3.15.1 LineNumbers
     private void Vector3(float v1, float v2, float v3)
     {
         //?
@@ -94,7 +94,7 @@ public class Comments
 
     #endregion
 
-    #region Chapter 3.14.2 Code Folding
+    #region Chapter 3.15.2 Code Folding
     /* This is a multiline comment
      * which can carry on to other lines
      * youcan keep on writing anything
@@ -133,9 +133,9 @@ public class Comments
 
     #endregion
 
-    #region Chapter 3.14.3 Summary Comments
+    #region Chapter 3.15.3 Summary Comments
     /*
-     * Section 3.14.3
+     * Section 3.15.3
      */
 
     /// <summary>
@@ -154,7 +154,7 @@ public class Comments
     }
     #endregion
 
-    #region Chapter 3.14.4 Navigating in Code
+    #region Chapter 3.15.4 Navigating in Code
 
     public void MyPublicMethod()
     {
