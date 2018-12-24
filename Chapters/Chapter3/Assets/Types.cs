@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 3.11 Types
+ * Chapter 3.12 Types
  *
  * Copyright © 2018 Alex Okita
  *
@@ -9,12 +9,13 @@
 
 using UnityEngine;
 
-public class Types : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class Types : MonoBehaviour
+{
+	void Start ()
+    {
+        #region Chapter 3.12 Types a first look
         /*
-         * Section 3.11
+         * Section 3.12
          */
 
         int i = 1;
@@ -23,9 +24,11 @@ public class Types : MonoBehaviour {
          * an Integer is a whole number
          * or a number without a fraction.
          */
-         
+        #endregion
+
+        #region Chapter 3.13 Strong Typing
         /*
-         * Section 3.12 Strong Typing
+         * Section 3.13 Strong Typing
          */
 
         // Vector3 vec = new Vector3(1.0, 1.0, 1.0);
@@ -51,7 +54,7 @@ public class Types : MonoBehaviour {
          */
 
         /*
-         * Section 3.12.1 Dynamic Type
+         * Section 3.13.1 Dynamic Type
          * 
          * In languages like lua we might see:
          * 
@@ -65,9 +68,11 @@ public class Types : MonoBehaviour {
          * }
          * 
          */
+        #endregion
 
+        #region Chapter 3.14 Type Casting, Numbers
         /*
-         * Section 3.13 Type Casting, Numbers
+         * Section 3.14 Type Casting, Numbers
          */
 
         int hundredInt = 100;
@@ -88,7 +93,7 @@ public class Types : MonoBehaviour {
          */
 
         /*
-         * Section 3.13.1 Explicit versus Implicit Casting
+         * Section 3.14.1 Explicit versus Implicit Casting
          */
 
         int mInt = 1;
@@ -100,7 +105,8 @@ public class Types : MonoBehaviour {
         Debug.Log("int c is: " + c);
 
         /*
-         * Section 3.13.1 continued...
+         * Section 3.14.1 continued...
+         * 
          * the (type) operator tells C# to convert
          * the object to the right of the operator
          * to become the type as indicated in the
@@ -134,7 +140,7 @@ public class Types : MonoBehaviour {
         Debug.Log("yetAnotherDouble: " + yetAnotherDouble);
 
         /*
-         * Section 3.13.1 continued...
+         * Section 3.14.1 continued...
          */
 
         int largeInt = 2147483647;
@@ -152,18 +158,13 @@ public class Types : MonoBehaviour {
         Debug.Log("backAgainAgain: " + backAgainAgain);
 
         /*
-         * Section 3.13.1 continued...
+         * Section 3.14.1 continued...
          */
 
         string s = "1";
         int fromString = int.Parse(s);
         Debug.Log("fromString: " + fromString);
 
-        //TODO: Clean up comments.
+        #endregion
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

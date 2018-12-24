@@ -104,7 +104,6 @@ namespace Variables
         }
         #endregion
 
-
         private void Start()
         {
             {
@@ -178,9 +177,9 @@ namespace Variables
     }
 }
 
-
+#region Chapter 3.10.3.1 Declaration Placement Examples
 /*
- * Section 3.9.3.1 Declaration Placement Examples
+ * Section 3.10.3.1 Declaration Placement Examples
  * 
  * a variable declaration for a class must appear
  * in the body of the class definition. that is
@@ -188,14 +187,14 @@ namespace Variables
  * { and before the closing curly brace }
  */
 
-            /* 
-             * comment out the lower line to
-             * produce an error
-             */
+/* 
+ * comment out the lower line to
+ * produce an error
+ */
 
-            //int outterInt;
-        class SomeClass
-{
+//int outterInt;
+class SomeClass
+    {
     int innerInt;
 
     /*
@@ -232,5 +231,4 @@ namespace Variables
      * in the declaration of the variable.
      */
 }
-
-
+#endregion

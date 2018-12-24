@@ -1,5 +1,5 @@
 ﻿/* 
- * Chapter 3.10 VariableNames
+ * Chapter 3.11 VariableNames
  *
  * Copyright © 2018 Alex Okita
  *
@@ -13,7 +13,7 @@ using UnityEngine;
 public class VariableNames : MonoBehaviour
 {
     /*
-     * Section 3.10 Variable Names
+     * Section 3.11 Variable Names
      */
 
     public int SomeLongComplexHardToRememberVariableName;
