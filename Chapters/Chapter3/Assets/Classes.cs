@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 3.8 Classes
+ * Chapter 3.9 Classes
  *
  * Copyright © 2018 Alex Okita
  *

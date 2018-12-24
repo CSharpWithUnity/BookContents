@@ -1,5 +1,5 @@
 ﻿/* 
- * Chapter 3.7 Code Blocks
+ * Chapter 3.8 Code Blocks
  *
  * Copyright © 2018 Alex Okita
  *
@@ -9,8 +9,9 @@
 
 class CodeBlocks
 {
+    #region Chapter 3.8 Code Blocks
     /*
-     * Section 3.7 Code Blocks
+     * Section 3.8 Code Blocks
      */
 
     void SimpleStatements()
@@ -76,4 +77,5 @@ class CodeBlocks
         }
         }
     }
+    #endregion
 }
