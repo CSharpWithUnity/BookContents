@@ -7,6 +7,7 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 using UnityEngine;
+
 public class RotateY : MonoBehaviour
 {
 	void Update ()

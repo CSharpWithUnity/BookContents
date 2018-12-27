@@ -34,9 +34,9 @@ public class FunctionsAgain : MonoBehaviour
          * to see how they operate
          * on their own
          */
-        Section6_11_4();
-        Section6_11_4_1();
-        Section6_11_5();
+        UseUsefulParameters();
+        UseCreateANamedObject();
+        UseForeach();
     }
 
 
@@ -94,7 +94,7 @@ public class FunctionsAgain : MonoBehaviour
     /*
      * Section 6.11.4 Useful Parameters
      */
-    void Section6_11_4()
+    void UseUsefulParameters()
     {
         GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "MrCube";
@@ -119,7 +119,7 @@ public class FunctionsAgain : MonoBehaviour
         go.transform.position = pos;
     }
 
-    void Section6_11_4_1()
+    void UseCreateANamedObject()
     {
         CreateANamedObject(PrimitiveType.Cube, "MrCube", new Vector3(0, 1, 0));
         CreateANamedObject(PrimitiveType.Cube, "MrsCube", new Vector3(0, 2, 0));
@@ -137,7 +137,7 @@ public class FunctionsAgain : MonoBehaviour
     /*
      * Section 6.11.5 Foreach versus For
      */
-    private void Section6_11_5()
+    private void UseForeach()
     {
         foreach (string s in names)
         {

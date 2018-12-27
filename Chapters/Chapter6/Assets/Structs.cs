@@ -10,6 +10,47 @@ using UnityEngine;
 
 public class Structs : MonoBehaviour
 {
+    #region Chapter 6.8
+    class WithoutStructs
+    {
+        float X;
+        float Y;
+        float Z;
+        void SetX(float x)
+        {
+            X = x;
+        }
+        void SetY(float y)
+        {
+            Y = y;
+        }
+        void SetZ(float z)
+        {
+            Z = z;
+        }
+
+        void SetValues()
+        {
+            SetX(1.0f);
+            SetY(1.0f);
+            SetZ(1.0f);
+        }
+
+        void LogValues()
+        {
+            Debug.Log("X:" + X + "Y:" + Y + "Z:" + Z);
+        }
+
+        // or
+        Vector3 Vector;
+        void SetVector()
+        {
+            Vector = new Vector3(1, 1, 1);
+        }
+    }
+
+    #endregion
+    #region Chapter 6.8.1 Structs
     /*
      * Section 6.8.1 Structs
      * 
@@ -25,6 +66,8 @@ public class Structs : MonoBehaviour
         public float RunSpeed;
         public float WalkSpeed;
     }
+    #endregion
+
     PlayerDataStruct playerDataStruct;
     /*
      * Section 6.8.2 Struct versus Class
