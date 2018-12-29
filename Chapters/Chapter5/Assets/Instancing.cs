@@ -21,6 +21,7 @@ public class Instancing : MonoBehaviour
      * automatically.
      */
     #endregion
+
     #region Chapter 5.4.2 New
     /* * * * * * * * * * * * * * * * * * * * *
      * Section 5.4.2 New                     *
@@ -28,6 +29,7 @@ public class Instancing : MonoBehaviour
      * a new instance of a object.           *
      * * * * * * * * * * * * * * * * * * * * */
     #endregion
+
     #region Chapter 5.4.3 Constructors
     /* * * * * * * * * * * * * * * * * * * * *
      * Section 5.4.3 Constructors            *
