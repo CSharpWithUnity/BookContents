@@ -10,23 +10,29 @@ using UnityEngine;
 
 public class Instancing : MonoBehaviour
 {
-    /*
-     * Section 5.4.1 Class Initialization
-     */
+    #region Chapter 5.4.1 Class Initialization
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.4.1 Class Initialization    *
+     * * * * * * * * * * * * * * * * * * * * */
     public int i;
     public float f;
     public double d;
     /* Plain Old Data gets initialized
      * automatically.
      */
-
-    /*
-     * Section 5.4.2 New
-     * the new keyword gets used to make
-     * a new instance of a object.
-     */
-
-    void Start()
+    #endregion
+    #region Chapter 5.4.2 New
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.4.2 New                     *
+     * the new keyword gets used to make     *
+     * a new instance of a object.           *
+     * * * * * * * * * * * * * * * * * * * * */
+    #endregion
+    #region Chapter 5.4.3 Constructors
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.4.3 Constructors            *
+     * * * * * * * * * * * * * * * * * * * * */
+    void UseConstructors()
     {
         {
             /* Section 5.4.3 Constructors
@@ -98,6 +104,15 @@ public class Instancing : MonoBehaviour
             int i = new int();
             Debug.Log("new int(): " + i); //new int(): 0
         }
+    }
+    #endregion
+
+    void Start()
+    {
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.4.3 Constructors            *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseConstructors();
     }
 }
 
