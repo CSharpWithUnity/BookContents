@@ -11,20 +11,24 @@ using UnityEngine;
 
 public class Review : MonoBehaviour
 {
-    /*
-     * Section 5.2 Review
-     * 
-     * int a = 10;
-     * Pretty familiar with the above by now.
-     * 
-     * local a = 10
-     * the same thing, but in lua
-     * 
-     * var a = 10;
-     * javascript shares the ; separator
-     * but uses var as a generic variable
-     * storage keyword.
-     */
+    #region Chapter 5.2 Review
+    /* * * * * * * * * * * * * * * * * * * * * * *
+     * Section 5.2 Review                        *
+     * * * * * * * * * * * * * * * * * * * * * * */
+
+    /* Section 5.2 Review                        *
+     *                                           *
+     * int a = 10;                               *
+     * Pretty familiar with the above by now.    *
+     *                                           *
+     * local a = 10                              *
+     * the same thing, but in lua                *
+     *                                           *
+     * var a = 10;                               *
+     * javascript shares the ; separator         *
+     * but uses var as a generic variable        *
+     * storage keyword.                          */
+
     void Function()
     {
         for (int i = 0; i < 10; i++)
@@ -43,18 +47,25 @@ public class Review : MonoBehaviour
          */
     }
 
-    private void Start()
+    void UseSomeNewClass()
     {
+        /*
+         * Section 5.2 continued... in SomeNewClass
+         */
         SomeNewClass newClass = (SomeNewClass)FindObjectOfType(typeof(SomeNewClass));
         Debug.Log(newClass.MyFunction(11));
     }
 
-    /*
-     * Here we can look for the SomeNewClass in the scene
-     * and use one of it's functions.
-     */
+    /* Here we can look for the SomeNewClass in the scene   *
+     * and use one of it's functions.                       */
+    #endregion
+
+    private void Start()
+    {
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 5.2 Review                        *
+         * * * * * * * * * * * * * * * * * * * * * * */
+        UseSomeNewClass();
+    }
 }
 
-/*
- * Section 5.2 continued...
- */
