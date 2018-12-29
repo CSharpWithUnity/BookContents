@@ -27,8 +27,7 @@ public class ArraysAFirstLook : MonoBehaviour
     int score8;
     int score9;
     int score10;
-    /*
-     * if you've guess there's a much better way
+    /* if you've guess there's a much better way
      * to store lots of data like that then
      * you'd be correct.
      */

@@ -1,5 +1,5 @@
 ﻿/*
- * Chapter 5.11 Multidimensional Arrays
+ * Chapter 5.10 Multidimensional Arrays
  *
  * Copyright © 2018 Alex Okita
  *
@@ -10,13 +10,15 @@ using UnityEngine;
 
 public class MultidimensionalArrays : MonoBehaviour
 {
-    void Start()
+    #region Chapter 5.10 Multidimensional Arrays
+    /* * * * * * * * * * * * * * * * * * * * * * *
+     * Section 5.10 Arrays                       *
+     * * * * * * * * * * * * * * * * * * * * * * */
+    void UseArray()
     {
-        /*
-         * Section 5.11 Multidimensional Arrays
-         * single dimensional arrays are [1] 
-         * dimensions in size.
-         */
+        /* Section 5.10 Multidimensional Arrays *
+         * single dimensional arrays are [1]    *
+         * dimensions in size.                  */
         {
             Object[] objects = new Object[10];
             for (int i = 0; i < objects.Length; i++)
@@ -25,68 +27,67 @@ public class MultidimensionalArrays : MonoBehaviour
             }
         }
         {
-            /*
-             * Multidimensional arrays have more than
-             * one [1] size.
-             * a [,] array is a two dimensional array.
-             */
+            /* Multidimensional arrays have more than   *
+             * one [1] size.                            *
+             * a [,] array is a two dimensional array.  */
+
             Object[,] objects = new Object[2, 3];
             for (int i = 0; i < objects.Length; i++)
             {
                 Debug.Log(i);
-                /* how do we address
-                 * two parameters in
-                 * a multi dimensional
-                 * array?
-                 */
+                /* how do we address    *
+                 * two parameters in    *
+                 * a multi dimensional  *
+                 * array                */
             }
         }
-        {
-            /*
-             * Section 5.11.1.1 A Basic Example
-             */
-            GameObject a = new GameObject("a");
-            GameObject b = new GameObject("b");
-            GameObject c = new GameObject("c");
-            GameObject d = new GameObject("d");
-            GameObject e = new GameObject("e");
-            GameObject f = new GameObject("f");
-            GameObject[,] twoDimensions = new GameObject[2,3] { { a, b, c }, { d, e, f } };
-            /*
-             * We can Initialize an array with this method.
-             * {
-             *     {a,b,c},
-             *     {d,e,f}
-             * };
-             * is another way to look at the same
-             * initialization to make the columns
-             * and rows more visible.
-             */
-            InspectArray(twoDimensions);
-        }
-        {
-
-        }
     }
-
-    void InspectArray(GameObject[,] gameObjects)
+    #endregion
+    #region Chapter 5.10.1.1 A Basic Example
+    void UseTwoDimensions()
     {
-        int columns = gameObjects.GetLength(0);
-        Debug.Log("columns:" + columns);
-        int rows = gameObjects.GetLength(1);
-        Debug.Log("rows:" + rows);
-        for (int column = 0; column < columns; column++)
+        /* * * * * * * * * * * * * * * * * * * *
+         * Section 5.11.1.1 A Basic Example    *
+         * * * * * * * * * * * * * * * * * * * */
+        GameObject a = new GameObject("a");
+        GameObject b = new GameObject("b");
+        GameObject c = new GameObject("c");
+        GameObject d = new GameObject("d");
+        GameObject e = new GameObject("e");
+        GameObject f = new GameObject("f");
+        GameObject[,] twoDimensions = new GameObject[2, 3] { { a, b, c }, { d, e, f } };
+        /*
+         * We can Initialize an array with this method.
+         * {
+         *     {a,b,c},
+         *     {d,e,f}
+         * };
+         * is another way to look at the same
+         * initialization to make the columns
+         * and rows more visible.
+         */
+        InspectArray(twoDimensions);
+
+        void InspectArray(GameObject[,] gameObjects)
         {
-            for (int row = 0; row < rows; row++)
+            int columns = gameObjects.GetLength(0);
+            Debug.Log("columns:" + columns);
+            int rows = gameObjects.GetLength(1);
+            Debug.Log("rows:" + rows);
+            for (int column = 0; column < columns; column++)
             {
-                Debug.Log(gameObjects[column, row].name);
+                for (int row = 0; row < rows; row++)
+                {
+                    Debug.Log(gameObjects[column, row].name);
+                }
             }
         }
     }
-
-    /*
-     * Section 5.11.5 MultiDimensional Arrays - What We've Learned
-     */
+    #endregion
+    #region Chapter 5.10.5 MultiDimensional Arrays - What We've Learned
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     * Section 5.11.5 MultiDimensional Arrays - What We've Learned *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void MultiDimensionArrayExample()
     {
         GameObject a = new GameObject("a");
@@ -102,6 +103,20 @@ public class MultidimensionalArrays : MonoBehaviour
             { {a, b}, { c, d}, { e, f} },
             { {a, b}, { c, d}, { e, f} }
         };
+    }
+    #endregion
+
+    void Start()
+    {
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 5.10 Arrays                       *
+         * * * * * * * * * * * * * * * * * * * * * * */
+        UseArray();
+
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 5.10.1.1 A Basic Example          *
+         * * * * * * * * * * * * * * * * * * * * * * */
+        UseTwoDimensions();
     }
 }
 

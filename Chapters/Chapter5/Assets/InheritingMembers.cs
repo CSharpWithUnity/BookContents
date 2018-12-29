@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class InheritingMembers : MonoBehaviour
 {
+    #region Chapter 5.3.1 Class Members
     /*
      * Section 5.3.1.1 Inheriting Members
      */
@@ -31,10 +32,41 @@ public class InheritingMembers : MonoBehaviour
         }
     }
 
+    #endregion
+    #region Chapter 5.3.1.2 Is-A and Has-A
+
+    public class LaptopComponent : Component
+    {
+    }
+
+    /* ComputerCat Is-A Cat     */
+    public class ComputerCat : Cat
+    {
+        /* ComputerCat Has-A LaptopComponent */
+        LaptopComponent Laptop;
+    }
+
+    void UseIs()
+    {
+        Cat cat = new Cat();
+        PianoCat pianoCat = new PianoCat();
+        ComputerCat computerCat = new ComputerCat();
+
+        bool pianoCatIsCat = pianoCat is Cat;
+        Debug.Log("PianoCat is a Cat?" + (pianoCatIsCat ? "True" : "False"));
+        // PianoCat is a Cat? True
+
+        bool pianoCatIsComputerCat = pianoCat is ComputerCat;
+        Debug.Log("PianoCat is a ComputerCat?" + (pianoCatIsComputerCat ? "True" : "False"));
+        // PianoCat is a ComputerCat False
+    }
+    #endregion
+
+    #region Chapter 5.3.2 Instancing
     /*
      * Section 5.3.2 Instancing
      */
-    private void Start()
+    void UseInstancing()
     {
         PianoCat famousCat = new PianoCat();
         /*
@@ -43,5 +75,19 @@ public class InheritingMembers : MonoBehaviour
         famousCat.PlayPiano();     // Meow from PianoCat
         famousCat.Meow();          // Meow from Cat
         Debug.Log(famousCat.paws); //paws from Cat
+    }
+    #endregion
+
+    private void Start()
+    {
+        /*
+         * Section 5.3.1.2 UseIs
+         */
+        UseIs();
+        /*
+         * Section 5.3.2 Instancing
+         */
+        UseInstancing();
+
     }
 }

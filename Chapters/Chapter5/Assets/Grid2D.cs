@@ -55,14 +55,12 @@ public class Grid2D : MonoBehaviour
         collider.transform.position = new Vector3(xPos, yPos, 0);
         collider.AddComponent(typeof(Collider));
     }
-    /*
-     * Section 5.11.2 continued...
-     */
+    /* * * * * * * * * * * * * * * * * * * * * *
+     * Section 5.11.2 continued...             *
+     * * * * * * * * * * * * * * * * * * * * * */
     void Update()
     {
-        /*
-         * Update Mouse Position
-         */
+        /* Update Mouse Position */
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -71,10 +69,8 @@ public class Grid2D : MonoBehaviour
         }
 
         Debug.DrawLine(Vector3.zero, mousePosition);
-        /*
-         * Send the mouse position to
-         * be evaluated in a new function.
-         */
+        /* Send the mouse position to       *
+         * be evaluated in a new function.  */
         PickPuzzlePiece(mousePosition);
     }
 
@@ -86,9 +82,8 @@ public class Grid2D : MonoBehaviour
         int y = (int)(position.y + 0.5f);
 
         {
-            /* a long winded way of validating
-             * x and y values.
-             */
+            /* a long winded way of validating  *
+             * x and y values.                  */
             if (x >= 0)
             {
                 if (x < Width)
@@ -105,9 +100,7 @@ public class Grid2D : MonoBehaviour
         }
 
         {
-            /*
-             * Also valid, but might be a bit confusing
-             */
+            /* Also valid, but might be a bit confusing */
             if (x >= 0 && x < Width && y >= 0 && y < Height)
             {
                 xGrid = x;
@@ -116,10 +109,8 @@ public class Grid2D : MonoBehaviour
         }
 
         {
-            /*
-             * A much better way to validate
-             * x and y
-             */
+            /* A much better way to validate    *
+             * x and y                          */
             if (x >= 0 && x < Width)
             {
                 xGrid = x;
@@ -130,7 +121,7 @@ public class Grid2D : MonoBehaviour
             }
         }
 
-        // set all of the game objects to white
+        /* set all of the game objects to white */
         for (int w = 0; w < Width; w++)
         {
             for (int h = 0; h < Height; h++)
@@ -142,7 +133,7 @@ public class Grid2D : MonoBehaviour
         }
 
         {
-            //set the one that the mouse is near to red
+            /* set the one that the mouse is near to red */
             GameObject go = Grid[xGrid, yGrid];
             Renderer renderer = go.GetComponent(typeof(Renderer)) as Renderer;
             renderer.material.color = Color.red;
