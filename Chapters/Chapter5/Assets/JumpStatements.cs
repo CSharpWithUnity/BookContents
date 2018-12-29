@@ -105,7 +105,8 @@ public class JumpStatements : MonoBehaviour
         public Zombie Zombie;
         public int SomeNumber;
     }
-    
+    /* one way to return a complex data type            *
+     * is to return a struct                            */
     ZombieNumber RetrunsZombieAndNumber()
     {
         ZombieNumber zombieNumber = new ZombieNumber();
@@ -119,8 +120,15 @@ public class JumpStatements : MonoBehaviour
         ZombieNumber zn = RetrunsZombieAndNumber();
         Debug.Log("Zombie: " + zn.Zombie + " Num:" + zn.SomeNumber);
         // Zombie: ZombiePrimitive (Zombie) Num:1
+
+        /* This does return more than one type but it's bundled  *
+         * in a struct                                           */
     }
 
+    /* a more compact method to return a complex data type is    *
+     * by declaring a tuple with the leading                     *
+     * ( type identifier, type identifier)                       *
+     * return value                                              */
     (Zombie zombie, int number) ReturnsTuple()
     {
         Zombie z = (Zombie)FindObjectOfType(typeof(Zombie));
@@ -134,6 +142,9 @@ public class JumpStatements : MonoBehaviour
         var zn = ReturnsTuple();
         Debug.Log("Zombie:" + zn.zombie + " Num:" + zn.number);
         // Zombie: ZombiePrimitive (Zombie) Num:1
+
+        /* accomplishes the same as a struct but without        *
+         * creating a new data type                             */
     }
 
     (string outString, int outInt, float outFloat ) ReturnsStringIntFloat()
@@ -173,7 +184,8 @@ public class JumpStatements : MonoBehaviour
         /* First method to draw a line to a zombie. */
         //Debug.DrawLine(transform.position, myZombie.transform.position);
 
-        /* A Slightly more interesting way to draw a line to a zombie. */
+        /* A Slightly more interesting way          *
+         * to draw a line to a zombie.              */
         if (Zombie.numZombies > 0)
         {
             Debug.DrawLine(transform.position, GetZombie().transform.position);
