@@ -7,16 +7,18 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
- using UnityEngine;
+using UnityEngine;
 
 public class JumpStatements : MonoBehaviour
 {
-    /*
-     * Section 5.7.1 Return
-     * void is like a return type
-     * only, it's used to return
-     * nothing.
-     */
+    #region Chapter 5.7.1 Return
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.7.1 Return                  *
+     * * * * * * * * * * * * * * * * * * * * */
+
+    /* void is like a return type            *
+     * only, it's used to return             *
+     * nothing.                              */
     void Function()
     {
     }
@@ -27,56 +29,76 @@ public class JumpStatements : MonoBehaviour
         return;
     }
 
-    /*
-     * the int is the return type
-     * for this function
-     */
+    /* the int is the return type           *
+     * for this function                    */
     int MyIntFunction()
     {
         //return 1.0f;
         return 1; // 1 is an int
     }
 
-    /*
-     * Section 5.7.1.1 A Basic Example.
-     * 
-     * rather than void you use the
-     * return type.
-     */
+    void UseReturn()
+    {
+        int a = MyNumber();
+        Debug.Log(a);
+
+        int add = MyAdd(6, 7);
+        Debug.Log(add);
+
+        // or even shorter...
+        Debug.Log(MyAdd(11, 12));
+    }
+    #endregion
+
+    #region Chapter 5.7.1.1 A Basic Example
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.7.1.1 A Basic Example.      *
+     * * * * * * * * * * * * * * * * * * * * */
+
+    /* rather than void you use the          *
+     * return type.                          */
     int MyNumber()
     {
         return 7;
     }
 
-    /*
-     * arguments turn into
-     * values to use
-     * in the return.
-     */
+    /* arguments turn into                   *
+     * values to use                         *
+     * in the return.                        */
     int MyAdd(int a, int b)
     {
         return a + b;
     }
+    #endregion
 
-
-    /*
-     * Section 5.7.2 Returning Objects
-     */
+    #region Chapter 5.7.2 Returning Objects
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.7.2 Returning Objects       *
+     * * * * * * * * * * * * * * * * * * * * */
     public Zombie myZombie;
     Zombie GetZombie()
     {
         return (Zombie)FindObjectOfType(typeof(Zombie));
     }
 
-    /*
-     * Section 5.7.4 Tuples
-     * lua could return more than one value
-     * 
-     * function ReturnsMultipleValues()
-     *  return "SomeString", 1 end
-     * 
-     * the Lua above would return a string and an int!
-     */
+    void UseReturnZombie()
+    {
+        myZombie = GetZombie();
+        Debug.Log(myZombie);
+    }
+    #endregion
+
+    #region Chapter 5.7.4 Tuples
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.7.4 Tuples                  *
+     * * * * * * * * * * * * * * * * * * * * */
+
+    /* lua could return more than one value            *
+     *                                                 *
+     * function ReturnsMultipleValues()                *
+     *  return "SomeString", 1 end                     *
+     *                                                 *
+     * the Lua above would return a string and an int! */
 
     struct ZombieNumber
     {
@@ -124,56 +146,41 @@ public class JumpStatements : MonoBehaviour
         Debug.Log(ReturnsStringIntFloat());
         // (SomeString, 1, 1)
     }
+    #endregion
+
     void Start()
     {
-        {
-            int a = MyNumber();
-            Debug.Log(a);
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.7.1 Return                  *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseReturn();
 
-            int add = MyAdd(6, 7);
-            Debug.Log(add);
+        /* * * * * * * * * * * * * * * * * * * * * * * * 
+         * Section 5.7.2 Returning Objects continued...*
+         * * * * * * * * * * * * * * * * * * * * * * * */
+        UseReturnZombie();
 
-            // or even shorter...
-            Debug.Log(MyAdd(11, 12));
-        }
-        {
-            /*
-             * Section 5.7.2 Returning Objects continued...
-             */
-            myZombie = GetZombie();
-            Debug.Log(myZombie);
-        }
-
-        {
-            /*
-             * Section 5.7.4 Tuples
-             */
-            UseRetrunsZombieAndNumber();
-            UseReturnsTuple();
-            UseReturnsStringIntFloat();
-        }
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.7.4 Tuples                  *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseRetrunsZombieAndNumber();
+        UseReturnsTuple();
+        UseReturnsStringIntFloat();
     }
 
     void Update()
     {
-        /* First method to draw a line to a zombie.
-         */
-
+        /* First method to draw a line to a zombie. */
         //Debug.DrawLine(transform.position, myZombie.transform.position);
 
-        /*
-         * A Slightly more interesting way to draw a line to a zombie.
-         */
+        /* A Slightly more interesting way to draw a line to a zombie. */
         if (Zombie.numZombies > 0)
         {
-
             Debug.DrawLine(transform.position, GetZombie().transform.position);
         }
 
-        /*
-         * we can add a null check to
-         * see if the zombie exists
-         */
+        /* we can add a null check to  *
+         * see if the zombie exists    */
         Zombie target = GetZombie();
         if (target != null)
             Debug.Log(target);

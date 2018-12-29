@@ -10,20 +10,18 @@
 using UnityEngine;
 public class Grid2D : MonoBehaviour
 {
+    #region Chapter 5.11.2 A Puzzle Board
     public int Width;
     public int Height;
     public GameObject PuzzlePiece;
     public GameObject[,] Grid;
-    /*
-     * Section 5.11.2 A Puzzle Board
-     */
-    public Vector3 mousePosition;
-    void Start()
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.11.2 A Puzzle Board         *
+     * * * * * * * * * * * * * * * * * * * * */
+    void UseMakeGrid()
     {
-        /*
-         * Section 5.11.2 Creating a 2D grid
-         * of game objects.
-         */
+        /* Section 5.11.2 Creating a 2D grid    *
+         * of game objects.                     */
         Grid = new GameObject[Width, Height];
         for (int x = 0; x < Width; x++)
         {
@@ -35,30 +33,65 @@ public class Grid2D : MonoBehaviour
                 Grid[x, y] = go;
             }
         }
-        /*
-         * Section 5.11.2 Camera Setup
-         */
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.11.2 Camera Setup           *
+     * * * * * * * * * * * * * * * * * * * * */
+    void UseCameraSetup()
+    {
         // change camera projection
         Camera.main.orthographic = true;
-        Camera.main.orthographicSize = Width/2;
+        Camera.main.orthographicSize = Width / 2;
         Camera.main.farClipPlane = 20;
 
         // move the camera into position
         float xPos = (Width * 0.5f) - 0.5f;
         float yPos = (Height * 0.5f) - 0.5f;
         Camera.main.transform.position = new Vector3(xPos, yPos, -5);
+    }
 
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.11.2 Build Background       *
+     * * * * * * * * * * * * * * * * * * * * */
+    void UseBuildBackground()
+    {
         // build background
+        float xPos = (Width * 0.5f) - 0.5f;
+        float yPos = (Height * 0.5f) - 0.5f;
+
         GameObject collider = GameObject.CreatePrimitive(PrimitiveType.Plane);
         collider.transform.localScale = new Vector3(Width * 0.1f, 1, Height * 0.1f);
         collider.transform.eulerAngles = new Vector3(-90, 0, 0);
         collider.transform.position = new Vector3(xPos, yPos, 0);
         collider.AddComponent(typeof(Collider));
     }
+    #endregion
+
+    void Start()
+    {
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.11.2 A Puzzle Board         *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseMakeGrid();
+
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.11.2 Camera Setup           *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseCameraSetup();
+
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.11.2 Build Background       *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseBuildBackground();
+    }
+
+    #region Chapter 5.11.2 Continued...
     /* * * * * * * * * * * * * * * * * * * * * *
      * Section 5.11.2 continued...             *
      * * * * * * * * * * * * * * * * * * * * * */
-    void Update()
+    public Vector3 mousePosition;
+    void UseUpdateMousePosition()
     {
         /* Update Mouse Position */
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -139,5 +172,16 @@ public class Grid2D : MonoBehaviour
             renderer.material.color = Color.red;
         }
     }
+    #endregion
+
+    void Update()
+    {
+        /* * * * * * * * * * * * * * * * * * * * * *
+         * Section 5.11.2 continued...             *
+         * * * * * * * * * * * * * * * * * * * * * */
+        UseUpdateMousePosition();
+    }
+
+
 }
 

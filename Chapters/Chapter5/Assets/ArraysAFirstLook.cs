@@ -13,10 +13,12 @@ using UnityEngine;
 public class ArraysAFirstLook : MonoBehaviour
 {
     #region 5.9 Introduction
-    /*
-     * Section 5.9 Arrays a first look...
-     * not the best way to store lots of data.
-     */
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.9 Arrays a first look...    *
+     * * * * * * * * * * * * * * * * * * * * */
+
+    /* not the best way to  *
+     * store lots of data   */
     int score1;
     int score2;
     int score3;
@@ -27,15 +29,14 @@ public class ArraysAFirstLook : MonoBehaviour
     int score8;
     int score9;
     int score10;
-    /* if you've guess there's a much better way
-     * to store lots of data like that then
-     * you'd be correct.
-     */
+    /* if you've guess there's a much better way *
+     * to store lots of data like that then      *
+     * you'd be correct.                         */
     #endregion
     #region 5.9.1 Fixed Sized Arrays
-    /*
-     * Section 5.9.1 Fixed Sized Arrays
-     */
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 5.9.1 Fixed Sized Arrays      *
+     * * * * * * * * * * * * * * * * * * * * */
 
     public int[] scores = new int[10];
     public string[] strings = new string[10];
@@ -72,9 +73,9 @@ public class ArraysAFirstLook : MonoBehaviour
         }
 
         {
-            /*
-             * Section 5.9.3 Dynamic Initialization
-             */
+            /* * * * * * * * * * * * * * * * * * * * *
+             * Section 5.9.3 Dynamic Initialization  *
+             * * * * * * * * * * * * * * * * * * * * */
             float[] dynamicFloats = new float[10];
         }
         {
@@ -93,9 +94,9 @@ public class ArraysAFirstLook : MonoBehaviour
             dynamicFloats = new float[numFloats];
         }
         {
-            /*
-             * Section 5.9.4 Using While Loop with Arrays
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 5.9.4 Using While Loop with Arrays  *
+             * * * * * * * * * * * * * * * * * * * * * * * */
             int[] scores = new int[10];
             int i = 0;
             while (i < 10)
@@ -105,9 +106,9 @@ public class ArraysAFirstLook : MonoBehaviour
             }
         }
         {
-            /*
-             * Section 5.9.4.1 Setting Array Values
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 5.9.4.1 Setting Array Values        *
+             * * * * * * * * * * * * * * * * * * * * * * * */
             int[] scores = new int[10];
             scores[0] = 10;
             int i = 0;
@@ -119,9 +120,9 @@ public class ArraysAFirstLook : MonoBehaviour
             }
         }
         {
-            /*
-             * Section 5.9.4.2 Getting Array Values
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 5.9.4.2 Getting Array Values        *
+             * * * * * * * * * * * * * * * * * * * * * * * */
             int[] scores = new int[10];
             scores[0] = 10;
             int i = 0;
