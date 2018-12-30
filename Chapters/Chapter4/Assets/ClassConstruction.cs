@@ -50,6 +50,10 @@ public class ClassConstruction : MonoBehaviour
 
     void UseMyNewClass()
     {
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 4.4.1.1 Class Declaration - A Basic Example *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
         /* ┌────┐ ┌──────────┐ ┌───────────┐ ┌─────────┐
          * │Type│ │Identifier│ │Constructor│ │separator│ 
          * └─┬──┘ └───┬──────┘ └───┬───────┘ └──┬──────┘
@@ -61,15 +65,16 @@ public class ClassConstruction : MonoBehaviour
          *     │Operator   │  └───────────┘└─────────┘        
          *     └───────────┘
          * MyNewClass is a new type
-         * 
          */
         MyNewClass newClass = new MyNewClass();
 
 
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 4.4.1.2 Value and Reference Types *
+         * * * * * * * * * * * * * * * * * * * * * * */
 
         //MyNewClass newClass = 1;
-        /* Uncomment the line above to see the error
-         */
+        /* Uncomment the line above to see the error */
 
         int i = new System.Int32();
 
