@@ -7,6 +7,8 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
+using UnityEngine;
+
 #region Chapter 3.10.1 Identifiers
 class Identifiers
 {
@@ -40,16 +42,12 @@ class Identifiers
 }
 #endregion
 
-
-namespace Variables
-{
-    using UnityEngine;
     [UnityEngine.ExecuteInEditMode]
-    class Variables : UnityEngine.MonoBehaviour
+    class Variables : MonoBehaviour
     {
-        #region Chapter 3.10.2 Data
+        #region Chapter 3.11.2 Variable Assignment
         /*
-         * Section 3.10.2 Data
+         * Section 3.11.2 Variable Assignment
          * 
          * A Declaration is the announcement to
          * Unity about your new variable.
@@ -70,9 +68,9 @@ namespace Variables
          */
         #endregion
 
-        #region Chapter 3.10.3 Variable Manipulation
+        #region Chapter 3.11.3 Variable Manipulation
         /*
-         * Section 3.10.3 Variable Manipulation
+         * Section 3.11.3 Variable Manipulation
          */
         public float MultiplyBy;/*→───┐ ①          */
         public float InputValue;/*→─┐ │ values are */
@@ -176,7 +174,6 @@ namespace Variables
             #endregion
         }
     }
-}
 
 #region Chapter 3.10.3.1 Declaration Placement Examples
 /*
