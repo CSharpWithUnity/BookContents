@@ -96,7 +96,9 @@ public class ClassConstruction : MonoBehaviour
             Debug.Log(myNumber);
         }
     }
+    #endregion
 
+    #region Chapter 4.4.3 Access Modifiers and the Dot Operator
     void TestAccess()
     {
         DataFields dataOne = new DataFields();
@@ -107,16 +109,20 @@ public class ClassConstruction : MonoBehaviour
         dataThree.myNumber = 11;
 
         Debug.Log(dataOne.myNumber);
+        // 1
         Debug.Log(dataTwo.myNumber);
+        // 7
         Debug.Log(dataThree.myNumber);
+        // 11
 
-        /*
-         * Section 4.4.3 The Dot Operator
-         */
+        /* * * * * * * * * * * * * * * * * * * *
+         * Section 4.4.3 The Dot Operator      *
+         * * * * * * * * * * * * * * * * * * * */
 
         DataFields firstData = new DataFields();
         firstData.myNumber = 3;
         firstData.PrintMyNumber();
+        // 3
 
         /*
          * inside of DataFields are two members
@@ -184,9 +190,9 @@ public class ClassConstruction : MonoBehaviour
 
     void Start()
     {
-        /* * * * * * * * * * * * *
-         * Section 4.4.1.1       *
-         * * * * * * * * * * * * */
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 4.4.1.1                   *
+         * * * * * * * * * * * * * * * * * * */
         UseMyNewClass();
 
         /* * * * * * * * * * * * * * * * * * *
