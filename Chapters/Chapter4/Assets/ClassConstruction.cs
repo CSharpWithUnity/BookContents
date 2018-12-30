@@ -11,9 +11,12 @@ using UnityEngine;
 
 public class ClassConstruction : MonoBehaviour
 {
-    #region Chapter 4.4.1 Class Declaration
+    #region Chapter 4.4 Class Construction
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 4.4 Class Construction    *
+     * * * * * * * * * * * * * * * * * * */
+
     /*
-     * Section 4.4.1 Class Declaration
      * A nested class can appear down below this comment.
      * 
      *    ┌─────────┐ ┌────────────┐
@@ -33,12 +36,14 @@ public class ClassConstruction : MonoBehaviour
      *
      * Don't forget the { and } separators following the class declaration.
      * The contents of the new class are defined inside of the curly braces
-     * 
      */
+    #endregion
 
-    /*
-     * Section 4.4.1 Class Declaration
-     */
+    #region Chapter 4.4.1 Class Declaration
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 4.4.1 Class Declaration     *
+     * * * * * * * * * * * * * * * * * * * */
+
     class MyNewClass
     {
     }
@@ -71,10 +76,11 @@ public class ClassConstruction : MonoBehaviour
         Debug.Log(i);
     }
     #endregion
+
     #region Chapter 4.4.2 Adding Datafields
-    /*
-     * Section 4.4.2 Adding Datafields
-     */
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 4.4.2 Adding Datafields     *
+     * * * * * * * * * * * * * * * * * * * */
 
     class DataFields
     {
@@ -114,11 +120,13 @@ public class ClassConstruction : MonoBehaviour
          */
     }
     #endregion
+
     #region Chapter 4.4.4 Class Scope
-        /*
-         * Section 4.4.4 Class Scope
-         * Data and Function can be paired.
-         */
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 4.4.4 Class Scope           *
+     * * * * * * * * * * * * * * * * * * * */
+
+    /* Data and Function can be paired.    */
     class DataFunctionPairGrouping
     {
         public int MyCounter;
@@ -156,10 +164,11 @@ public class ClassConstruction : MonoBehaviour
         }
     }
     #endregion
+
     #region Chapter 4.4.6 What We've Learned
-    /*
-     * Section 4.4.6 What We've Learned
-     */
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 4.4.6 What We've Learned    *
+     * * * * * * * * * * * * * * * * * * * */
 
     void AccessOtherClass()
     {
@@ -170,14 +179,14 @@ public class ClassConstruction : MonoBehaviour
 
     void Start()
     {
-        /*
-         * Section 4.4.1.1
-         */
+        /* * * * * * * * * * * * *
+         * Section 4.4.1.1       *
+         * * * * * * * * * * * * */
         UseMyNewClass();
 
-        /*
-         * Section 4.4.2 Adding Datafields
-         */
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 4.4.2 Adding Datafields   *
+         * * * * * * * * * * * * * * * * * * */
         TestAccess();
     }
 }
