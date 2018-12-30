@@ -47,6 +47,7 @@ public class UsingTheVariables : MonoBehaviour
             Debug.Log(MyVariable);
             // 73
         }
+
         {
             int MyVariable = 7;
             /* terms are               then the */
@@ -70,6 +71,7 @@ public class UsingTheVariables : MonoBehaviour
             Debug.Log(MyVariable * 3);
             // 21
         }
+
         {
             int MyVariable = 7;
             int MyOtherVariable = 3;
