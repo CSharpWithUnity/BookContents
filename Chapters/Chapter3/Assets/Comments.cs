@@ -16,9 +16,10 @@ using System;
 public class Comments
 {
     #region Chapter 3.15 Comments
-    /*
-     * Section 3.15 Comments a first look
-     */
+
+    /* * * * * * * * * * * * * * * * * * * * * *
+     * Section 3.15 Comments a first look      *
+     * * * * * * * * * * * * * * * * * * * * * */
 
     //TODO: These comments show up in the Task List.
 
@@ -87,9 +88,10 @@ public class Comments
     private void Vector3(float v1, float v2, float v3)
     {
         //?
-        /* uncomment the ? above to see an error
-         * similar to the one produced in the book.
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * uncomment the ? above to see an error     *
+         * similar to the one produced in the book.  *
+         * * * * * * * * * * * * * * * * * * * * * * */
     }
 
     #endregion
@@ -137,9 +139,9 @@ public class Comments
 class Comments_Continued
 {
     #region Chapter 3.15.3 Summary Comments
-    /*
-     * Section 3.15.3
-     */
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 3.15.3                    *
+     * * * * * * * * * * * * * * * * * * */
 
     /// <summary>
     /// A Vector3 function of my own!
