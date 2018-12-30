@@ -12,9 +12,9 @@ using UnityEngine;
 public class VariableNames : MonoBehaviour
 {
     #region Chapter 3.11 Variable Names
-    /*
-     * Section 3.11 Variable Names
-     */
+    /* * * * * * * * * * * * * * * * * *
+     * Section 3.11 Variable Names     *
+     * * * * * * * * * * * * * * * * * */
 
     public int SomeLongComplexHardToRememberVariableName;
 
