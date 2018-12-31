@@ -193,11 +193,15 @@ public class ClassConstruction : MonoBehaviour
         /* * * * * * * * * * * * * * * * * * *
          * Section 4.4.1.1                   *
          * * * * * * * * * * * * * * * * * * */
+
+        /* uncomment or comment the line below to see the code in action! */
         UseMyNewClass();
 
         /* * * * * * * * * * * * * * * * * * *
          * Section 4.4.2 Adding Datafields   *
          * * * * * * * * * * * * * * * * * * */
+
+        /* uncomment or comment the line below to see the code in action! */
         TestAccess();
     }
 }

@@ -13,58 +13,57 @@ using UnityEngine;
 
 public class Scope : MonoBehaviour
 {
-    /*
-     * Section 4.8.1 Class Scope
-     */
-
-    int myInt = 1;
-    /* Class Scope
-     * Visible to the entire class
-     */
-
-    // float myInt = 1; //nope. can't redefine myInt
-
-    void Start()
+    #region Chapter 4.8 Scope
+    /* * * * * * * * * * *
+     * Section 4.8 Scope *
+     * * * * * * * * * * */
+    void UseScope()
     {
-        /*
-         * Section 4.8 Scope
-         */
-
         for (int i = 0; i < 10; i++)
         {
             Debug.Log(i);
         }
+    }
+    #endregion
 
-        /*
-         * Section 4.8.1 Class Scope continued...
-         */
+    #region Chapter 4.8.1 Class Scope
+    /* * * * * * * * * * * * * * *
+     * Section 4.8.1 Class Scope *
+     * * * * * * * * * * * * * * */
+
+    int myInt = 1;
+    /* Class Scope                 *
+     * Visible to the entire class */
+
+    // float myInt = 1; //nope. can't redefine myInt
+    void UseClassScope()
+    {
+        /* * * * * * * * * * * * * * * * * * * * * *
+         * Section 4.8.1 Class Scope continued...  *
+         * * * * * * * * * * * * * * * * * * * * * */
 
         // Debug.Log(myInt);
 
-        /*
-         * if the line below is uncommented
-         * then the line above works.
-         */
+        /* if the line below is uncommented     *
+         * then the line above works.           */
 
         int myInt = 2; // stomps on class scoped myInt
         Debug.Log(myInt);
-        /* However, declaring myInt in the Start() function
-         * hides the class scoped version of myInt;
-         */
+        /* However, declaring myInt in the Start() function *
+         * hides the class scoped version of myInt;         */
 
         Debug.Log(this.myInt);
-        /* Using the this keyword
-         * tells C# to look at the class
-         * scope to find the variable myInt
-         */
+        /* Using the this keyword           *
+         * tells C# to look at the class    *
+         * scope to find the variable myInt */
 
 
         int declaredInStart = 1;
         Debug.Log(declaredInStart);
 
-        /*
-         * Section 4.8.1 continued...
-         */
+        /* * * * * * * * * * * * * * * *
+         * Section 4.8.1 continued...  *
+         * * * * * * * * * * * * * * * */
 
         int firstInt = 100;
         int secondInt = 200;
@@ -77,19 +76,35 @@ public class Scope : MonoBehaviour
         Debug.Log(fourthInt);
     }
 
-
-    void Update ()
+    void Update()
     {
         //Debug.Log(declaredInStart);
         /* uncomment the line above to see the error
          */
 
         Debug.Log(myInt);
-	}
+    }
 
-    /*
-     * Section 4.8.2 Function Scope
-     */
+    #endregion
+
+    void Start()
+    {
+        /* * * * * * * * * * *
+         * Section 4.8 Scope *
+         * * * * * * * * * * */
+        UseScope();
+
+        /* * * * * * * * * * * * * * *
+         * Section 4.8.1 Class Scope *
+         * * * * * * * * * * * * * * */
+        UseClassScope();
+    }
+
+
+    #region Chapter 4.8.2 Function Scope
+    /* * * * * * * * * * * * * * * * *
+     * Section 4.8.2 Function Scope  *
+     * * * * * * * * * * * * * * * * */
 
     void SomeFunction()
     {
@@ -100,10 +115,11 @@ public class Scope : MonoBehaviour
           */
     }
 
-    /*
-     * Sectopm 4/8/2 continued...
-     * 
-     * Scope is how visible an object is
+    /* * * * * * * * * * * * * * * *
+     * Section 4.8.2 continued...  *
+     * * * * * * * * * * * * * * * */
+
+    /* Scope is how visible an object is
      * so if a class as int i declared
      * all functions in it also get to see
      * i.
@@ -122,7 +138,7 @@ public class Scope : MonoBehaviour
      *    
      *    ╔══ class ════════════╗
      *    ║          int i;     ║
-     *    ║ ┌─ function ─↓────┐ ║
+     *    ║ ┌─ function ┐↓┌───┐ ║
      *    ║ │            i    │ ║
      *    ║ │  function gets  │ ║
      *    ║ │  to see i.      │ ║
@@ -143,7 +159,7 @@ public class Scope : MonoBehaviour
      *    {╔═══════════════════════════════╗
      *     ║ int ClassInt;────────┐        ║
      *     ║ void Start()         │        ║
-     *     ║ {╔═══════════════════│══════╗ ║
+     *     ║ {╔══════════════════╗│╔═════╗ ║
      *     ║  ║ int myInt;        ↓      ║ ║
      *     ║  ║ while(myInt < ClassInt)) ║ ║
      *     ║  ║ {╔══════════════════╗    ║ ║
@@ -159,10 +175,12 @@ public class Scope : MonoBehaviour
      *    }╚═══════════════════════════════╝
      *    
      */
+    #endregion
 
-    /*
-     * Section 4.8.3 Blank Scope
-     */
+    #region Chapter 4.8.3 Blank Scope
+    /* * * * * * * * * * * * * * *
+     * Section 4.8.3 Blank Scope *
+     * * * * * * * * * * * * * * */
 
     void BlankScope()
     {
@@ -173,10 +191,8 @@ public class Scope : MonoBehaviour
         }
         //Debug.Log(b);
 
-        /*
-         * uncomment the line above
-         * to observe the error.
-         */
+        /* uncomment the line above *
+         * to observe the error.    */
 
         {
             int b = 0;
@@ -185,18 +201,17 @@ public class Scope : MonoBehaviour
         {
             int b = 1;
             Debug.Log(b);
-            /*
-             * int b works
-             * since the last
-             * declaration of
-             * b was in a
-             * different blank
-             * scope.
-             */
+            /* int b works      *
+             * since the last   *
+             * declaration of   *
+             * b was in a       *
+             * different blank  *
+             * scope.           */
         }
 
         {
             Debug.Log("blank scope...");
         }// put a label of what the code is doing here.
     }
+    #endregion
 }

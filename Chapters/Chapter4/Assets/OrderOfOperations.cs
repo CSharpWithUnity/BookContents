@@ -87,16 +87,22 @@ public class OrderOfOperations : MonoBehaviour
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
          * Section 4.7 Order of Operation: What is calculated and When *
          * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+        /* uncomment or comment the line below to see the code in action! */
         UseOrderOfOperation();
 
         /* * * * * * * * * * * * *
          * Section 4.7.1.1 Math  *
          * * * * * * * * * * * * */
+
+        /* uncomment or comment the line below to see the code in action! */
         UseMath();
 
         /* * * * * * * * * * * * * * * * * * * *
          * Section 4.7.1.2 Operator Evaluation *
          * * * * * * * * * * * * * * * * * * * */
+
+        /* uncomment or comment the line below to see the code in action! */
         UseOperatorEvaluation();
     }
 }
