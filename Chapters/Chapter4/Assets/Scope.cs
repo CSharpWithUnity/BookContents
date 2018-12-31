@@ -36,11 +36,17 @@ public class Scope : MonoBehaviour
      * Visible to the entire class */
 
     // float myInt = 1; //nope. can't redefine myInt
-    void UseClassScope()
+
+    void Start()
     {
-        /* * * * * * * * * * * * * * * * * * * * * *
-         * Section 4.8.1 Class Scope continued...  *
-         * * * * * * * * * * * * * * * * * * * * * */
+        /* * * * * * * * * * *
+         * Section 4.8 Scope *
+         * * * * * * * * * * */
+        UseScope();
+
+        /* * * * * * * * * * * * * * *
+         * Section 4.8.1 Class Scope *
+         * * * * * * * * * * * * * * */
 
         // Debug.Log(myInt);
 
@@ -84,22 +90,7 @@ public class Scope : MonoBehaviour
 
         Debug.Log(myInt);
     }
-
     #endregion
-
-    void Start()
-    {
-        /* * * * * * * * * * *
-         * Section 4.8 Scope *
-         * * * * * * * * * * */
-        UseScope();
-
-        /* * * * * * * * * * * * * * *
-         * Section 4.8.1 Class Scope *
-         * * * * * * * * * * * * * * */
-        UseClassScope();
-    }
-
 
     #region Chapter 4.8.2 Function Scope
     /* * * * * * * * * * * * * * * * *
