@@ -10,13 +10,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Section 4.11.1 Booleans
- */
 namespace Chapter4_11
 {
     public class LogicAndOperators : MonoBehaviour
     {
+        #region Chapter 4.11.1 Booleans
+        /* * * * * * * * * * * * * * * *
+         * Section 4.11.1 Booleans     *
+         * * * * * * * * * * * * * * * */
         /* This value appears in the Inspector */
         /* panel.                              */
         public bool someBool;
@@ -29,40 +30,36 @@ namespace Chapter4_11
 
         public int Gold;
 
-        /* Uncomment the line above to see
-         * what it's default initialization
-         * is.
-         * 
-         * The above gets initialized
-         * to 0 even though it's not
-         * assigned anything when declared.
-         */
+        /* Uncomment the line above to see   *
+         * what it's default initialization  *
+         * is.                               *
+         *                                   *
+         * The above gets initialized        *
+         * to 0 even though it's not         *
+         * assigned anything when declared.  */
+        #endregion
 
-        /*
-         * Section 4.11.2 Equality Operators
-         */
+        #region Chapter 4.11.2 Equality Operators
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 4.11.2 Equality Operators     *
+         * * * * * * * * * * * * * * * * * * * * */
         void UseSomeBools()
         {
-            /*
-             * value 1 compared to value 1
-             * 1 == 1 is true
-             */
+            /*                              *
+             * value 1 compared to value 1  *
+             * 1 == 1 is true               */
             someBool = (1 == 1);
 
-            /*
-             * The above assigns true
-             * to the someBool boolean
-             * property.
-             */
+            /* The above assigns true   *
+             * to the someBool boolean  *
+             * property.                */
 
             someBool = true;
             someBool = false;
 
-            /* 
-             * The above is similar
-             * only there's no comparison
-             * just an assignment.
-             */
+            /* The above is similar         *
+             * only there's no comparison   *
+             * just an assignment.          */
             {
                 /* values in a and b are compared   */
                 /* ❶ a is assigned 1                */
@@ -92,10 +89,12 @@ namespace Chapter4_11
                 // someBool:False
             }
         }
+        #endregion
 
-        /*
-         * Section 4.11.3 Logical Not!
-         */
+        #region Chapter 4.11.3 Logical Not!
+        /* * * * * * * * * * * * * * * * * *
+         * Section 4.11.3 Logical Not!     *
+         * * * * * * * * * * * * * * * * * */
         void UseNotBool()
         {
             {
@@ -153,10 +152,12 @@ namespace Chapter4_11
                 // not_a_isNot_b:True
             }
         }
+        #endregion
 
-        /*
-         * Section 4.11.4 Greater or Less than Operators
-         */
+        #region Chapter 4.11.4 Greater or Less than Operators
+        /* * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 4.11.4 Greater or Less than Operators   *
+         * * * * * * * * * * * * * * * * * * * * * * * * * */
         void UseGreaterOrLessThan()
         {
             {
@@ -226,10 +227,12 @@ namespace Chapter4_11
                 // greaterThanOrEqual:True
             }
         }
+        #endregion
 
-        /*
-         * Section 4.11.5 Logical And and Or operators
-         */
+        #region Chapter 4.11.5 Logical And and Or Operators
+        /* * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 4.11.5 Logical And and Or Operators     *
+         * * * * * * * * * * * * * * * * * * * * * * * * * */
         void UseAndAndOrOperators()
         {
             {
@@ -323,11 +326,13 @@ namespace Chapter4_11
                  */
             }
         }
+        #endregion
 
-        /*
-         * Section 4.11.6 If and Branching
-         * uncomment or comment the line below to see the code in action!
-         */
+        #region Chapter 4.11.6 If and Branching
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 4.11.6 If and Branching   *
+         * * * * * * * * * * * * * * * * * * */
+
         void UseIfAndBranching()
         {
             if(true)
@@ -422,44 +427,44 @@ namespace Chapter4_11
                 StartCoroutine(updateColors());
             }
         }
+        #endregion
 
         void Start()
         {
-            /*
-             * Section 4.11.2 Logic and Operators
-             * uncomment or comment the line below to see the code in action!
-             */
+            /* * * * * * * * * * * * * * * * * * * *
+             * Section 4.11.2 Logic and Operators  *
+             * * * * * * * * * * * * * * * * * * * */
+
+             /* uncomment or comment the line below to see the code in action! */
             UseSomeBools();
 
-            /*
-             * Section 4.11.3 Not!
-             * uncomment or comment the line below to see the code in action!
-             */
+            /* * * * * * * * * * * *
+             * Section 4.11.3 Not! *
+             * * * * * * * * * * * */
+
+            /* uncomment or comment the line below to see the code in action! */
             UseNotBool();
 
-            /*
-             * Section 4.11.4 Greater or Less than operators
-             * uncomment or comment the line below to see the code in action!
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 4.11.4 Greater or Less than operators *
+             * * * * * * * * * * * * * * * * * * * * * * * * */
+
+            /* uncomment or comment the line below to see the code in action! */
             UseGreaterOrLessThan();
 
-            /*
-             * Section 4.11.5 Logical And and Or operators
-             * uncomment or comment the line below to see the code in action!
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 4.11.5 Logical And and Or operators *
+             * * * * * * * * * * * * * * * * * * * * * * * */
+
+            /* uncomment or comment the line below to see the code in action! */
             UseAndAndOrOperators();
 
-            /*
-             * Section 4.11.6 If and Branching
-             * uncomment or comment the line below to see the code in action!
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 4.11.6 If and Branching *
+             * * * * * * * * * * * * * * * * * */
+
+            /* uncomment or comment the line below to see the code in action! */
             UseIfAndBranching();
-        }
-
-
-        void Update()
-        {
-
         }
     }
 }
