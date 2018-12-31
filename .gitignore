@@ -5,6 +5,7 @@
 [Bb]uilds/
 [Ll]ogs/
 */[Ll]ogs/
+UIElementsSchema/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
