@@ -54,31 +54,28 @@ public class Functions : MonoBehaviour
         CheckOnA();
 	}
 
-    /*
-     * Section 4.6.3 Writing a Function
-     */
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 4.6.3 Writing a Function  *
+     * * * * * * * * * * * * * * * * * * */
 
     void MyFunction()
     {
     }
 
-    /* A function that this class can call
-     */
+    /* A function that this class can call */
 
     public void MyPublicFunction()
     {
     }
 
-    /* A function this class and others can call
-     */
+    /* A function this class and others can call */
 
     public int MyIntFunction()
     {
         return 1;
     }
 
-    /* A function that can give you a number
-     */
+    /* A function that can give you a number */
 
     public void MyArgFunction(int i)
     {

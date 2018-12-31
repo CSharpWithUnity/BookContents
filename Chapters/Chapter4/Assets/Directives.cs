@@ -34,6 +34,11 @@ public class Directives : MonoBehaviour
          * using System.IO; to the top of this script
          * then you can use
          * StreamWriter writer = new StreamWriter("MyFile.txt");
+         * 
+         * If you like, delete the MyFile.txt in the project directory.
+         * Come back here, change the text in the WriteLine function.
+         * run the game in editor.
+         * then check out the new MyFile.txt that was written.
          */
         #endregion
 

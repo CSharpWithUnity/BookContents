@@ -11,38 +11,32 @@
 
 public class KeywordThis : MonoBehaviour
 {
-    /*
-     * Section 4.9 This
-     */
-
+    #region Chapter 4.9 This
+    /* * * * * * * * * * *
+     * Section 4.9 This  *
+     * * * * * * * * * * */
     int someInt = 0;
     void AssignInt(int i)
     {
         someInt = i;
     }
-    /*
-     * the i parameter is not ambiguous
-     */
+    /* the i parameter is not ambiguous */
 
     void AssignSomeInt(int someInt)
     {
         someInt = someInt;
     }
-    /*
-     * there are no errors, but we do get a message
-     * about assigning a variable to itself.
-     */
+    /* there are no errors, but we do get a message *
+     * about assigning a variable to itself.        */
 
     void AssignThisSomeInt(int someInt)
     {
         this.someInt = someInt;
     }
-    /*
-     * we can successfully assign the class scoped
-     * someInt to the incoming parameter.
-     */
+    /* we can successfully assign the class scoped  *
+     * someInt to the incoming parameter.           */
 
-    private void Start()
+    void UseThis()
     {
         Debug.Log(someInt); // 0
         AssignSomeInt(3);
@@ -50,22 +44,20 @@ public class KeywordThis : MonoBehaviour
 
         AssignThisSomeInt(3);
         Debug.Log(someInt); // 3
-        /*
-         * the AssignThisSomeInt() function
-         * does what is expected.
-         */
-
+        /* the AssignThisSomeInt() function *
+         * does what is expected.           */
     }
+    #endregion
 
-    /*
-     * Section 4.9.2 when this is necessary
-     */
+    #region Chapter 4.9.2 When This is Necessary
+    /* * * * * * * * * * * * * * * * * * * * *
+     * Section 4.9.2 when this is necessary  *
+     * * * * * * * * * * * * * * * * * * * * */
     void AssignThisInt(int i)
     {
         this.someInt = i;
     }
 
-    
     class ThisThing
     {
         ThisThing myThing;
@@ -80,10 +72,12 @@ public class KeywordThis : MonoBehaviour
         ThisThing thing = new ThisThing();
         thing.AssignThing();
     }
+    #endregion
 
-    /*
-     * Section 4.9.3 What we've learned
-     */
+    #region Chapter 4.9.3 What We've Learned
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 4.9.3 What we've learned  *
+     * * * * * * * * * * * * * * * * * * */
     class MyClass
     {
         int MyInt;
@@ -92,5 +86,14 @@ public class KeywordThis : MonoBehaviour
             int m = mInt;
             MyInt = m;
         }
+    }
+    #endregion
+
+    private void Start()
+    {
+        /* * * * * * * * * * *
+         * Section 4.9 This  *
+         * * * * * * * * * * */
+        UseThis();
     }
 }
