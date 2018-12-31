@@ -36,17 +36,17 @@ public class Functions : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        /*
-         * Section 4.6.1 continued...
-         */
+        /* * * * * * * * * * * * * * * *
+         * Section 4.6.1 continued...  *
+         * * * * * * * * * * * * * * * */
 
         Wash();
         Rinse();
         Repeat();
 
-        /*
-         * Section 4.6.2 Entry Points
-         */
+        /* * * * * * * * * * * * * * * *
+         * Section 4.6.2 Entry Points  *
+         * * * * * * * * * * * * * * * */
 
         Debug.Log("Start");
 
@@ -93,11 +93,12 @@ public class Functions : MonoBehaviour
 	void Update ()
     {
         SimpleFunction();
+        ATimesA();
 	}
 
-    /*
-     * Section 4.6.3 continued...
-     */
+    /* * * * * * * * * * * * * * * *
+     * Section 4.6.3 continued...  *
+     * * * * * * * * * * * * * * * */
 
     int a = 0;
 
@@ -113,9 +114,9 @@ public class Functions : MonoBehaviour
         Debug.Log(a);
     }
 
-    /*
-     * Section 4.6.4 More on White Space
-     */
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 4.6.4 More on White Space *
+     * * * * * * * * * * * * * * * * * * */
 
     void MoreTabs()
     {

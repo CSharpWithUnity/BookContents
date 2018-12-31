@@ -2,34 +2,16 @@ fileFormatVersion: 2
 guid: 5d8499124b44b19479bf61f4cc7e2d74
 ModelImporter:
   serializedVersion: 24
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      21: 2100000
-    second: TransformPrimitive_Blue
-  - first:
-      21: 2100002
-    second: TransformPrimitive_White
-  - first:
-      21: 2100004
-    second: TransformPrimitive_Green
-  - first:
-      21: 2100006
-    second: TransformPrimitive_Red
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: TransformPrimitive_Mesh
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: TransformPrimitive_Blue
+    2100002: TransformPrimitive_White
+    2100004: TransformPrimitive_Green
+    2100006: TransformPrimitive_Red
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: TransformPrimitive_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -75,9 +57,6 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
     meshOptimizationFlags: 1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
