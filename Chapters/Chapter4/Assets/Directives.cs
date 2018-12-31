@@ -19,9 +19,9 @@ public class Directives : MonoBehaviour
 	void Start ()
     {
         #region Chapter 4.5.1 Libraries
-        /*
-         * Seciton 4.5.1 Libraries
-         */
+        /* * * * * * * * * * * * * * *
+         * Seciton 4.5.1 Libraries   *
+         * * * * * * * * * * * * * * */
 
         StreamWriter writer = new StreamWriter("MyFile.txt");
         writer.WriteLine("This is a new file...");
@@ -38,9 +38,9 @@ public class Directives : MonoBehaviour
         #endregion
 
         #region Chapter 4.5.2 Ambiguous Namespaces
-        /*
-         * Section 4.5.2 Ambiguous Namespaces
-         */
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 4.5.2 Ambiguous Namespaces    *
+         * * * * * * * * * * * * * * * * * * * * */
 
         int randUnity = UnityEngine.Random.Range(0, 10);
 

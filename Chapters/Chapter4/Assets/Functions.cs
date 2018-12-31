@@ -13,9 +13,9 @@ using UnityEngine;
 
 public class Functions : MonoBehaviour
 {
-    /*
-     * Section 4.6.1 What Are Functions?
-     */
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 4.6.1 What Are Functions? *
+     * * * * * * * * * * * * * * * * * * */
 
     void Wash()
     {
@@ -25,6 +25,12 @@ public class Functions : MonoBehaviour
     }
     void Repeat()
     {
+    }
+
+    int myNumber;
+    public void PrintMyNumber()
+    {
+        Debug.Log(myNumber);
     }
 
 	// Use this for initialization
