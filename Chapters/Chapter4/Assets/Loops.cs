@@ -11,19 +11,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Loops : MonoBehaviour {
-    /*
-     * Section 4.12.1 Unary Operators
-     */
+public class Loops : MonoBehaviour
+{
+    /* * * * * * * * * * * * * * * * * *
+     * Section 4.12.1 Unary Operators  *
+     * * * * * * * * * * * * * * * * * */
     public int counter;
 	
 	// Update is called once per frame
 	void Update ()
     {
-        /*
-         * Section 4.12.1 Unary Operators
-         * 
-         * int counterPlusOne = counter + 1;
+        #region Chapter 4.12.1 Unary Operators
+        /* * * * * * * * * * * * * * * * * *
+         * Section 4.12.1 Unary Operators  *
+         * * * * * * * * * * * * * * * * * */
+
+        /* int counterPlusOne = counter + 1;
          * counter = counterPlusOne;
          * 
          * The above two lines work, but it's a bit
@@ -34,10 +37,12 @@ public class Loops : MonoBehaviour {
          * this also work, but still can be shorter.
          * 
          */
+        #endregion
 
-        {/*
-          * Section 4.12.2 While
-          */
+        #region Chapter 4.12.2 While
+        {/* * * * * * * * * * * * *
+          * Section 4.12.2 While  *
+          * * * * * * * * * * * * */
 
             counter++;
             int i = 0;
@@ -47,17 +52,20 @@ public class Loops : MonoBehaviour {
                 i++;
             }
             Debug.Log(counter);
-        }// Section 4.12.2 While
+        }
+        #endregion
 
-        {/*
-          * Section 4.12.3 For
-          * 
-          * for( initialization ; condition ; operation )
-          * {
-          *     code goes here...
-          * }
-          * 
-          */
+        #region Chapter 4.12.3 For
+        {/* * * * * * * * * * * *
+          * Section 4.12.3 For  *
+          * * * * * * * * * * * */
+
+            /* for( initialization ; condition ; operation )
+             * {
+             *     code goes here...
+             * }
+             * 
+             */
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -74,13 +82,12 @@ public class Loops : MonoBehaviour {
                 //{
                 //
                 //}
-                /*
-                 * The int i = 0; in the
-                 * initialization of the for loop
-                 * will cause an error
-                 * since i was already declared before
-                 * the for() loop.
-                 */
+
+                /* The int i = 0; in the                *
+                 * initialization of the for loop       *
+                 * will cause an error                  *
+                 * since i was already declared before  *
+                 * the for() loop.                      */
             }
             {
                 int i = 0;
@@ -88,11 +95,10 @@ public class Loops : MonoBehaviour {
                 {
                     Debug.Log(i);
                 }
-                /*
-                 * We can ignore putting anything
-                 * in the initialization if i
-                 * was already declared!
-                 */
+
+                /* We can ignore putting anything   *
+                 * in the initialization if i       *
+                 * was already declared!            */
             }
             {
                 int i = 0;
@@ -101,10 +107,8 @@ public class Loops : MonoBehaviour {
                     Debug.Log(i);
                     i++;
                 }
-                /*
-                 * Why not just use a While() loop
-                 * instead?
-                 */
+                /* Why not just use a While() loop  *
+                 * instead?                         */
             }
             {
                 int i = 0;
@@ -116,9 +120,7 @@ public class Loops : MonoBehaviour {
                     if (i > 10)
                         loop = false;
                 }
-                /*
-                 * now we're just abusing the for loop
-                 */
+                /* now we're just abusing the for loop */
             }
             {
                 for (float f = 0; f < 10f; f = f + 1.0f)
@@ -126,11 +128,14 @@ public class Loops : MonoBehaviour {
                     Debug.Log("float: " + f);
                 }
             }
-        }// Section 4.12.3 For
+        }
+        #endregion
 
-        {/*
-          * Section 4.12.4 Do While
-          */
+        {
+            #region Chapter 4.12.4 Do While
+            /* * * * * * * * * * * * * *
+             * Section 4.12.4 Do While *
+             * * * * * * * * * * * * * */
             {
                 int i = 0;
                 do
@@ -138,27 +143,28 @@ public class Loops : MonoBehaviour {
                     Debug.Log("do-while:" + i);
                     i++;
                 } while (i < 10);
-                /*
-                 * The do{}while(); loop
-                 * is the only loop that
-                 * checks the condition
-                 * _after_ running the
-                 * it's code
-                 * lua looks like:
-                 * 
-                 * for int i = 1, 10 do
-                 *     print(i)
-                 * end
-                 * 
-                 * which is fairly suscinct
-                 * but F# looks like:
-                 * 
-                 * for i = 1 to 10 do
-                 * printfn"%d"i
-                 * 
-                 * even shorter!
-                 */
+                /* The do{}while(); loop     * 
+                 * is the only loop that     *
+                 * checks the condition      *
+                 * _after_ running the       *
+                 * it's code                 *
+                 * lua looks like:           *
+                 *                           *
+                 * for int i = 1, 10 do      *
+                 *     print(i)              *
+                 * end                       *
+                 *                           *
+                 * which is fairly suscinct  *
+                 * but F# looks like:        *
+                 *                           *
+                 * for i = 1 to 10 do        *
+                 * printfn"%d"i              *
+                 *                           *
+                 * even shorter!             */
             }
+            #endregion
+
+            #region Chapter 4.12.5 Postfix and Prefix notation
             {/*
               * Section 4.12.5 Postfix and Prefix notation
               */
@@ -173,11 +179,9 @@ public class Loops : MonoBehaviour {
 
                     // post fix changes i after it's read
                 }
-                /*
-                 * post fix and prefix unary operators
-                 * change the order of operation
-                 * in very subtle ways.
-                 */
+                /* post fix and prefix unary operators  *
+                 * change the order of operation        *
+                 * in very subtle ways.                 */
                 {
                     int i = 0;
                     Debug.Log(i);       // 0
@@ -206,7 +210,8 @@ public class Loops : MonoBehaviour {
                         Debug.Log(i); // 1
                     }
                 }
-            }//Section 4.12.5
+            }
+            #endregion
         }
     }
 }
