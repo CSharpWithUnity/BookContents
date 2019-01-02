@@ -28,6 +28,29 @@ public class Instancing : MonoBehaviour
      * the new keyword gets used to make     *
      * a new instance of a object.           *
      * * * * * * * * * * * * * * * * * * * * */
+    class Thing
+    {
+    }
+
+    void UseNew()
+    {
+        // creates new int i assigns 7
+        int i = 7;
+
+        /* creates new int j and assigns  *
+         * a new int, but it's not given  *
+         * any value.                     */
+        int j = new int();
+
+        /* creates and assigns      *
+         * Thing t to a new Thing   */
+        Thing t = new Thing();
+
+        /* creates and assigns                       *
+         * Example e to new Example : MonoBejaviour  */
+        Example e = gameObject.AddComponent<Example>();
+    }
+
     #endregion
 
     #region Chapter 5.4.3 Constructors
@@ -103,6 +126,11 @@ public class Instancing : MonoBehaviour
 
     void Start()
     {
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 5.4.2 New                     *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseNew();
+
         /* * * * * * * * * * * * * * * * * * * * *
          * Section 5.4.3 Constructors            *
          * * * * * * * * * * * * * * * * * * * * */
