@@ -2,52 +2,14 @@ fileFormatVersion: 2
 guid: 4a0f43296252bd84ca4b5ddeff78f8a9
 ModelImporter:
   serializedVersion: 24
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      1: 100002
-    second: Camera
-  - first:
-      1: 100004
-    second: Directional Light
-  - first:
-      1: 100006
-    second: PuzzlePiece_Mesh
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      4: 400002
-    second: Camera
-  - first:
-      4: 400004
-    second: Directional Light
-  - first:
-      4: 400006
-    second: PuzzlePiece_Mesh
-  - first:
-      21: 2100000
-    second: PuzzlePiece_Material
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      23: 2300002
-    second: PuzzlePiece_Mesh
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      33: 3300002
-    second: PuzzlePiece_Mesh
-  - first:
-      43: 4300000
-    second: PuzzlePiece_Mesh
-  - first:
-      41386430: 2186277476908879412
-    second: ImportLogs
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: PuzzlePiece_Material
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: PuzzlePiece_Mesh
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -93,9 +55,6 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

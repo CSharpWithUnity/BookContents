@@ -2,28 +2,14 @@ fileFormatVersion: 2
 guid: ff6079531be077a48bb43aa5941ad36b
 ModelImporter:
   serializedVersion: 24
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      21: 2100000
-    second: AimPoint_White
-  - first:
-      21: 2100002
-    second: AimPoint_Red
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: AimPoint_Mesh
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: AimPoint_White
+    2100002: AimPoint_Red
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: AimPoint_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -69,9 +55,6 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

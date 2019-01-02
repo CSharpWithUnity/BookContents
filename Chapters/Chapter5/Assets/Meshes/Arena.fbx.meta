@@ -2,28 +2,14 @@ fileFormatVersion: 2
 guid: 1b90240e9e8f4d049aa92225ea5e0356
 ModelImporter:
   serializedVersion: 24
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      21: 2100000
-    second: Gray
-  - first:
-      21: 2100002
-    second: Ground
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: Arena_Mesh
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Gray
+    2100002: Ground
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Arena_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -69,9 +55,6 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
