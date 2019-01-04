@@ -58,8 +58,14 @@ public class Functions : MonoBehaviour
      * Section 4.6.3 Writing a Function  *
      * * * * * * * * * * * * * * * * * * */
 
+    /* ┌────────────────────┐ ┌──────────┐*/
+    /* │function declaration│ │parameters│*/
+    /* └─────────┬──────────┘ └────┬─────┘*/
+    /*      ┌────┘  ┌──────────────┘      */
+    /* ─────┴─────  ┴                     */
     void MyFunction()
     {
+        // Function Body
     }
 
     /* A function that this class can call */
