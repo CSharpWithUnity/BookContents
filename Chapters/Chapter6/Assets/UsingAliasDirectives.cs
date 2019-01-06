@@ -6,18 +6,26 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
-using UnityEngine;
-/*
- * This allows you to shorten the name of a
- * namespace to something easier to use.
- */
-using Sub = MyNamespace.SubSpace;
-
-public class UsingAliasDirectives : MonoBehaviour
+#region Chapter 6.10.4 Alias Directive
+/* * * * * * * * * * * * * * * * * * 
+ * Section 6.10.3 Alias Directive  *
+ * * * * * * * * * * * * * * * * * */
+namespace Chapter6_10_4
 {
-    void Start()
+    using UnityEngine;
+    /* This allows you to shorten the name of a     *
+     * namespace to something easier to use.        */
+    using Sub = Chapter6_10_3.AnotherNamespace.SubSpace;
+
+    public class UsingAliasDirectives : MonoBehaviour
     {
-        Sub.MyClass sClass = new Sub.MyClass();
-        sClass.MyFunction();
+        void Start()
+        {
+            /* uses Sub rather than                          *
+             * Chapter6_10_3.AnotherNamespace.SubSpace       */
+            Sub.SubSpaceClass subClass = new Sub.SubSpaceClass();
+            subClass.UseSubSpaceFunction();
+        }
     }
 }
+#endregion
