@@ -17,10 +17,8 @@ namespace Chapter6_6
          * * * * * * * * * * * * * * * */
 
         public PrimitiveType MyPrimitiveType;
-        /*
-         * Right Click on PrimitiveType to go to the
-         * definition and see what the enum looks like.
-         */
+        /* Right Click on PrimitiveType to go to the    *
+         * definition and see what the enum looks like. */
 
         enum YesOrNo
         {
@@ -38,11 +36,9 @@ namespace Chapter6_6
             blue,
             green
         };
-
-        // also valid
-        // public enum MyColors {red, blue, green };
+        /* also valid                                 *
+         * public enum MyColors {red, blue, green };  */
         public MyColors MyColor;
-        GameObject gameObject;
 
         /* * * * * * * * * * * * * * * *
          * Section 6.6.1 Continued...  *
@@ -77,6 +73,7 @@ namespace Chapter6_6
         /* * * * * * * * * * * * * * * *
          * Section 6.6.1 Continued...  *
          * * * * * * * * * * * * * * * */
+        GameObject gameObject;
         void UseMoreEnums()
         {
             gameObject = GameObject.CreatePrimitive(MyPrimitiveType);
@@ -96,7 +93,6 @@ namespace Chapter6_6
             }
         }
         #endregion
-
 
         private void Start()
         {
