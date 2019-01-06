@@ -1,14 +1,15 @@
-﻿/*
- * Chapter 6.5 Arrays Revisited
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
-using UnityEngine;
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.5 Arrays Revisited                                      *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter6_5
 {
+    #region Chapter 6.5.2
+    using UnityEngine;
     public class Monster : MonoBehaviour
     {
         public int ID;
@@ -19,17 +20,17 @@ namespace Chapter6_5
             Debug.Log("Im Alive!");
             MonsterState = MonsterStates.standing;
             {
-                /*
-                 * Section 6.6.4 What We've Learned
-                 */
+                /* * * * * * * * * * * * * * * * * * *
+                 * Section 6.6.4 What We've Learned  *
+                 * * * * * * * * * * * * * * * * * * */
                 int number = (int)MonsterState;
                 Debug.Log(number);
             }
         }
 
-        /*
-         * Section 6.5.3 Type Casting Unity 3D Objects
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.5.3 Type Casting Unity 3D Objects   *
+         * * * * * * * * * * * * * * * * * * * * * * * * */
         void Update()
         {
             float wave = Mathf.Sin(Time.fixedTime + ID);
@@ -57,9 +58,9 @@ namespace Chapter6_5
             }
         }
 
-        /*
-         * Section 6.6.2 Combining What We've Learned
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.6.2 Combining What We've Learned  *
+         * * * * * * * * * * * * * * * * * * * * * * * */
         public enum MonsterStates
         {
             standing,
@@ -69,4 +70,5 @@ namespace Chapter6_5
         }
         public MonsterStates MonsterState;
     }
+    #endregion
 }

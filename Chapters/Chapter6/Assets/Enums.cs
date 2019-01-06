@@ -15,11 +15,6 @@ namespace Chapter6_6
         /* * * * * * * * * * * * * * * *
          * Section 6.6.1 Using Enums   *
          * * * * * * * * * * * * * * * */
-
-        public PrimitiveType MyPrimitiveType;
-        /* Right Click on PrimitiveType to go to the    *
-         * definition and see what the enum looks like. */
-
         enum YesOrNo
         {
             yes,
@@ -27,18 +22,10 @@ namespace Chapter6_6
         };
         YesOrNo yesOrNoEnum;
 
-        /* * * * * * * * * * * * * * * *
-         * Section 6.6.1 Continued...  *
-         * * * * * * * * * * * * * * * */
-        public enum MyColors
-        {
-            red,
-            blue,
-            green
-        };
-        /* also valid                                 *
-         * public enum MyColors {red, blue, green };  */
-        public MyColors MyColor;
+        public PrimitiveType MyPrimitiveType;
+        /* Right Click on PrimitiveType to go to the    *
+         * definition and see what the enum looks like. */
+
 
         /* * * * * * * * * * * * * * * *
          * Section 6.6.1 Continued...  *
@@ -73,6 +60,22 @@ namespace Chapter6_6
         /* * * * * * * * * * * * * * * *
          * Section 6.6.1 Continued...  *
          * * * * * * * * * * * * * * * */
+        public enum MyColors
+        {
+            red,
+            blue,
+            green
+        };
+
+        /* also valid                                 *
+         * public enum MyColors {red, blue, green };  */
+
+        public MyColors MyColor;
+
+
+        /* * * * * * * * * * * * * * * *
+         * Section 6.6.1 Continued...  *
+         * * * * * * * * * * * * * * * */
         GameObject gameObject;
         void UseMoreEnums()
         {
@@ -93,7 +96,12 @@ namespace Chapter6_6
             }
         }
         #endregion
+        #region Chapter 6.6.2
+        class Monster
+        {
 
+        }
+        #endregion
         private void Start()
         {
             /* * * * * * * * * * * * * * * *
