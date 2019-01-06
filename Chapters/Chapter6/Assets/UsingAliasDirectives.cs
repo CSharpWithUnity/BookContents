@@ -1,14 +1,15 @@
-﻿/*
- * Chapter 6.10.4 Alias Directives
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.10.4 Alias Directives                                 *
+ *                                                                 *
+ * Copyright © 2018 Alex Okita                                     *
+ *                                                                 *
+ * This software may be modified and distributed under the terms   *
+ * of the MIT license.  See the LICENSE file for details.          *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #region Chapter 6.10.4 Alias Directive
 /* * * * * * * * * * * * * * * * * * 
- * Section 6.10.3 Alias Directive  *
+ * Section 6.10.4 Alias Directive  *
  * * * * * * * * * * * * * * * * * */
 namespace Chapter6_10_4
 {

@@ -1,24 +1,26 @@
-﻿/*
- * Chapter 6.4 Class Constructors
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ * Chapter 6.4 Class Constructors                                    *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
- using UnityEngine;
+using UnityEngine;
 
 public class ClassConstructors : MonoBehaviour
 {
-    class Zombie
+    #region Chapter 6.4.1 Class Constructors
+    partial class Zombie
     {
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.4.1 Class Constructors - A Basic Example  *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * */
         public string Name;
         public int BrainsEaten;
         public int HitPoints;
         /*
-         * Section 6.4.1 Class Constructors - A Basic Example
-         * 
          *          ┌────────────────┐
          *          │Class Identifier│
          *          │These words must│
@@ -43,21 +45,54 @@ public class ClassConstructors : MonoBehaviour
             HitPoints = 10;
         }
 
-        /*
-         * Section 6.4.1 Class Constructors - A Basic Example continued...
-         * use the arguments to populate
-         * the class members with data
-         */
+        /* Section 6.4.1 Class Constructors - A Basic Example continued... *
+         * use the arguments to populate                                   *
+         * the class members with data                                     */
+
         public Zombie(string name, int hitPoints)
         {
             Name = name;
             BrainsEaten = 0;
             HitPoints = hitPoints;
         }
+    }
+    void UseZombieConstructor()
+    {
 
-        /*
-         * Section 6.4.2 Class Constructors - What We've Learned.
-         */
+        {
+            /* Section 6.4.1 Class Constructors - A Basic Example continued... */
+            Zombie rob = new Zombie();
+            rob.Name = "Zombie";
+            rob.HitPoints = 10;
+            rob.BrainsEaten = 0;
+        }
+        {
+            /* Section 6.4.1 Class Constructors - A Basic Example continued... */
+            Zombie rob = new Zombie()
+            {
+                Name = "Zombie",
+                HitPoints = 10,
+                BrainsEaten = 0
+            };
+        }
+        {
+            /* Section 6.4.1 Class Constructors - A Basic Example continued... */
+            Zombie rob = new Zombie();
+        }
+        {
+            /* Section 6.4.1 Class Constructors - A Basic Example continued... *
+             * Using the arguments.                                            */
+            Zombie rob = new Zombie("Rob", 10);
+        }
+    }
+    #endregion
+
+    #region Chapter 6.4.2 Class Constructors - What We've Learned.
+    partial class Zombie
+    {
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.4.2 Class Constructors - What We've Learned.  *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
         float height;
         GameObject gameObject;
         public Zombie(string name, int hitPoints, Vector3 startPosition)
@@ -83,48 +118,34 @@ public class ClassConstructors : MonoBehaviour
         }
     }
 
+    void UseZombieConstructorContinued()
+    {
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.4.2 Class Constructors - What We've Learned.  *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+        // Zombie rob = new Zombie("Stubbs", 10, new Vector3(0, 0, 1));
+
+        string[] names = new string[] { "Stubbs", "Rob", "White" };
+        for (int i = 0; i < names.Length; i++)
+        {
+            Vector3 startPosition = new Vector3(i, 0, 0);
+            Zombie z = new Zombie(names[i], Random.Range(5, 10), startPosition);
+        }
+    }
+    #endregion
+
     void Start()
     {
-        {
-            Zombie rob = new Zombie();
-            rob.Name = "Zombie";
-            rob.HitPoints = 10;
-            rob.BrainsEaten = 0;
-        }
-        {
-            Zombie rob = new Zombie()
-            {
-                Name = "Zombie",
-                HitPoints = 10,
-                BrainsEaten = 0
-            };
-        }
-        {
-            /*
-             * Section 6.4.1 Class Constructors - A Basic Example continued...
-             */
-            Zombie rob = new Zombie();
-        }
-        {
-            /*
-             * Section 6.4.1 Class Constructors - A Basic Example continued...
-             * Using the arguments.
-             */
-            Zombie rob = new Zombie("Rob", 10);
-        }
-        {
-            /*
-             * Section 6.4.2 Class Constructors - What We've Learned...
-             */
-            // Zombie rob = new Zombie("Stubbs", 10, new Vector3(0, 0, 1));
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.4.1 Class Constructors - A Basic Example  *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+        UseZombieConstructor();
 
-            string[] names = new string[] { "Stubbs", "Rob", "White" };
-            for (int i = 0; i < names.Length; i++)
-            {
-                Vector3 startPosition = new Vector3(i, 0, 0);
-                Zombie z = new Zombie(names[i], Random.Range(5, 10), startPosition);
-            }
-        }
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.4.2 Class Constructors - What We've Learned...  *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+        UseZombieConstructorContinued();
     }
 }
 

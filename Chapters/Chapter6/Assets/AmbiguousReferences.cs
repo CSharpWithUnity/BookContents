@@ -1,17 +1,16 @@
-﻿/*
- * Chapter 6.10 Namespaces
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.10 Namespaces                                           *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 #region Chapter 6.10.3 Ambiguous References
 /* * * * * * * * * * * * * * * * * * * * * 
  * Section 6.10.3 Ambigusous References  *
  * * * * * * * * * * * * * * * * * * * * */
-
- namespace Chapter6_10_3
+namespace Chapter6_10_3
 {
     namespace AnotherNamespace
     {
@@ -19,6 +18,24 @@
          * seen in SecondNamespace   */
         public class UniqueClass
         {
+        }
+    }
+    /* * * * * * * * * * * * * * * * * * 
+     * Section 6.10.4 Alias Directives *
+     * * * * * * * * * * * * * * * * * */
+    namespace AnotherNamespace
+    {
+        /* a namespace in a namespace */
+        namespace SubSpace
+        {
+            using UnityEngine;
+            public class SubSpaceClass
+            {
+                public void UseSubSpaceFunction()
+                {
+                    Debug.Log("Hello from SubSpace Function");
+                }
+            }
         }
     }
 
@@ -43,22 +60,5 @@
         }
     }
 
-    /* * * * * * * * * * * * * * * * * * 
-     * Section 6.10.4 Alias Directives *
-     * * * * * * * * * * * * * * * * * */
-    namespace AnotherNamespace
-    {
-        namespace SubSpace
-        {
-            using UnityEngine;
-            public class SubSpaceClass
-            {
-                public void UseSubSpaceFunction()
-                {
-                    Debug.Log("Hello from SubSpace Function");
-                }
-            }
-        }
-    }
 }
 #endregion

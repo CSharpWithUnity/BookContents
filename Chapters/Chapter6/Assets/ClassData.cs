@@ -5,11 +5,11 @@
  *
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
- */
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using UnityEngine;
-
 public class ClassData : MonoBehaviour
 {
+    #region Chapter 6.9 Class Data
     /*
      * Section 6.9 Class Data
      */
@@ -21,7 +21,9 @@ public class ClassData : MonoBehaviour
             arrayOfInts[i] = i;
         }
     }
+    #endregion
 }
+#region Chapter 6.9.1 Class Data continued...
 /*
  * Section 6.9.1 Class Data continued...
  * 
@@ -75,7 +77,9 @@ class PlayerData
     public float RunSpeed;
     public float WalkSpeed;
 }
+#endregion
 
+#region Chapter 6.9.1 Character Base Class
 /*
  * Section 6.9.1 Character Base Class
  */
@@ -112,4 +116,4 @@ public class Zombie : BaseMonster
     {
     }
 }
-
+#endregion

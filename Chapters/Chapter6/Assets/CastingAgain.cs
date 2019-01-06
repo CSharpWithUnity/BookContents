@@ -5,12 +5,11 @@
  *
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
- */
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using UnityEngine;
-
-namespace Chapter6_14
+ namespace Chapter6_14
 {
+    using UnityEngine;
     public class CastingAgain : MonoBehaviour
     {
         /*

@@ -1,16 +1,16 @@
-﻿/*
- * Chapter 6.23 Controlling Inheritance
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.23 Controlling Inheritance                              *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using UnityEngine;
 
-/*
- * Section 6.23.1.1 Sealed
- */
+/* * * * * * * * * * * * * * * * * *
+ * Section 6.23.1.1 Sealed         *
+ * * * * * * * * * * * * * * * * * */
 sealed class FinalizedObject
 {
 }

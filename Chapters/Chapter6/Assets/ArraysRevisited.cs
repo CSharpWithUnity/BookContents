@@ -5,12 +5,11 @@
  *
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
- */
-
-using UnityEngine;
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 namespace Chapter6_5
 {
+    using UnityEngine;
     public class ArraysRevisited : MonoBehaviour
     {
         /*
