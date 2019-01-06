@@ -102,14 +102,14 @@ public class ClassConstructors : MonoBehaviour
             HitPoints = hitPoints;
 
             // find the zombie from the Resources folder.
-            GameObject go = Resources.Load("ZombiePrimitive") as GameObject;
+            gameObject = Resources.Load("ZombiePrimitive") as GameObject;
             // add the resource to the scene.
-            Instantiate(go);
+            Instantiate(gameObject);
 
-            go.name = Name;
-            go.transform.position = startPosition;
+            gameObject.name = Name;
+            gameObject.transform.position = startPosition;
             height = Random.Range(1f, 3f);
-            go.transform.localScale = new Vector3()
+            gameObject.transform.localScale = new Vector3()
             {
                 x = 1,
                 y = height, // give him a random height

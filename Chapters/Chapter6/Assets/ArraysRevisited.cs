@@ -1,10 +1,10 @@
-﻿/*
- * Chapter 6.5 Arrays Revisited
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.5 Arrays Revisited                                      *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 namespace Chapter6_5
@@ -12,9 +12,10 @@ namespace Chapter6_5
     using UnityEngine;
     public class ArraysRevisited : MonoBehaviour
     {
-        /*
-         * Chapter 6.5.1 Arrays Revisited
-         */
+        #region Chapter 6.5.1 Arrays Revisited
+        /* * * * * * * * * * * * * * * * * * *
+         * Chapter 6.5.1 Arrays Revisited    *
+         * * * * * * * * * * * * * * * * * * */
         public GameObject box1;
         public GameObject box2;
         public GameObject box3;
@@ -46,13 +47,13 @@ namespace Chapter6_5
         public float Spacing;
 
         GameObject[] MonsterBoxes;
-        private void Start()
+
+        void UseArrays()
         {
             {
-                /*
-                 * Section 6.5.1.1 Starting with 0
-                 */
-
+                /* * * * * * * * * * * * * * * * * *
+                 * Section 6.5.1.1 Starting with 0 *
+                 * * * * * * * * * * * * * * * * * */
                 SomeBoxes = new GameObject[numBoxes];
                 for (int i = 0; i < numBoxes; i++)
                 {
@@ -60,10 +61,9 @@ namespace Chapter6_5
             }
 
             {
-                /*
-                 * Section 6.5.1.1 Continued...
-                 */
-
+                /* * * * * * * * * * * * * * * * *
+                 * Section 6.5.1.1 Continued...  *
+                 * * * * * * * * * * * * * * * * */
                 SomeBoxes = new GameObject[numBoxes];
                 for (int i = 0; i < numBoxes; i++)
                 {
@@ -73,9 +73,9 @@ namespace Chapter6_5
             }
 
             {
-                /*
-                 * Section 6.5.1.1 Continued...
-                 */
+                /* * * * * * * * * * * * * * * * *
+                 * Section 6.5.1.1 Continued...  *
+                 * * * * * * * * * * * * * * * * */
                 int i = 0;
                 foreach (GameObject go in SomeBoxes)
                 {
@@ -86,9 +86,9 @@ namespace Chapter6_5
             }
 
             {
-                /*
-                 * Section 6.5.1.1 Continued...
-                 */
+                /* * * * * * * * * * * * * * * * *
+                 * Section 6.5.1.1 Continued...  *
+                 * * * * * * * * * * * * * * * * */
                 int i = 0;
                 foreach (GameObject go in SomeBoxes)
                 {
@@ -99,9 +99,9 @@ namespace Chapter6_5
             }
 
             {
-                /*
-                 * Section 6.5.1.1 Continued...
-                 */
+                /* * * * * * * * * * * * * * * * *
+                 * Section 6.5.1.1 Continued...  *
+                 * * * * * * * * * * * * * * * * */
                 int i = 0;
                 foreach (GameObject go in SomeBoxes)
                 {
@@ -110,63 +110,82 @@ namespace Chapter6_5
                     Debug.Log("Box: " + i);
                 }
             }
-            {
-                /*
-                 * Section 6.5.2 Instancing with AddComponent()
-                 */
-                MonsterBoxes = new GameObject[numBoxes];
-                for (int i = 0; i < numBoxes; i++)
-                {
-                    GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    box.AddComponent(typeof(Monster));
-                    MonsterBoxes[i] = box;
-                }
-            }
+        }
 
+        /* * * * * * * * * * * * *
+         * Section 6.5.1.2 Mathf *
+         * * * * * * * * * * * * */
+        void UseMathf()
+        {
+            int i = 0;
+            foreach (GameObject go in SomeBoxes)
             {
-                /*
-                 * Section 6.5.3 Type Casting Unity 3D Objects
-                 */
-                MonsterBoxes = new GameObject[numBoxes];
-                for (int i = 0; i < numBoxes; i++)
-                {
-                    GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    box.AddComponent(typeof(Monster));
-                    Monster m = box.GetComponent(typeof(Monster)) as Monster;
-                    m.ID = i;
-                    MonsterBoxes[i] = box;
-                }
+                float wave = Mathf.Sin(Time.fixedTime + i);
+                go.transform.position = new Vector3(i * Spacing, wave, 0);
+                i++;
             }
+        }
+        #endregion
 
+        #region Chapter 6.5.2 Instancing with AddComponent()
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.5.2 Instancing with AddComponent()  *
+         * * * * * * * * * * * * * * * * * * * * * * * * */
+        void UseInstancingWithAddComponent()
+        {
+            MonsterBoxes = new GameObject[numBoxes];
+            for (int i = 0; i < numBoxes; i++)
             {
-                /*
-                 * Section 6.5.3 Type Casting Unity 3D Objects
-                 */
-                MonsterBoxes = new GameObject[numBoxes];
-                for (int i = 0; i < numBoxes; i++)
-                {
-                    GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    Monster m = box.AddComponent(typeof(Monster)) as Monster;
-                    m.ID = i;
-                    MonsterBoxes[i] = box;
-                }
+                GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                box.AddComponent(typeof(Monster));
+                MonsterBoxes[i] = box;
             }
+        }
+        #endregion
+
+        #region Chapter 6.5.3 Type Casting Unity 3D Objects
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.5.3 Type Casting Unity 3D Objects *
+         * * * * * * * * * * * * * * * * * * * * * * * */
+        void UseTypeCastingWithUnityObjects()
+        {
+            MonsterBoxes = new GameObject[numBoxes];
+            for (int i = 0; i < numBoxes; i++)
+            {
+                GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                box.AddComponent(typeof(Monster));
+                Monster m = box.GetComponent(typeof(Monster)) as Monster;
+                m.ID = i;
+                MonsterBoxes[i] = box;
+            }
+        }
+
+        #endregion
+
+        private void Start()
+        {
+            /* * * * * * * * * * * * * * * * * *
+             * Section 6.5.1.1 Starting with 0 *
+             * * * * * * * * * * * * * * * * * */
+            UseArrays();
+
+            /* * * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 6.5.2 Instancing with AddComponent()  *
+             * * * * * * * * * * * * * * * * * * * * * * * * */
+            UseInstancingWithAddComponent();
+
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 6.5.3 Type Casting Unity 3D Objects *
+             * * * * * * * * * * * * * * * * * * * * * * * */
+            UseTypeCastingWithUnityObjects();
         }
 
         void Update()
         {
-            {
-                /*
-                 * Section 6.5.1.2 Mathf
-                 */
-                int i = 0;
-                foreach (GameObject go in SomeBoxes)
-                {
-                    float wave = Mathf.Sin(Time.fixedTime + i);
-                    go.transform.position = new Vector3(i * Spacing, wave, 0);
-                    i++;
-                }
-            }
+            /* * * * * * * * * * * * *
+             * Section 6.5.1.2 Mathf *
+             * * * * * * * * * * * * */
+            UseMathf();
         }
     }
 }
