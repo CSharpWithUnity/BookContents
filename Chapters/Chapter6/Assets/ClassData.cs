@@ -1,18 +1,18 @@
-﻿/*
- * Chapter 6.9 Class Data
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.9 Class Data                                            *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using UnityEngine;
 public class ClassData : MonoBehaviour
 {
     #region Chapter 6.9 Class Data
-    /*
-     * Section 6.9 Class Data
-     */
+    /* * * * * * * * * * * * * *
+     * Section 6.9 Class Data  *
+     * * * * * * * * * * * * * */
     void DoThings()
     {
         int[] arrayOfInts = new int[100];
@@ -24,16 +24,16 @@ public class ClassData : MonoBehaviour
     #endregion
 }
 #region Chapter 6.9.1 Class Data continued...
-/*
- * Section 6.9.1 Class Data continued...
- * 
- * things you can't do with structs.
- */
+/* * * * * * * * * * * * * * * * * * * * *
+ * Section 6.9.1 Class Data continued... *
+ * * * * * * * * * * * * * * * * * * * * */
+
+/* things you can't do with structs. */
 
 struct MyStruct
 {
     //public int a = 0;
-    
+
     /*
      * uncomment the declaration
      * above to see the error
@@ -42,7 +42,7 @@ struct MyStruct
     //public MyStruct()
     //{
     //}
-    
+
     /*
      * Uncomment the constructor
      * to see thee error.
@@ -53,13 +53,13 @@ struct MyStruct
 //{
 //}
 
-    /*
-     * struct childStruct : parentStruct
-     * {
-     * }
-     * the above isn't allowed so structs
-     * must stand on their own
-     */
+/*
+ * struct childStruct : parentStruct
+ * {
+ * }
+ * the above isn't allowed so structs
+ * must stand on their own
+ */
 
 class MyClass
 {
@@ -80,29 +80,28 @@ class PlayerData
 #endregion
 
 #region Chapter 6.9.1 Character Base Class
-/*
- * Section 6.9.1 Character Base Class
- */
+/* * * * * * * * * * * * * * * * * * * *
+ * Section 6.9.1 Character Base Class  *
+ * * * * * * * * * * * * * * * * * * * */
 public class BaseMonster
 {
-    /*
-     * Section 6.9.2 const
-     */
+    /* * * * * * * * * * * * *
+     * Section 6.9.2 const   *
+     * * * * * * * * * * * * */
     //const int MaxHitPoints = 10;
     public const int MaxHitPoints = 10;
 
-    /*
-     * Section 6.9.3 Readonly
-     */
+    /* * * * * * * * * * * * * *
+     * Section 6.9.3 Readonly  *
+     * * * * * * * * * * * * * */
     public readonly int MaxMagicPoints = 10;
     public void SetMaxMagicPoints(int mp)
     {
         //MaxMagicPoints = mp;
         // the above is not allowed.
     }
-    /*
-     * however, you can modify it in the constructor
-     */
+
+    /* however, you can modify it in the constructor */
     public BaseMonster(int maxMP)
     {
         MaxMagicPoints = maxMP;
