@@ -1,18 +1,19 @@
-﻿/*
- * Chapter 7.4 Function Overloading
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 7.4 Function Overloading                                  *
+ *                                                                   *
+ * Copyright © 2019 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using UnityEngine;
 
 public class FunctionOverloading : MonoBehaviour
 {
-    /*
-     * Section 7.4.1 A Closer Look at Functions
-     */
+    #region Chapter 5.4.1 A Closer Look at Functions
+    /* * * * * * * * * * * * * * * * * * * * * * *
+     * Section 7.4.1 A Closer Look at Functions  *
+     * * * * * * * * * * * * * * * * * * * * * * */
     void UseDifferentFunctions()
     {
         int a = 8;
@@ -32,9 +33,9 @@ public class FunctionOverloading : MonoBehaviour
     {
         return a / 2;
     }
-    /*
-     * Section 7.4.1.1 A Closer Look at Functions A Basic Example
-     */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     * Section 7.4.1.1 A Closer Look at Functions A Basic Example  *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void UseFunctionOverloading()
     {
         int a = 8;
@@ -69,23 +70,24 @@ public class FunctionOverloading : MonoBehaviour
         return i / 2;
     }
 
-
-
-    int HalfFull(int i)   /*←┐  ┌─────────────────┐     */
-    {                     /* │  │ these functions │     */
-        return i / 2;     /* ├──┤ have the same   │     */
-    }                     /* │  │ signature.      │     */
-    //int HalfFull(int i) /*←┘  └─────────────────┘     */
+    int HalfFull(int i)/*←┐  ┌─────────────────┐     */
+    {                  /* │  │ these functions │     */
+        return i / 2;  /* ├──┤ have the same   │     */
+    }                  /* │  │ signature.      │     */
+    /*               ┌────┘  └─────────────────┘     */
+    /*               ↓                               */
+    //int HalfFull(int i) 
     //{
     //    return i * 0.5f;
     //}
     /* uncomment the above to see the error */
+    #endregion
 
+    #region Chapter 7.4.2 Function Signature
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 7.4.2 Function Signature  *
+     * * * * * * * * * * * * * * * * * * */
 
-    /*
-     * Section 7.4.2 Function Signature
-     */
-    
     int ReturnValue()
     {
         return 1;
@@ -141,10 +143,12 @@ public class FunctionOverloading : MonoBehaviour
     {
         staticDouble = d;
     }
+    #endregion
 
-    /*
-     * Section 7.4.4 Putting it Together
-     */
+    #region Chapter 7.4.4 Putting it Together
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 7.4.4 Putting it Together   *
+     * * * * * * * * * * * * * * * * * * * */
     GameObject CreateObject()
     {
         GameObject g = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -171,26 +175,46 @@ public class FunctionOverloading : MonoBehaviour
         GameObject c = CreateObject(PrimitiveType.Sphere, position);
         // makes a sphere at x:0, y:0, z:1
     }
-    /*
-     * Section 7.4.6 DrawWords
-     */
+    #endregion
 
+    #region Chapter 7.5.6 DrawWords
+    /* * * * * * * * * * * * * * *
+     * Section 7.4.6 DrawWords   *
+     * * * * * * * * * * * * * * */
     void UseDrawWords()
     {
         DrawWords.DrawWord("Words Are Being Drawn", 1, Vector3.zero, Color.red);
     }
-
-    private void Update()
-    {
-        UseDrawWords();
-    }
+    #endregion
 
     void Start()
     {
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 7.4.1 A Closer Look at Functions  *
+         * * * * * * * * * * * * * * * * * * * * * * */
         UseDifferentFunctions();
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 7.4.1.1 A Closer Look at Functions A Basic Example  *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
         UseFunctionOverloading();
+
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 7.4.2 Function Signature  *
+         * * * * * * * * * * * * * * * * * * */
         UseOverloads();
+
+        /* * * * * * * * * * * * * * * * * * * *
+         * Section 7.4.4 Putting it Together   *
+         * * * * * * * * * * * * * * * * * * * */
         UseCreateObject();
     }
 
+    private void Update()
+    {
+        /* * * * * * * * * * * * * * *
+         * Section 7.4.6 DrawWords   *
+         * * * * * * * * * * * * * * */
+        UseDrawWords();
+    }
 }
