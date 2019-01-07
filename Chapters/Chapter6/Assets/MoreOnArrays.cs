@@ -1,11 +1,11 @@
-﻿/*
- * Chapter 6.17 More On Arrays
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.17 More On Arrays                                       *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System.Collections;
 using UnityEngine;
@@ -14,10 +14,12 @@ public class MoreOnArrays : MonoBehaviour
 {
     void Start()
     {
+        #region Chapter 6.17.1 More On Arrays
         {
-            /*
-             * Section 6.17.1 More On Arrays
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 6.17.1 More On Arrays *
+             * * * * * * * * * * * * * * * * */
+
             int i;
             /* a single int value */
             int[] ints;
@@ -33,9 +35,10 @@ public class MoreOnArrays : MonoBehaviour
             /* └────────────────────────────┘     */
         }
         {
-            /*
-             * Section 6.17.1.1 A Basic Example More On Arrays continued...
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 6.17.1.1 A Basic Example More On Arrays continued...  *
+             * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
             int[] primes = new int[] { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
             int primesLength = primes.Length;
             /*      ↓   └── ← ───┘      ↑               */
@@ -57,9 +60,10 @@ public class MoreOnArrays : MonoBehaviour
             }
         }
         {
-            /*
-             * Section 6.17.1.1 continued.
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 6.17.1.1 continued.   *
+             * * * * * * * * * * * * * * * * */
+
             int[] primes = new int[] { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
 
             /*               ┌───────────────────────┐  */
@@ -72,10 +76,13 @@ public class MoreOnArrays : MonoBehaviour
                 Debug.Log(primes[i]);
             }
         }
+        #endregion
+
+        #region Chapter 6.17.2 Foreach a reminder
         {
-            /*
-             * Section 6.17.2 Foreach a reminder
-             */
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 6.17.2 Foreach a reminder *
+             * * * * * * * * * * * * * * * * * * */
             int[] primes = new int[] { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
             foreach (int p in primes)
             {
@@ -119,10 +126,13 @@ public class MoreOnArrays : MonoBehaviour
                 }
             }
         }
+        #endregion
+
+        #region Chapter 6.17.3 Discovery
         {
-            /*
-             * Section 6.17.3 Discovery
-             */
+            /* * * * * * * * * * * * * * *
+             * Section 6.17.3 Discovery  *
+             * * * * * * * * * * * * * * */
 
 
             int[] primes = { 1, 3, 5, 7, 11, 13, 17, 23, 27, 31 };
@@ -142,6 +152,7 @@ public class MoreOnArrays : MonoBehaviour
             object[] anotherThing = numbers.ToArray() as object[];
             Debug.Log("anotherThing Length: " + anotherThing.Length);
         }
+        #endregion
     }
 }
 
