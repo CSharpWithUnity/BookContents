@@ -50,6 +50,7 @@ public class Structs : MonoBehaviour
     }
 
     #endregion
+    
     #region Chapter 6.8.1 Structs
     /*
      * Section 6.8.1 Structs
@@ -68,12 +69,13 @@ public class Structs : MonoBehaviour
     }
     #endregion
 
+    #region Chapter 6.8.2 Struct versus Class
     PlayerDataStruct playerDataStruct;
-    /*
-     * Section 6.8.2 Struct versus Class
-     * a struct and a class can look
-     * alike.
-     */
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 6.8.2 Struct versus Class *
+     * * * * * * * * * * * * * * * * * * */
+
+    /* a struct and a class can look alike. */
     public class PlayerDataClass
     {
         public Vector3 Position;
@@ -83,61 +85,59 @@ public class Structs : MonoBehaviour
         public float WalkSpeed;
     }
     PlayerDataClass playerDataClass;
-
-    void Start()
+    void UseStructVersusClass()
     {
+        PlayerDataStruct playerStruct = new PlayerDataStruct();
+        PlayerDataClass playerClass = new PlayerDataClass();
+        playerStruct.HitPoints = 1;
+        playerClass.HitPoints = 1;
+
+        PlayerDataStruct otherPlayerStruct = playerStruct;
+        otherPlayerStruct.HitPoints = 3; // change the copied data
+        Debug.Log(playerStruct.HitPoints + " and " + otherPlayerStruct.HitPoints);
+        // 1 and 3
+        PlayerDataClass otherPlayerClass = playerClass;
+        otherPlayerClass.HitPoints = 3; // change the copied data, or did we?
+        Debug.Log(playerClass.HitPoints + " and " + otherPlayerClass.HitPoints);
+        // 3 and 3
+
+        PlayerDataClass anotherPlayerClass = new PlayerDataClass();
+        anotherPlayerClass.HitPoints = playerClass.HitPoints;
+        anotherPlayerClass.HitPoints = 7;
+        Debug.Log(playerClass.HitPoints + ":" +
+                  otherPlayerClass.HitPoints + ":" +
+                  anotherPlayerClass.HitPoints);
+        // 3:3:7
+    }
+    #endregion
+
+    #region Chapter 6.8.3 Without Structs?
+    /* * * * * * * * * * * * * * * * * *
+     * Section 6.8.3 Without Structs?  *
+     * * * * * * * * * * * * * * * * * */
+    void UseWithoutStructs()
+    {
+        object[] playerDataArray = new object[5]
         {
-            /*
-             * Section 6.8.2 Structs versus Classes
-             */
-            PlayerDataStruct playerStruct = new PlayerDataStruct();
-            PlayerDataClass playerClass = new PlayerDataClass();
-            playerStruct.HitPoints = 1;
-            playerClass.HitPoints = 1;
-
-            PlayerDataStruct otherPlayerStruct = playerStruct;
-            otherPlayerStruct.HitPoints = 3; // change the copied data
-            Debug.Log(playerStruct.HitPoints + " and " + otherPlayerStruct.HitPoints);
-            // 1 and 3
-            PlayerDataClass otherPlayerClass = playerClass;
-            otherPlayerClass.HitPoints = 3; // change the copied data, or did we?
-            Debug.Log(playerClass.HitPoints + " and " + otherPlayerClass.HitPoints);
-            // 3 and 3
-
-            PlayerDataClass anotherPlayerClass = new PlayerDataClass();
-            anotherPlayerClass.HitPoints = playerClass.HitPoints;
-            anotherPlayerClass.HitPoints = 7;
-            Debug.Log(playerClass.HitPoints + ":" + 
-                      otherPlayerClass.HitPoints + ":" + 
-                      anotherPlayerClass.HitPoints);
-            // 3:3:7
-
-        }
-        {
-            /*
-             * Section 6.8.3 Without Structs?
-             */
-            object[] playerDataArray = new object[5]
-            {
                 new Vector3(),  // Position
                 10,             // HitPoints
                 13,             // Ammunition
                 6.5f,           // Run Speed
                 1.2f            // Walk Speed
-            };
-            object[] copyOfPlayerDataArray = playerDataArray;
-            Debug.Log(playerDataArray[1]);
-            // 10
-            copyOfPlayerDataArray[1] = 1;
-            Debug.Log(playerDataArray[1] + ":" + copyOfPlayerDataArray[1]);
-            // 1:1
-        }
-        StartCube();
+        };
+        object[] copyOfPlayerDataArray = playerDataArray;
+        Debug.Log(playerDataArray[1]);
+        // 10
+        copyOfPlayerDataArray[1] = 1;
+        Debug.Log(playerDataArray[1] + ":" + copyOfPlayerDataArray[1]);
+        // 1:1
     }
+    #endregion
 
-    /*
-     * Section 6.8.4 Handling Structs
-     */
+    #region Chapter 6.8.4 Handling Structs
+    /* * * * * * * * * * * * * * * * * *
+     * Section 6.8.4 Handling Structs  *
+     * * * * * * * * * * * * * * * * * */
     struct BoxParams
     {
         public float width;
@@ -167,10 +167,24 @@ public class Structs : MonoBehaviour
         go.transform.localScale = new Vector3(b.width, b.height, b.depth);
         go.GetComponent<MeshRenderer>().material.color = b.color;
     }
+    #endregion
 
-    void Update()
+    void Start()
     {
-        
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 6.8.2 Structs versus Classes  *
+         * * * * * * * * * * * * * * * * * * * * */
+        UseStructVersusClass();
+
+        /* * * * * * * * * * * * * * * * * *
+         * Section 6.8.3 Without Structs?  *
+         * * * * * * * * * * * * * * * * * */
+        UseWithoutStructs();
+
+        /* * * * * * * * * * * * * * * * * *
+         * Section 6.8.4 Handling Structs  *
+         * * * * * * * * * * * * * * * * * */
+        StartCube();
     }
 }
 
