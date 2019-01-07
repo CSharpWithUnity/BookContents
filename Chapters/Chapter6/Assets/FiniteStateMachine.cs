@@ -1,13 +1,14 @@
-﻿/*
- * Chapter 6.7.7 Finite State Machine
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.7.7 Finite State Machine                                *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using UnityEngine;
 
+#region Chapter 6.7 Finite State Machine
 namespace Chapter6_7
 {
     public class FiniteStateMachine : MonoBehaviour
@@ -99,3 +100,4 @@ namespace Chapter6_7
         }
     }
 }
+#endregion
