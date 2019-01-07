@@ -7,12 +7,12 @@
  * of the MIT license.  See the LICENSE file for details.          *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#region Chapter 6.10.4 Alias Directive
-/* * * * * * * * * * * * * * * * * * 
- * Section 6.10.4 Alias Directive  *
- * * * * * * * * * * * * * * * * * */
 namespace Chapter6_10_4
 {
+    #region Chapter 6.10.4 Alias Directive
+    /* * * * * * * * * * * * * * * * * * 
+     * Section 6.10.4 Alias Directive  *
+     * * * * * * * * * * * * * * * * * */
     using UnityEngine;
     /* This allows you to shorten the name of a     *
      * namespace to something easier to use.        */

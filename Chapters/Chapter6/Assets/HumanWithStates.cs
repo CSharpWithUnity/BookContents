@@ -6,8 +6,10 @@
  * This software may be modified and distributed under the terms     *
  * of the MIT license.  See the LICENSE file for details.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-public class HumanWithStates : ZombieWithStates
+namespace Chapter6_16
 {
+    public class HumanWithStates : ZombieWithStates
+    {
 
+    }
 }
