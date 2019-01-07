@@ -1,13 +1,12 @@
-﻿/*
- * Chapter 6.14 Type Casting Again
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 6.14 Type Casting Again                                   *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
- namespace Chapter6_14
+namespace Chapter6_14
 {
     using UnityEngine;
     public class CastingAgain : MonoBehaviour

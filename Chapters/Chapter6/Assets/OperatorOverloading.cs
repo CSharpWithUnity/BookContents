@@ -8,6 +8,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter6_22
 {
+    using Chapter6_9;
     using UnityEngine;
     public class OperatorOverloading : MonoBehaviour
     {

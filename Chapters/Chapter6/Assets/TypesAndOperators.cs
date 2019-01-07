@@ -8,6 +8,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter6_21
 {
+    using Chapter6_16;
     using System;
     using UnityEngine;
     /* * * * * * * * * * * * * * * * * *

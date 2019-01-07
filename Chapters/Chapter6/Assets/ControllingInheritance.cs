@@ -20,10 +20,9 @@ sealed class FinalizedObject
 //}
 /* cannot derive from sealed type 'ControllingInheritance.FinalizedObject' */
 
-/*
- * Section 6.23.2 Extension Functions
- * 
- */
+/* * * * * * * * * * * * * * * * * * * * *
+ * Section 6.23.2 Extension Functions    *
+ * * * * * * * * * * * * * * * * * * * * */
 static class FinalizedObjectExtension
 {
     public static void ExtensionFunction(this FinalizedObject finalObj)
@@ -72,9 +71,9 @@ public class ControllingInheritance : MonoBehaviour
     }
 
 
-    /*
-     * Section 6.32 Abstraction
-     */
+    /* * * * * * * * * * * * * * *
+     * Section 6.32 Abstraction  *
+     * * * * * * * * * * * * * * */
 
     abstract class BaseCounter
     {/*  ↑                      ┌───────────┐   */
@@ -113,9 +112,9 @@ public class ControllingInheritance : MonoBehaviour
         counter.IncrementCounter();
     }
 
-    /*
-     * Section 6.23.3 Abstract : Abstract
-     */
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 6.23.3 Abstract : Abstract  *
+     * * * * * * * * * * * * * * * * * * * */
     abstract class BaseLimitCounter : BaseCounter
     {
         public int Limit;
@@ -157,9 +156,9 @@ public class ControllingInheritance : MonoBehaviour
         // "at limit: True"
     }
 
-    /*
-     * Section 6.23.4 Controlling Inheritance: Putting it together
-     */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     * Section 6.23.4 Controlling Inheritance: Putting it together   *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     abstract class BaseTimer
     {
         public float EndTime;
@@ -215,9 +214,9 @@ public class ControllingInheritance : MonoBehaviour
         }
     }
 
-    /*
-     * Section 6.23.5 Controlling Inheritance : What We've Learned.
-     */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     * Section 6.23.5 Controlling Inheritance : What We've Learned.  *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     class NotGameTimer : GameTimer
     {
         public override bool Ended()

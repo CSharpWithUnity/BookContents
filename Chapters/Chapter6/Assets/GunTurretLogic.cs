@@ -8,6 +8,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter6_17
 {
+    using Chapter6_16;
     using System.Collections;
     using UnityEngine;
 

@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DestroyZombieOnImpact : MonoBehaviour
+namespace Chapter6_16
 {
-    private void OnCollisionEnter(Collision collision)
+    public class DestroyZombieOnImpact : MonoBehaviour
     {
-        if (collision.gameObject.GetComponent<ZombieWithStates>() != null)
+        private void OnCollisionEnter(Collision collision)
         {
-            Destroy(collision.gameObject);
-            gameObject.SetActive(false);
+            if (collision.gameObject.GetComponent<ZombieWithStates>() != null)
+            {
+                Destroy(collision.gameObject);
+                gameObject.SetActive(false);
+            }
         }
     }
 }
