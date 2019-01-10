@@ -1,19 +1,20 @@
-﻿/*
- * Chapter 7.6 Base Classes: Another Look
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 7.6 Base Classes: Another Look                            *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter7_6_1
 {
     using System;
     using System.Collections;
     using UnityEngine;
-    /*
-     * Section 7.6.1 Generalization -- Base Classes
-     */
+    #region Chapter 7.6.1 Generalization -- Base Classes
+    /* * * * * * * * * * * * * * * * * * * * * * * * *
+     * Section 7.6.1 Generalization -- Base Classes  *
+     * * * * * * * * * * * * * * * * * * * * * * * * */
     public abstract class BaseClass
     {
         #region BaseProperties
@@ -59,10 +60,12 @@ namespace Chapter7_6_1
         }
         #endregion
     }
+    #endregion
 
-    /*
-     * Section 7.6.2 Specialization
-     */
+    #region Chapter 7.6.2 Specialization
+    /* * * * * * * * * * * * * * * * *
+     * Section 7.6.2 Specialization  *
+     * * * * * * * * * * * * * * * * */
     public class ChildA : BaseClass
     {
         #region ChildA_Properties
@@ -99,10 +102,12 @@ namespace Chapter7_6_1
             Me.transform.eulerAngles = new Vector3(0, Turn, 0);
         }
     }
+    #endregion
 
-    /*
-     * Section 7.6.3 Base
-     */
+    #region Chapter 7.6.3 Base
+    /* * * * * * * * * * * *
+     * Section 7.6.3 Base  *
+     * * * * * * * * * * * */
     public class ChildB : ChildA
     {
         #region ChildB_properties
@@ -180,10 +185,12 @@ namespace Chapter7_6_1
             manager.Initialize();
         }
     }
+    #endregion
 
-    /*
-     * Section 7.6.4 Partial
-     */
+    #region Chapter 7.6.4 Partial
+    /* * * * * * * * * * * * * *
+     * Section 7.6.4 Partial   *
+     * * * * * * * * * * * * * */
     // ChildCProperties.cs
     public partial class ChildC : ChildA
     {
@@ -210,9 +217,9 @@ namespace Chapter7_6_1
         }
     }
 
-    /*
-     * Section 7.6.4 Partial Continued.
-     */
+    /* * * * * * * * * * * * * * * * * * *
+     * Section 7.6.4 Partial Continued.  *
+     * * * * * * * * * * * * * * * * * * */
     // ShapeProperties.cs
     public abstract partial class BaseShape
     {
@@ -301,10 +308,12 @@ namespace Chapter7_6_1
 
         public abstract object Current { get; }
     }
+    #endregion
 
-    /*
-     * Section 7.6.5 Protected Private and Public
-     */
+    #region Chapter 7.6.5 Protected Private and Public
+    /* * * * * * * * * * * * * * * * * * * * * * * *
+     * Section 7.6.5 Protected Private and Public  *
+     * * * * * * * * * * * * * * * * * * * * * * * */
     class ProtectedPrivateAndPublic
     {
         /* for any class : System.Object is     */
@@ -339,7 +348,6 @@ namespace Chapter7_6_1
                 MyPrivateString = "";
             }
         }
-
-
     }
+    #endregion
 }
