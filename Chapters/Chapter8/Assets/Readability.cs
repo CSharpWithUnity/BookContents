@@ -1,11 +1,11 @@
-﻿/*
- * Chapter 8.3 Readability
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 8.3 Readability                                           *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 namespace Chapter8_3
 {
@@ -15,9 +15,9 @@ namespace Chapter8_3
 
     public class Readability : MonoBehaviour
     {
-        /*
-         * Section 8.3.1 ?: Ternary Conditional Operator
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 8.3.1 ?: Ternary Conditional Operator *
+         * * * * * * * * * * * * * * * * * * * * * * * * */
         void UseTernaryConditionalOperator()
         {
             {
@@ -78,9 +78,9 @@ namespace Chapter8_3
             }
         }
 
-        /*
-         * 8.3.2 If
-         */
+        /* * * * * * *
+         * 8.3.2 If  *
+         * * * * * * */
         void UseIf()
         {
             {
@@ -110,23 +110,17 @@ namespace Chapter8_3
             }
         }
 
-        // Start is called before the first frame update
         void Start()
         {
-            /*
-             * Section 8.3.1 ?: Ternary Conditional Operator
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 8.3.1 ?: Ternary Conditional Operator   *
+             * * * * * * * * * * * * * * * * * * * * * * * * * */
             UseTernaryConditionalOperator();
-            /*
-             * Section 8.3.2 If
-             */
+
+            /* * * * * * * * * * *
+             * Section 8.3.2 If  *
+             * * * * * * * * * * */
             UseIf();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

@@ -1,28 +1,31 @@
-﻿/*
- * Chapter 5.3.3 Parent Child
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
-using UnityEngine;
-
-public class ObjectParent : MonoBehaviour
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 5.3.3 Parent Child                                        *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+namespace Chapter5_3_3
 {
-    public int ParentInt;
+    using UnityEngine;
 
-    private void Start()
+    public class ObjectParent : MonoBehaviour
     {
-        //ChildAbility();
+        public int ParentInt;
 
-        /*
-         * Uncomment the line above to see the error
-         */
-    }
+        private void Start()
+        {
+            //ChildAbility();
 
-    public void ParentAbility()
-    {
-        Debug.Log("inheritable function.");
+            /*
+             * Uncomment the line above to see the error
+             */
+        }
+
+        public void ParentAbility()
+        {
+            Debug.Log("inheritable function.");
+        }
     }
 }
