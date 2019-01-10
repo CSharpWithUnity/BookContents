@@ -1,17 +1,17 @@
-﻿/*
- * Chapter 4.11 Logic and Operators
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 4.11 Logic and Operators                                  *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter4_11
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
     public class LogicAndOperators : MonoBehaviour
     {
         #region Chapter 4.11.1 Booleans
@@ -335,12 +335,12 @@ namespace Chapter4_11
 
         void UseIfAndBranching()
         {
-            if(true)
+            if (true)
             {
                 Debug.Log("Do the thing!");
             }
 
-            if(false)
+            if (false)
             {
                 // unreachable code.
                 Debug.Log("Won't do a thing.");
@@ -351,9 +351,9 @@ namespace Chapter4_11
                 // we'll get into loops like this
                 // in the next chapter.
                 List<GameObject> cubes = new List<GameObject>();
-                for(int x = 0; x < 10; x++)
+                for (int x = 0; x < 10; x++)
                 {
-                    for(int z = 0; z < 10; z++)
+                    for (int z = 0; z < 10; z++)
                     {
                         GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
                         box.transform.position = new Vector3()
@@ -368,7 +368,7 @@ namespace Chapter4_11
                 // start a coroutine to update the colors of the cubes.
                 IEnumerator updateColors()
                 {
-                    while(true)
+                    while (true)
                     {
                         foreach (GameObject cube in cubes)
                         {
@@ -435,7 +435,7 @@ namespace Chapter4_11
              * Section 4.11.2 Logic and Operators  *
              * * * * * * * * * * * * * * * * * * * */
 
-             /* uncomment or comment the line below to see the code in action! */
+            /* uncomment or comment the line below to see the code in action! */
             UseSomeBools();
 
             /* * * * * * * * * * * *
