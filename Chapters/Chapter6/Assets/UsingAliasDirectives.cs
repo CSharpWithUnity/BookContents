@@ -6,7 +6,6 @@
  * This software may be modified and distributed under the terms   *
  * of the MIT license.  See the LICENSE file for details.          *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 namespace Chapter6_10_4
 {
     #region Chapter 6.10.4 Alias Directive

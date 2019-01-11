@@ -9,6 +9,7 @@
 namespace Chapter6_20
 {
     using UnityEngine;
+
     public class TypeCastingNumbers : MonoBehaviour
     {
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -38,9 +39,10 @@ namespace Chapter6_20
         public GameObject FloatPointer;
         void Update()
         {
-            /*
-             * Section 6.20 Type Casting Numbers
-             */
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 6.20 Type Casting Numbers *
+             * * * * * * * * * * * * * * * * * * */
+
             FloatRotationY += Time.deltaTime;
             /*   ↑                  ↓ The amount of time that's passed between Updates */
             /*   └──────────────────┘ slowly increases FloatRotationY                  */

@@ -227,9 +227,24 @@ public class ControllingInheritance : MonoBehaviour
 
     void Start()
     {
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 6.23.2 Extension Functions    *
+         * * * * * * * * * * * * * * * * * * * * */
         UseControllingInheritance();
+
+        /* * * * * * * * * * * * * * *
+         * Section 6.32 Abstraction  *
+         * * * * * * * * * * * * * * */
         UseCounter();
+
+        /* * * * * * * * * * * * * * * * * * * *
+         * Section 6.23.3 Abstract : Abstract  *
+         * * * * * * * * * * * * * * * * * * * */
         UseLimitCounter();
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 6.23.4 Controlling Inheritance: Putting it together   *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
         UseGameTimer();
     }
 }

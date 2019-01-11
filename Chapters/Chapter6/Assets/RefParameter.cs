@@ -9,10 +9,12 @@
 namespace Chapter6_19
 {
     using UnityEngine;
+
     public class RefParameter : MonoBehaviour
-    {   /*
-     * Section 6.19 Ref Parameter
-     */
+    {
+        /* * * * * * * * * * * * * * * *
+         * Section 6.19 Ref Parameter  *
+         * * * * * * * * * * * * * * * */
         void ValueAssignments()
         {
             int x = 1; /* Initial assignment of the value 1 is put into x  */
@@ -164,18 +166,21 @@ namespace Chapter6_19
              * Section 6.19 Ref Parameter  *
              * * * * * * * * * * * * * * * */
             ValueAssignments();
+            
             /* * * * * * * * * * * * * * * * * * * * * * * * * *
              * Section 6.19.1 Ref Parameter, A Basic Example.  *
              * * * * * * * * * * * * * * * * * * * * * * * * * */
             UseRefManipulateValue();
             UseRefAndOut();
             UseRefAndInAndOut();
+            
             /* * * * * * * * * * * * * * * * * * * * * * * * * *
              * Section 6.19.2 Code Portability, Side Effects   *
              * * * * * * * * * * * * * * * * * * * * * * * * * */
             Debug.Log(publicX); // "0"
             IncrementX();
             Debug.Log(publicX); // "1"
+
             /* * * * * * * * * * * * * * * * * * *
              * Section 6.19.3 What We've Learned *
              * * * * * * * * * * * * * * * * * * */

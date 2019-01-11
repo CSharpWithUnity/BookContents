@@ -9,6 +9,7 @@
 namespace Chapter6_8
 {
     using UnityEngine;
+
     public class Structs : MonoBehaviour
     {
         #region Chapter 6.8
