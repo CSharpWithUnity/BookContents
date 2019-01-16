@@ -1,11 +1,11 @@
-﻿/*
- * Chapter 8.6 Recursion
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 8.6 Recursion                                                 *
+ *                                                                       *
+ * Copyright © 2018 Alex Okita                                           *
+ *                                                                       *
+ * This software may be modified and distributed under the terms         *
+ * of the MIT license.  See the LICENSE file for details.                *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter8_6
 {
     using System.Collections;

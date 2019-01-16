@@ -1,12 +1,11 @@
-﻿/*
- * Chapter 8.9 Bitwise Operators
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
-
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 8.9 Bitwise Operators                                         *
+ *                                                                       *
+ * Copyright © 2018 Alex Okita                                           *
+ *                                                                       *
+ * This software may be modified and distributed under the terms         *
+ * of the MIT license.  See the LICENSE file for details.                *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter8_9
 {
     using System.Collections;

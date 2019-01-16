@@ -1,12 +1,11 @@
-﻿/*
- * Chapter 8.11 Attributes
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
-
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 8.11 Attributes                                               *
+ *                                                                       *
+ * Copyright © 2018 Alex Okita                                           *
+ *                                                                       *
+ * This software may be modified and distributed under the terms         *
+ * of the MIT license.  See the LICENSE file for details.                *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter8_11
 {
     using System;
