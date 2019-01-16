@@ -15,9 +15,9 @@ namespace Chapter8_7
     public class Dynamic : MonoBehaviour
     {
         #region Chapter 8.7 Dynamic
-        /*
-         * Section 8.7 Dynamic
-         */
+        /* * * * * * * * * * * *
+         * Section 8.7 Dynamic *
+         * * * * * * * * * * * */
         void UseDynamic()
         {
             dynamic d = "im a string";
@@ -55,9 +55,9 @@ namespace Chapter8_7
         #endregion
 
         #region Chapter 8.7.1 ExpandoObject
-        /*
-         * Section 8.7.1 Dynamic
-         */
+        /* * * * * * * * * * * * * * * *
+         * Section 8.7.1 ExpandoObject *
+         * * * * * * * * * * * * * * * */
         void UseExpandoObject()
         {
             dynamic expando = new System.Dynamic.ExpandoObject();
@@ -78,9 +78,9 @@ namespace Chapter8_7
         #endregion
 
         #region Chapter 8.7.2 Expando Reader
-        /*
-         * Section 8.7.2 Expando Reader
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.7.2 Expando Reader  *
+         * * * * * * * * * * * * * * * * */
         void UseExpandoReader()
         {
             /* some data in string format */
@@ -133,19 +133,19 @@ namespace Chapter8_7
         // Start is called before the first frame update
         void Start()
         {
-            /*
-             * Section 8.7 Dynamic
-             */
+            /* * * * * * * * * * * *
+             * Section 8.7 Dynamic *
+             * * * * * * * * * * * */
             //UseDynamic();
 
-            /*
-             * Section 8.7.1 ExpandoObject
-             */
+            /* * * * * * * * * * * * * * * *
+             * Section 8.7.1 ExpandoObject *
+             * * * * * * * * * * * * * * * */
             //UseExpandoObject();
 
-            /*
-             * Section 8.7.2 Expando Reader
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.7.2 Expando Reader  *
+             * * * * * * * * * * * * * * * * */
             UseExpandoReader();
         }
     }

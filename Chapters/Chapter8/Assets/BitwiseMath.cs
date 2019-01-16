@@ -1,5 +1,5 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Chapter 8.9 Bitwise Operators                                         *
+ * Chapter 8.10 Bitwise Operators                                        *
  *                                                                       *
  * Copyright © 2018 Alex Okita                                           *
  *                                                                       *
@@ -14,21 +14,22 @@ namespace Chapter8_9
 
     public class BitwiseMath : MonoBehaviour
     {
-        /*
-         * Section 8.11 Bitwise Math
-         * 
-         * A byte is an array of bits 1 or 0
-         * or true/false.
-         * A byte is 8 bits long.
-         * A byte[] is an array of bits arranged
-         * into groups of 8 for each byte.
-         */
+
+        /* * * * * * * * * * * * * * *
+         * Section 8.10 Bitwise Math *
+         * * * * * * * * * * * * * * */
+
+        /* A byte is an array of bits 1 or 0     *
+         * or true/false.                        *
+         * A byte is 8 bits long.                *
+         * A byte[] is an array of bits arranged *
+         * into groups of 8 for each byte.       */
         void ShowBits(byte B)
         {
-            /* BitArray only converts from
-             * an array of byte, not a single
-             * byte ¯\_(ツ)_/¯
-             */
+            /* BitArray only converts from       *
+             * an array of byte, not a single    *
+             * byte ¯\_(ツ)_/¯                   */
+
             byte[] array = new byte[] { B };
             BitArray bits = new BitArray(array);
             string log = "bits in " + B + ":\n";
@@ -59,9 +60,9 @@ namespace Chapter8_9
             Debug.Log(log);
         }
 
-        /*
-         * Section 8.10 Bitwise Math
-         */
+        /* * * * * * * * * * * * * * *
+         * Section 8.10 Bitwise Math *
+         * * * * * * * * * * * * * * */
         void UseHex()
         {
             byte ff = 0xff;
@@ -78,9 +79,9 @@ namespace Chapter8_9
 
         }
 
-        /*
-         * Section 8.10.2 Twos Complement
-         */
+        /* * * * * * * * * * * * * * * * * *
+         * Section 8.10.2 Twos Complement  *
+         * * * * * * * * * * * * * * * * * */
         void UseTwosComplement()
         {
 
@@ -119,9 +120,9 @@ namespace Chapter8_9
             // 00111001111111111111111111111111
         }
 
-        /*
-         * Section 8.10.3 Bitwise Addition and Subtraction
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 8.10.3 Bitwise Addition and Subtraction *
+         * * * * * * * * * * * * * * * * * * * * * * * * * */
         void UseBitwiseAdditionAndSubtraction()
         {
             {
@@ -236,9 +237,9 @@ namespace Chapter8_9
             return timesDivided;
         }
 
-        /*
-         * Section 8.10.4 Bitwise Tricks
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.10.4 Bitwise Tricks *
+         * * * * * * * * * * * * * * * * */
         void UseBitwiseTricks()
         {
             // checks if both are positive
@@ -279,24 +280,24 @@ namespace Chapter8_9
 
         void Start()
         {
-            /*
-             * Section 8.10 Bitwise Math
-             */
+            /* * * * * * * * * * * * * * * *
+             * Section 8.10 Bitwise Math   *
+             * * * * * * * * * * * * * * * */
             //UseHex();
 
-            /*
-             * Section 8.10.2 Twos Complement
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.10.2 Twos Complement  *
+             * * * * * * * * * * * * * * * * * */
             //UseTwosComplement();
 
-            /*
-             * Section 8.10.3 Bitwise Addition and Subtraction
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 8.10.3 Bitwise Addition and Subtraction *
+             * * * * * * * * * * * * * * * * * * * * * * * * * */
             UseBitwiseAdditionAndSubtraction();
 
-            /*
-             * Section 8.10.4 Bitwise Tricks
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.10.4 Bitwise Tricks *
+             * * * * * * * * * * * * * * * * */
             UseBitwiseTricks();
 
         }

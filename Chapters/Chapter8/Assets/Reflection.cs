@@ -233,32 +233,24 @@ namespace Chapter8_4
         #endregion
         private void Start()
         {
-            /*
-             * Section 8.7.1 Reflection
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * *
+             * Section 8.7.1 Reflection  *
+             * * * * * * * * * * * * * * */
             UseReflectClass();
 
-            /*
-             * Section 8.7.1.1 A Basic Example
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.7.1.1 A Basic Example *
+             * * * * * * * * * * * * * * * * * */
             UseHasAFunction();
 
-            /*
-             * Section 8.7.2 Reflection MethodInfo
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * * * * * * *
+             * Section 8.7.2 Reflection MethodInfo *
+             * * * * * * * * * * * * * * * * * * * */
             UseReflectOnPerson();
 
-            /*
-             * Section 8.7.2 Reflection MethodInfo
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * * * * * * *
+             * Section 8.7.2 Reflection MethodInfo *
+             * * * * * * * * * * * * * * * * * * * */
             UseWhatWeveLearned();
         }
 

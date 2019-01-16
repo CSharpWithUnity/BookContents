@@ -13,15 +13,15 @@ namespace Chapter8_9
 
     public class BitwiseOperators : MonoBehaviour
     {
-        /*
-         * Section 8.9 Bitwise Operators
-         * 
-         * A byte is an array of bits 1 or 0
-         * or true/false.
-         * A byte is 8 bits long.
-         * A byte[] is an array of bits arranged
-         * into groups of 8 for each byte.
-         */
+        /* * * * * * * * * * * * * * * * * *
+         * Section 8.9 Bitwise Operators   *
+         * * * * * * * * * * * * * * * * * */
+        
+        /* A byte is an array of bits 1 or 0        *
+         * or true/false.                           *
+         * A byte is 8 bits long.                   *
+         * A byte[] is an array of bits arranged    *
+         * into groups of 8 for each byte.          */
 
         void ShowBits(byte B)
         {
@@ -111,15 +111,15 @@ namespace Chapter8_9
             // 0
         }
 
-        /*
-         * Section 8.9.3 Bitwise Or |
-         * 
-         *    1248
-         *    1001 =  9
-         *    1010 =  5
-         *  | _________
-         *    1011 = 13
-         */
+        /* * * * * * * * * * * * * * * *
+         * Section 8.9.3 Bitwise Or |  *
+         * * * * * * * * * * * * * * * */
+
+        /*    1248          *
+         *    1001 =  9     *
+         *    1010 =  5     *
+         *  | _________     *
+         *    1011 = 13     */
         void UseBitwiseOr()
         {
             {
@@ -132,11 +132,11 @@ namespace Chapter8_9
             }
         }
 
-        /*
-         * Section 8.9.4 Enums and Numbers
-         *
-         * multi class characters
-         */
+        /* * * * * * * * * * * * * * * * * *
+         * Section 8.9.4 Enums and Numbers *
+         * * * * * * * * * * * * * * * * * */
+
+        /* multi class characters */
 
         enum CharacterClasses
         {
@@ -165,20 +165,19 @@ namespace Chapter8_9
             // 10100000
         }
 
-        /*
-         * Section 8.9.5 Bitwise And &
-         * 
-         *    1248
-         *    1001 =  9
-         *    1010 =  5
-         *  & _________
-         *    1000 =  1
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.9.5 Bitwise And &   *
+         * * * * * * * * * * * * * * * * */
+
+        /*    1248          *
+         *    1001 =  9     *
+         *    1010 =  5     *
+         *  & _________     *
+         *    1000 =  1     */
         void UseAndCharacterClasses()
         {
-            /* & "And" also known as Ampersand
-             * the & operator shows us what matches
-             */
+            /* & "And" also known as Ampersand      *
+             * the & operator shows us what matches */
             uint a = 5;     // 1 + 0 + 4 = 5
             uint b = 6;     // 0 + 2 + 4 = 6
             uint c = a & b; // 0 + 0 + 4 = 7
@@ -221,14 +220,15 @@ namespace Chapter8_9
             // 00000000
         }
 
-        /*
-         * Section 8.9.5 Bitwise Xor ^
-         *    1248
-         *    1001 =  9
-         *    1010 =  5
-         *  ^ _________
-         *    0011 = 12
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.9.5 Bitwise Xor ^   *
+         * * * * * * * * * * * * * * * * */
+
+        /*    1248          *
+         *    1001 =  9     *
+         *    1010 =  5     *
+         *  ^ _________     *
+         *    0011 = 12     */
         void UseXorCharacterClasses()
         {
             /* ^ "Xor" also known as caret
@@ -268,9 +268,9 @@ namespace Chapter8_9
             // multiClass is Thief:True
         }
 
-        /*
-         * Section 8.9.7 Setting Bitwise Flags
-         */
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 8.9.7 Setting Bitwise Flags   *
+         * * * * * * * * * * * * * * * * * * * * */
         void UseSettingBitwiseFlags()
         {
             CharacterClasses addClass(CharacterClasses a, CharacterClasses b)
@@ -297,9 +297,9 @@ namespace Chapter8_9
             // newbie is a farmer:True
         }
 
-        /*
-         * Section 8.9.8 Bitwise Shortcuts
-         */
+        /* * * * * * * * * * * * * * * * * *
+         * Section 8.9.8 Bitwise Shortcuts *
+         * * * * * * * * * * * * * * * * * */
         void UseBitwiseShortcuts()
         {
             CharacterClasses character = CharacterClasses.Farmer;
@@ -318,9 +318,9 @@ namespace Chapter8_9
 
         }
 
-        /*
-         * Section 8.9.9 Bits in Numbers
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.9.9 Bits in Numbers *
+         * * * * * * * * * * * * * * * * */
         void UseBitsInNumbers()
         {
             int number = 758;
@@ -331,10 +331,11 @@ namespace Chapter8_9
             Debug.Log("number:" + number + " is even:" + evenMod);
         }
 
-        /*
-         * Section 8.9.10 Bit Shifting
-         * Observing how << and >> work
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.9.10 Bit Shifting   *
+         * * * * * * * * * * * * * * * * */
+
+        /* Observing how << and >> work  */
         enum Alignments
         {
             Neutral = 0,
@@ -419,49 +420,49 @@ namespace Chapter8_9
 
         void Start()
         {
-            /*
-             * Section 8.9 Bitwise Operators
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.9 Bitwise Operators *
+             * * * * * * * * * * * * * * * * */
             ReadBits();
 
-            /*
-             * Section 8.9.3 Bitwise Or |
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.9.3 Bitwise Or |    *
+             * * * * * * * * * * * * * * * * */
             UseBitwiseOr();
 
-            /*
-             * Section 8.9.4 Enums and Numbers
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.9.4 Enums and Numbers *
+             * * * * * * * * * * * * * * * * * */
             UseOrCharacterClasses();
 
-            /*
-             * Section 8.9.5 Bitwise And &
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.9.5 Bitwise And &   *
+             * * * * * * * * * * * * * * * * */
             UseAndCharacterClasses();
 
-            /*
-             * Section 8.9.6 Bitwise Xor ^
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.9.6 Bitwise Xor ^   *
+             * * * * * * * * * * * * * * * * */
             UseXorCharacterClasses();
 
-            /*
-             * Section 8.9.7 Setting Bitwise Flags
-             */
+            /* * * * * * * * * * * * * * * * * * * * *
+             * Section 8.9.7 Setting Bitwise Flags   *
+             * * * * * * * * * * * * * * * * * * * * */
             UseSettingBitwiseFlags();
 
-            /*
-             * Section 8.9.8 Bitwise Shortcuts
-             */
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 8.9.8 Bitwise Shortcuts   *
+             * * * * * * * * * * * * * * * * * * */
             UseBitwiseShortcuts();
 
-            /*
-             * Section 8.9.9 Bits in Numbers
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.9.9 Bits in Numbers *
+             * * * * * * * * * * * * * * * * */
             UseBitsInNumbers();
 
-            /*
-             * Section 8.9.10 Bit Shifting
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.9.10 Bit Shifting   *
+             * * * * * * * * * * * * * * * * */
             UseBitShifting();
         }
     }

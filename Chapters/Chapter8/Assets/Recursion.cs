@@ -14,9 +14,9 @@ namespace Chapter8_6
 
     public class Recursion : MonoBehaviour
     {
-        /*
-         * Section 8.6 Recursion
-         */
+        /* * * * * * * * * * * * *
+         * Section 8.6 Recursion *
+         * * * * * * * * * * * * */
         void UseLoops()
         {
             {   //for loop
@@ -73,9 +73,9 @@ namespace Chapter8_6
             }
         }
 
-        /*
-         * Section 8.6.1 Recursion : A Basic Example
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 8.6.1 Recursion : A Basic Example *
+         * * * * * * * * * * * * * * * * * * * * * * */
         void UseRecursion()
         {
             // begin function  /*                               */
@@ -91,9 +91,9 @@ namespace Chapter8_6
             }                  /*                               */
         }
 
-        /*
-         * Section 8.6.2 Understanding Recursion
-         */
+        /* * * * * * * * * * * * * * * * * * * * *
+         * Section 8.6.2 Understanding Recursion *
+         * * * * * * * * * * * * * * * * * * * * */
         void UseUnderstandingRecursion()
         {
             {
@@ -125,9 +125,9 @@ namespace Chapter8_6
             }
         }
 
-        /*
-         * Section 8.6.3 In Practice
-         */
+        /* * * * * * * * * * * * * * *
+         * Section 8.6.3 In Practice *
+         * * * * * * * * * * * * * * */
         void UseHierarchy()
         {
             GameObject top = new GameObject("6_0");
@@ -210,13 +210,13 @@ namespace Chapter8_6
             }
         }
 
-        /*
-         * Section 8.6.4 Recursion Types
-         * 
-         * this will produce a list of 326 objects
-         * if the UseObjectHieararchy() is called
-         * just before the list is built.
-         */
+        /* * * * * * * * * * * * * * * * * *
+         * Section 8.6.4 Recursion Types   *
+         * * * * * * * * * * * * * * * * * */ 
+         
+        /* this will produce a list of 326 objects  *
+         * if the UseObjectHieararchy() is called   *
+         * just before the list is built.           */
 
         void UseListBuilder()
         {
@@ -245,63 +245,47 @@ namespace Chapter8_6
         }
         void Start()
         {
-            /*
-             * Section 8.6 Recursion
-             * 
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * *
+             * Section 8.6 Recursion *
+             * * * * * * * * * * * * */
             //UseLoops();
 
-            /*
-             * Section 8.6.1 Recursion : A Basic Example
-             * 
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * *
+             * Section 8.6.1 Recursion : A Basic Example *
+             * * * * * * * * * * * * * * * * * * * * * * */
             //UseRecursion();
 
-            /*
-             * Section 8.6.2 Understanding Recursion
-             * 
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * * * * * * * *
+             * Section 8.6.2 Understanding Recursion *
+             * * * * * * * * * * * * * * * * * * * * */
             //UseUnderstandingRecursion();
 
-            /*
-             * Section 8.6.3 In Practice
-             * 
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * *
+             * Section 8.6.3 In Practice *
+             * * * * * * * * * * * * * * */ 
             //UseHierarchy();
             UseObjectHieararchy();
 
-            /*
-             * Section 8.6.4 Recursion Types
-             * 
-             * Uncomment the line below to see the
-             * process in action.
-             * 
-             * use this function after
-             * the UseObjectHierarchy()
-             * function has been called.
-             * and the list generated
-             * will be populated with
-             * the objects in the hierarchy
-             */
+            /* * * * * * * * * * * * * * * * *
+             * Section 8.6.4 Recursion Types *
+             * * * * * * * * * * * * * * * * */
+            /* Uncomment the line below to see the *
+             * process in action.                  *
+             *                                     *
+             * use this function after             *
+             * the UseObjectHierarchy()            *
+             * function has been called.           *
+             * and the list generated              *
+             * will be populated with              *
+             * the objects in the hierarchy        */
             UseListBuilder();
         }
 
         void Update()
         {
-            /*
-             * Section 8.6.3 In Practice
-             * 
-             * Uncomment the line below to see the
-             * process in action.
-             */
+            /* * * * * * * * * * * * * * *
+             * Section 8.6.3 In Practice *
+             * * * * * * * * * * * * * * */
             RotateHierarchy(hub.transform);
         }
     }

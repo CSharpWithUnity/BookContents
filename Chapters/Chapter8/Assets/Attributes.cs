@@ -18,19 +18,20 @@ namespace Chapter8_11
 
     public class Attributes : MonoBehaviour
     {
-        /*
-         * Section 8.11 Attributes
-         * Serializable makes a data
-         * structure into something that
-         * can be saved.
-         * 
-         * This includes the Unity Editor!
-         */
+        #region Chapter 8.11 Attributes
+        /* * * * * * * * * * * * * * * * *
+         * Section 8.11 Attributes       *
+         * * * * * * * * * * * * * * * * *
+         
+        /* Serializable makes a data       *
+         * structure into something that   *
+         * can be saved.                   *
+         *                                 *
+         * This includes the Unity Editor! */
 
-        /* Serializable attribute will
-         * reveal the DataParameters to
-         * the Inspector panel in the Editor.
-         */
+        /* Serializable attribute will        *
+         * reveal the DataParameters to       *
+         * the Inspector panel in the Editor. */
         [Serializable]
         public class DataParameters
         {
@@ -99,10 +100,12 @@ namespace Chapter8_11
 
             data = ReadData(path);
         }
+        #endregion
 
-        /*
-         * Section 8.11.2 Custom Attributes
-         */
+        #region Chapter 8.11.2 Custom Attributes
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 8.11.2 Custom Attributes  *
+         * * * * * * * * * * * * * * * * * * */
 
         [AttributeUsage(AttributeTargets.All)]
         class CustomAttribute : Attribute
@@ -128,9 +131,9 @@ namespace Chapter8_11
             // A Custom Attribute
         }
 
-        /*
-         * 8.11.2.1 Custom Attributes for Default Values
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * * * * *
+         * 8.11.2.1 Custom Attributes for Default Values   *
+         * * * * * * * * * * * * * * * * * * * * * * * * * */
         [AttributeUsage(AttributeTargets.Field)]
         class DefaultValue : Attribute
         {
@@ -176,10 +179,12 @@ namespace Chapter8_11
             Debug.Log("character.Time " + character.Time);
             // character.Time 0
         }
+        #endregion
 
-        /*
-         * Section 8.11.4 Multiple Attributes
-         */
+        #region Chapter 8.11.4 Multiple Attributes
+        /* * * * * * * * * * * * * * * * * * * *
+         * Section 8.11.4 Multiple Attributes  *
+         * * * * * * * * * * * * * * * * * * * */
         [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = true)]
         class SpecialAttribute : Attribute
         {
@@ -189,13 +194,12 @@ namespace Chapter8_11
         {                                                         /* being inherited by child */
         }                                                         /* classes                  */
 
-        /* Multiple attributes
-         * can be added separated by
-         * a comma. Also note that
-         * these are actually SpecialAttribute
-         * and SuperficialAttribute, but
-         * the "Attribute" has been trimmed.
-         */
+        /* Multiple attributes                 *
+         * can be added separated by           *
+         * a comma. Also note that             *
+         * these are actually SpecialAttribute *
+         * and SuperficialAttribute, but       *
+         * the "Attribute" has been trimmed.   */
         [Special, Superficial]
         class BaseThing
         {
@@ -229,10 +233,12 @@ namespace Chapter8_11
                 // Attributes+SpecialAttribute
             }
         }
+        #endregion
 
-        /*
-         * Section 8.11.5 Putting Attributes to Work
-         */
+        #region Chapter 8.11.5 Putting Attributes to Work
+        /* * * * * * * * * * * * * * * * * * * * * * *
+         * Section 8.11.5 Putting Attributes to Work *
+         * * * * * * * * * * * * * * * * * * * * * * */
         [AttributeUsage(AttributeTargets.Method |
                         AttributeTargets.Event |
                         AttributeTargets.Delegate,
@@ -281,19 +287,17 @@ namespace Chapter8_11
                                 where m.GetCustomAttribute<UpdateAttribute>() is UpdateAttribute
                                 select m;
 
-            /* hold onto the coroutines incase
-             * we want to kill them later.
-             */
+            /* hold onto the coroutines incase *
+             * we want to kill them later.     */
             List<IEnumerator> routineList = new List<IEnumerator>();
 
             // has methods with update attribute
             foreach (var method in updateMethods)
             {
-                /* inner function for each
-                 * method with custom attribute
-                 * inner function can pretty much
-                 * appear anywhere.
-                 */
+                /* inner function for each          *
+                 * method with custom attribute     *
+                 * inner function can pretty much   *
+                 * appear anywhere.                 */
                 IEnumerator updater()
                 {
                     while (true)
@@ -311,32 +315,33 @@ namespace Chapter8_11
                 StartCoroutine(e);
             }
         }
+        #endregion
 
         void Start()
         {
-            /*
-             * Section 8.11 Attributes
-             */
+            /* * * * * * * * * * * * * *
+             * Section 8.11 Attributes *
+             * * * * * * * * * * * * * */
             UseSerializedFields();
 
-            /*
-             * Section 8.11.2 Custom Attributes
-             */
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 8.11.2 Custom Attributes  *
+             * * * * * * * * * * * * * * * * * * */
             UseCustomAttribute();
 
-            /*
-             * Section 8.11.3 Custom Attributes for Default Values
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+             * Section 8.11.3 Custom Attributes for Default Values *
+             * * * * * * * * * * * * * * * * * * * * * * * * * * * */
             UseDefaultAttribute();
 
-            /*
-             * Section 8.11.4 Multiple Attributes
-             */
+            /* * * * * * * * * * * * * * * * * * * *
+             * Section 8.11.4 Multiple Attributes  *
+             * * * * * * * * * * * * * * * * * * * */
             UseMultipleAttributes();
 
-            /*
-             * Section 8.11.5 Putting Attributes to Work
-             */
+            /* * * * * * * * * * * * * * * * * * * * * * *
+             * Section 8.11.5 Putting Attributes to Work *
+             * * * * * * * * * * * * * * * * * * * * * * */
             UseUpdateAttribute();
         }
     }
