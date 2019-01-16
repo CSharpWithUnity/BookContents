@@ -1,11 +1,11 @@
-﻿/*
- * Chapter 8.8 LINQ
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 8.8 LINQ                                                      *
+ *                                                                       *
+ * Copyright © 2018 Alex Okita                                           *
+ *                                                                       *
+ * This software may be modified and distributed under the terms         *
+ * of the MIT license.  See the LICENSE file for details.                *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 namespace Chapter8_8
 {
@@ -17,13 +17,13 @@ namespace Chapter8_8
 
     public class Linq : MonoBehaviour
     {
-        /*
-         * Section 8.8.1 Lambdas and Arrays
-         * 
-         * Observe above in the header we
-         * include 'using System.Linq;'
-         * this adds some new keywords!
-         */
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 8.8.1 Lambdas and Arrays  *
+         * * * * * * * * * * * * * * * * * * */
+
+        /* Observe above in the header we    *
+         * include 'using System.Linq;'      *
+         * this adds some new keywords!      */
         void UseLinqOnArray()
         {
             {
@@ -47,20 +47,19 @@ namespace Chapter8_8
             }
             {
                 int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-                /*      └──────────────❶─────┐ numbers is an array    */
-                /*                  ┌──❷──┐  ↓ n is each object in    */
-                /*                  ↓     ↑  ↓ the number array.      */
+                /*      └──────────────❶────┐ numbers is an array    */
+                /*                  ┌──❷──┐ ↓ n is each object in    */
+                /*                  ↓     ↑ ↓ the number array.      */
                 var evenNums = from n in numbers
-                                   /*    ↑ the result  ↓                                 */
-                                   /*    ❺ is added to └❸┐ an operation is performed     */
-                                   /*    │ evenNums      ↓ on each object in the array   */
-                                   /*    │      */
-                               where (n % 2) == 0
-                               /*    │               ↓ if this operation is true     */
-                               /*    │               ❹ the value is added to         */
-                               /*    │               ↓ the result of the statement   */
-                               /*    └─────←*/
-                               select n;
+                /*    ↑ the result  ↓                                 */
+                /*    ❺ is added to └❸┐ an operation is performed     */
+                /*    │ evenNums      ↓ on each object in the array   */
+                /*    │      */where (n % 2) == 0
+                /*    │               ↓ if this operation is true     */
+                /*    │               ❹ the value is added to         */
+                /*    │               ↓ the result of the statement   */
+                /*    └─────←*/select n;
+
                 // Linq adds the keywords, from
                 // where and select.
                 foreach (int n in evenNums)
@@ -73,13 +72,12 @@ namespace Chapter8_8
                 // 6
                 // 8
                 // 10
-
             }
         }
 
-        /*
-         * Section 8.8.2 Var
-         */
+        /* * * * * * * * * * *
+         * Section 8.8.2 Var *
+         * * * * * * * * * * */
         void UseVar()
         {
             var aThingHere = 7;
@@ -105,9 +103,9 @@ namespace Chapter8_8
             //someThing = anotherThing;
         }
 
-        /*
-         * Section 8.8.3 Linq From
-         */
+        /* * * * * * * * * * * * * *
+         * Section 8.8.3 Linq From *
+         * * * * * * * * * * * * * */
         class Zombie
         {
             public int hitPoints;
@@ -138,22 +136,23 @@ namespace Chapter8_8
             // a bunch of numbers < 50!
         }
 
-        /*
-         * Section 8.8.4 Strange Behavior in Linq
-         */
+        /* * * * * * * * * * * * * * * * * * * * * *
+         * Section 8.8.4 Strange Behavior in Linq  *
+         * * * * * * * * * * * * * * * * * * * * * */
         void UseStrangeBehaviour()
         {
             //declare an array
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var divisibleByThree = from n in numbers
-                                       /*  ↓     */
-                                   where (n % 3) == 0
-                                   /*  └───┐ */
-                                   select n;
-            numbers[0] = 1;/*  │ */
-            numbers[3] = 1;/*  │  changes made to numbers not to         */
-            numbers[6] = 30;/* │  divisibleByThree but divisibleByThree  */
-            numbers[9] = 300;/*↓  still knows it's function              */
+            var divisibleByThree = from number in numbers
+                                       /*  ↓            */
+                                       /*  ↓            */
+                                   where (number % 3) == 0
+                                   /*      ↓            */
+                                   select number;
+            numbers[0] = 1;        /*      │            */
+            numbers[3] = 1;        /*      │  changes made to numbers not to         */
+            numbers[6] = 30;       /*      │  divisibleByThree but divisibleByThree  */
+            numbers[9] = 300;      /*      ↓  still knows it's function              */
             foreach (int i in divisibleByThree)
             {
                 Debug.Log(i);
@@ -264,9 +263,9 @@ namespace Chapter8_8
             }
         }
 
-        /*
-         * Section 8.8.6 Monsters Linq
-         */
+        /* * * * * * * * * * * * * * * *
+         * Section 8.8.6 Monsters Linq *
+         * * * * * * * * * * * * * * * */
 
         public enum Alignments
         {
@@ -359,9 +358,8 @@ namespace Chapter8_8
                 Debug.Log(log);
             }
             {
-                /* this will use the Name Comparer to filter out
-                 * monsters with the same name
-                 */
+                /* this will use the Name Comparer to filter out *
+                 * monsters with the same name                   */
                 MonsterNameEqualityComparer nameEqualer = new MonsterNameEqualityComparer();
                 var unique = monsters.Distinct(nameEqualer).ToArray();
                 //about a third of the names will be removed.
@@ -374,10 +372,9 @@ namespace Chapter8_8
                 Debug.Log(log);
             }
             {
-                /* this will use the Name Comparer to sort the names
-                 * then we filter out repeated names but ignores
-                 * alignments.
-                 */
+                /* this will use the Name Comparer to sort the names    *
+                 * then we filter out repeated names but ignores        *
+                 * alignments.                                          */
                 MonsterNameComparer compareNames = new MonsterNameComparer();
                 MonsterNameEqualityComparer nameEqualer = new MonsterNameEqualityComparer();
                 var distinctOrdered = monsters.OrderBy(m => m, compareNames).Distinct(nameEqualer);
@@ -391,10 +388,9 @@ namespace Chapter8_8
                 Debug.Log(log);
             }
             {
-                /* this uses lambdas to sort the names
-                 * then we filter out repeated names but ignores
-                 * alignments.
-                 */
+                /* this uses lambdas to sort the names              *
+                 * then we filter out repeated names but ignores    *
+                 * alignments.                                      */
                 var distinctOrdered = monsters.OrderBy(m => m.Name)
                                               .GroupBy(m => m.Name)
                                               .Select(group => group.First());
@@ -408,10 +404,9 @@ namespace Chapter8_8
                 Debug.Log(log);
             }
             {
-                /* this does the same name sorting and
-                 * also filters out repeats, but ignores
-                 * alignment.
-                 */
+                /* this does the same name sorting and      *
+                 * also filters out repeats, but ignores    *
+                 * alignment.                               */
                 var distinctOrdered = from monster in monsters
                                       orderby monster.Name ascending
                                       group monster by monster.Name into uniqueNames
@@ -426,10 +421,9 @@ namespace Chapter8_8
                 Debug.Log(log);
             }
             {
-                /* This produces the grouped data which is a Dictionary
-                 * where the orderby turns the Name property into a Key
-                 * to sort the array.
-                 */
+                /* This produces the grouped data which is a Dictionary     *
+                 * where the orderby turns the Name property into a Key     *
+                 * to sort the array.                                       */
                 var distinctOrdered = from monster in monsters
                                       orderby monster.Name ascending
                                       group monster by monster.Name into uniqueNames
@@ -459,10 +453,9 @@ namespace Chapter8_8
             }
 
             {
-                /* This produces a list of all 100 monsters
-                 * they are grouped together based on their
-                 * names and alignments.
-                 */
+                /* This produces a list of all 100 monsters *
+                 * they are grouped together based on their *
+                 * names and alignments.                    */
                 var sorted = monsters.OrderBy
                 (
                     m =>
@@ -479,9 +472,8 @@ namespace Chapter8_8
             }
 
             {
-                /* This picks out monsters with HP above 9
-                 * then lists them out.
-                 */
+                /* This picks out monsters with HP above 9  *
+                 * then lists them out.                     */
                 var strongMonsters = monsters.Where
                 (
                     monster =>
@@ -498,12 +490,11 @@ namespace Chapter8_8
 
 
             {
-                /* This picks out monsters with HP above 9
-                 * then lists them out. This and the above
-                 * statements are equivalent. The only difference
-                 * is the syntax and use of keywords in place
-                 * of anonymous lambda like syntax.
-                 */
+                /* This picks out monsters with HP above 9          *
+                 * then lists them out. This and the above          *
+                 * statements are equivalent. The only difference   *
+                 * is the syntax and use of keywords in place       *
+                 * of anonymous lambda like syntax.                 */
                 var strongMonsters = from monster in monsters
                                      where monster.HP > 9
                                      select monster;
@@ -518,9 +509,9 @@ namespace Chapter8_8
             }
 
             {
-                /* Objects in the linq statement can see
-                 * variables in its immediate scope
-                 */
+                /* Objects in the linq statement can see *
+                 * variables in its immediate scope      */
+
                 Monster ComparedTo = new Monster();/* →─────┐          ComparedTo can  */
                 var weakerThan = from monster in monsters/* ↓          be used in the  */
                                  where monster.HP < ComparedTo.HP/* where statement */
@@ -538,44 +529,44 @@ namespace Chapter8_8
 
         void Start()
         {
-            /*
-             * Section 8.8.1 Lambdas and Arrays
-             * 
-             * uncomment the line below to see
-             * the function in action.
-             */
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 8.8.1 Lambdas and Arrays  *
+             * * * * * * * * * * * * * * * * * * */
+            
+            /* uncomment the line below to see  *
+             * the function in action           */
             UseLinqOnArray();
 
-            /*
-             * Section 8.8.2 Var
-             * 
-             * uncomment the line below to see
-             * the function in action.
-             */
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 8.8.2 Var                 *
+             * * * * * * * * * * * * * * * * * * */
+
+            /* uncomment the line below to see  *
+             * the function in action           */
             UseVar();
 
-            /*
-             * Section 8.8.2 Var
-             * 
-             * uncomment the line below to see
-             * the function in action.
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.8.2 Var               *
+             * * * * * * * * * * * * * * * * * */
+
+            /* uncomment the line below to see  *
+             * the function in action.          */
             UseFindZombies();
 
-            /*
-             * Section 8.8.2 Var
-             * 
-             * uncomment the line below to see
-             * the function in action.
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.8.2 Var               *
+             * * * * * * * * * * * * * * * * * */
+
+            /* uncomment the line below to see  *
+             * the function in action.          */
             UseStrangeBehaviour();
 
-            /*
-             * Section 8.8.2 Var
-             * 
-             * uncomment the line below to see
-             * the function in action.
-             */
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.8.2 Var               *
+             * * * * * * * * * * * * * * * * * */
+
+            /* uncomment the line below to see  *
+             * the function in action.          */
             UseLinqOnLists();
             UseComparerClasses();
         }
