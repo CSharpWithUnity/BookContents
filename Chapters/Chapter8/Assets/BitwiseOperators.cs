@@ -1,12 +1,12 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Chapter 8.9 Bitwise Operators                                         *
+ * Chapter 8.8 Bitwise Operators                                         *
  *                                                                       *
  * Copyright © 2018 Alex Okita                                           *
  *                                                                       *
  * This software may be modified and distributed under the terms         *
  * of the MIT license.  See the LICENSE file for details.                *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Chapter8_9
+namespace Chapter8_8
 {
     using System.Collections;
     using UnityEngine;
@@ -14,9 +14,14 @@ namespace Chapter8_9
     public class BitwiseOperators : MonoBehaviour
     {
         /* * * * * * * * * * * * * * * * * *
-         * Section 8.9 Bitwise Operators   *
+         * Section 8.8 Bitwise Operators   *
          * * * * * * * * * * * * * * * * * */
-        
+        void UseWhatEndian()
+        {
+            bool isLittleEndian = System.BitConverter.IsLittleEndian;
+            Debug.Log("Is Little Endian?: " + (isLittleEndian?"Yes":"No"));
+            // Is Little Endian?: Yes
+        }
         /* A byte is an array of bits 1 or 0        *
          * or true/false.                           *
          * A byte is 8 bits long.                   *
@@ -112,7 +117,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * *
-         * Section 8.9.3 Bitwise Or |  *
+         * Section 8.8.3 Bitwise Or |  *
          * * * * * * * * * * * * * * * */
 
         /*    1248          *
@@ -133,7 +138,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * * *
-         * Section 8.9.4 Enums and Numbers *
+         * Section 8.8.4 Enums and Numbers *
          * * * * * * * * * * * * * * * * * */
 
         /* multi class characters */
@@ -166,7 +171,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * *
-         * Section 8.9.5 Bitwise And &   *
+         * Section 8.8.5 Bitwise And &   *
          * * * * * * * * * * * * * * * * */
 
         /*    1248          *
@@ -221,7 +226,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * *
-         * Section 8.9.5 Bitwise Xor ^   *
+         * Section 8.8.5 Bitwise Xor ^   *
          * * * * * * * * * * * * * * * * */
 
         /*    1248          *
@@ -269,7 +274,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * * * * * *
-         * Section 8.9.7 Setting Bitwise Flags   *
+         * Section 8.8.7 Setting Bitwise Flags   *
          * * * * * * * * * * * * * * * * * * * * */
         void UseSettingBitwiseFlags()
         {
@@ -298,7 +303,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * * *
-         * Section 8.9.8 Bitwise Shortcuts *
+         * Section 8.8.8 Bitwise Shortcuts *
          * * * * * * * * * * * * * * * * * */
         void UseBitwiseShortcuts()
         {
@@ -319,7 +324,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * *
-         * Section 8.9.9 Bits in Numbers *
+         * Section 8.8.9 Bits in Numbers *
          * * * * * * * * * * * * * * * * */
         void UseBitsInNumbers()
         {
@@ -332,7 +337,7 @@ namespace Chapter8_9
         }
 
         /* * * * * * * * * * * * * * * * *
-         * Section 8.9.10 Bit Shifting   *
+         * Section 8.8.10 Bit Shifting   *
          * * * * * * * * * * * * * * * * */
 
         /* Observing how << and >> work  */
@@ -420,48 +425,53 @@ namespace Chapter8_9
 
         void Start()
         {
+            /* * * * * * * * * * * * * * * * * *
+             * Section 8.8 Bitwise Operators   *
+             * * * * * * * * * * * * * * * * * */
+            UseWhatEndian();
+
             /* * * * * * * * * * * * * * * * *
-             * Section 8.9 Bitwise Operators *
+             * Section 8.8.1 Bitwise Operators *
              * * * * * * * * * * * * * * * * */
             ReadBits();
 
             /* * * * * * * * * * * * * * * * *
-             * Section 8.9.3 Bitwise Or |    *
+             * Section 8.8.3 Bitwise Or |    *
              * * * * * * * * * * * * * * * * */
             UseBitwiseOr();
 
             /* * * * * * * * * * * * * * * * * *
-             * Section 8.9.4 Enums and Numbers *
+             * Section 8.8.4 Enums and Numbers *
              * * * * * * * * * * * * * * * * * */
             UseOrCharacterClasses();
 
             /* * * * * * * * * * * * * * * * *
-             * Section 8.9.5 Bitwise And &   *
+             * Section 8.8.5 Bitwise And &   *
              * * * * * * * * * * * * * * * * */
             UseAndCharacterClasses();
 
             /* * * * * * * * * * * * * * * * *
-             * Section 8.9.6 Bitwise Xor ^   *
+             * Section 8.8.6 Bitwise Xor ^   *
              * * * * * * * * * * * * * * * * */
             UseXorCharacterClasses();
 
             /* * * * * * * * * * * * * * * * * * * * *
-             * Section 8.9.7 Setting Bitwise Flags   *
+             * Section 8.8.7 Setting Bitwise Flags   *
              * * * * * * * * * * * * * * * * * * * * */
             UseSettingBitwiseFlags();
 
             /* * * * * * * * * * * * * * * * * * *
-             * Section 8.9.8 Bitwise Shortcuts   *
+             * Section 8.8.8 Bitwise Shortcuts   *
              * * * * * * * * * * * * * * * * * * */
             UseBitwiseShortcuts();
 
             /* * * * * * * * * * * * * * * * *
-             * Section 8.9.9 Bits in Numbers *
+             * Section 8.8.9 Bits in Numbers *
              * * * * * * * * * * * * * * * * */
             UseBitsInNumbers();
 
             /* * * * * * * * * * * * * * * * *
-             * Section 8.9.10 Bit Shifting   *
+             * Section 8.8.10 Bit Shifting   *
              * * * * * * * * * * * * * * * * */
             UseBitShifting();
         }

@@ -8,6 +8,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Chapter7_14
 {
+    using System;
     using UnityEngine;
 
     public class Generics : MonoBehaviour
@@ -326,11 +327,110 @@ namespace Chapter7_14
             LogTwoThings(gotTwoThings.GetFirstThing(), gotTwoThings.GetSecondThing());
             // FirstThing is a Generics+GenericZombie SecondThing is a System.Single
         }
+
+        //var ReturnAVar()
+        //{
+        //    return new GetTwoThings<GenericZombie, float>();
+        //}
+        /* Uncomment the function above to see the error */
+
         #endregion
 
-        #region Chapter 7.14.6 What We've Learned
+        #region Chapter 7.14.6 Anonymous Objects
         /* * * * * * * * * * * * * * * * * * *
-         * Section 7.14.6 What We've Learned *
+         * Section 7.14.6 Anonymous Objects  *
+         * * * * * * * * * * * * * * * * * * */
+        private void UseAnonymousObjects()
+        {
+            var things = new { someInt = 3, someClass = this };
+            Debug.Log("What is things?" + things);
+            // What is things?{ someInt = 3, someClass = Generics (Chapter7_14.Generics) }
+
+            var moreThings = new
+            {
+                someIntArray = new int[] { 1, 2, 3 },
+                someZombie = new GenericZombie("Stubbs"),
+                someQueue = new System.Collections.Queue()
+            };
+            Debug.Log("MoreThings: " + moreThings);
+            // MoreThings: { someIntArray = System.Int32[],
+            // someZombie = A Zombie named Stubbs,
+            // someQueue = System.Collections.Queue }
+
+
+            void acceptAThing(object thing)
+            {
+                Debug.Log(thing);
+            }
+
+            acceptAThing(new { things, moreThings });
+
+            /* formatted for readability:
+             * 
+             * { things = {
+             *   someInt = 3,
+             *   someClass = Generics(Chapter7_14.Generics)
+             *  },
+             *  moreThings = {
+             *   someIntArray = System.Int32[],
+             *   someZombie = A Zombie named Stubbs,
+             *   someQueue = System.Collections.Queue
+             *  }
+             * }
+             */
+
+            object returnsAThing()
+            {
+                return new { things, moreThings };
+            }
+
+            Debug.Log("Can't use var, so lets try object:" + returnsAThing());
+            /* formatted for readability:
+             * "Can't use var, so lets try object:"
+             * { things = {
+             *   someInt = 3,
+             *   someClass = Generics(Chapter7_14.Generics)
+             *  },
+             *  moreThings = {
+             *   someIntArray = System.Int32[],
+             *   someZombie = A Zombie named Stubbs,
+             *   someQueue = System.Collections.Queue
+             *  }
+             * }
+             */
+
+            /* uncomment the line below to see the error */
+            //things.someInt++;
+            // properties of the anonymous object are
+            // read only.
+
+            moreThings.someQueue.Enqueue(30);
+            moreThings.someQueue.Enqueue(20);
+            moreThings.someQueue.Enqueue(10);
+            Debug.Log(moreThings.someQueue.Peek());
+            // 30
+            moreThings.someQueue.Dequeue();
+            Debug.Log(moreThings.someQueue.Peek());
+            // 20
+            moreThings.someQueue.Dequeue();
+            Debug.Log(moreThings.someQueue.Peek());
+            // 10
+
+            things.someClass.LogInt(10);
+            // int is: 10
+
+            var readOnlyThings = new { floatThing = 1.0f, intThing = 1 };
+            /* uncomment the line below to see the error */
+            //readOnlyThings.floatThing = 10f;
+            /* uncomment the line below to see the error */
+            //readOnlyThings.intThing = 10;
+        }
+
+        #endregion
+
+        #region Chapter 7.14.7 What We've Learned
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 7.14.7 What We've Learned *
          * * * * * * * * * * * * * * * * * * */
         void UseGetComponent()
         {
@@ -380,7 +480,12 @@ namespace Chapter7_14
             UseGetTwoThings();
 
             /* * * * * * * * * * * * * * * * * * *
-             * Section 7.14.6 What We've Learned *
+             * Section 7.14.6 Anonymous Objects  *
+             * * * * * * * * * * * * * * * * * * */
+            UseAnonymousObjects();
+
+            /* * * * * * * * * * * * * * * * * * *
+             * Section 7.14.7 What We've Learned *
              * * * * * * * * * * * * * * * * * * */
             UseGetComponent();
         }
