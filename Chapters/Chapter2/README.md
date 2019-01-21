@@ -5,4 +5,4 @@ The links you'll need are here:
 + The Unity Editor: [Unity Hub](https://store.unity.com/)
 + Git Source Control: [GitSCM](https://git-scm.com/)
 
-The contents can be downloaded from here as a Zip: [DownloadZip](Screenshots/DownloadZip.png)
+The contents can be downloaded from here as a Zip: ![DownloadZip](Screenshots/DownloadZip.png)
