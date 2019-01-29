@@ -117,10 +117,10 @@ namespace Chapter4_11
                 /* ❶ a is assigned 1                    */
                 /* ❷ b is assigned 1                    */
                 bool a_IsNot_b;
-                int a = 1;/*   1 != 1 is false          */
-                int b = 1;/*   ↓    ↓ ❸                 */
+                int a = 1;/* 1 != 1 is false            */
+                int b = 1;/* ↓    ↓ ❸                   */
                 a_IsNot_b = (a != b);
-                /*  ↑         false                     */
+                /*  ↑        false                      */
                 /*  └────❹─────┘                        */
                 /*  a_IsNot_b is assigned               */
                 /*  false                               */
