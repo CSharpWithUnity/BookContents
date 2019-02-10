@@ -1,8 +1,150 @@
 fileFormatVersion: 2
 guid: 178d008871aeab54ab49884be7c19c7e
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable: []
+  serializedVersion: 24
+  fileIDToRecycleName:
+    100000: Ankle_Left
+    100002: Ankle_Right
+    100004: Chest
+    100006: Collar_Left
+    100008: Collar_Right
+    100010: Elbow_Left
+    100012: Elbow_Right
+    100014: Hand_Left
+    100016: Hand_Right
+    100018: Head
+    100020: HeadTip
+    100022: Hip_Left
+    100024: Hip_Right
+    100026: Index0_Left
+    100028: Index0_Right
+    100030: Index1_Left
+    100032: Index1_Right
+    100034: Index2_Left
+    100036: Index2_Right
+    100038: Index3_Left
+    100040: Index3_Right
+    100042: Knee_Left
+    100044: Knee_Right
+    100046: Mesh
+    100048: Middle0_Left
+    100050: Middle0_Right
+    100052: Middle1_Left
+    100054: Middle1_Right
+    100056: Middle2_Left
+    100058: Middle2_Right
+    100060: Middle3_Left
+    100062: Middle3_Right
+    100064: Neck
+    100066: Origin
+    100068: Pelvis
+    100070: Pinky0_Left
+    100072: Pinky0_Right
+    100074: Pinky1_Left
+    100076: Pinky1_Right
+    100078: Pinky2_Left
+    100080: Pinky2_Right
+    100082: Pinky3_Left
+    100084: Pinky3_Right
+    100086: Ring0_Left
+    100088: Ring0_Right
+    100090: Ring1_Left
+    100092: Ring1_Right
+    100094: Ring2_Left
+    100096: Ring2_Right
+    100098: Ring3_Left
+    100100: Ring3_Right
+    100102: Root
+    100104: Shoulder_Left
+    100106: Shoulder_Right
+    100108: //RootNode
+    100110: Spine
+    100112: Thumb0_Left
+    100114: Thumb0_Right
+    100116: Thumb1_Left
+    100118: Thumb1_Right
+    100120: Thumb2_Left
+    100122: Thumb2_Right
+    100124: Thumb3_Left
+    100126: Thumb3_Right
+    100128: Toe_Left
+    100130: Toe_Right
+    100132: Torsoe
+    100134: Wrist_Left
+    100136: Wrist_Right
+    400000: Ankle_Left
+    400002: Ankle_Right
+    400004: Chest
+    400006: Collar_Left
+    400008: Collar_Right
+    400010: Elbow_Left
+    400012: Elbow_Right
+    400014: Hand_Left
+    400016: Hand_Right
+    400018: Head
+    400020: HeadTip
+    400022: Hip_Left
+    400024: Hip_Right
+    400026: Index0_Left
+    400028: Index0_Right
+    400030: Index1_Left
+    400032: Index1_Right
+    400034: Index2_Left
+    400036: Index2_Right
+    400038: Index3_Left
+    400040: Index3_Right
+    400042: Knee_Left
+    400044: Knee_Right
+    400046: Mesh
+    400048: Middle0_Left
+    400050: Middle0_Right
+    400052: Middle1_Left
+    400054: Middle1_Right
+    400056: Middle2_Left
+    400058: Middle2_Right
+    400060: Middle3_Left
+    400062: Middle3_Right
+    400064: Neck
+    400066: Origin
+    400068: Pelvis
+    400070: Pinky0_Left
+    400072: Pinky0_Right
+    400074: Pinky1_Left
+    400076: Pinky1_Right
+    400078: Pinky2_Left
+    400080: Pinky2_Right
+    400082: Pinky3_Left
+    400084: Pinky3_Right
+    400086: Ring0_Left
+    400088: Ring0_Right
+    400090: Ring1_Left
+    400092: Ring1_Right
+    400094: Ring2_Left
+    400096: Ring2_Right
+    400098: Ring3_Left
+    400100: Ring3_Right
+    400102: Root
+    400104: Shoulder_Left
+    400106: Shoulder_Right
+    400108: //RootNode
+    400110: Spine
+    400112: Thumb0_Left
+    400114: Thumb0_Right
+    400116: Thumb1_Left
+    400118: Thumb1_Right
+    400120: Thumb2_Left
+    400122: Thumb2_Right
+    400124: Thumb3_Left
+    400126: Thumb3_Right
+    400128: Toe_Left
+    400130: Toe_Right
+    400132: Torsoe
+    400134: Wrist_Left
+    400136: Wrist_Right
+    2100000: No Name
+    4300000: Mesh
+    9500000: //RootNode
+    13700000: Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -48,9 +190,6 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -68,7 +207,6 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

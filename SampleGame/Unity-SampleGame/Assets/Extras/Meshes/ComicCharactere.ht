@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1105 &110500000
+HumanTemplate:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ComicCharactere
+  m_BoneTemplate:
+    Chest: UpperChest
+    Head: Head
+    Hips: Hips
+    Left Index Distal: Left_Index_Distal
+    Left Index Intermediate: Left_Index_Intermediate
+    Left Index Proximal: Left_Index_Proximal
+    Left Little Distal: Left_Little_Distal
+    Left Little Intermediate: Left_Little_Intermediate
+    Left Little Proximal: Left_Little_Proximal
+    Left Middle Distal: Left_Middle_Distal
+    Left Middle Intermediate: Left_Middle_Intermediate
+    Left Middle Proximal: Left_Middle_Proximal
+    Left Ring Distal: Left_Ring_Distal
+    Left Ring Intermediate: Left_Ring_Intermediate
+    Left Ring Proximal: Left_Ring_Proximal
+    Left Thumb Distal: Left_Thumb_Distal
+    Left Thumb Intermediate: Left_Thumb_Intermediate
+    Left Thumb Proximal: Left_Thumb_Proximal
+    LeftFoot: Left_Foot
+    LeftHand: Left_Hand
+    LeftLowerArm: Left_Lower_Arm
+    LeftLowerLeg: Left_Lower_Leg
+    LeftShoulder: Left_Shoulder
+    LeftToes: Left_Toes
+    LeftUpperArm: Left_UpperArm
+    LeftUpperLeg: Left_Upper_Leg
+    Neck: Neck
+    RightEye: HeadTip
+    RightFoot: Right_Foot
+    RightLowerLeg: Right_Lower_Leg
+    RightShoulder: Right_Palm
+    RightToes: Right_Toes
+    RightUpperArm: Right_Index_Intermediate
+    RightUpperLeg: Right_Upper_Leg
+    Right Index Distal: Right_Index_Distal
+    Right Index Intermediate: Right_Index_Intermediate
+    Right Index Proximal: Right_Index_Proximal
+    Right Little Distal: Right_Little_Distal
+    Right Little Intermediate: Right_Little_Intermediate
+    Right Little Proximal: Right_Little_Proximal
+    Right Middle Distal: Right_Middle_Distal
+    Right Middle Intermediate: Right_Middle_Intermediate
+    Right Middle Proximal: Right_Middle_Proximal
+    Right Ring Distal: Right_Ring_Distal
+    Right Ring Intermediate: Right_Ring_Intermediate
+    Right Ring Proximal: Right_Ring_Proximal
+    Right Thumb Distal: Right_Thumb_Distal
+    Right Thumb Intermediate: Right_Thumb_Intermediate
+    Right Thumb Proximal: Right_Thumb_Proximal
+    Spine: Chest
