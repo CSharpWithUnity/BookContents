@@ -1,11 +1,11 @@
-﻿/*
- * Chapter 3.9 Classes
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 3.9 Classes                                               *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #region Chapter 3.9 Classes a First Look
 /* Class Stuff has Things,  */
@@ -63,9 +63,9 @@ namespace Chapter3_9
 #endregion
 
 #region Chapter 3.9.1 Objects
-/*
- * Section 3.9.1 Objects
- */
+/* * * * * * * * * * * * * *
+ * Section 3.9.1 Objects   *
+ * * * * * * * * * * * * * */
 
 class MakeZombies
 {               /*   ┌─────────────────┐*/

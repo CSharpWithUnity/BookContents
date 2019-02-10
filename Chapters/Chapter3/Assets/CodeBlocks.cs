@@ -1,18 +1,18 @@
-﻿/* 
- * Chapter 3.8 Code Blocks
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 3.8 Code Blocks                                           *
+ *                                                                   *
+ * Copyright © 2018 Alex Okita                                       *
+ *                                                                   *
+ * This software may be modified and distributed under the terms     *
+ * of the MIT license.  See the LICENSE file for details.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 class CodeBlocks
 {
     #region Chapter 3.8 Code Blocks
-    /*
-     * Section 3.8 Code Blocks
-     */
+    /* * * * * * * * * * * * * *
+     * Section 3.8 Code Blocks *
+     * * * * * * * * * * * * * */
 
     void SimpleStatements()
     {

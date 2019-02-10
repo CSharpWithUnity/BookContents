@@ -11,26 +11,37 @@ using UnityEngine;
 
 public class Types : MonoBehaviour
 {
-	void Start ()
+    #region Chapter 3.12 Types a first look
+    /* * * * * * * * *
+     * Section 3.12  *
+     * * * * * * * * */
+    void ValidTypes()
     {
-        #region Chapter 3.12 Types a first look
-        /*
-         * Section 3.12
-         */
+        {
+            int i = 0;//a valid initialization of an int.
 
-        int i = 1;
+            // uncomment the line below to see the error.
+            //Vector3 v1 = (x = 0, y = 0, z = 0);//not valid initialization.
 
-        /* The int is short for integer
-         * an Integer is a whole number
-         * or a number without a fraction.
-         */
-        #endregion
+            Vector3 v2 = new Vector3();//this is how it's done.
+        }
 
-        #region Chapter 3.13 Strong Typing
-        /*
-         * Section 3.13 Strong Typing
-         */
+        {
+            int i = 1;
+            /* The int is short for integer
+             * an Integer is a whole number
+             * or a number without a fraction.
+             */
+        }
+    }
+    #endregion
 
+    #region Chapter 3.13 Strong Typing
+    /* * * * * * * * * * * * * * * *
+     * Section 3.13 Strong Typing  *
+     * * * * * * * * * * * * * * * */
+    void StrongTyping()
+    {
         // Vector3 vec = new Vector3(1.0, 1.0, 1.0);
 
         /* Uncomment the line above to
@@ -68,13 +79,15 @@ public class Types : MonoBehaviour
          * }
          * 
          */
-        #endregion
+    }
+    #endregion
 
-        #region Chapter 3.14 Type Casting, Numbers
-        /*
-         * Section 3.14 Type Casting, Numbers
-         */
-
+    #region Chapter 3.14 Type Casting, Numbers
+    /* * * * * * * * * * * * * * * * * * * *
+     * Section 3.14 Type Casting, Numbers  *
+     * * * * * * * * * * * * * * * * * * * */
+    void UseTypeCasting()
+    {
         int hundredInt = 100;
 
         /* Decimals aren't allowed.
@@ -92,22 +105,23 @@ public class Types : MonoBehaviour
          * int b = a; produces an error
          */
 
-        /*
-         * Section 3.14.1 Explicit versus Implicit Casting
-         */
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * *
+         * Section 3.14.1 Explicit versus Implicit Casting   *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
         int mInt = 1;
-        double mDub= 0.9;
+        double mDub = 0.9;
         //int c = mInt * mDub;
 
         int c = mInt * (int)mDub;
 
         Debug.Log("int c is: " + c);
 
-        /*
-         * Section 3.14.1 continued...
-         * 
-         * the (type) operator tells C# to convert
+        /* * * * * * * * * * * * * * * * * * *
+         * Section 3.14.1 continued...       *
+         * * * * * * * * * * * * * * * * * * */
+        
+        /* the (type) operator tells C# to convert
          * the object to the right of the operator
          * to become the type as indicated in the
          * parenthesis.
@@ -123,7 +137,7 @@ public class Types : MonoBehaviour
          *                     │ original type │
          *                     │ (double)  1.0 │
          *                     └───────────────┘       */
-         float targetFloat = (float)1.0;
+        float targetFloat = (float)1.0;
         /* type conversion works for other data types:
          * int i = (int)1.0;
          * float f = (float)1.0;                       */
@@ -135,13 +149,13 @@ public class Types : MonoBehaviour
         int yetAnotherInt = anotherInt * (int)anotherDouble;
         Debug.Log("yetAnotherInt: " + yetAnotherInt);
         double yetAnotherDouble = yetAnotherInt;
-        
+
         // this doesn't need a cast
         Debug.Log("yetAnotherDouble: " + yetAnotherDouble);
 
-        /*
-         * Section 3.14.1 continued...
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 3.14.1 continued...   *
+         * * * * * * * * * * * * * * * * */
 
         int largeInt = 2147483647;
         Debug.Log("largeInt: " + largeInt);
@@ -157,14 +171,21 @@ public class Types : MonoBehaviour
         int backAgainAgain = (int)largeFloatAgain;
         Debug.Log("backAgainAgain: " + backAgainAgain);
 
-        /*
-         * Section 3.14.1 continued...
-         */
+        /* * * * * * * * * * * * * * * * *
+         * Section 3.14.1 continued...   *
+         * * * * * * * * * * * * * * * * */
 
         string s = "1";
         int fromString = int.Parse(s);
         Debug.Log("fromString: " + fromString);
+    }
+    #endregion
 
-        #endregion
+    void Start ()
+    {
+        /* * * * * * * * * * * * * * * * * * * *
+         * Section 3.14 Type Casting, Numbers  *
+         * * * * * * * * * * * * * * * * * * * */
+        UseTypeCasting();
     }
 }
