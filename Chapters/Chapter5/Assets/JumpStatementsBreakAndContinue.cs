@@ -59,7 +59,6 @@ namespace Chapter5_9
         /* * * * * * * * * * * * * * * 
          * Section 5.10.2 ZombieData *
          * * * * * * * * * * * * * * */
-        
         GameObject[] gameObjects;
         void UseZombieData()
         {
