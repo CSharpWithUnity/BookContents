@@ -26,7 +26,7 @@ namespace Chapter5_9
     {
         #region Chapter 5.9.1 Jump Statments: Break and Continue
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
-         * Section 5.9.1 Jump Statements: Break and Continue  *
+         * Section 5.9.1 Jump Statements: Break and Continue   *
          * * * * * * * * * * * * * * * * * * * * * * * * * * * */
         void UseBreakAndContinue()
         {
@@ -41,7 +41,7 @@ namespace Chapter5_9
             }
 
             /* * * * * * * * * * * * * * * *
-             * Section 5.9.1.1 Continue   *
+             * Section 5.9.1.1 Continue    *
              * * * * * * * * * * * * * * * */
             for (int i = 0; i < 100; i++)
             {
@@ -51,6 +51,7 @@ namespace Chapter5_9
                     Debug.Log("i is greater than 10!");
                     continue;
                 }
+                Debug.Log("Got Past Continue.");
             }
         }
         #endregion
@@ -167,12 +168,12 @@ namespace Chapter5_9
             /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
              * Section 5.10.2 ZombieData                           *
              * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-            UseZombieData();
+            //UseZombieData();
 
             /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
              * Section 5.10.3 ZombieData Continued...              *
              * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-            UseMoreZombieData();
+            //UseMoreZombieData();
         }
     }
 }
