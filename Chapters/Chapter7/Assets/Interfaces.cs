@@ -95,6 +95,39 @@ namespace Chapter7_9
                 Debug.Log("Howdy, my name is " + toasterName);
             }
         }
+
+        /* * * * * * * * * * * * * * * * * * * *
+         *  Section 7.9.1.2 Using Accessors    *
+         * * * * * * * * * * * * * * * * * * * */
+        void UseToaster()
+        {
+            Toaster toaster = new Toaster();
+            toaster.ThisName = "Talkie";
+            toaster.ThisFunction();
+            // Howdy, my name is Talkie
+        }
+
+        class Zombie : MonoBehaviour, IThis
+        {
+            private string ZombieName;
+            public string ThisName
+            {
+                get { return ZombieName; }
+                set { ZombieName = value; }
+            }
+
+            public void ThisFunction()
+            {
+                Debug.Log("mmmmuh name is " + ZombieName);
+            }
+        }
+
+        void UseZombie()
+        {
+            //Zombie zombie = new Zombie();
+            Zombie zombie = gameObject.AddComponent<Zombie>();
+        }
+
         #endregion
 
         #region Chapter 7.9.2 Multiple Interfaces
@@ -279,9 +312,16 @@ namespace Chapter7_9
         void Start()
         {
             /* * * * * * * * * * * * * * * * * * * *
+             *  Section 7.9.1.2 Using Accessors    *
+             * * * * * * * * * * * * * * * * * * * */
+            UseToaster();
+            UseZombie();
+
+            /* * * * * * * * * * * * * * * * * * * *
              *  Section 7.9.2 Multiple Interfaces  *
              * * * * * * * * * * * * * * * * * * * */
             UseMultipleInterfaces();
+
 
             /* * * * * * * * * * * * * * *
              * Section 7.9.4 IComparer   *
