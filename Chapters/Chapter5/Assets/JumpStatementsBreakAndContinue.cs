@@ -6,6 +6,15 @@
  * This software may be modified and distributed under the terms     *
  * of the MIT license.  See the LICENSE file for details.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+namespace Chapter5_9_2
+{
+    using UnityEngine;
+    public class Zombie : MonoBehaviour
+    {
+        public int HitPoints;
+    }
+}
+
 namespace Chapter5_9
 {
     using Chapter5_5_2_1;
@@ -15,12 +24,13 @@ namespace Chapter5_9
 
     public class JumpStatementsBreakAndContinue : MonoBehaviour
     {
-        #region Chapter 5.10.1 Jump Statments: Break and Continue
+        #region Chapter 5.9.1 Jump Statments: Break and Continue
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
-         * Section 5.10.1 Jump Statements: Break and Continue  *
+         * Section 5.9.1 Jump Statements: Break and Continue   *
          * * * * * * * * * * * * * * * * * * * * * * * * * * * */
         void UseBreakAndContinue()
         {
+            // Break stops the for loop short.
             for (int i = 0; i < 100; i++)
             {
                 Debug.Log(i);
@@ -31,7 +41,7 @@ namespace Chapter5_9
             }
 
             /* * * * * * * * * * * * * * * *
-             * Section 5.10.1.1 Continue   *
+             * Section 5.9.1.1 Continue    *
              * * * * * * * * * * * * * * * */
             for (int i = 0; i < 100; i++)
             {
@@ -41,6 +51,7 @@ namespace Chapter5_9
                     Debug.Log("i is greater than 10!");
                     continue;
                 }
+                Debug.Log("Got Past Continue.");
             }
         }
         #endregion
@@ -49,7 +60,6 @@ namespace Chapter5_9
         /* * * * * * * * * * * * * * * 
          * Section 5.10.2 ZombieData *
          * * * * * * * * * * * * * * */
-
         GameObject[] gameObjects;
         void UseZombieData()
         {
@@ -106,7 +116,7 @@ namespace Chapter5_9
         }
         #endregion
 
-        #region Chapter 5.10.3 ZombieData Continued
+        #region Chapter 5.9.3 ZombieData Continued
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
          * Section 5.10.3 ZombieData Continued...              *
          * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -158,12 +168,12 @@ namespace Chapter5_9
             /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
              * Section 5.10.2 ZombieData                           *
              * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-            UseZombieData();
+            //UseZombieData();
 
             /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
              * Section 5.10.3 ZombieData Continued...              *
              * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-            UseMoreZombieData();
+            //UseMoreZombieData();
         }
     }
 }

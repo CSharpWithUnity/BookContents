@@ -2,7 +2,15 @@ fileFormatVersion: 2
 guid: 6f278cb48db32df46bb32323eacbd71e
 ModelImporter:
   serializedVersion: 24
-  internalIDToNameTable: []
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Zombie_Green
+    2100002: Zombie_Gray
+    2100004: Zombie_Black
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Zombie_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -48,9 +56,6 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

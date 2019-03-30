@@ -13,6 +13,9 @@ namespace Chapter5_10
     public class MultidimensionalArrays : MonoBehaviour
     {
         #region Chapter 5.10 Multidimensional Arrays
+
+        int[,] TwoDimensionalArray;
+
         /* * * * * * * * * * * * * * * * * * * * * * *
          * Section 5.10 Arrays                       *
          * * * * * * * * * * * * * * * * * * * * * * */

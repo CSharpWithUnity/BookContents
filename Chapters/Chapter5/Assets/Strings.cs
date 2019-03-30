@@ -67,6 +67,19 @@ that and
 the other";
             Debug.Log(s);
         }
+        /*
+         *    \a  (beep)
+         *    \b  Backspace
+         *    \f  Formfeed
+         *    \n  New line
+         *    \r  Carriage return
+         *    \t  Tab
+         *    \v  Vertical tab
+         *    \'  Single quote
+         *    \"  Double quote
+         *    \\  Backslash
+         *    \?  Literal question mark
+         */
         #endregion
 
         void Start()

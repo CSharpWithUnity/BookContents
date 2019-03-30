@@ -1,15 +1,15 @@
-﻿/*
- * Chapter 3.15 Comments
- *
- * Copyright © 2018 Alex Okita
- *
- * This software may be modified and distributed under the terms
- * of the MIT license.  See the LICENSE file for details.
- * 
- * Yep, this is a header comment, pretty commonly used at the very top of each
- * source file to indicate usage rights.
- * 
- */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Chapter 3.15 Comments                                                       *
+ *                                                                             *
+ * Copyright © 2018 Alex Okita                                                 *
+ *                                                                             *
+ * This software may be modified and distributed under the terms               *
+ * of the MIT license.  See the LICENSE file for details.                      *
+ *                                                                             *
+ * Yep, this is a header comment, pretty commonly used at the very top of each *
+ * source file to indicate usage rights.                                       *
+ *                                                                             *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
 
