@@ -15,7 +15,7 @@ public class Example : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Everything is working!Definitely Working");
+        Debug.Log("Everything is working!);
 	}
 	
 	// Update is called once per frame
